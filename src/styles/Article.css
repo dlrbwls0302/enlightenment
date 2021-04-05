@@ -1,0 +1,41 @@
+.eachItem{
+    display: flex;
+    margin-top: 3rem;
+}
+.thumbnail{
+    margin-right: 1rem;
+}
+.thumbnail img{
+    display: block;
+    width: 180px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 5px;
+    
+    /* transform: translate(-50%, -50%); */
+    transition: 1.3s;
+ 
+}
+.thumbnail img:hover{
+    transform:scale(1.2);
+}
+.contents{
+    margin-left: 1.5rem;
+}
+
+.contents h2{
+    margin: 0;
+}
+.contents a{
+    color: black;
+}
+.contents a:hover{
+    color: #387bcb;
+    transition: 0.3s;
+}
+.contents p{
+    margin: 0;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+    white-space: normal;
+}
