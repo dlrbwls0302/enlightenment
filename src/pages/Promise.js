@@ -2,7 +2,7 @@ import React from 'react';
 
 const Promise = () => {
     return (
-        <div>
+        <div className="promise">
             <h1>Promise</h1>
         </div>
     );
