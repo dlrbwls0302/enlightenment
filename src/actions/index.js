@@ -1,6 +1,7 @@
 export const CHANGE_LOADING = 'CHANGE_LOADING';
 export const SET_ARTICLES = 'SET_ARTICLES';
 export const CHANGE_QUERY = 'CHANGE_QUERY';
+export const LOAD_ELECTIONS = 'LOAD_ELECTIONS';
 
 export const changeLoading = () => {
     return{
@@ -25,6 +26,15 @@ export const changeQuery = (e) => {
         type: CHANGE_QUERY,
         payload:{
             query: e.target.value
+        }
+    }
+}
+
+export const loadElections = (elections) => {
+    return {
+        type: LOAD_ELECTIONS,
+        payload: {
+            elections
         }
     }
 }
