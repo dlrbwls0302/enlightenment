@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import HeaderNav from './components/HeaderNav';
 // import Sidebar from './components/Sidebar';
@@ -7,12 +7,18 @@ import Map from './pages/Map';
 import News from './pages/News';
 import Opinions from './pages/Opinions';
 import Promise from './pages/Promise';
-import './App.css'
+import { useDispatch } from 'react-redux'
+import { loadElections } from './actions/index'
+
 const App = () => {
+  const dispatch = useDispatch();
   useEffect(() => {
-    console.log("api 받아오기")}, [])
-  
-  
+    fetch('http://localhost:5000/map/elections')
+    .then(res => res.json())
+    .then(elections => {        
+      dispatch(loadElections(elections.elections))
+    })
+  }, []);
   return (
     <>
       <Router>
