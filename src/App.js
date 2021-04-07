@@ -7,6 +7,7 @@ import Map from './pages/Map';
 import News from './pages/News';
 import Opinions from './pages/Opinions';
 import Promise from './pages/Promise';
+import './App.css';
 
 const App = () => {
   return (

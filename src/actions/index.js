@@ -5,7 +5,7 @@ export const CHANGE_QUERY = 'CHANGE_QUERY';
 export const changeLoading = () => {
     return{
         type: CHANGE_LOADING,
-        payload:{
+        payload: {
 
         }
     }
@@ -14,7 +14,7 @@ export const changeLoading = () => {
 export const setArticles = (articles) => {
     return{
         type: SET_ARTICLES,
-        payload:{
+        payload: {
             articles
         }
     }
@@ -23,7 +23,7 @@ export const setArticles = (articles) => {
 export const changeQuery = (e) => {
     return {
         type: CHANGE_QUERY,
-        payload:{
+        payload: {
             query: e.target.value
         }
     }

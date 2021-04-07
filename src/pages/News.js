@@ -21,6 +21,9 @@ const News = () => {
     }
     
     const onClick = async() => {
+        if(query === ''){
+            alert('확인하고 싶은 뉴스를 입력하세요.')
+        }
         dispatch(changeLoading());
         try{
             const response = await axios.get(`https://api.serpwow.com/live/search?api_key=F8062751AD8C4A868C91A320EBC73390&q=${query}&google_domain=google.co.kr&gl=kr&hl=ko&search_type=news`) 
