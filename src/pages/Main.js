@@ -1,9 +1,10 @@
 import React from 'react';
 
 const Main = () => {
+
     return (
-        <div>
-            <h1>Main</h1>
+        <div className="main">
+            <h1>메인</h1>
         </div>
     );
 };
