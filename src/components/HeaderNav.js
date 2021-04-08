@@ -26,7 +26,7 @@ function HeaderNav() {
     return(
         <>
             <header className={navbar ? 'header active' : 'header'}>
-                <a href='http://localhost:3001' className={navbar ? 'logo active' : 'logo'}> 당신의 선택 </a>
+                <a href='http://localhost:3000' className={navbar ? 'logo active' : 'logo'}> 당신의 선택 </a>
                 <div className={navbar ? 'toggleBx active' : 'toggleBx'} onClick={onToggle}>
                     {toggle ? <VscListFlat size={34} className='toggleBtnOn' /> : <BsX color='#f9f7f7' size={34} className='toggleBtnOff'/>}
                 </div>
