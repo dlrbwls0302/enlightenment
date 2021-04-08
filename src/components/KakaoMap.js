@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef } from 'react';
 const KakaoMap = (props) => {
     const { markerPositions } = props;
     const [kakaoMap, setKakaoMap] = useState(null);
-    const [markers, setMarkers] = useState([]);
+    const [, setMarkers] = useState([]);
     const container = useRef();
     
     useEffect(() => {
@@ -21,28 +21,28 @@ const KakaoMap = (props) => {
         if (kakaoMap === null) {
           return;
         }
-        
+    
         const positions = markerPositions.map(pos => new kakao.maps.LatLng(...pos));
-        let mapMarkers = []
-        for (let i = 0; i < positions.length; i++) {
-            const marker = new kakao.maps.Marker({
-                position: positions[i]
-            });
-            marker.setMap(kakaoMap)
-            mapMarkers.push(marker)
-        }
-
-        setMarkers(mapMarkers);
+    
+        setMarkers(markers => {
+          // clear prev markers
+          markers.forEach(marker => marker.setMap(null));
+    
+          // assign new markers
+          return positions.map(
+            position => new kakao.maps.Marker({ map: kakaoMap, position })
+          );
+        });
     
         if (positions.length > 0) {
           const bounds = positions.reduce(
             (bounds, latlng) => bounds.extend(latlng),
             new kakao.maps.LatLngBounds()
-        );
+          );
     
           kakaoMap.setBounds(bounds);
         }
-    }, [kakaoMap, markerPositions]);
+      }, [kakaoMap, markerPositions]);
 
     return <div id="map" ref={container} />
     

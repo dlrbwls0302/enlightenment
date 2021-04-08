@@ -52,8 +52,8 @@ const Map = () => {
         });
     }
     return (
-        <div>
-            <div>
+        <div id="map-page">
+            <div id="map-condition">
                 <select onChange={handleSgId} defaultValue="선거선택">
                     <option>선거선택</option>
                     {state.elections.map((election, index) => {
@@ -64,7 +64,7 @@ const Map = () => {
                 <input value={wiwName} placeholder={'종로구'} onChange={handleWiwName}></input>
                 <button onClick={() => getPlaces()}>내 주변 투표소 찾기</button>
             </div>
-            <div>
+            <div id="map-box">
                 <KakaoMap markerPositions={markerPositions}/>
             </div>
         </div>
