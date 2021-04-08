@@ -14,8 +14,8 @@ function HeaderNav() {
     const onToggle = () => setToggle(!toggle);
 
     const changeBackground = () => {
-        // console.log(window.scrollY);
-        if(window.scrollY >= 662){
+        console.log(window.scrollY);
+        if(window.scrollY >= 74){
           setNavBar(true);
         } else{
           setNavBar(false);
