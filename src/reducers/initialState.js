@@ -34,5 +34,6 @@ export const initialState =
             snippet: '내용',
             thumbnail: 'https://via.placeholder.com/160',
         },
-    ]
+    ],
+    elections: []
 }

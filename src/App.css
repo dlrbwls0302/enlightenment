@@ -1,6 +1,12 @@
 *{
-  background-color: #f9f7f7;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+}
+.body{
+  height: 1000px;
+  
+}
+.wrapper{
+  position: relative;
 }

@@ -2,8 +2,10 @@ import React from 'react';
 
 const Opinion = () => {
     return (
-        <div>
-            
+        <div className="opinion">
+            <h1>
+                의견
+            </h1>
         </div>
     );
 };
