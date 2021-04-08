@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import HeaderNav from './components/HeaderNav';
-// import Sidebar from './components/Sidebar';
 import Main from './pages/Main';
 import Map from './pages/Map';
 import News from './pages/News';
@@ -20,18 +19,20 @@ const App = () => {
     })
   }, []);
   return (
-    <>
-      <Router>
-        <HeaderNav />
-        <Switch>
-          <Route exact path="/" component={Main}/>
-          <Route path="/map" component={Map}/>
-          <Route path="/news" component={News}/>
-          <Route path="/opinion" component={Opinions}/>
-          <Route path="/promise" component={Promise}/>
-        </Switch>
-      </Router>
-  </>
+    <div className='body'>
+      <div className='wrapper'>
+        <Router>
+          <HeaderNav />
+          <Switch>
+            <Route exact path="/" component={Main}/>
+            <Route path="/map" component={Map}/>
+            <Route path="/news" component={News}/>
+            <Route path="/opinion" component={Opinions}/>
+            <Route path="/promise" component={Promise}/>
+          </Switch>
+        </Router>
+      </div>
+    </div>
   );
 };
 
