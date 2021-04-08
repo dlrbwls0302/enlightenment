@@ -1,46 +1,54 @@
-import React, {useState} from 'react';
-import * as FaIcons from "react-icons/fa";
-import * as AiIcons from "react-icons/ai";
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
-import './HeaderNav.css'
-import { IconContext } from 'react-icons';
+import '../styles/HeaderNav.css';
+import { VscListFlat } from 'react-icons/vsc';
+import { BsX } from 'react-icons/bs';
+
+
 
 function HeaderNav() {
-    const [sidebar, setSidebar] = useState(false);  // 
+    const [toggle, setToggle] = useState(true);  
+    const [navbar, setNavBar] = useState(false);
 
-    const showSidebar = () => setSidebar(!sidebar);
-    return (
+    const onToggle = () => setToggle(!toggle);
+
+    const changeBackground = () => {
+        // console.log(window.scrollY);
+        if(window.scrollY >= 662){
+          setNavBar(true);
+        } else{
+          setNavBar(false);
+        }
+    }
+    window.addEventListener('scroll', changeBackground)
+
+    return(
         <>
-        <IconContext.Provider value={{ color: '#fff'}}>
-            <div className="navbar">
-                <Link to="#" className="menu-bars">
-                    <FaIcons.FaBars onClick={showSidebar} />
-
-                </Link>
-            </div>
-            <nav className={sidebar ? "nav-menu active" : "nav-menu"} >
-                <ul className="nav-menu-items">
-                      <li className="navbar-toggle">
-                        <Link to="#" className="menu-bars">
-                            <AiIcons.AiOutlineClose onClick={showSidebar}/>
-                        </Link>                 
-                    </li>
+            <header className={navbar ? 'header active' : 'header'}>
+                <a href='http://localhost:3001' className={navbar ? 'logo active' : 'logo'}> 당신의 선택 </a>
+                <div className={navbar ? 'toggleBx active' : 'toggleBx'} onClick={onToggle}>
+                    {toggle ? <VscListFlat size={34} className='toggleBtnOn' /> : <BsX color='#f9f7f7' size={34} className='toggleBtnOff'/>}
+                </div>
+            </header>
+            <div className={toggle? 'sidebar active' :'sidebar'}>
+                <ul>
                     {SidebarData.map((data, index) => {
                         return (
                             <li key={index} className={data.className}>
                                 <Link to={data.path} >
-                                    {data.icon}
-                                    <span> {data.title} </span>
+                                    {data.title}
                                 </Link>
                             </li>
                         )
-                    })}
+                        })
+                    }
                 </ul>
-            </nav>
-            </IconContext.Provider>
+            </div>
         </>
-    )
+    );
+
+    
 }
 
 export default HeaderNav
