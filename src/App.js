@@ -14,7 +14,7 @@ const App = () => {
   useEffect(() => {
     fetch('http://localhost:5000/map/elections')
     .then(res => res.json())
-    .then(elections => {        
+    .then(elections => {     
       dispatch(loadElections(elections.elections))
     })
   }, []);
