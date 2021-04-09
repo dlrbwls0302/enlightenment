@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+
+.header{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10000;
+  transition: 0.3s;
+}
+.toggleBx{
+  position: relative;
+  margin-top: 41px;
+  margin-right: 90px;
+  cursor: pointer;
+}
+.toggleBx.active{
+  color:  #f9f7f7;
+}
+.header.active{
+  background-color: #112d4e;
+  padding-bottom: 14px;
+}
+.header .logo{
+  position: relative;
+  padding-top: 40px;
+  padding-left: 90px;
+  font-family: 'Black Han Sans', sans-serif;
+  color: #112d4e;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+.header .logo.active{
+  color: #f9f7f7;
+}
+.sidebar{
+  background: #112d4e;
+  position: fixed;
+  right: 0px;
+  top: 0;
+  width: 400px;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  z-index: 500;
+  transition: 0.5s;
+}
+.sidebar.active{
+  background: #112d4e;
+  position: fixed;
+  right: -400px;
+  top: 0;
+  z-index: 100;
+}
+.sidebar ul{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.sidebar ul li{
+  list-style: none;
+  margin-top: 30px;
+  margin-left: 80px;
+}
+.sidebar ul li:nth-child(1){
+  margin-top: 130px;
+}
+.sidebar ul li a{
+  text-decoration: none;
+  font-family: 'Black Han Sans', sans-serif;
+  color: #f9f7f7;
+  font-size: 30px;
+  font-weight: 400;
+  transition: 0.3s;
+}
+.sidebar ul li a:hover{
+  color: #387bcb;
+}
