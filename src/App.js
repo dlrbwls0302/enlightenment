@@ -12,7 +12,7 @@ import { loadElections } from './actions/index'
 const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    fetch('http://localhost:5000/map/elections')
+    fetch('http://ec2-3-34-52-239.ap-northeast-2.compute.amazonaws.com:5000/map/elections')
     .then(res => res.json())
     .then(elections => {     
       dispatch(loadElections(elections.elections))

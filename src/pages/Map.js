@@ -43,7 +43,7 @@ const Map = () => {
  
     const getPlaces = () => {
         
-        axios.post('http://localhost:5000/map/places', {
+        axios.post('http://ec2-3-34-52-239.ap-northeast-2.compute.amazonaws.com:5000/map/places', {
             sgId,
             sdName,
             wiwName
