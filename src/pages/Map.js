@@ -1,16 +1,17 @@
-/*global kakao*/ 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios'
 import { useSelector } from 'react-redux'
 import '../styles/Map.css';
 import KakaoMap from '../components/KakaoMap'
+// import { createPortal } from 'react-dom';
 
 const Map = () => {
     const state = useSelector((state) => {
         return state.electionsReducer
     })
     const [markerPositions, setMarkerPositions] = useState([])
-    const [places, setPlaces] = useState([]);
+    ////
+    // const [places, setPlaces] = useState([]);
     const [sgId, setSgId] = useState('');
     const [sdName, setSdName] = useState('');
     const [wiwName, setWiwName] = useState('');
@@ -52,35 +53,29 @@ const Map = () => {
         // }
         )
         .then(res => {
-            const positions = [];
-            const places = res.data.map(place => place.addr['_text']);
-            setPlaces(places);
-            
-            for (let i = 0; i < places.length; i++) {
-                fetch(`https://dapi.kakao.com/v2/local/search/address?query=${places[i]}`, {
+            const places = res.data.map(place => place.addr['_text'])
+            const positions = []
+            places.forEach((place, i) => {
+                fetch(`https://dapi.kakao.com/v2/local/search/address?query=${place}`, {
                     headers: {
                         'Authorization': 'KakaoAK 804d239e2529038f08230bcfcf217433'
                     }
                 })
                 .then(res => res.json())
                 .then(json => {
-                    let arr = [Number(json.documents[0].road_address.y), Number(json.documents[0].road_address.x)];
-                    positions.push(arr);    
-                    setMarkerPositions(positions);
+                    let coordinate = []
+                    coordinate.push(Number(json.documents[0].address.y))
+                    coordinate.push(Number(json.documents[0].address.x))
+                    positions.push(coordinate)
+                    return positions
                 })
-            }
-            return positions
+                .then(positions => {
+                    if (i === 9) {
+                        setMarkerPositions(positions)
+                    }  
+                })
+            })
         })
-        .then(res => {
-            console.log('res::: ', res);
-            //setMarkerPositions(res);
-        })
-        
-        // console.log('positions::: ', positions);
-        console.log('markerPositions1::: ', markerPositions1);
-        console.log('markerPositions2::: ', markerPositions2);
-        
-        
     }
     return (
         <div id="map-page">
