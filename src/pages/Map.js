@@ -15,6 +15,22 @@ const Map = () => {
     const [sgId, setSgId] = useState('');
     const [sdName, setSdName] = useState('');
     const [wiwName, setWiwName] = useState('');
+    const [mapSize, setMapSize] = useState([400, 400]);
+    const markerPositions1 = [
+        [33.452278, 126.567803],
+        [33.452671, 126.574792],
+        [33.451744, 126.572441]
+    ];
+    const markerPositions2 = [
+        [37.499590490909185, 127.0263723554437],
+        [37.499427948430814, 127.02794423197847],
+        [37.498553760499505, 127.02882598822454],
+        [37.497625593121384, 127.02935713582038],
+        [37.49629291770947, 127.02587362608637],
+        [37.49754540521486, 127.02546694890695],
+        [37.49646391248451, 127.02675574250912]
+    ]; 
+    
     const handleSdName = (e) => {
         setSdName(e.target.value)    
     }
@@ -24,15 +40,18 @@ const Map = () => {
     const handleSgId = (e) => {
         setSgId(e.target.value)
     }
+ 
     const getPlaces = () => {
+        
         axios.post('http://localhost:5000/map/places', {
             sgId,
             sdName,
             wiwName
         },
-        {
-            headers: { "Content-Type": "application/json" },
-        })
+        // {
+        //     headers: { "Content-Type": "application/json" },
+        // }
+        )
         .then(res => {
             const places = res.data.map(place => place.addr['_text'])
             const positions = []
@@ -72,7 +91,7 @@ const Map = () => {
                 <button onClick={getPlaces}>내 주변 투표소 찾기</button>
             </div>
             <div id="map-box">
-                <KakaoMap markerPositions={markerPositions}/>
+                <KakaoMap markerPositions={markerPositions} size={mapSize}/>
             </div>
         </div>
     )
