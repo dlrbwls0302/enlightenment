@@ -8,21 +8,9 @@ const key = 'DwfAEkeC%2Fh4aIBbrbIGC4yt5o1820Djh1CaEBL4HPkLAzDMpup52Kirc5mrVsAb9i
 // router.get('/', (req, res) => {  res.writeHead(200, { 'Access-Control-Allow-Origin': '*' }) });
 
 const Promise = () => {
-    // const getSgCode = async () => {
-    //     const dataUrl = `${url}?ServiceKey=${key}`
-    //     await fetch(dataUrl, {
-    //         method: 'GET',
-    //         headers: {
-    //             'Access-Control-Allow-Origin': '*'
-    //         }
-    //         })
-        
-    // }
-    
-    
     return (
         <div className="promise">
-            <h1 onClick={getSgCode}>Promise</h1>
+            <h1>Promise</h1>
         </div>
     );
 };
