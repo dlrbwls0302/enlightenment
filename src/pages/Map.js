@@ -3,33 +3,33 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios'
 import { useSelector } from 'react-redux'
 import '../styles/Map.css';
+import KakaoMap from '../components/KakaoMap'
 
 const Map = () => {
-    useEffect(() => {
-        const script = document.createElement("script");
-        // script.async = true;
-        script.type="text/javascript"
-        script.src = "//dapi.kakao.com/v2/maps/sdk.js?appkey=42fd2490b6fb3cab847c174c6cbcc102&autoload=false&libraries=services";
-        script.id = 'mapScript'
-        document.head.appendChild(script);
-        let container = document.getElementById("map");
-        script.onload = () => {
-            kakao.maps.load(() => {        
-                let options = {
-                    center: new kakao.maps.LatLng(37.506502, 127.053617),
-                    level: 3
-                };
-                const map = new kakao.maps.Map(container, options);
-            });
-        };
-    }, [])
     const state = useSelector((state) => {
         return state.electionsReducer
     })
+    const [markerPositions, setMarkerPositions] = useState([])
     const [places, setPlaces] = useState([]);
-    const [sgId, setSgId] = useState(null);
+    const [sgId, setSgId] = useState('');
     const [sdName, setSdName] = useState('');
     const [wiwName, setWiwName] = useState('');
+    const [mapSize, setMapSize] = useState([400, 400]);
+    const markerPositions1 = [
+        [33.452278, 126.567803],
+        [33.452671, 126.574792],
+        [33.451744, 126.572441]
+    ];
+    const markerPositions2 = [
+        [37.499590490909185, 127.0263723554437],
+        [37.499427948430814, 127.02794423197847],
+        [37.498553760499505, 127.02882598822454],
+        [37.497625593121384, 127.02935713582038],
+        [37.49629291770947, 127.02587362608637],
+        [37.49754540521486, 127.02546694890695],
+        [37.49646391248451, 127.02675574250912]
+    ]; 
+    
     const handleSdName = (e) => {
         setSdName(e.target.value)    
     }
@@ -39,28 +39,23 @@ const Map = () => {
     const handleSgId = (e) => {
         setSgId(e.target.value)
     }
-    const setCoordinate = (x, y) => {
-        return { 
-            latlng: new kakao.maps.LatLng(x, y)
-        }
-    }
+ 
     const getPlaces = () => {
+        
         axios.post('http://localhost:5000/map/places', {
             sgId,
             sdName,
             wiwName
         },
-        {
-            headers: { "Content-Type": "application/json" },
-        })
+        // {
+        //     headers: { "Content-Type": "application/json" },
+        // }
+        )
         .then(res => {
-            // let mapScript = document.getElementById('mapScript')
-            // console.dir(mapScript)
-            // let mapBox = document.getElementById('map')
-            let container = document.getElementById("map");
-            const places = res.data.item.map(place => place.addr['_text'])
-            let positions = []
-            setPlaces(places)
+            const positions = [];
+            const places = res.data.map(place => place.addr['_text']);
+            setPlaces(places);
+            
             for (let i = 0; i < places.length; i++) {
                 fetch(`https://dapi.kakao.com/v2/local/search/address?query=${places[i]}`, {
                     headers: {
@@ -69,40 +64,29 @@ const Map = () => {
                 })
                 .then(res => res.json())
                 .then(json => {
-                    let coordinate = setCoordinate(json.documents[0]['road_address']['x'], json.documents[0]['road_address']['y'])
-                    positions.push(coordinate)
+                    let arr = [Number(json.documents[0].road_address.y), Number(json.documents[0].road_address.x)];
+                    positions.push(arr);    
+                    setMarkerPositions(positions);
                 })
             }
-            var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
-            let options = {
-                center: new kakao.maps.LatLng(37.624915253753194, 127.15122688059974),
-                level: 9,
-              };
-          
-              //map
-
-            for (let i = 0; i < positions.length; i++) {
-
-                // 마커 이미지의 이미지 크기 입니다
-                var imageSize = new kakao.maps.Size(24, 35);
-
-                // 마커 이미지를 생성합니다    
-                var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
-
-                // 마커를 생성합니다
-                var marker = new kakao.maps.Marker({
-                    map: container, // 마커를 표시할 지도
-                    position: positions[i].latlng, // 마커를 표시할 위치
-                    image: markerImage // 마커 이미지 
-                });
-                marker.setMap(container)
-            }
+            return positions
         })
+        .then(res => {
+            console.log('res::: ', res);
+            //setMarkerPositions(res);
+        })
+        
+        // console.log('positions::: ', positions);
+        console.log('markerPositions1::: ', markerPositions1);
+        console.log('markerPositions2::: ', markerPositions2);
+        
+        
     }
     return (
-        <div>
-            <div>
-                <select placeholder={'안녕하세요'} onChange={handleSgId}>
+        <div id="map-page">
+            <div id="map-condition">
+                <select onChange={handleSgId} defaultValue="선거선택">
+                    <option>선거선택</option>
                     {state.elections.map((election, index) => {
                         return <option key={index} value={election.sgId['_text']}>{election.sgName['_text']}</option>
                     })}
@@ -111,8 +95,8 @@ const Map = () => {
                 <input value={wiwName} placeholder={'종로구'} onChange={handleWiwName}></input>
                 <button onClick={getPlaces}>내 주변 투표소 찾기</button>
             </div>
-            <div>
-                <div id="map"></div>
+            <div id="map-box">
+                <KakaoMap markerPositions={markerPositions} size={mapSize}/>
             </div>
         </div>
     )
