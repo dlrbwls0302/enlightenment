@@ -1,29 +1,53 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import store from '../store/Store';
+
 const axios = require('axios')
-const url = 'http://apis.data.go.kr/9760000/CommonCodeService/getCommonSgCodeList'
-// ?ServiceKey=DwfAEkeC%2Fh4aIBbrbIGC4yt5o1820Djh1CaEBL4HPkLAzDMpup52Kirc5mrVsAb9iVc5h5Y92URldehUzSGz9Q%3D%3D
-const key = 'DwfAEkeC%2Fh4aIBbrbIGC4yt5o1820Djh1CaEBL4HPkLAzDMpup52Kirc5mrVsAb9iVc5h5Y92URldehUzSGz9Q%3D%3D'
-
-
-// router.get('/', (req, res) => {  res.writeHead(200, { 'Access-Control-Allow-Origin': '*' }) });
 
 const Promise = () => {
-    const getSgCode = async () => {
-        const dataUrl = `${url}?ServiceKey=${key}`
-        await fetch(dataUrl, {
-            method: 'GET',
-            headers: {
-                'Access-Control-Allow-Origin': '*'
-            }
-            })
-        
+    const { state } = useSelector(state => ({
+        state: state.electionsReducer
+    }))
+    const [ election, setElection ] = useState({
+        sgId: '',
+        sgTypecode: ''
+    })    
+
+    const handelElection = (e) => {
+        // console.log(store.getState())
+        const { sgId, sgTypecode } = (JSON.parse(e.target.value))
+        console.log(sgId, sgTypecode)
+        setElection({
+            ...election,
+            sgId,
+            sgTypecode
+        })
+        // console.log(election)
+        // console.log(e.target.sgTypecode)
     }
-    
-    
+
+    useEffect(() => {
+        console.log(election)
+    }, [election])
+
     return (
         <div className="promise">
-            <h1 onClick={getSgCode}>Promise</h1>
-        </div>
+                    <select className="electionList" placeholder={'안녕하세요'} onChange={handelElection}>
+                            <option value="">선거 선택</option>
+                        {state.elections.map((election, index) => {
+                            return <option
+                             key={index} 
+                             value={JSON.stringify({sgId:election.sgId['_text'], sgTypecode:election.sgTypecode['_text']})}
+                            >{election.sgName['_text']}</option>
+                        })}
+                    </select>
+                    <select placeholder={'시군 선택'}>
+                            <option value="">지역 선택</option>
+                        {state.elections.map((election, index) => {
+                            return <option key={index} value={election.sgId['_text']}>{election.sgName['_text']}</option>
+                        })}
+                    </select>
+                    </div>
     );
 };
 

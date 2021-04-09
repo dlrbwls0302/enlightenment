@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios'
 import { useSelector } from 'react-redux'
 import '../styles/Map.css';
+import store from '../store/Store';
 
 const Map = () => {
     useEffect(() => {
@@ -52,7 +53,7 @@ const Map = () => {
         },
         {
             headers: { "Content-Type": "application/json" },
-        })
+        })  
         .then(res => {
             // let mapScript = document.getElementById('mapScript')
             // console.dir(mapScript)
