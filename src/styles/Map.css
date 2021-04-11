@@ -1,9 +1,36 @@
-/* #map {
+.map-page-desktop {
+    width: 600px;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.map-condition-desktop {
+    display: flex;
+}
+
+.election-wrapper-desktop {
+    margin-right: 20px;
+}
+
+.sdName-wrapper-desktop {
+    margin-right: 20px;
+}
+
+.wiwName-wrapper-desktop {
+    margin-right: 20px;
+}
+
+.map-box-desktop {
+    margin-top: 300px;
     width: 500px;
     height: 400px;
-} */
+}
 
-#map-page {
-    margin-top: 150px;
-    background-color: white;
+#mapContainer {
+    width: 100%;
+    height: 100%;
 }

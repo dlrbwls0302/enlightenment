@@ -8,7 +8,7 @@ import '../styles/Main.css';
 import mapImg from '../images/imageservice.png';
 import { MdKeyboardArrowDown } from 'react-icons/md';
 import { MdKeyboardArrowUp } from 'react-icons/md';
-import video from './video1.mp4';
+// import video from './video1.mp4';
 import './sal.css';
 import sal from 'sal.js';
 // import ReactPageScroller from "react-page-scroller";
@@ -54,7 +54,7 @@ const Main = () => {
             </div> */}
 
             {/* 동영상 모델 */}
-            <video src={video} muted loop autoPlay></video>
+            {/* <video src={video} muted loop autoPlay></video> */}
             <div className='text' data-sal="zoom-in" data-sal-duration="1000" data-sal-once>
                 <h2>대한민국을 책임질</h2>
                 <h3>당신의 선택</h3>
