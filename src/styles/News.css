@@ -9,6 +9,7 @@
     width: 600px;
     margin-right: auto;
     margin-left: auto;
+    
 }
 .search-container{
     display: flex;
@@ -17,18 +18,20 @@
 }
 .search-box{
     margin-top: 100px;
-    width: 300px;
+    width: 340px;
     height: 50px;
     background: #ffffff;
     border: 3px solid #000000;
     font-size: 10pt;
     color: #63717f;
     padding-left: 45px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     transition: 0.4s;
     border-radius: 5px;
 }
 .search-box:focus{
-    width: 330px;
+    width: 370px;
     border-color: #387bcb;
     outline: none;
 }

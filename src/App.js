@@ -8,16 +8,20 @@ import Opinions from './pages/Opinions';
 import Promise from './pages/Promise';
 import { useDispatch } from 'react-redux'
 import { loadElections } from './actions/index'
+import './App.css';
 
 const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
+
     fetch('http://localhost:5000/map/elections')
     .then(res => res.json())
     .then(elections => {     
       dispatch(loadElections(elections.elections))
     })
   }, []);
+  
+  
   return (
     <div className='body'>
       <div className='wrapper'>

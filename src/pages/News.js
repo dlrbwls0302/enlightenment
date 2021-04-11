@@ -56,7 +56,9 @@ const News = () => {
     // }, []);
 
     // if(loading){
-    //     return <div className='news-container'>뉴스 기사를 로딩 중 입니다...</div>
+    //     return <div className='news-container' style={{ display: 'flex' }}>
+    //             <div style={{ width:'100%', marginTop: '340px', fontSize: '3rem'}}>뉴스 기사를 로딩 중 입니다...</div>            
+    //            </div>
     // }
     // if(!articles){
     //     return null;

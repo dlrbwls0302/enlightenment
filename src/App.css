@@ -5,8 +5,8 @@
   scroll-behavior: smooth;
 }
 .body{
-  height: 1000px;
-  
+  /* height: 1000px; */
+  position: relative;
 }
 .wrapper{
   position: relative;
