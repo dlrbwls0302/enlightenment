@@ -12,10 +12,10 @@ function HeaderNav() {
     const [navbar, setNavBar] = useState(false);
 
     const onToggle = () => setToggle(!toggle);
-
+    
     const changeBackground = () => {
-        // console.log(window.scrollY);
-        if(window.scrollY >= 74){
+        console.log(window.scrollY);
+        if(window.scrollY >= 50){
           setNavBar(true);
         } else{
           setNavBar(false);
