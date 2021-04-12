@@ -19,11 +19,15 @@ const Map = () => {
     const [downtowns, setDowntowns] = useState([]);
 
     const handleDowntowns = (e) => {
+        if (e.target.value === '시, 도 선택') {
+            return;
+        }
         handleSdName(e)
         const changedDowntowns = state.korea.filter(item => {
             return item.city === e.target.value
         })
         setDowntowns(changedDowntowns[0].downtowns)
+        
     }
 
     const handleSgId = (e) => {
@@ -74,6 +78,21 @@ const Map = () => {
             })
         })
     }
+
+    // const handleLogin = () => {
+    //     fetch('http://localhost:5000/auth/google/login')
+    //     .then(res => res.json())
+    //     .then(json => console.log(json))
+    // }
+
+    const handleLogout = () => {
+        fetch('http://localhost:5000/auth/google/logout', {
+            credentials: 'include'
+        })
+        .then(res => res.json())
+        .then(json => console.log(json))
+    }
+
     return (
         <div className="map-page-desktop">
             <div className="map-condition-desktop">
@@ -106,6 +125,8 @@ const Map = () => {
                 <div className="button-wrapper-desktop">
                     <button onClick={getPlaces}>내 주변 투표소 찾기</button>
                 </div>
+                <a href="http://localhost:5000/auth/google/login">로그인</a>
+                <button onClick={handleLogout}>로그아웃</button>
             </div>
             <div className="map-box-desktop">
                 <KakaoMap markerPositions={markerPositions} markerPlaceNames={markerPlaceNames} size={mapSize}/>

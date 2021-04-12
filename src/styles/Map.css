@@ -6,6 +6,7 @@
 .map-condition-desktop {
     display: flex;
     flex-direction: row;
+    margin-top: 200px;
 }
 
 .election-wrapper-desktop {
