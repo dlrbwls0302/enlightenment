@@ -8,7 +8,7 @@ import '../styles/Main.css';
 import mapImg from '../images/imageservice.png';
 import { MdKeyboardArrowDown } from 'react-icons/md';
 import { MdKeyboardArrowUp } from 'react-icons/md';
-import video from './video1.mp4';
+// import video from './video1.mp4';
 // import { Link, animateScroll as scroll } from "react-scroll";
 import ReactPageScroller from 'react-page-scroller';
 
@@ -43,7 +43,7 @@ const Main = () => {
             </div> */}
 
             {/* 동영상 모델 */}
-            <video src={video} muted loop autoPlay></video>
+            {/* <video src={video} muted loop autoPlay></video> */}
             <div className='text'>
                 <h2>대한민국을 책임질</h2>
                 <h3>당신의 선택</h3>
