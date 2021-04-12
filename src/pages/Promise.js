@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import store from '../store/Store';
+import '../styles/Promise.css'
 
 const axios = require('axios')
 
@@ -8,43 +8,73 @@ const Promise = () => {
     const { state } = useSelector(state => ({
         state: state.electionsReducer
     }))
+    const [ downElections, setdownElections ] = useState(
+        // sgId: '',
+        // sgTypecode: '',
+        []  
+    )
+
     const [ election, setElection ] = useState({
-        sgId: '',
-        sgTypecode: ''
-    })    
+        // id: '',
+        sgId : '',
+        // sgName: '',
+        sgTypecode : ''
+    })
 
     const handelElection = (e) => {
-        // console.log(store.getState())
-        const { sgId, sgTypecode } = (JSON.parse(e.target.value))
-        console.log(sgId, sgTypecode)
+        // const { sgId, sgTypecode } = (JSON.parse(e.target.value))
+        const downElections = (JSON.parse(e.target.value))
+        setdownElections( 
+            downElections
+        )
+    }
+
+    const { sgId, sgTypecode } = election
+
+    const handleDownElection = (e) => {        
+        // console.log(sgId, sgTypecode)
+        // console.log(election)
+        const {sgId, sgTypecode} = JSON.parse(e.target.value)
         setElection({
-            ...election,
             sgId,
             sgTypecode
         })
         // console.log(election)
-        // console.log(e.target.sgTypecode)
     }
-
     useEffect(() => {
-        console.log(election)
-    }, [election])
+        if(sgId == "" || sgTypecode == "") {
+            console.log(state)
+            return 
+        } {
+        axios.post('http://localhost:5000/promises/candidates',{
+            sgId: election.sgId,
+            sgTypecode: election.sgTypecode
+    })
+        .then(res => console.log(res))
+        console.log(election) }
+    }, [election] 
+    ) 
 
     return (
-        <div className="promise">
+        <div className="promise-container">
                     <select className="electionList" placeholder={'안녕하세요'} onChange={handelElection}>
-                            <option value="">선거 선택</option>
+                            <option>선거 선택</option>
                         {state.elections.map((election, index) => {
                             return <option
                              key={index} 
-                             value={JSON.stringify({sgId:election.sgId['_text'], sgTypecode:election.sgTypecode['_text']})}
-                            >{election.sgName['_text']}</option>
+                             value={JSON.stringify(election.downElections)}
+                            >{election.sgName}</option>
                         })}
                     </select>
-                    <select placeholder={'시군 선택'}>
+                    <select placeholder={'시군 선택'} onChange={handleDownElection}>
                             <option value="">지역 선택</option>
-                        {state.elections.map((election, index) => {
-                            return <option key={index} value={election.sgId['_text']}>{election.sgName['_text']}</option>
+                        {downElections.map((election, index) => {
+                            return <option
+                             key={index}
+                             value={JSON.stringify(election)}
+                             >
+                                {election.sgName}
+                            </option>
                         })}
                     </select>
                     </div>
