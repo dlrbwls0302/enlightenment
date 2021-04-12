@@ -56,8 +56,9 @@ const News = () => {
     // }, []);
 
     // if(loading){
-    //     return <div className='news-container' style={{ display: 'flex' }}>
-    //             <div style={{ width:'100%', marginTop: '340px', fontSize: '3rem'}}>뉴스 기사를 로딩 중 입니다...</div>            
+    //     return <div style={{ display: 'flex', alignItems:'center', justifyContent:'center' }}className='news-container'>
+    //             <div style={{ fontSize: '50px', marginLeft: 'auto', marginRight: 'auto', marginTop: '300px', fontFamily: 'Black Han Sans', fontWeight: '400', height:'100vh'
+    //         }}>뉴스 기사를 로딩 중 입니다...</div>        
     //            </div>
     // }
     // if(!articles){

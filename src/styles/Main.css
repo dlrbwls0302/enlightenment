@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
 :root{
     --main-bg-color:  #112d4e;
     --main-color: #f9f7f7;
@@ -10,6 +11,12 @@
     --sub-color-four: #4e3211;
     --sub-color-five: #fef4eb;
     --sub-color-six: #12222d;
+}
+.wrapper{
+    background: var(--main-color);
+}
+html{
+    scroll-behavior: smooth;
 }
 
 /* 기존 모델 */
@@ -81,8 +88,6 @@
 
 /* 새로운 모델 */
 .banner{
-    /* font-family: 'Poppins', sans-serif; */
-    /* font-family: 'Nanum Myeongjo', serif; */
     font-family: 'Black Han Sans', sans-serif;
     position: relative;
     right: 0;
@@ -90,10 +95,10 @@
     min-height: 100vh;
     padding: 100px;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center; 
     z-index: 2;
-    background-color: black;
+    background: black;
     padding-right: 0;
 }
 .banner video{
@@ -126,7 +131,7 @@
     font-size: 1.1em;
     margin: 20px 0;
     font-weight: 400;
-    max-width: 320px;
+    max-width: 280px;
     color: var(--main-color);
 }
 .text a{
@@ -142,25 +147,31 @@
 .text a:hover{
     letter-spacing: 2px;
 }
-@media(max-width: 991px){
-    .showcase,
-    .showcase header{
-        padding: 40px;
+/* banner section 반응형 */
+@media(max-width: 768px){
+    .text h2{
+        font-size: 4em;
     }
+    .text h3{
+        font-size: 3em;
+    }
+} 
+
+@media(max-width: 493px){
     .text h2{
         font-size: 3em;
     }
     .text h3{
         font-size: 2em;
     }
-} 
+}
 /* 여기까지 */
 .arrow{
     position: absolute;
     z-index: 300;
     bottom: 20px;
     right: 250px;
-    cursor: pointer;
+    /* cursor: pointer; */
     transition: 0.3s;
     animation: animatedArrow 3s infinite;
     text-align: center;
@@ -189,11 +200,12 @@
     width: 100%;
     height: 100vh;
     display: flex;
-
+    overflow-x: hidden;
+    
 }
 .about .contentBx{
     width: 50%;
-    padding: 100px;
+    padding: 90px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -202,8 +214,7 @@
     margin-top: auto;
     margin-bottom: 1.5rem;
     text-align: center;
-    font-family: 'Poppins', sans-serif;
-    /* font-family: 'Nanum Myeongjo', serif; */
+    font-family: 'Do Hyeon', sans-serif;
     
     /* 기존 모델 */
     /* color: var(--main-color); */
@@ -213,7 +224,6 @@
 .about .text{
     margin-top: 1.5rem;
     margin-bottom: auto;
-    font-family: 'Poppins', sans-serif;
     position: relative;
     /* 기존 모델 */
     /* color: var(--main-color); */
@@ -222,7 +232,7 @@
     font-weight: 100;
     letter-spacing: 1px;
     text-align: center;
-    max-width: 530px;
+    max-width: 540px;
 }
 
 .about .aboutImg{
@@ -253,6 +263,50 @@
 .about .arrow .arrowTwo:hover{
     transform:scale(1.5);
 }
+/* about section 반응형 */
+@media(max-width: 860px){
+    .about{
+        display: flex;
+        flex-direction: column;
+        /* overflow: visible; */
+        align-items: center;
+    }
+    .about .contentBx{
+        /* flex: 1 0.6 auto; */
+        padding: 0;
+        width: 100%;
+        height: 40%;
+    }
+    .about .contentBx .heading{
+        font-size: 40px;
+        margin-top: 170px;
+    }
+    .about .contentBx .text{
+        font-size: 18px;
+    }
+    .about .aboutImg{
+        width: 90%;
+        height: 45%;
+    }
+} 
+@media(max-width: 621px){
+    .about .contentBx .heading{
+        font-size: 35px;
+    }
+    .about .contentBx .text{
+        font-size: 16px;
+        max-width: 500px;
+    }
+    .about .aboutImg{
+        width: 90%;
+        height: 40%;
+    }
+}
+@media(max-width: 560px){
+    .about .aboutImg{
+        width: 90%;
+    }
+}
 
 /* map */
 .map{
@@ -265,11 +319,10 @@
 }
 .map .mapHeading{
     position: relative;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Do Hyeon', sans-serif;
     color: black;
     font-size: 50px;
-    margin-top: 7rem; 
-    
+    margin-top: 13rem; 
 }
 .map .mapText{
     margin-top: 1rem; 
@@ -283,7 +336,7 @@
     width: 100%;
     display: flex;
     justify-content: space-around;
-    margin-top:auto; 
+    margin-top: 100px; 
     margin-bottom:auto;
     flex-wrap: wrap;
 }
@@ -306,6 +359,94 @@
 .map .arrow .arrowThree:hover{
     transform:scale(1.5);
 }
+/* map 반응형 */
+@media(max-width: 1180px){
+    .map .container .mapBx:nth-child(1){
+        margin-right: 1rem;
+    }
+    .map .container .mapBx:nth-child(3){
+        margin-left: 1rem;
+    }
+    .map .container{
+        flex-wrap: nowrap;
+        height: 50%;
+    }
+}
+@media(max-width: 1115px){
+    .map .container .mapBx img{
+        width: 300px;
+        height: 300px;
+    }
+}
+@media(max-width: 970px){
+    .map .mapHeading{
+        font-size: 40px;
+    }
+    .map .mapText{
+        font-size: 29px;
+    }
+    .map .container .mapBx img{
+        width: 280px;
+        height: 300px;
+    }
+}
+@media(max-width: 900px){
+    .map .mapText{
+        font-size: 27px;
+    }
+    .map .container .mapBx img{
+        width: 250px;
+    }
+}
+@media(max-width: 867px){
+    .map .mapText{
+        font-size: 25px;
+    }
+    .map .container .mapBx img{
+        width: 230px;
+    }
+}
+@media(max-width: 768px){
+    .map .mapText{
+        font-size: 23px;
+    }
+    .map .container .mapBx img{
+        width: 210px;
+    }
+}
+@media(max-width: 715px){
+    .map .mapText{
+        font-size: 21px;
+    }
+    .map .container .mapBx img{
+        width: 200px;
+    }
+}
+@media(max-width: 650px){
+    .map .container .mapBx img{
+        width: 190px;
+    }
+}
+@media(max-width: 623px){
+    .map .mapHeading{
+        font-size: 35px;
+    }
+    .map .mapText{
+        font-size: 16px;
+        
+    }
+    .map .container{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        margin-top: -40px;
+    }
+    .map .container .mapBx img{
+        height: 190px;
+        width: 80%;
+    }
+}
 
 /* news */
 .news{
@@ -316,6 +457,7 @@
     width: 100%;
     height: 100vh;
     display: flex;
+    overflow-x: hidden;
 }
 .news .newsBx{
     width: 50%;
@@ -341,7 +483,7 @@
     margin-top: auto;
     margin-bottom: 1.5rem;
     text-align: center;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Do Hyeon', sans-serif;
     /* 기존 모델 */
     /* color: var(--main-bg-color); */
     color: black;
@@ -392,6 +534,56 @@
     transform:scale(1.5);
 }
 
+/* news 반응형 */
+@media(max-width: 860px){
+    .news{
+        display: flex;
+        flex-direction: column;
+        /* overflow: visible; */
+        align-items: center;
+    }
+    .news .newsBx{
+        /* flex: 1 0.6 auto; */
+        padding: 0;
+        width: 100%;
+        height: 40%;
+    }
+    .news .newsBx .newsHeading{
+        font-size: 40px;
+        margin-top: 170px;
+    }
+    .news .newsBx .newsText{
+        font-size: 18px;
+    }
+    .news .newsImgBx{
+        width: 90%;
+        height: 45%;
+    }
+} 
+@media(max-width: 621px){
+    .news .newsBx .newsHeading{
+        font-size: 35px;
+    }
+    .news .newsBx .newsText{
+        font-size: 16px;
+        max-width: 500px;
+    }
+    .news .newsImgBx{
+        width: 90%;
+        height: 40%;
+    }
+}
+@media(max-width: 560px){
+    .news .newsImgBx{
+        width: 90%;
+    }
+}
+@media(max-width: 330px){
+    .news .newsImgBx{
+        width: 90%;
+    }
+}
+
 /* opinion */
 .opinion{
     position: relative;
@@ -408,7 +600,7 @@
     color: black;
     font-size: 50px;
     margin-top: 6rem; 
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Do Hyeon', sans-serif;
 }
 .opinion .opinionText{
     font-family: 'Poppins', sans-serif;
@@ -475,4 +667,82 @@
 }
 .opinion .arrow .arrowFive:hover{
     transform:scale(1.5);
+}
+/* opinion 반응형 */
+@media(max-width: 1202px){
+    .opinion .opinionHeading{
+        margin-top: 8rem;
+    }
+    .opinion .opinionContainer .opinionContentBx{
+        padding: 45px 35px;
+    }
+}
+@media(max-width: 860px){
+    .opinion .opinionHeading{
+        font-size: 40px;
+    }
+    .opinion .opinionText{
+        font-size: 18px;
+    }
+}
+@media(max-width: 800px){
+    .opinion .opinionHeading{
+        margin-top: 8rem;
+    }
+    .opinion .opinionContainer .opinionContentBx{
+        padding: 35px 35px;
+    }
+}
+@media(max-width: 718px){
+    .opinion .opinionHeading{
+        font-size: 35px;
+    }
+    .opinion .opinionText{
+        font-size: 16px;
+    }
+}
+@media(max-width: 621px){
+    .opinion .opinionHeading{
+        font-size: 30px;
+    }
+    .opinion .opinionText{
+        font-size: 14px;
+    }
+}
+@media(max-width: 621px){
+    .opinion{
+        padding: 90px;
+    }
+}
+@media(max-width: 516px){
+    .opinion .opinionHeading{
+        margin-top: 10rem;
+    }
+    .opinion{
+        padding: 80px;
+    }
+    .opinion .opinionContainer .opinionContentBx{
+        padding: 30px 35px;
+    }
+}
+@media(max-width: 501px){
+    .opinion .opinionContainer .opinionContentBx{
+        padding: 25px 35px;
+    }
+}
+@media(max-width: 491px){
+    .opinion .opinionContainer .opinionContentBx p{
+        font-size: 1.3rem;
+    }
+    .opinion .opinionContainer .opinionContentBx h3{
+        font-size: 2rem;
+    }
+}
+@media(max-width: 467px){
+    .opinion .opinionContainer .opinionContentBx p{
+        font-size: 1.1rem;
+    }
+    .opinion .opinionContainer .opinionContentBx h3{
+        font-size: 1.8rem;
+    }
 }

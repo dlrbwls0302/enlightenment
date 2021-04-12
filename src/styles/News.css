@@ -1,19 +1,28 @@
+:root{
+    --main-bg-color:  #112d4e;
+    --main-color: #f9f7f7;
+    --sub-color-one: #3f72af;
+    --sub-color-two: #00498c;
+    --sub-color-three: #dbe2ef;
+    --sub-color-four: #4e3211;
+    --sub-color-five: #fef4eb;
+    --sub-color-six: #12222d;
+}
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-   
 }
 .news-container{
+    background: var(--main-color);
     box-sizing: border-box;
-    width: 600px;
+    width: 800px;
     margin-right: auto;
     margin-left: auto;
-    
 }
 .search-container{
     display: flex;
-    margin-top: 3rem;
+    /* margin-top: 3rem; */
     justify-content: center;
 }
 .search-box{
@@ -24,9 +33,7 @@
     border: 3px solid #000000;
     font-size: 10pt;
     color: #63717f;
-    padding-left: 45px;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-left: 50px;
     transition: 0.4s;
     border-radius: 5px;
 }
@@ -38,7 +45,7 @@
 .search-icon{
     position: relative;
     left: 37px;
-    top: 115px;
+    top: 118px;
     font-size: 1.5rem;
     background-color: #ffffff; 
     transition: 0.4s;
