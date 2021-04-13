@@ -629,13 +629,18 @@ html{
     box-shadow: 8px 5px 5px grey;
     border-radius: 10px;
     background-color: #fff;
-    padding: 60px 50px;
-    margin: 10px;
+    padding: 40px 30px;
+    margin: 30px;
     width: 540px;
     text-align: left;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: 1s;
+
+}
+.opinion .opinionContainer .opinionContentBx:hover{
+    transform: scale(1.1);
 }
 .opinion .opinionContainer .opinionContentBx p{
     font-style: italic;

@@ -25,12 +25,12 @@
     flex-direction: column;
     position: absolute;
     z-index: 100;
-    left: 100px;
+    left: 90px;
     top: 130px;
     background: var(--main-color);
     justify-content: center;
     align-items: center;
-    padding: 20px 40px 25px 40px;
+    padding: 15px 40px 25px 40px;
     border: 4px solid #00498c;
     border-radius: 10px;
     cursor: grab;
@@ -119,13 +119,12 @@
     width: 100%;
     height: 100vh;
     z-index: 5;
-    padding: 25px;
+    /* padding: 25px; */
     
     /* background-color: var(--sub-color-two); */
 }
 
 #mapContainer {
-    box-shadow: 10px 5px 5px grey;
     border-radius: 10px;
     width: 100%;
     height: 100%;

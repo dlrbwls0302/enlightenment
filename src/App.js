@@ -9,11 +9,11 @@ import Promise from './pages/Promise';
 import { useDispatch } from 'react-redux'
 import { loadElections } from './actions/index'
 import './App.css';
+// import Modal from 'react-modal';
 
 const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-
     fetch('http://localhost:5000/map/elections')
     .then(res => {
       return res.json()
@@ -22,11 +22,22 @@ const App = () => {
       dispatch(loadElections(elections))
     })
   }, []);
-  
+
+  const customStyles = {
+    content: {
+      
+    }
+  }
   
   return (
     <div className='body'>
       <div className='wrapper'>
+        {/* <Modal 
+        
+        >
+           <h2>Modal title</h2>
+           <p>Modal Body</p>
+        </Modal> */}
         <Router>
           <HeaderNav />
           <Switch>

@@ -3,8 +3,7 @@ import axios from 'axios'
 import { useSelector } from 'react-redux'
 import '../styles/Map.css';
 import KakaoMap from '../components/KakaoMap'
-import Draggable, {DraggableCore} from 'react-draggable';
-import { MdSettingsOverscan } from 'react-icons/md';
+import Draggable from 'react-draggable';
 
 const Map = () => {
     const state = useSelector((state) => {
@@ -19,7 +18,7 @@ const Map = () => {
     const [mapSize, setMapSize] = useState([400, 400]);
     const [downtowns, setDowntowns] = useState([]);
     const [isDrag, setDrag] = useState(false);
-    const [isOver, setOver] = useState(false);
+  
 
     const handleDowntowns = (e) => {
         if(e.target.value === '시, 도 선택'){

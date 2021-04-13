@@ -5,8 +5,6 @@ import '../styles/HeaderNav.css';
 import { VscListFlat } from 'react-icons/vsc';
 import { BsX } from 'react-icons/bs';
 
-
-
 function HeaderNav() {
     const [toggle, setToggle] = useState(true);  
     const [navbar, setNavBar] = useState(false);
@@ -21,8 +19,8 @@ function HeaderNav() {
           setNavBar(false);
         }
     }
-    window.addEventListener('scroll', changeBackground)
-
+    window.addEventListener('scroll', changeBackground);
+   
     return(
         <>
             <header className={navbar ? 'header active' : 'header'}>

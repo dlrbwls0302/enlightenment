@@ -105,5 +105,37 @@ export const initialState =
             city: "제주특별자치도",
             downtowns: ["제주시", "서귀포시"]
         }
+    ],
+    path: '',
+    sidebarData : [
+        {
+          title: '로그인',
+          path: '',
+          className: 'nav-text',
+        },
+        {
+          title: '후보 공약보기',
+          path: '/promise',
+          className: 'nav-text',
+       
+        },
+        {
+          title: '내 투표소 확인',
+          path: '/map',
+          className: 'nav-text',
+          
+        },
+        {
+          title: '뉴스',
+          path: '/news',
+          className: 'nav-text',
+         
+        },
+        {
+          title: '당신의 의견',
+          path: '/opinion',
+          className: 'nav-text',
+      
+        }
     ]
 }
