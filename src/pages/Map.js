@@ -79,15 +79,17 @@ const Map = () => {
         })
     }
 
-    // const handleLogin = () => {
-    //     fetch('http://localhost:5000/auth/google/login')
-    //     .then(res => res.json())
-    //     .then(json => console.log(json))
-    // }
-
     const handleLogout = () => {
         fetch('http://localhost:5000/auth/google/logout', {
             credentials: 'include'
+        })
+        .then(res => res.json())
+        .then(json => console.log(json))
+    }
+
+    const testDelete = () => {
+        fetch('http://localhost:5000/test', {
+            method: 'DELETE'
         })
         .then(res => res.json())
         .then(json => console.log(json))
@@ -127,6 +129,7 @@ const Map = () => {
                 </div>
                 <a href="http://localhost:5000/auth/google/login">로그인</a>
                 <button onClick={handleLogout}>로그아웃</button>
+                <button onClick={testDelete}>delete method test!</button>
             </div>
             <div className="map-box-desktop">
                 <KakaoMap markerPositions={markerPositions} markerPlaceNames={markerPlaceNames} size={mapSize}/>
