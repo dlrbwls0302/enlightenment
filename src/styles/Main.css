@@ -360,91 +360,58 @@ html{
     transform:scale(1.5);
 }
 /* map 반응형 */
-@media(max-width: 1180px){
-    .map .container .mapBx:nth-child(1){
-        margin-right: 1rem;
-    }
-    .map .container .mapBx:nth-child(3){
-        margin-left: 1rem;
-    }
+@media(max-width: 1160px){
     .map .container{
         flex-wrap: nowrap;
+        display: flex;
+        flex-direction: column;
         height: 50%;
     }
-}
-@media(max-width: 1115px){
+    .map .container .mapBx{
+        margin-bottom: 20px;
+    }
+    .map .container .mapBx:nth-child(1){
+        margin-right: 0;
+    }
+    .map .container .mapBx:nth-child(3){
+        margin-left: 0;
+    }
     .map .container .mapBx img{
-        width: 300px;
-        height: 300px;
+        width: 75%;
+        height: 160px;
     }
 }
-@media(max-width: 970px){
+@media(max-width: 860px){
     .map .mapHeading{
         font-size: 40px;
     }
     .map .mapText{
-        font-size: 29px;
-    }
-    .map .container .mapBx img{
-        width: 280px;
-        height: 300px;
+        font-size: 18px;
     }
 }
-@media(max-width: 900px){
-    .map .mapText{
-        font-size: 27px;
-    }
+@media(max-width: 800px){
     .map .container .mapBx img{
-        width: 250px;
+        height: 150px;
     }
 }
-@media(max-width: 867px){
-    .map .mapText{
-        font-size: 25px;
-    }
+@media(max-width: 750px){
     .map .container .mapBx img{
-        width: 230px;
+        height: 145px;
     }
 }
-@media(max-width: 768px){
-    .map .mapText{
-        font-size: 23px;
-    }
+@media(max-width: 700px){
     .map .container .mapBx img{
-        width: 210px;
-    }
-}
-@media(max-width: 715px){
-    .map .mapText{
-        font-size: 21px;
-    }
-    .map .container .mapBx img{
-        width: 200px;
+        height: 140px;
     }
 }
 @media(max-width: 650px){
     .map .container .mapBx img{
-        width: 190px;
+        height: 135px;
     }
 }
-@media(max-width: 623px){
-    .map .mapHeading{
-        font-size: 35px;
-    }
-    .map .mapText{
-        font-size: 16px;
-        
-    }
-    .map .container{
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        height: 100%;
-        margin-top: -40px;
-    }
+@media(max-width: 600px){
     .map .container .mapBx img{
-        height: 190px;
-        width: 80%;
+        height: 130px;
     }
 }
 
@@ -467,11 +434,6 @@ html{
     align-items: center;
 }
 .news .newsImgBx{
-    /* background-image: url('../images/place.jpg'); 
-    position: relative;
-    width: 50%;
-    background-size: cover;
-    background-position: center; */
     background-image: url('../images/news.png'); 
     position: relative;
     width: 45%;
@@ -539,11 +501,9 @@ html{
     .news{
         display: flex;
         flex-direction: column;
-        /* overflow: visible; */
         align-items: center;
     }
     .news .newsBx{
-        /* flex: 1 0.6 auto; */
         padding: 0;
         width: 100%;
         height: 40%;
@@ -625,7 +585,6 @@ html{
 }
 .opinion .opinionContainer .opinionContentBx{
     position: relative;
-    /* border: 5px solid black; */
     box-shadow: 8px 5px 5px grey;
     border-radius: 10px;
     background-color: #fff;
@@ -674,7 +633,73 @@ html{
     transform:scale(1.5);
 }
 /* opinion 반응형 */
-@media(max-width: 1202px){
+@media(max-width: 1433px){
+    .opinion{
+        padding: 100px 100px 0 100px;
+    }
+}
+@media(max-width: 1433px){
+    .opinion .opinionContainer{
+        margin-top: 20px;
+        flex-wrap: nowrap;
+    }
+    .opinion .opinionContainer .opinionContentBx{
+        padding: 30px 20px;
+        width: 500px;
+    }
+}
+@media(max-width: 950px){
+    .opinion .opinionHeading{
+        margin-top: 9rem;
+    }
+}
+@media(max-width: 860px){
+    .opinion .opinionContainer{
+        margin-top: 15px;
+    }
+    .opinion .opinionHeading{
+        font-size: 40px;
+    }
+    .opinion .opinionText{
+        font-size: 18px;
+    }
+    .opinion .opinionContainer{
+        flex-direction: column;
+    }
+}
+@media(max-width: 800px){
+    .opinion .opinionContainer{
+        margin-top: 10px;
+    }
+    .opinion .opinionContainer .opinionContentBx{
+        padding: 25px 20px 20px 20px;
+        margin: 20px;
+    }
+}
+@media(max-width: 750px){
+    .opinion .opinionContainer .opinionContentBx{
+        padding: 20px 20px 20px 20px;
+        margin: 15px;
+    }
+}
+@media(max-width: 650px){
+    .opinion .opinionContainer .opinionContentBx{
+        padding: 2px;
+        margin: 10px;
+    }
+}
+@media(max-width: 650px){
+    .opinion .opinionContainer .opinionContentBx{
+        width: 400px;
+    }
+}
+@media(max-width: 600px){
+    .opinion .opinionContainer .opinionContentBx{
+        width: 350px;
+    }
+}
+
+/* @media(max-width: 1202px){
     .opinion .opinionHeading{
         margin-top: 8rem;
     }
@@ -750,4 +775,4 @@ html{
     .opinion .opinionContainer .opinionContentBx h3{
         font-size: 1.8rem;
     }
-}
+} */

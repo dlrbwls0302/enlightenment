@@ -95,3 +95,15 @@
 .sidebar ul li a:hover{
   color: var(--sub-color-one);
 }
+.nav-text{
+  text-decoration: none;
+  font-family: 'Black Han Sans', sans-serif;
+  color: #f9f7f7;
+  font-size: 30px;
+  font-weight: 400;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.nav-text:hover{
+  color: var(--sub-color-one);
+}

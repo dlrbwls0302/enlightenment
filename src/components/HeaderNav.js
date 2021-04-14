@@ -4,6 +4,8 @@ import { SidebarData } from './SidebarData';
 import '../styles/HeaderNav.css';
 import { VscListFlat } from 'react-icons/vsc';
 import { BsX } from 'react-icons/bs';
+import { useDispatch } from 'react-redux';
+import { changeModal } from '../actions';
 
 function HeaderNav() {
     const [toggle, setToggle] = useState(true);  
@@ -20,6 +22,11 @@ function HeaderNav() {
         }
     }
     window.addEventListener('scroll', changeBackground);
+
+    const dispatch = useDispatch();
+    const onClick = () => {
+        dispatch(changeModal());
+    }
    
     return(
         <>
@@ -33,7 +40,30 @@ function HeaderNav() {
             </header>
             <div className={toggle? 'sidebar active' :'sidebar'}>
                 <ul>
-                    {SidebarData.map((data, index) => {
+                    <li className='nav-text' onClick={onClick}>
+                        {SidebarData[0].title}
+                    </li>
+                    <li className='nav-text'>
+                        <Link to={SidebarData[1].path} >
+                            {SidebarData[1].title}
+                        </Link>
+                    </li>
+                    <li className='nav-text'>
+                        <Link to={SidebarData[2].path} >
+                            {SidebarData[2].title}
+                        </Link>
+                    </li>
+                    <li className='nav-text'>
+                        <Link to={SidebarData[3].path} >
+                            {SidebarData[3].title}
+                        </Link>
+                    </li>
+                    <li className='nav-text'>
+                        <Link to={SidebarData[4].path} >
+                            {SidebarData[4].title}
+                        </Link>
+                    </li>
+                    {/* {SidebarData.map((data, index) => {
                         return (
                             <li key={index} className={data.className}>
                                 <Link to={data.path} >
@@ -42,7 +72,7 @@ function HeaderNav() {
                             </li>
                         )
                         })
-                    }
+                    } */}
                 </ul>
             </div>
         </>
