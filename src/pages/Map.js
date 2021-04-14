@@ -9,51 +9,52 @@ const Map = () => {
     const state = useSelector((state) => {
         return state.electionsReducer
     })
-    const [markerPositions, setMarkerPositions] = useState([])
-    ////
-    // const [places, setPlaces] = useState([]);
+    
+    const [markerPositions, setMarkerPositions] = useState([]);
+    const [markerPlaceNames, setMarkerPlaceNames] = useState([]);
     const [sgId, setSgId] = useState('');
     const [sdName, setSdName] = useState('');
     const [wiwName, setWiwName] = useState('');
     const [mapSize, setMapSize] = useState([400, 400]);
-    const markerPositions1 = [
-        [33.452278, 126.567803],
-        [33.452671, 126.574792],
-        [33.451744, 126.572441]
-    ];
-    const markerPositions2 = [
-        [37.499590490909185, 127.0263723554437],
-        [37.499427948430814, 127.02794423197847],
-        [37.498553760499505, 127.02882598822454],
-        [37.497625593121384, 127.02935713582038],
-        [37.49629291770947, 127.02587362608637],
-        [37.49754540521486, 127.02546694890695],
-        [37.49646391248451, 127.02675574250912]
-    ]; 
+    const [downtowns, setDowntowns] = useState([]);
+
+    const handleDowntowns = (e) => {
+        if (e.target.value === '시, 도 선택') {
+            return;
+        }
+        handleSdName(e)
+        const changedDowntowns = state.korea.filter(item => {
+            return item.city === e.target.value
+        })
+        setDowntowns(changedDowntowns[0].downtowns)
+        
+    }
+
+    const handleSgId = (e) => {
+        setSgId(e.target.value)
+    }
     
     const handleSdName = (e) => {
         setSdName(e.target.value)    
     }
     const handleWiwName = (e) => {
-        setWiwName(e.target.value)
-    }
-    const handleSgId = (e) => {
-        setSgId(e.target.value)
+        setWiwName(e.target.value.replace("\u001d", ""))
     }
  
     const getPlaces = () => {
-        
         axios.post('http://localhost:5000/map/places', {
             sgId,
             sdName,
             wiwName
         },
-        // {
-        //     headers: { "Content-Type": "application/json" },
-        // }
+        {
+            headers: { "Content-Type": "application/json" },
+        }
         )
         .then(res => {
-            const places = res.data.map(place => place.addr['_text'])
+            const places = res.data.map(place => place.addr)
+            const placeNames = res.data.map(place => place.placeName)
+            setMarkerPlaceNames(placeNames)
             const positions = []
             places.forEach((place, i) => {
                 fetch(`https://dapi.kakao.com/v2/local/search/address?query=${place}`, {
@@ -77,21 +78,58 @@ const Map = () => {
             })
         })
     }
+
+    // const handleLogin = () => {
+    //     fetch('http://localhost:5000/auth/google/login')
+    //     .then(res => res.json())
+    //     .then(json => console.log(json))
+    // }
+
+    const handleLogout = () => {
+        fetch('http://localhost:5000/auth/google/logout', {
+            credentials: 'include'
+        })
+        .then(res => res.json())
+        .then(json => console.log(json))
+    }
+
     return (
-        <div id="map-page">
-            <div id="map-condition">
-                <select onChange={handleSgId} defaultValue="선거선택">
-                    <option>선거선택</option>
-                    {state.elections.map((election, index) => {
-                        return <option key={index} value={election.sgId['_text']}>{election.sgName['_text']}</option>
-                    })}
-                </select>
-                <input value={sdName} placeholder={'서울특별시'} onChange={handleSdName}></input>
-                <input value={wiwName} placeholder={'종로구'} onChange={handleWiwName}></input>
-                <button onClick={getPlaces}>내 주변 투표소 찾기</button>
+        <div className="map-page-desktop">
+            <div className="map-condition-desktop">
+                <div className="election-wrapper-desktop">
+                    <select onChange={handleSgId} defaultValue="선거선택">
+                        <option>선거선택</option>
+                        {state.elections.map((election, index) => {
+                            return <option key={index} value={election.sgId}>{election.sgName}</option>
+                        })}
+                    </select>
+                </div>
+                <div className="sdName-wrapper-desktop">
+                    <select onChange={handleDowntowns} defaultValue="시, 도 선택">
+                        <option>시, 도 선택</option>
+                        {state.korea.map((item, index) => {
+                            return <option key={index} value={item.city}>{item.city}</option>
+                        })}
+                    </select>
+                </div>
+                <div className="wiwName-wrapper-desktop">
+                    <select onChange={handleWiwName} defaultValue="구, 군 선택">
+                        <option>구, 군 선택</option>
+                        {downtowns.length === 0 ? 
+                            <></> :
+                            downtowns.map((item, index) => {
+                                return <option key={index} value={item}>{item}</option>
+                            })}
+                    </select>
+                </div>
+                <div className="button-wrapper-desktop">
+                    <button onClick={getPlaces}>내 주변 투표소 찾기</button>
+                </div>
+                <a href="http://localhost:5000/auth/google/login">로그인</a>
+                <button onClick={handleLogout}>로그아웃</button>
             </div>
-            <div id="map-box">
-                <KakaoMap markerPositions={markerPositions} size={mapSize}/>
+            <div className="map-box-desktop">
+                <KakaoMap markerPositions={markerPositions} markerPlaceNames={markerPlaceNames} size={mapSize}/>
             </div>
         </div>
     )

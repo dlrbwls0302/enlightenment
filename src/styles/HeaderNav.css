@@ -17,6 +17,12 @@
   margin-right: 90px;
   cursor: pointer;
 }
+
+.toggleBtnOff {
+  color: #f9f7f7;
+  display: flex;
+
+}
 .toggleBx.active{
   color:  #f9f7f7;
 }

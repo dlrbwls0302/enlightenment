@@ -14,8 +14,10 @@ const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     fetch('http://localhost:5000/map/elections')
-    .then(res => res.json())
-    .then(elections => {        
+    .then(res => {
+      return res.json()
+    })
+    .then(elections => {     
       dispatch(loadElections(elections))
     })
   }, []);

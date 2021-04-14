@@ -9,13 +9,11 @@ const Promise = () => {
         state: state.electionsReducer
     }))
     const [ downElections, setdownElections ] = useState(
-        // sgId: '',
-        // sgTypecode: '',
-        []  
+        []
     )
 
     const [ election, setElection ] = useState({
-        // id: '',
+        // id: '',  
         sgId : '',
         // sgName: '',
         sgTypecode : ''
@@ -41,23 +39,26 @@ const Promise = () => {
         })
         // console.log(election)
     }
+    const [ local, setLocal ] = useState([]);
+    const [ candidates, setCandidates ] = useState([]);
+
     useEffect(() => {
-        if(sgId == "" || sgTypecode == "") {
-            console.log(state)
+        if(sgId === "" || sgTypecode === "") {
             return 
         } {
         axios.post('http://localhost:5000/promises/candidates',{
             sgId: election.sgId,
             sgTypecode: election.sgTypecode
-    })
-        .then(res => console.log(res))
-        console.log(election) }
+       })
+       .then(res => console.log(res))
+        // .then(res => setCandidates(res.data))
+     }
     }, [election] 
     ) 
 
     return (
         <div className="promise-container">
-                    <select className="electionList" placeholder={'안녕하세요'} onChange={handelElection}>
+                    <select className="electionList" onChange={handelElection}>
                             <option>선거 선택</option>
                         {state.elections.map((election, index) => {
                             return <option
@@ -66,8 +67,8 @@ const Promise = () => {
                             >{election.sgName}</option>
                         })}
                     </select>
-                    <select placeholder={'시군 선택'} onChange={handleDownElection}>
-                            <option value="">지역 선택</option>
+                    <select onChange={handleDownElection}>
+                            <option value="">하위 선거 선택</option>
                         {downElections.map((election, index) => {
                             return <option
                              key={index}
@@ -77,6 +78,14 @@ const Promise = () => {
                             </option>
                         })}
                     </select>
+
+                    <div>
+                        {
+                        candidates.map((candidate, index) => {
+                             return <div> {candidate.name} </div>
+                        })
+                    }
+                    </div>
                     </div>
     );
 };
