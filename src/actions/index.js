@@ -2,6 +2,7 @@ export const CHANGE_LOADING = 'CHANGE_LOADING';
 export const SET_ARTICLES = 'SET_ARTICLES';
 export const CHANGE_QUERY = 'CHANGE_QUERY';
 export const LOAD_ELECTIONS = 'LOAD_ELECTIONS';
+export const CHANGE_MODAL = 'CHANGE_MODAL';
 
 export const changeLoading = () => {
     return{
@@ -36,5 +37,12 @@ export const loadElections = (elections) => {
         payload: {
             elections
         }
+    }
+}
+
+export const changeModal = () => {
+    return {
+        type: CHANGE_MODAL,
+        payload: {}
     }
 }

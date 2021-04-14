@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useSelector } from 'react-redux'
 import '../styles/Map.css';
 import KakaoMap from '../components/KakaoMap'
-// import { createPortal } from 'react-dom';
+import Draggable from 'react-draggable';
 
 const Map = () => {
     const state = useSelector((state) => {
@@ -17,9 +17,11 @@ const Map = () => {
     const [wiwName, setWiwName] = useState('');
     const [mapSize, setMapSize] = useState([400, 400]);
     const [downtowns, setDowntowns] = useState([]);
+    const [isDrag, setDrag] = useState(false);
+  
 
     const handleDowntowns = (e) => {
-        if (e.target.value === '시, 도 선택') {
+        if(e.target.value === '시, 도 선택'){
             return;
         }
         handleSdName(e)
@@ -78,6 +80,13 @@ const Map = () => {
             })
         })
     }
+    
+    const onStart = ()=> {
+        setDrag(true);
+    }
+    const onStop = () => {
+        setDrag(false);
+    }
 
     const handleLogout = () => {
         fetch('http://localhost:5000/auth/google/logout', {
@@ -97,10 +106,21 @@ const Map = () => {
 
     return (
         <div className="map-page-desktop">
-            <div className="map-condition-desktop">
+            <Draggable
+            axis="both"
+            handle=".handle"
+            defaultPosition={{x: 0, y: 0}}
+            position={null}
+            grid={[1, 1]}
+            scale={1}
+            onStart={onStart}
+            onStop={onStop}
+            >
+            <div className={isDrag ? "map-condition-desktop handle active" : "map-condition-desktop handle"}>
+                <div className='heading'>당신의 선택</div>
                 <div className="election-wrapper-desktop">
                     <select onChange={handleSgId} defaultValue="선거선택">
-                        <option>선거선택</option>
+                        <option>선거 선택</option>
                         {state.elections.map((election, index) => {
                             return <option key={index} value={election.sgId}>{election.sgName}</option>
                         })}
@@ -125,12 +145,15 @@ const Map = () => {
                     </select>
                 </div>
                 <div className="button-wrapper-desktop">
-                    <button onClick={getPlaces}>내 주변 투표소 찾기</button>
+                    <a href='#' onClick={getPlaces}>
+                        내 주변 투표소 찾기
+                        <div className='wave'></div>
+                    </a>
                 </div>
-                <a href="http://localhost:5000/auth/google/login">로그인</a>
-                <button onClick={handleLogout}>로그아웃</button>
-                <button onClick={testDelete}>delete method test!</button>
+                {/* <a href="http://localhost:5000/auth/google/login">로그인</a>
+                <button onClick={handleLogout}>로그아웃</button> */}
             </div>
+            </Draggable>
             <div className="map-box-desktop">
                 <KakaoMap markerPositions={markerPositions} markerPlaceNames={markerPlaceNames} size={mapSize}/>
             </div>
