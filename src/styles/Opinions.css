@@ -87,6 +87,12 @@
     border: none;
     border-radius: 10px;
     height: 60px;
+    /* color: white; */
+    font-size: 20px;
+}
+
+.write-box button:hover{
+    cursor: pointer;
 }
 
 .opinion-line {
