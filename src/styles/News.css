@@ -20,6 +20,7 @@
     margin-right: auto;
     margin-left: auto;
 }
+
 .search-container{
     display: flex;
     /* margin-top: 3rem; */
@@ -55,3 +56,35 @@
     color: #387bcb;
     transform:scale(1.2);
 }  
+/* 반응형 */
+@media(max-width: 815px){
+    .news-container{
+        width: 750px;
+    }
+}
+@media(max-width: 750px){
+    .news-container{
+        width: 700px;
+    }
+}
+@media(max-width: 700px){
+    .news-container{
+        width: 650px;
+    }
+}
+@media(max-width: 650px){
+    .news-container{
+        width: 600px;
+    }
+}
+@media(max-width: 600px){
+    .news-container{
+        width: 100%;
+    }
+    .contents{
+        width: 90%;
+    }
+    .thumbnail{
+        display: none;
+    }
+}

@@ -21,6 +21,9 @@
 .wrapper{
   position: relative;
 }
+.modal{
+  z-index: 10000;
+}
 .modalClose{
   position: absolute;
   top: 10px;
