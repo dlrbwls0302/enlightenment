@@ -1,29 +1,23 @@
 .eachItem{
     display: flex;
-    margin-top: 3rem;
-}
-.eachItem:first-child{
-    margin-top: 6rem;
+    margin-top: 4rem;
 }
 .thumbnail{
     margin-right: 1rem;
 }
 .thumbnail img{
-    display: block;
-    width: 180px;
-    height: 120px;
-    object-fit: fill;
+    object-fit: cover;
     border-radius: 5px;
     transition: 1.3s;
- 
+    width: 200px;
 }
 .thumbnail img:hover{
     transform:scale(1.2);
 }
 .contents{
-    margin-left: 1.5rem;
+    margin-left: 2rem;
+    
 }
-
 .contents h2{
     margin: 0;
 }
@@ -37,16 +31,16 @@
     width: 0;
     height: 2px;
     background: #387bcb;
-    transition: .3s;
+    transition: .5s;
 }
 .contents  a:hover::after{
     width: 100%;
-    transition: .3s;
+    transition: .5s;
 }
 
 .contents a:hover{
     color: #387bcb;
-    transition: 0.3s;
+    transition: 0.5s;
 }
 .contents p{
     margin: 0;

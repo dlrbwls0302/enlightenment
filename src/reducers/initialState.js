@@ -105,5 +105,6 @@ export const initialState =
             city: "제주특별자치도",
             downtowns: ["제주시", "서귀포시"]
         }
-    ]
+    ],
+    'modalIsOpen': false
 }

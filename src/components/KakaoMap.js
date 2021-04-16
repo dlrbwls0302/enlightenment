@@ -73,7 +73,7 @@ const KakaoMap = (props) => {
         }
     }, [kakaoMap, markerPositions, markerPlaceNames]);
 
-    return <div id="map" ref={container} />
+    return <div id="mapContainer" ref={container} />
 }
 
 export default KakaoMap;

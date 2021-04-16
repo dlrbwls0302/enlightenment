@@ -8,69 +8,93 @@ const Promise = () => {
     const { state } = useSelector(state => ({
         state: state.electionsReducer
     }))
-    const [ downElections, setdownElections ] = useState(
-        []
-    )
+    const [ downElections, setdownElections ] = useState([])   // 하위선거 state 
 
     const [ election, setElection ] = useState({
-        // id: '',  
         sgId : '',
-        // sgName: '',
-        sgTypecode : ''
+        sgTypecode : '',
+        sdName : '',
+        sggName : ''
     })
+    const [ electionPlace, setElectionPlace ] = useState([]);
+    const [ candidates, setCandidates ] = useState([]);
+    const { sgId, sgTypecode, sdName, sggName } = election
 
     const handelElection = (e) => {
-        // const { sgId, sgTypecode } = (JSON.parse(e.target.value))
         const downElections = (JSON.parse(e.target.value))
         setdownElections( 
             downElections
         )
+    } // 상위선거 값 변경 시 하위 선거 state 변경
+    const handleCandidateLocation = (e) => {
+        const {sdName, sggName} = JSON.parse(e.target.value)
+        setElection({
+            ...election,
+            sdName,
+            sggName
+        })
     }
-
-    const { sgId, sgTypecode } = election
-
     const handleDownElection = (e) => {        
-        // console.log(sgId, sgTypecode)
-        // console.log(election)
         const {sgId, sgTypecode} = JSON.parse(e.target.value)
         setElection({
+            ...election,
             sgId,
             sgTypecode
         })
-        // console.log(election)
+        axios.post('http://localhost:5000/promises/electionplaces', {
+            sgId,
+            sgTypecode
+            }
+          )
+          .then(res => { 
+             setElectionPlace(res.data)
+          })
     }
-    const [ local, setLocal ] = useState([]);
-    const [ candidates, setCandidates ] = useState([]);
 
     useEffect(() => {
-        if(sgId === "" || sgTypecode === "") {
+        if(sgId === "" || sgTypecode === "" || sdName === '' || sggName === '') {
             return 
-        } {
+        }
+        console.log(election)
         axios.post('http://localhost:5000/promises/candidates',{
-            sgId: election.sgId,
-            sgTypecode: election.sgTypecode
-       })
-       .then(res => console.log(res))
-        // .then(res => setCandidates(res.data))
-     }
-    }, [election] 
-    ) 
+            sgId,
+            sgTypecode,
+            sggName,
+            sdName     
+        })
+        .then(res => console.log(res))
+    },[election] 
+    )  
 
     return (
         <div className="promise-container">
-                    <select className="electionList" onChange={handelElection}>
-                            <option>선거 선택</option>
+                    <select className="electionList" onClick={handelElection} value="asf">
+                     <option value="" selected disabled hidden >선택해주세요.</option>
                         {state.elections.map((election, index) => {
-                            return <option
-                             key={index} 
-                             value={JSON.stringify(election.downElections)}
+                            if (election.sgId === '20210407') {
+                                return <option 
+                                key={index}
+                                value={JSON.stringify(election.downElections)}
+                                >{election.sgName}</option>
+                            }
+                            return <option disabled
+                            key={index}
+                            value={JSON.stringify(election.downElections)}
                             >{election.sgName}</option>
                         })}
                     </select>
                     <select onChange={handleDownElection}>
-                            <option value="">하위 선거 선택</option>
+                            <option value="" selected disabled hidden>하위 선거 선택</option>
                         {downElections.map((election, index) => {
-                            return <option
+                            if (election.sgTypecode === '3') {
+                                return <option
+                                key={index}
+                                value={JSON.stringify(election)}
+                                >
+                                   {election.sgName}
+                               </option>
+                            }
+                            return <option disabled
                              key={index}
                              value={JSON.stringify(election)}
                              >
@@ -78,7 +102,17 @@ const Promise = () => {
                             </option>
                         })}
                     </select>
-
+                    <select onClick={handleCandidateLocation}>
+                      <option value="">선거 장소</option>
+                        {electionPlace.map((place, index) => {
+                            return <option
+                             key={index}
+                             value={JSON.stringify(place)}
+                             >
+                                {place.sdName+"/"+place.sggName}
+                      </option>
+                        })}
+                    </select>
                     <div>
                         {
                         candidates.map((candidate, index) => {
