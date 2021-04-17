@@ -19,7 +19,7 @@ const Main = () => {
         <ReactPageScroller>
         <section className='banner' id='banner'>
             {/* 동영상 모델 */}
-            <video src={video} muted loop autoPlay></video>
+            {/* <video src={video} muted loop autoPlay></video> */}
             <div className='text' data-aos='fade-up' data-aos-once="false">
                 <h2>대한민국을 책임질</h2>
                 <h3>당신의 선택</h3>

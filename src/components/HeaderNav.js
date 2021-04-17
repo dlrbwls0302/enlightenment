@@ -6,11 +6,11 @@ import { VscListFlat } from 'react-icons/vsc';
 import { BsX } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeModal, setToggle, closeModal } from '../actions';
-
-function HeaderNav() {
+import { useHistory } from "react-router";
+function HeaderNav({ isLogin, userId, setLogin, setUserId }) {
     // const [toggle, setToggle] = useState(true);  
     const [navbar, setNavBar] = useState(false);
-    
+    const history = useHistory();
     const changeBackground = () => {
         // console.log(window.scrollY);
         if(window.scrollY >= 50){
@@ -23,8 +23,21 @@ function HeaderNav() {
 
     const state = useSelector((state) => state.modalReducer);
     const dispatch = useDispatch();
-    const onClick = () => {
-        dispatch(changeModal());
+    const onClick = (e) => {
+        if(e.target.textContent === '로그인'){
+            dispatch(changeModal());
+        } else{
+            alert('로그아웃이 되었습니다!');
+            fetch('http://localhost:5000/auth/google/logout', {
+                credentials: 'include'
+            })
+            .then(res => {
+                if(res.status === 200){
+                    setLogin(false);
+                    setUserId('');
+                }
+            })
+        }    
     }
     const onToggle = () => {
         dispatch(setToggle());
@@ -46,10 +59,10 @@ function HeaderNav() {
             <div className={state.toggle? 'sidebar active' :'sidebar'}>
                 <ul>
                     <li className='nav-text' 
-                    onClick={() => {onClick() 
+                    onClick={(e) => {onClick(e) 
                                     onToggle()
                     }}>
-                        {SidebarData[0].title}
+                        {isLogin ? '로그아웃' : '로그인'}
                     </li>
                     <li className='nav-text' onClick={onClose}>
                         <Link to={SidebarData[1].path} >
@@ -76,16 +89,6 @@ function HeaderNav() {
                             {SidebarData[5].title}
                         </Link>
                     </li>
-                    {/* {SidebarData.map((data, index) => {
-                        return (
-                            <li key={index} className={data.className}>
-                                <Link to={data.path} >
-                                    {data.title}
-                                </Link>
-                            </li>
-                        )
-                        })
-                    } */}
                 </ul>
             </div>
         </>

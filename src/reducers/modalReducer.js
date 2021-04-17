@@ -1,4 +1,4 @@
-import { CHANGE_MODAL, SET_TOGGLE, CLOSE_MODAL } from '../actions/index';
+import { CHANGE_MODAL, SET_TOGGLE, CLOSE_MODAL, OPEN_MODAL } from '../actions/index';
 import { initialState } from './initialState';
 
 const modalReducer = (state = initialState, action) => {
@@ -17,6 +17,11 @@ const modalReducer = (state = initialState, action) => {
             return {
                 ...state,
                 modalIsOpen: false
+            }
+        case OPEN_MODAL:
+            return{
+                ...state,
+                modalIsOpen: true
             }
     
         default:

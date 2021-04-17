@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import HeaderNav from './components/HeaderNav';
 import Main from './pages/Main';
@@ -7,6 +7,7 @@ import News from './pages/News';
 import Opinions from './pages/Opinions';
 import Promise from './pages/Promise';
 import Xfile from './pages/Xfile';
+import Write from './pages/Write';
 import { useDispatch, useSelector } from 'react-redux'
 import { loadElections } from './actions/index'
 import './App.css';
@@ -18,8 +19,21 @@ import googleImg from './images/google1.png';
 
 Modal.setAppElement('#root');
 const App = () => {
+  const [isLogin, setLogin] = useState(false);
+  const [userId, setUserId] = useState('');
   const dispatch = useDispatch();
   const state = useSelector((state) => state.modalReducer);
+
+  useEffect(() => {
+    console.log(document.cookie);
+    if(document.cookie){
+      const equalIndex = document.cookie.indexOf('=');
+      const semiIndex = document.cookie.indexOf(';');
+      const userId = document.cookie.slice(equalIndex + 1, semiIndex);
+      setUserId(userId);
+      setLogin(true);
+    }
+  })
 
   useEffect(() => {
     fetch('http://localhost:5000/map/elections')
@@ -30,7 +44,6 @@ const App = () => {
       dispatch(loadElections(elections))
     })
   }, []);
-
 
   const onClick = () => {
     dispatch(changeModal());
@@ -76,10 +89,11 @@ const App = () => {
         </Modal>
         </div>
         <Router>
-          <HeaderNav />
+          <HeaderNav isLogin={isLogin} userId={userId} setLogin={setLogin} setUserId={setUserId} />
           <Switch>
             <Route exact path="/" component={Main}/>
-            <Route path="/xfile" component={Xfile}/>
+            <Route path="/xfile" component={() => {return <Xfile isLogin={isLogin} userId={userId}/>}}/>
+            <Route path="/write" component={Write}/>
             <Route path="/map" component={Map}/>
             <Route path="/news" component={News}/>
             <Route path="/opinion" component={Opinions}/>

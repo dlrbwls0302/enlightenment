@@ -5,6 +5,7 @@ export const LOAD_ELECTIONS = 'LOAD_ELECTIONS';
 export const CHANGE_MODAL = 'CHANGE_MODAL';
 export const CLOSE_MODAL = 'CLOSE_MODAL';
 export const SET_TOGGLE = 'SET_TOGGLE';
+export const OPEN_MODAL = 'OPEN_MODAL';
 
 
 export const changeLoading = () => {
@@ -57,9 +58,17 @@ export const closeModal = () => {
     }
 }
 
+export const openModal = () => {
+    return {
+        type: OPEN_MODAL,
+        payload: {}
+    }
+}
+
 export const setToggle = () => {
     return {
         type: SET_TOGGLE,
         payload: {}
     }
 }
+

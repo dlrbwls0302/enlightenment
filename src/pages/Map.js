@@ -88,14 +88,6 @@ const Map = () => {
         setDrag(false);
     }
 
-    const handleLogout = () => {
-        fetch('http://localhost:5000/auth/google/logout', {
-            credentials: 'include'
-        })
-        .then(res => res.json())
-        .then(json => console.log(json))
-    }
-
     return (
         <div className="map-page-desktop">
             <Draggable
