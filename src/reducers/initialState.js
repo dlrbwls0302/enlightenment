@@ -106,5 +106,6 @@ export const initialState =
             downtowns: ["제주시", "서귀포시"]
         }
     ],
-    'modalIsOpen': false
+    'modalIsOpen': false,
+    'toggle': true
 }

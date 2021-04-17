@@ -88,14 +88,6 @@ const Map = () => {
         setDrag(false);
     }
 
-    const handleLogout = () => {
-        fetch('http://localhost:5000/auth/google/logout', {
-            credentials: 'include'
-        })
-        .then(res => res.json())
-        .then(json => console.log(json))
-    }
-
     return (
         <div className="map-page-desktop">
             <Draggable
@@ -142,8 +134,6 @@ const Map = () => {
                         <div className='wave'></div>
                     </a>
                 </div>
-                {/* <a href="http://localhost:5000/auth/google/login">로그인</a>
-                <button onClick={handleLogout}>로그아웃</button> */}
             </div>
             </Draggable>
             <div className="map-box-desktop">

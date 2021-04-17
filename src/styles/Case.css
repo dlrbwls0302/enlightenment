@@ -1,0 +1,14 @@
+.case-item{
+    background: gray;
+    padding: 50px 70px;
+    margin: 30px;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: 0.5s;
+}
+.case-item:hover{
+    transform: scale(1.2);
+}
+.case-title{
+    font-size: 20px;
+}
