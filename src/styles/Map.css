@@ -11,7 +11,7 @@
 .map-page-desktop {
     width: 100%;
     height: 100vh;
-    background: white;
+    background: var(--main-color);
     overflow-x: hidden;
 }
 .heading{
@@ -24,7 +24,7 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    z-index: 100;
+    z-index: 6000;
     left: 90px;
     top: 130px;
     background: var(--main-color);
@@ -118,7 +118,7 @@
     left: 0;
     width: 100%;
     height: 100vh;
-    z-index: 5;
+    z-index: 0;
     padding: 90px 50px 50px 50px;
     
     /* background-color: var(--sub-color-two); */
