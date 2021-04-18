@@ -24,12 +24,24 @@ const Xfile = ({ isLogin, userId }) => {
     const date = '2021-03-21';
     const dispatch = useDispatch();
     const history = useHistory();
+    const [magazines, setMagazines] = useState([])
 
     useEffect(() => {
         AOS.init({
             duration: 2000,
         });
     }, [])
+    useEffect(() => {
+        fetch('http://localhost:5000/magazines')
+        .then(res => res.json())
+        .then(json => {
+            if (json.magazines.length !== 0) {
+                setMagazines(json.magazines)
+            }
+        })
+    }, [])
+
+    console.log(magazines)
 
     const settingsOne = {
         dots: false,
