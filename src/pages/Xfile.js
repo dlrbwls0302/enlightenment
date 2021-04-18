@@ -75,7 +75,7 @@ const Xfile = ({ isLogin, userId }) => {
                         <div className='card-wrapper'>
                             <div className='card'>
                                 <div className='card-image'>
-                                    <img src='https://images.unsplash.com/photo-1554151228-14d9def656e4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cGVyc29ufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=300&q=60' alt='img'/>
+                                    {/* <img src='https://images.unsplash.com/photo-1554151228-14d9def656e4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cGVyc29ufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=50&h=50&q=60' alt='img'/> */}
                                     <div className='card-title'>LH 투기 의혹 사건</div>
                                 </div>
                             </div>
@@ -84,7 +84,7 @@ const Xfile = ({ isLogin, userId }) => {
                         <div className='card-wrapper'>
                             <div className='card'>
                                 <div className='card-image'>
-                                    <img src='https://images.unsplash.com/photo-1552058544-f2b08422138a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8cGVyc29ufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=300&q=60' alt='img'/>
+                                    {/* <img src='https://images.unsplash.com/photo-1552058544-f2b08422138a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8cGVyc29ufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=50&h=50&q=60' alt='img'/> */}
                                 </div>
                                 <div className='card-title'>선거 조작 사건</div>
                             </div>
@@ -93,7 +93,7 @@ const Xfile = ({ isLogin, userId }) => {
                         <div className='card-wrapper'>
                             <div className='card'>
                                 <div className='card-image'>
-                                    <img src='https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHBlcnNvbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=300&q=60' alt='img'/>
+                                    {/* <img src='https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHBlcnNvbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=50&h=50&q=60' alt='img'/> */}
                                 </div>
                                 <div className='card-title'>LH 투기 의혹 사건</div>
                             </div>
@@ -102,7 +102,7 @@ const Xfile = ({ isLogin, userId }) => {
                         <div className='card-wrapper'>
                             <div className='card'>
                                 <div className='card-image'>
-                                    <img src='https://images.unsplash.com/photo-1491349174775-aaafddd81942?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8cGVyc29ufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=300&q=60' alt='img'/>
+                                    {/* <img src='https://images.unsplash.com/photo-1491349174775-aaafddd81942?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8cGVyc29ufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=50&h=50&q=60' alt='img'/> */}
                                 </div>
                                 <div className='card-title'>LH 투기 의혹 사건</div>
                             </div>
@@ -111,7 +111,7 @@ const Xfile = ({ isLogin, userId }) => {
                         <div className='card-wrapper'>
                             <div className='card'>
                                 <div className='card-image'>
-                                    <img src='https://images.unsplash.com/photo-1596215143922-eedeaba0d91c?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzB8fHBlcnNvbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=300&q=60' alt='img'/>
+                                    {/* <img src='https://images.unsplash.com/photo-1596215143922-eedeaba0d91c?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzB8fHBlcnNvbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=50&h=50&q=60' alt='img'/> */}
                                 </div>
                                 <div className='card-title'>LH 투기 의혹 사건</div>
                             </div>
@@ -119,7 +119,7 @@ const Xfile = ({ isLogin, userId }) => {
                     </Slider>
                 </div>
 
-                <h1 className='slider_title_two' data-aos='zoom-out-up' data-aos-once="true" data-aos-duration="2000">The Latest Issues <MdFiberNew color='#F22613' size={56}/></h1>
+                {/* <h1 className='slider_title_two' data-aos='zoom-out-up' data-aos-once="true" data-aos-duration="2000">The Latest Issues <MdFiberNew color='#F22613' size={56}/></h1>
                 <div className='container mt-5 carousel'>
                     <Slider {...settingsTwo}>
                         <div className='card-wrapper'>
@@ -167,7 +167,7 @@ const Xfile = ({ isLogin, userId }) => {
                             </div>
                         </div>
                     </Slider>
-                </div>
+                </div> */}
             </section>
 
 

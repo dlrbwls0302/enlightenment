@@ -42,12 +42,10 @@
     overflow: hidden;
     font-family: 'Oswald', sans-serif;
     position: relative;
-    background: var(--sub-color-six);
+    border: 1px solid indigo;
     margin-top: 160px;
     width: 90%;
     height: 100%;
-    border-radius: 15px;
-    padding-top: 70px;
 }
 .sub-container-one .slick-arrow{
     transition: 0.4s;
@@ -90,7 +88,7 @@
 }
 .card-title{
     font-size: 25px;
-    color: var(--main-color);
+    color: black;
     text-align: center;
     /* font-family: 'Noto Sans KR', sans-serif; */
     font-family: 'Do Hyeon', sans-serif;
@@ -100,7 +98,7 @@
     border-radius: 16px;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 .card-image{
     transition: 0.3s;
