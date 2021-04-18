@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import '../styles/Main.css';
 import mapImg from '../images/imageservice.png';
 import { BiMouse } from 'react-icons/bi';
-import video from './video1.mp4';
+// import video from './video1.mp4';
 import { Link } from 'react-router-dom';
 import ReactPageScroller from 'react-page-scroller';
 import AOS from 'aos';
