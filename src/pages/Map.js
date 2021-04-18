@@ -90,7 +90,7 @@ const Map = () => {
 
     return (
         <div className="map-page-desktop">
-            <Draggable
+            {/* <Draggable
             axis="both"
             handle=".handle"
             defaultPosition={{x: 0, y: 0}}
@@ -99,10 +99,11 @@ const Map = () => {
             scale={1}
             onStart={onStart}
             onStop={onStop}
-            >
+            > */}
             <div className={isDrag ? "map-condition-desktop handle active" : "map-condition-desktop handle"}>
-                <div className='heading'>당신의 선택</div>
+                <div className='heading'>투표소 위치를 확인하세요</div>
                 <div className="election-wrapper-desktop">
+                    <p>1. 투표할 선거를 선택해주세요</p>
                     <select onChange={handleSgId} defaultValue="선거선택">
                         <option>선거 선택</option>
                         {state.elections.map((election, index) => {
@@ -111,6 +112,7 @@ const Map = () => {
                     </select>
                 </div>
                 <div className="sdName-wrapper-desktop">
+                    <p>2. 거주하는 시, 도를 선택해주세요</p>
                     <select onChange={handleDowntowns} defaultValue="시, 도 선택">
                         <option>시, 도 선택</option>
                         {state.korea.map((item, index) => {
@@ -119,6 +121,7 @@ const Map = () => {
                     </select>
                 </div>
                 <div className="wiwName-wrapper-desktop">
+                    <p>3. 거주하는 구, 군을 선택해주세요</p>
                     <select onChange={handleWiwName} defaultValue="구, 군 선택">
                         <option>구, 군 선택</option>
                         {downtowns.length === 0 ? 
@@ -135,7 +138,7 @@ const Map = () => {
                     </a>
                 </div>
             </div>
-            </Draggable>
+            {/* </Draggable> */}
             <div className="map-box-desktop">
                 <KakaoMap markerPositions={markerPositions} markerPlaceNames={markerPlaceNames} size={mapSize}/>
             </div>
