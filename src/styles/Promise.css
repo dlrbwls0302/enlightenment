@@ -9,3 +9,9 @@
     flex-direction: column;
     padding: 100px;
 }
+
+.candidate_listBox {
+    margin: 100px;
+    justify-content: space-between;
+    /* display: flex; */
+}

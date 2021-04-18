@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+// import "../components/Candidate"
+import Candidate from '../components/Candidate';
 import '../styles/Promise.css'
 
 const axios = require('axios')
@@ -55,14 +57,13 @@ const Promise = () => {
         if(sgId === "" || sgTypecode === "" || sdName === '' || sggName === '') {
             return 
         }
-        console.log(election)
         axios.post('http://localhost:5000/promises/candidates',{
             sgId,
             sgTypecode,
             sggName,
             sdName     
         })
-        .then(res => console.log(res))
+        .then(res => setCandidates(res.data))
     },[election] 
     )  
 
@@ -113,11 +114,15 @@ const Promise = () => {
                       </option>
                         })}
                     </select>
-                    <div>
+                    <div className="candidate_listBox">
                         {
                         candidates.map((candidate, index) => {
-                             return <div> {candidate.name} </div>
+                             return <Candidate 
+                                        key={index}
+                                        candidate = {candidate}
+                                    > </Candidate>
                         })
+                        
                     }
                     </div>
                     </div>
