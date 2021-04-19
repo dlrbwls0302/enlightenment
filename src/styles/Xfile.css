@@ -16,15 +16,155 @@
 }
 .main-container{
     position: relative;
-    display: flex;
-    flex-direction: column;
     width: 100%;
-    align-items: center;
-    justify-content: center;
+    min-height: 100vh;
+    display: grid;
+    background: #f5f4f0;
+    
+    /* grid-template-columns: 40% 60%; */
+    /* grid-template-columns: 4fr 6fr; */
+    /* 위에거랑 둘이 똑같음. 밑에거를 더 많이 씀 */
+    
+    /* grid-gap: 1rem; */
+
+    grid-template-columns: 1fr 3fr 1fr;
+    /* grid-template-columns: repeat(3, 1fr); */
+    /* 위에거랑 둘이 똑같음. */
+
+    /* grid-template-columns: 200px 1fr; */
+    /* 고정값 주기 */
+
+    /* grid-auto-rows: 200px; */
+    /* height 값 200px */
+
+    /* grid-auto-rows: minmax(10em, auto); */
+    /* height 값 최소 200px이고 컨텐츠의 양만큼 늘어남 */
+
+    /* justify-items: end; */
+    /* justify-content와 비슷한 느낌 */
+
+    /* align-items: center;  */
+    grid-template-rows: 1fr 9fr;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.main-container .item{
+    background: #f5f4f0;
+}
+/* .main-container .item:nth-child(odd){
     background: var(--main-color);
+} */
+/* .main-container .item:nth-child(5){
+    justify-self: center;
+    align-self: center;
+} */
+/* 아이템 각각 정렬 */
+
+.main-container .item:nth-child(1){
+    grid-column: 1/4;
+    display: grid;
+    grid-template-rows: 3fr 1fr;
 }
 
-.side-button{
+/* .main-container .item:nth-child(1) .menu-select{
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+} */
+.main-container .item:nth-child(2) .slider_title_one{
+    width: 100%;
+    font-family: 'Black Han Sans', sans-serif;
+    text-align: center;
+    font-size: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: black;
+    font-weight: 300;
+}
+.main-container .item:nth-child(2){
+    /* grid-column: 1; */
+    grid-row: 2/4;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    /* background: #b329d9; */
+    align-items: center;
+    /* border-radius: 10px; */
+}
+
+.main-container .item:nth-child(3){
+    grid-row: 2/4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 2px solid black;  
+    
+}
+.main-container .item:nth-child(3) .menu-select{
+    display: flex;
+    border-bottom: 2px solid black;
+    width: 100%;
+    justify-content: space-around;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    
+}
+.main-container .item:nth-child(3) .menu-select .menu-select-item{
+    font-family: 'Black Han Sans', sans-serif;
+    padding: 0.3vh;
+    font-size: 20px;
+    cursor: pointer;
+    transition: .3s;
+    
+}
+.main-container .item:nth-child(3) .menu-select .menu-select-item .go-to-main{
+    text-decoration: none;
+}
+.main-container .item:nth-child(3) .menu-select .menu-select-item:hover{
+    transform: scale(1.1);
+}
+.main-container .item:nth-child(3) h1{
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 50px;
+}
+.main-container .item:nth-child(3) .main-header{
+    margin-top: 20px;
+    
+}
+.main-container .item:nth-child(4){
+    /* grid-column: 3; */
+    grid-row: 2/4;
+    border: 2px solid black;
+    /* border-radius: 10px; */
+}
+.main-container .item:nth-child(2) .container .card-wrapper{
+    text-align: center;
+    line-height: 30px;
+    height: 30px;
+    color: black;
+    /* font-family: 'Black Han Sans', sans-serif; */
+    font-size: 15px;
+}
+.main-container .item:nth-child(2) .container{
+    width: 80%;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+}
+.main-container .item:nth-child(2) .slider_title_two{
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: black;
+    margin-top: 3vh;
+    font-weight: 300;
+    font-family: 'Black Han Sans', sans-serif;
+}
+/* .side-button{
     position: fixed;
     bottom: 5vh;
     right: 1vw;
@@ -42,10 +182,11 @@
     overflow: hidden;
     font-family: 'Oswald', sans-serif;
     position: relative;
-    border: 1px solid indigo;
-    margin-top: 160px;
+    border: 1px solid black;
+    margin-top: 10vh;
     width: 90%;
     height: 100%;
+    background: white;
 }
 .sub-container-one .slick-arrow{
     transition: 0.4s;
@@ -60,103 +201,23 @@
     text-align: center;
     margin-bottom: 50px;
 }
-.container.mt-5.carousel{
-    height: 100%;
-}
 .card-wrapper{
-    position: relative;
-    width: 100%;
-    padding: 0 10px;
-    margin-bottom: 30px;
-}
-.card-wrapper:active{
-    outline: none;
-    border: none;
-}
-.card-wrapper:hover{
-    outline: none;
-    border: none;
-}
-.card-wrapper:focus{
-    outline: none;
-    border: none;
-}
-.card{
-    width: 100%;
-    cursor: pointer;
-    position: relative;
-}
-.card-title{
-    font-size: 25px;
-    color: black;
-    text-align: center;
-    /* font-family: 'Noto Sans KR', sans-serif; */
-    font-family: 'Do Hyeon', sans-serif;
-    font-weight: 200;
-}
-.card-image img{
-    border-radius: 16px;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-.card-image{
-    transition: 0.3s;
-}
-.card-image:hover{
-    opacity: 0.8;
-}
-
-.slider_title_two{
-    font-size: 70px;
-    text-align: center;
-    margin-bottom: 50px;
-    margin-top: 20vh;
-    color: #ffbf47;
-    text-transform: uppercase;
-    font-family: 'Oswald', sans-serif;
-}
-/* sub-container-two */
-/* .sub-container-two{
-    margin-top: 140px;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    font-family: 'Do Hyeon', sans-serif;
-    flex-direction: column;
-    background: var(--sub-color-seven);
-    padding-top: 70px;
-}
-.slider_title_two{
-    font-size: 70px;
-    text-align: center;
-    margin-bottom: 50px;
-    color: #ffbf47;
-    text-transform: uppercase;
-    font-family: 'Oswald', sans-serif;
-}
-.sub-container-two .card-image{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     text-align: center;
 }
-.sub-container-two img{
-    
+.card-wrapper img{
+    width: 100%;
 } */
 
 
 /* sub-container-three */
-.sub-container-three{
+/* .sub-container-three{
     margin-top: 160px;
     width: 100%;
     position: relative;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    font-family: 'Do Hyeon', sans-serif;
+    font-family: 'Black Han Sans', sans-serif;
     align-items: center;
 }
 .slider_title_three{
@@ -184,4 +245,4 @@
     width: 70vw;
     margin-right: auto;
     margin-left: auto;
-}
+} */

@@ -14,6 +14,7 @@ import Case from '../components/Case';
 import { useDispatch } from 'react-redux';
 import { openModal } from '../actions/index';
 import { useHistory } from "react-router";
+import { Link } from 'react-router-dom';
 
 const Xfile = ({ isLogin, userId }) => {
     // const [title, setTitle] = useState('선거 조작 사건');
@@ -24,39 +25,44 @@ const Xfile = ({ isLogin, userId }) => {
     const date = '2021-03-21';
     const dispatch = useDispatch();
     const history = useHistory();
+    const [magazines, setMagazines] = useState([])
 
     useEffect(() => {
         AOS.init({
             duration: 2000,
         });
     }, [])
+    useEffect(() => {
+        fetch('http://localhost:5000/magazines')
+        .then(res => res.json())
+        .then(json => {
+            if (json.magazines.length !== 0) {
+                setMagazines(json.magazines)
+            }
+        })
+    }, [])
 
     const settingsOne = {
         dots: false,
         infinite: true,
-        speed: 800,
-        slidesToShow: 4,
+        slidesToShow: 3,
         slidesToScroll: 1,
-        cssEase: 'linear',
+        vertical: true,
+        verticalSwiping: true,
+        beforeChange: function(currentSlide, nextSlide) {
+            console.log("before change", currentSlide, nextSlide);
+        },
+        afterChange: function(currentSlide) {
+            console.log("after change", currentSlide);
+        },
         autoplay: true,
-        autoplaySpeed: 4000,
-    };
-
-    const settingsTwo = {
-        dots: false,
-        infinite: true,
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        speed: 800,
-        cssEase: 'linear',
-        autoplay: true,
-        autoplaySpeed: 4000,
+        autoplaySpeed: 4000
     };
 
     const onClick = () => {
         if(isLogin){
             history.push({
-                pathname: "/write" 
+                pathname: '/write' 
             });
         } else{
             alert('로그인을 해주시기 바랍니다.');
@@ -65,114 +71,90 @@ const Xfile = ({ isLogin, userId }) => {
     }
     return (
         <div className='main-container'>
-            <div className='side-button' onClick={onClick}>
-                <BsPencilSquare className='icon' color='#12222d'/>
+            <div className='item'>
+                {/* <div className='menu-header'></div> */}
+            
             </div>
-            <section className='sub-container-one'>
-                <h1 className='slider_title_one' data-aos='zoom-out-up' data-aos-once="true">Weekly Hot Issues <FaPepperHot color='tomato' size={56}/></h1>
+
+            <div className='item'>
+                <div className='slider_title_one'>주간 핫이슈 <FaPepperHot color='tomato' size={20}/></div>
                 <div className='container mt-5 carousel'>
                     <Slider {...settingsOne}>
                         <div className='card-wrapper'>
-                            <div className='card'>
-                                <div className='card-image'>
-                                    {/* <img src='https://images.unsplash.com/photo-1554151228-14d9def656e4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cGVyc29ufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=50&h=50&q=60' alt='img'/> */}
-                                    <div className='card-title'>LH 투기 의혹 사건</div>
-                                </div>
-                            </div>
+                            LH 투기 의혹 사건1
                         </div>
 
                         <div className='card-wrapper'>
-                            <div className='card'>
-                                <div className='card-image'>
-                                    {/* <img src='https://images.unsplash.com/photo-1552058544-f2b08422138a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8cGVyc29ufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=50&h=50&q=60' alt='img'/> */}
-                                </div>
-                                <div className='card-title'>선거 조작 사건</div>
-                            </div>
+                            LH 투기 의혹 사건2
+                        </div>
+                        
+                        <div className='card-wrapper'>
+                            LH 투기 의혹 사건3
                         </div>
 
                         <div className='card-wrapper'>
-                            <div className='card'>
-                                <div className='card-image'>
-                                    {/* <img src='https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHBlcnNvbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=50&h=50&q=60' alt='img'/> */}
-                                </div>
-                                <div className='card-title'>LH 투기 의혹 사건</div>
-                            </div>
+                            LH 투기 의혹 사건4
                         </div>
 
                         <div className='card-wrapper'>
-                            <div className='card'>
-                                <div className='card-image'>
-                                    {/* <img src='https://images.unsplash.com/photo-1491349174775-aaafddd81942?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8cGVyc29ufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=50&h=50&q=60' alt='img'/> */}
-                                </div>
-                                <div className='card-title'>LH 투기 의혹 사건</div>
-                            </div>
+                            LH 투기 의혹 사건5
                         </div>
-
-                        <div className='card-wrapper'>
-                            <div className='card'>
-                                <div className='card-image'>
-                                    {/* <img src='https://images.unsplash.com/photo-1596215143922-eedeaba0d91c?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzB8fHBlcnNvbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=50&h=50&q=60' alt='img'/> */}
-                                </div>
-                                <div className='card-title'>LH 투기 의혹 사건</div>
-                            </div>
-                        </div>
+            
                     </Slider>
                 </div>
 
-                {/* <h1 className='slider_title_two' data-aos='zoom-out-up' data-aos-once="true" data-aos-duration="2000">The Latest Issues <MdFiberNew color='#F22613' size={56}/></h1>
+                <div className='slider_title_two'>새로운 이슈 <MdFiberNew color='tomato' size={20}/></div>
                 <div className='container mt-5 carousel'>
-                    <Slider {...settingsTwo}>
+                    <Slider {...settingsOne}>
                         <div className='card-wrapper'>
-                            <div className='card'>
-                                <div className='card-image'>
-                                    <img src='https://images.unsplash.com/photo-1554151228-14d9def656e4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cGVyc29ufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=300&q=60' alt='img'/>
-                                    <div className='card-title'>LH 투기 의혹 사건</div>
-                                </div>
-                            </div>
+                            LH 투기 의혹 사건1
                         </div>
 
                         <div className='card-wrapper'>
-                            <div className='card'>
-                                <div className='card-image'>
-                                    <img src='https://images.unsplash.com/photo-1552058544-f2b08422138a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8cGVyc29ufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=300&q=60' alt='img'/>
-                                </div>
-                                <div className='card-title'>선거 조작 사건</div>
-                            </div>
+                            LH 투기 의혹 사건2
+                        </div>
+                        
+                        <div className='card-wrapper'>
+                            LH 투기 의혹 사건3
                         </div>
 
                         <div className='card-wrapper'>
-                            <div className='card'>
-                                <div className='card-image'>
-                                    <img src='https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHBlcnNvbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=300&q=60' alt='img'/>
-                                </div>
-                                <div className='card-title'>LH 투기 의혹 사건</div>
-                            </div>
+                            LH 투기 의혹 사건4
                         </div>
 
                         <div className='card-wrapper'>
-                            <div className='card'>
-                                <div className='card-image'>
-                                    <img src='https://images.unsplash.com/photo-1491349174775-aaafddd81942?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8cGVyc29ufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=300&q=60' alt='img'/>
-                                </div>
-                                <div className='card-title'>LH 투기 의혹 사건</div>
-                            </div>
+                            LH 투기 의혹 사건5
                         </div>
-
-                        <div className='card-wrapper'>
-                            <div className='card'>
-                                <div className='card-image'>
-                                    <img src='https://images.unsplash.com/photo-1596215143922-eedeaba0d91c?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzB8fHBlcnNvbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=300&q=60' alt='img'/>
-                                </div>
-                                <div className='card-title'>LH 투기 의혹 사건</div>
-                            </div>
-                        </div>
+            
                     </Slider>
-                </div> */}
-            </section>
+                </div>
 
+            </div>
 
-            <section className='sub-container-three'>
-                <h1 className='slider_title_three' data-aos='zoom-out-up' data-aos-once="true" data-aos-duration="2000">사건 집중 조명 <GiMagnifyingGlass size={53}/></h1>
+            <div className='item'>
+                <div className='menu-select'>
+                    <div className='menu-select-item'>
+                        <Link to={'/'} className='go-to-main'>
+                            메인                  
+                        </Link>
+                    </div>
+                    <div className='menu-select-item' onClick={onClick}>글쓰기</div>
+                    <div className='menu-select-item' onClick={onClick}>뉴스보기</div>
+                    <div className='menu-select-item' onClick={onClick}>의견남기기</div>
+                </div>
+                <div className='main-header'>
+                    <h1 className='slider_title_three'>사건 집중 조명 <GiMagnifyingGlass size={40}/></h1>
+                </div>
+                
+                
+            </div>
+
+            <div className='item'>
+                
+            </div>
+
+            {/* <section className='sub-container-three'>
+                <h1 className='slider_title_three'>사건 집중 조명 <GiMagnifyingGlass size={53}/></h1>
                 <div className='case-contanier'>
                     <table border = '1'>
                     <tr>
@@ -195,7 +177,7 @@ const Xfile = ({ isLogin, userId }) => {
                         <Case name={name} number={number} title={title} date={date} />
                     </table>
                 </div>
-            </section>
+            </section> */}
         </div>
     );
 };
