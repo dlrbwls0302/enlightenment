@@ -25,7 +25,28 @@ const Xfile = ({ isLogin, userId }) => {
     const date = '2021-03-21';
     const dispatch = useDispatch();
     const history = useHistory();
-    const [magazines, setMagazines] = useState([])
+    const [magazines, setMagazines] = useState([]);
+
+    function SamplePrevArrow(props) {
+        const { className, style, onClick } = props;
+        return (
+          <div
+            className={className}
+            style={{ ...style, display: "block", background: "black" }}
+            onClick={onClick}
+          />
+        );
+    }
+    function SampleNextArrow(props) {
+        const { className, style, onClick } = props;
+        return (
+          <div
+            className={className}
+            style={{ ...style, display: "block", background: "black" }}
+            onClick={onClick}
+          />
+        );
+    }
 
     useEffect(() => {
         AOS.init({
@@ -56,7 +77,9 @@ const Xfile = ({ isLogin, userId }) => {
             console.log("after change", currentSlide);
         },
         autoplay: true,
-        autoplaySpeed: 4000
+        autoplaySpeed: 4000,
+        nextArrow: <SampleNextArrow />,
+        prevArrow: <SamplePrevArrow />
     };
 
     const onClick = () => {
@@ -72,66 +95,7 @@ const Xfile = ({ isLogin, userId }) => {
     return (
         <div className='main-container'>
             <div className='item'>
-                {/* <div className='menu-header'></div> */}
-            
-            </div>
-
-            <div className='item'>
-                <div className='slider_title_one'>주간 핫이슈 <FaPepperHot color='tomato' size={20}/></div>
-                <div className='container mt-5 carousel'>
-                    <Slider {...settingsOne}>
-                        <div className='card-wrapper'>
-                            LH 투기 의혹 사건1
-                        </div>
-
-                        <div className='card-wrapper'>
-                            LH 투기 의혹 사건2
-                        </div>
-                        
-                        <div className='card-wrapper'>
-                            LH 투기 의혹 사건3
-                        </div>
-
-                        <div className='card-wrapper'>
-                            LH 투기 의혹 사건4
-                        </div>
-
-                        <div className='card-wrapper'>
-                            LH 투기 의혹 사건5
-                        </div>
-            
-                    </Slider>
-                </div>
-
-                <div className='slider_title_two'>새로운 이슈 <MdFiberNew color='tomato' size={20}/></div>
-                <div className='container mt-5 carousel'>
-                    <Slider {...settingsOne}>
-                        <div className='card-wrapper'>
-                            LH 투기 의혹 사건1
-                        </div>
-
-                        <div className='card-wrapper'>
-                            LH 투기 의혹 사건2
-                        </div>
-                        
-                        <div className='card-wrapper'>
-                            LH 투기 의혹 사건3
-                        </div>
-
-                        <div className='card-wrapper'>
-                            LH 투기 의혹 사건4
-                        </div>
-
-                        <div className='card-wrapper'>
-                            LH 투기 의혹 사건5
-                        </div>
-            
-                    </Slider>
-                </div>
-
-            </div>
-
-            <div className='item'>
+                <div className='menu-header'></div>
                 <div className='menu-select'>
                     <div className='menu-select-item'>
                         <Link to={'/'} className='go-to-main'>
@@ -139,11 +103,147 @@ const Xfile = ({ isLogin, userId }) => {
                         </Link>
                     </div>
                     <div className='menu-select-item' onClick={onClick}>글쓰기</div>
+                    <div className='menu-select-item' onClick={onClick}>SNS</div>
                     <div className='menu-select-item' onClick={onClick}>뉴스보기</div>
                     <div className='menu-select-item' onClick={onClick}>의견남기기</div>
                 </div>
+                
+            </div>
+
+            <div className='item'>
+                <div className='slider_title_one'>주간 핫이슈</div>
+                <div className='container mt-5 carousel'>
+                    <Slider {...settingsOne}>
+                        <div className='card-wrapper'>
+                            LH 투기 의혹 사건1
+                        </div>
+
+                        <div className='card-wrapper'>
+                            LH 투기 의혹 사건2
+                        </div>
+                        
+                        <div className='card-wrapper'>
+                            LH 투기 의혹 사건3
+                        </div>
+
+                        <div className='card-wrapper'>
+                            LH 투기 의혹 사건4
+                        </div>
+
+                        <div className='card-wrapper'>
+                            LH 투기 의혹 사건5
+                        </div>
+            
+                    </Slider>
+                </div>
+
+                <div className='slider_title_two'>새로운 이슈</div>
+                <div className='container mt-5 carousel'>
+                    <Slider {...settingsOne}>
+                        <div className='card-wrapper'>
+                            LH 투기 의혹 사건1
+                        </div>
+
+                        <div className='card-wrapper'>
+                            LH 투기 의혹 사건2
+                        </div>
+                        
+                        <div className='card-wrapper'>
+                            LH 투기 의혹 사건3
+                        </div>
+
+                        <div className='card-wrapper'>
+                            LH 투기 의혹 사건4
+                        </div>
+
+                        <div className='card-wrapper'>
+                            LH 투기 의혹 사건5
+                        </div>
+            
+                    </Slider>
+                </div>
+
+            </div>
+
+            <div className='item'>
                 <div className='main-header'>
                     <h1 className='slider_title_three'>사건 집중 조명 <GiMagnifyingGlass size={40}/></h1>
+                    <div className='board_list_wrap'>
+                        <table className='board_list'>
+                            <caption>게시판 목록</caption>
+                            <thead>
+                                <tr>
+                                    <th>번호</th>
+                                    <th>제목</th>
+                                    <th>글쓴이</th>
+                                    <th>작성일</th>
+                                    <th>조회수</th>
+                                </tr>  
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>5</td>
+                                    <td>
+                                        <a href='#'>
+                                            안녕하세요
+                                        </a>
+                                    </td>
+                                    <td>관리자</td>
+                                    <td>2021-4-19</td>
+                                    <td>21</td>
+                                </tr>     
+
+                                 <tr>
+                                    <td>4</td>
+                                    <td>
+                                        <a href='#'>
+                                            안녕하세요
+                                        </a>
+                                    </td>
+                                    <td>관리자</td>
+                                    <td>2021-4-19</td>
+                                    <td>21</td>
+                                </tr>     
+
+                                 <tr>
+                                    <td>3</td>
+                                    <td>
+                                        <a href='#'>
+                                            안녕하세요
+                                        </a>
+                                    </td>
+                                    <td>관리자</td>
+                                    <td>2021-4-19</td>
+                                    <td>32</td>
+                                </tr>     
+
+                                 <tr>
+                                    <td>2</td>
+                                    <td>
+                                        <a href='#'>
+                                            안녕하세요
+                                        </a>
+                                    </td>
+                                    <td>관리자</td>
+                                    <td>2021-4-19</td>
+                                    <td>41</td>
+                                </tr>     
+
+                                 <tr>
+                                    <td>1</td>
+                                    <td>
+                                        <a href='#'>
+                                            안녕하세요
+                                        </a>
+                                    </td>
+                                    <td>관리자</td>
+                                    <td>2021-4-19</td>
+                                    <td>2</td>
+                                </tr>        
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 
                 
