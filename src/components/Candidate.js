@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import data from '../CandidateInfo.json'
 
 import "../styles/Candidate.css"
+import PromiseModal from '../modals/PromiseModal'
 
 const Candidate = ({candidate}) => {
     const { jdName, name } = candidate
@@ -10,7 +11,8 @@ const Candidate = ({candidate}) => {
         img : '',
         promise : ''
     })
-    
+    const [showModal, setShowModal] = useState(false)
+
     useEffect(() => {
         const hudo = data.data.filter((candidate, index) => {
             return candidate.name === name
@@ -26,11 +28,20 @@ const Candidate = ({candidate}) => {
 
     }, [])
 
+    const openModal = () => {
+        setShowModal(prev => !prev)
+    }
+
     return (
         
         <>
             {currentCandidate.name === '' ? "" :
-            <img className="candidate_img" src={currentCandidate.img} alt={currentCandidate.name}/>}
+            <>
+              <img className="candidate_img" src={currentCandidate.img} alt={currentCandidate.name} onClick={openModal}/>
+              <PromiseModal
+                showModal={showModal} setShowModal={openModal} />
+            </>
+            }
         </>
     
     );

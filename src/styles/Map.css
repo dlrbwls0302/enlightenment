@@ -8,91 +8,72 @@
     --sub-color-five: #fef4eb;
     --sub-color-six: #12222d;
 }
+
+@media ( min-width: 768px ) {
+
 .map-page-desktop {
+    display: flex;
+    flex-direction: row;
     width: 100%;
     height: 100vh;
-    background: white;
+    background: var(--main-color);
     overflow-x: hidden;
 }
 .heading{
     font-family: 'Black Han Sans', sans-serif;
-    font-size: 40px;
+    font-size: 23px;
     letter-spacing: -1px;
-    color: var(--sub-color-one);
+    color: #333;
+    margin-bottom: 40px;
 }
 .map-condition-desktop.handle {
     display: flex;
     flex-direction: column;
-    position: absolute;
-    z-index: 100;
-    left: 90px;
-    top: 130px;
+    /* position: absolute; */
+    /* left: 90px;
+    top: 130px; */
+    /* margin-top: 30px; */
     background: var(--main-color);
     justify-content: center;
     align-items: center;
-    padding: 15px 40px 25px 40px;
-    border: 4px solid #00498c;
-    border-radius: 10px;
+    padding: 15px 40px 15px 40px;
+    /* border: 1px  #333; */
+    border-radius: 5px;
     cursor: grab;
 }
 
-.map-condition-desktop.handle.active{
-    cursor: grabbing;
-}
-
-/* .election-wrapper-desktop {
-    
-} */
-.election-wrapper-desktop select {
+select {
     padding: 10px 10px;
-    width: 210px;
-    margin-bottom: 10px;
-}
-/* .sdName-wrapper-desktop {
-    
-} */
-.sdName-wrapper-desktop select{
-    padding: 10px 10px;
-    width: 210px;
+    width: 220px;
     margin-bottom: 10px;
 }
 
-.wiwName-wrapper-desktop select{
-    padding: 10px 10px;
-    width: 210px;
-    margin-bottom: 10px;
+p {
+    color: #666;
+    margin-top: 35px;
+    margin-bottom: 5px;
 }
 
-.button-wrapper-desktop a{
+.button-wrapper-desktop a {
+    margin-top: 35px;
     text-decoration: none;
-    padding: 10px 20px;
-    color: #00aeff;
+    padding: 10px 23px;
+    color: #333;
     font-size: 18px;
     letter-spacing: 3px;
-    border: 1px solid #00aeff;
+    border: 1px solid #555;
     position: relative;
     display: inline-block;
     overflow: hidden;
     transition: all .5s;
-    z-index: 1000;
-    border-radius: 10px;
+    /* z-index: 1000; */
+    border-radius: 3px;
     background: white;
 }
 .button-wrapper-desktop a:hover{
     color: var(--main-color);
-}
-.button-wrapper-desktop a:hover .wave{
-    top: 0;
-}
-.button-wrapper-desktop a .wave{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: calc(100% + 22px);
-    background: #00aeff;
-    transition: all 1s;
-    z-index: -1;
+    background: #555;
+    transition: all 0.4s;
 }
 
 .button-wrapper-desktop a .wave:before{
@@ -102,28 +83,167 @@
     left: 0;
     width: 100%;
     height: 22px;
-    background-image: url('../images/wave.png'); 
-    animation: wavy 0.5s linear infinite;
+    /* background-image: url('../images/wave.png');  */
+    animation: wavy 0.2s linear infinite;
 }
+
 @keyframes wavy{
     0%{ background-position-x: 0 }
     100% { background-position-x: 118px }
 }
 
 .map-box-desktop {
-    position: absolute;
-    top: 0;
-    left: 0;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    margin-top: 110px;
     width: 100%;
-    height: 100vh;
-    z-index: 5;
-    padding: 90px 50px 50px 50px;
+    height: 100%;
+    z-index: 0;
+    /* padding: 90px 50px 50px 50px; */
     
     /* background-color: var(--sub-color-two); */
 }
 
 #mapContainer {
-    border-radius: 10px;
+    /* border-radius: 10px; */
+    border-radius: 7px;
     width: 100%;
     height: 100%;
+}
+
+}
+
+@media ( max-width: 780px ) {
+    .map-page-desktop {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        background: var(--main-color);
+        overflow-x: hidden;
+    }
+    
+    .map-condition-desktop.handle {
+        width: 100%;
+        margin-top: 100px;
+        display: flex;
+        flex-direction: column;
+        /* position: absolute; */
+        /* left: 90px;
+        top: 130px; */
+        /* margin-top: 30px; */
+        background: var(--main-color);
+        justify-content: center;
+        align-items: center;
+        /* padding: 15px 40px 15px 40px; */
+        /* border: 1px  #333; */
+        border-radius: 5px;
+        cursor: grab;
+    }
+
+    .heading {
+        width: 100%;
+        text-align: center;
+        font-family: 'Black Han Sans', sans-serif;
+        font-size: 23px;
+        letter-spacing: -1px;
+        color: #333;
+        margin-bottom: 7px;
+    }
+
+    .election-wrapper-desktop {
+        width: 80%;
+    }
+
+    .sdName-wrapper-desktop {
+        width: 80%;
+    }
+
+    .wiwName-wrapper-desktop {
+        width: 80%;
+    }
+
+    .button-wrapper-desktop {
+        width: 80%;
+    }
+    
+    select {
+        padding: 5px 7px;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    p {
+        display: none;
+    }
+
+    .button-wrapper-desktop a {
+        text-align: center;
+        width: 100%;
+        margin-top: 2px;
+        text-decoration: none;
+        padding: 8px 25px;
+        color: #333;
+        font-size: 16px;
+        letter-spacing: 2px;
+        border: 1px solid #555;
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        transition: all .5s;
+        /* z-index: 1000; */
+        border-radius: 3px;
+        background: white;
+    }
+
+    .button-wrapper-desktop a:hover{
+        color: var(--main-color);
+        background: #555;
+        transition: all 0.4s;
+    }
+    .button-wrapper-desktop a:hover .wave{
+        top: 0;
+    }
+    .button-wrapper-desktop a .wave{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: calc(100% + 22px);
+        background: #555;
+        transition: all 0.1s;
+        z-index: -1;
+    }
+    
+    .button-wrapper-desktop a .wave:before{
+        content: '';
+        position: absolute;
+        top: -22px;
+        left: 0;
+        width: 100%;
+        height: 22px;
+        /* background-image: url('../images/wave.png');  */
+        animation: wavy 0.2s linear infinite;
+    }
+    @keyframes wavy{
+        0%{ background-position-x: 0 }
+        100% { background-position-x: 118px }
+    }
+
+    .map-box-desktop {
+        margin-right: 10px;
+        margin-top: 20px;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        /* padding: 90px 50px 50px 50px; */
+        
+        /* background-color: var(--sub-color-two); */
+    }
+    
+    #mapContainer {
+        border-radius: 7px;
+        width: 100%;
+        height: 100%;
+    }
 }

@@ -18,7 +18,9 @@
 html{
     scroll-behavior: smooth;
 }
-
+element{
+    overflow: visible;
+}
 /* 기존 모델 */
 /* .banner{
     background: var(--sub-color-five);
@@ -123,7 +125,7 @@ html{
 }
 .text h3{
     font-size: 4em;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1em; 
     color: var(--main-color);
 }
@@ -131,10 +133,10 @@ html{
     font-size: 1.1em;
     margin: 20px 0;
     font-weight: 400;
-    max-width: 280px;
+    max-width: 300px;
     color: var(--main-color);
 }
-.text a{
+.text .link-to-xfile{
     display: inline-block;
     font-size: 1em;
     background: var(--main-color);
@@ -156,7 +158,16 @@ html{
         font-size: 3em;
     }
 } 
-
+@media(max-width: 590px){
+    .text{
+        margin-left: 0px;
+    }
+}
+@media(max-width: 510px){
+    .text{
+        margin-left: -35px;
+    }
+}
 @media(max-width: 493px){
     .text h2{
         font-size: 3em;
@@ -171,7 +182,6 @@ html{
     z-index: 300;
     bottom: 20px;
     right: 250px;
-    /* cursor: pointer; */
     transition: 0.3s;
     animation: animatedArrow 3s infinite;
     text-align: center;
@@ -179,12 +189,6 @@ html{
 }
 .arrow .arrowText{
     color: #f5b72a;
-}
-.banner .arrow .arrowOne{
-    transition: 0.3s;
-}
-.banner .arrow .arrowOne:hover{
-    transform:scale(1.5);
 }
 @keyframes animatedArrow{
     0%{transform:translateY(10px);}
@@ -200,9 +204,20 @@ html{
     width: 100%;
     height: 100vh;
     display: flex;
-    overflow-x: hidden;
-    
 }
+/* .about-background{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-image: url('../images/about5.jpg'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    z-index: 0;
+    opacity: 0.1;
+} */
 .about .contentBx{
     width: 50%;
     padding: 90px;
@@ -215,7 +230,7 @@ html{
     margin-bottom: 1.5rem;
     text-align: center;
     font-family: 'Do Hyeon', sans-serif;
-    
+    z-index: 1;
     /* 기존 모델 */
     /* color: var(--main-color); */
     color: black;
@@ -229,18 +244,13 @@ html{
     /* color: var(--main-color); */
     color: black;
     font-size: 29px;
-    font-weight: 100;
+    font-weight: 300;
     letter-spacing: 1px;
     text-align: center;
     max-width: 540px;
 }
 
 .about .aboutImg{
-    /* background-image: url('../images/place.jpg'); 
-    position: relative;
-    width: 50%;
-    background-size: cover;
-    background-position: center; */
     background-image: url('../images/news.png'); 
     position: relative;
     width: 45%;
@@ -248,6 +258,7 @@ html{
     background-repeat: no-repeat;
     background-position: center;
 }
+
 .about .arrow{
     position: absolute;
     z-index: 150;
@@ -268,11 +279,9 @@ html{
     .about{
         display: flex;
         flex-direction: column;
-        /* overflow: visible; */
         align-items: center;
     }
     .about .contentBx{
-        /* flex: 1 0.6 auto; */
         padding: 0;
         width: 100%;
         height: 40%;
@@ -283,6 +292,7 @@ html{
     }
     .about .contentBx .text{
         font-size: 18px;
+        width: 90%;
     }
     .about .aboutImg{
         width: 90%;
@@ -295,7 +305,6 @@ html{
     }
     .about .contentBx .text{
         font-size: 16px;
-        max-width: 500px;
     }
     .about .aboutImg{
         width: 90%;
@@ -317,6 +326,19 @@ html{
     display: flex;
     flex-direction: column;
 }
+/* .map-background{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-image: url('../images/map1.jpg'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    z-index: 0;
+    opacity: 0.1;
+} */
 .map .mapHeading{
     position: relative;
     font-family: 'Do Hyeon', sans-serif;
@@ -331,6 +353,7 @@ html{
     font-weight: 100;
     letter-spacing: 1px;
     text-align: center;
+    color: black;
 }
 .map .container{
     width: 100%;
@@ -343,7 +366,7 @@ html{
 .map .container .mapBx img{
     position: relative;
     width: 350px;
-    height: 400px;
+    height: 350px;
     object-fit: cover;
 }
 .map .container .mapBx:nth-child(1){
@@ -424,14 +447,28 @@ html{
     width: 100%;
     height: 100vh;
     display: flex;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
+/* .news-background{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-image: url('../images/news1.jpg'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    z-index: 0;
+    opacity: 0.1;
+} */
 .news .newsBx{
     width: 50%;
     padding: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 1;
 }
 .news .newsImgBx{
     background-image: url('../images/news.png'); 
@@ -555,6 +592,19 @@ html{
     display: flex;
     flex-direction: column;
 }
+/* .opinion-background{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-image: url('../images/opinion5.jpg'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    z-index: 0;
+    opacity: 0.1;
+} */
 .opinion .opinionHeading{
     position: relative;
     color: black;
@@ -570,10 +620,10 @@ html{
     letter-spacing: 1px;
     text-align: center;
     color: black;
-
     margin-left: auto;
     margin-right: auto;
     max-width: 750px;
+
 }
 .opinion .opinionContainer{
     display: flex;
@@ -614,11 +664,11 @@ html{
     font-family: 'Black Han Sans', sans-serif;
     position: absolute;
     top: 120px;
-    right: 30px;
+    right: 90px;
     text-decoration: none;
-    background: white;
+    background: #fff;
     padding: 10px 30px;
-    border: 2px solid black;
+    border: 1px solid black;
     color: black;
     transition: 0.2s;
 }
@@ -648,7 +698,7 @@ html{
         width: 500px;
     }
 }
-@media(max-width: 950px){
+@media(max-width: 1050px){
     .opinion .opinionHeading{
         margin-top: 9rem;
     }
@@ -666,6 +716,9 @@ html{
     .opinion .opinionContainer{
         flex-direction: column;
     }
+    .opinion .opinionContainer .opinionContentBx h3{
+        font-size: 1.5rem;
+    }
 }
 @media(max-width: 800px){
     .opinion .opinionContainer{
@@ -675,21 +728,23 @@ html{
         padding: 25px 20px 20px 20px;
         margin: 20px;
     }
+    .opinion .opinionContainer .opinionContentBx h3{
+        font-size: 1.4rem;
+    }
 }
 @media(max-width: 750px){
     .opinion .opinionContainer .opinionContentBx{
-        padding: 20px 20px 20px 20px;
+        padding: 20px;
         margin: 15px;
     }
-}
-@media(max-width: 650px){
-    .opinion .opinionContainer .opinionContentBx{
-        padding: 2px;
-        margin: 10px;
+    .opinion .opinionContainer .opinionContentBx h3{
+        font-size: 1.3rem;
     }
 }
 @media(max-width: 650px){
     .opinion .opinionContainer .opinionContentBx{
+        padding: 8px;
+        margin: 8px;
         width: 400px;
     }
 }
@@ -699,80 +754,3 @@ html{
     }
 }
 
-/* @media(max-width: 1202px){
-    .opinion .opinionHeading{
-        margin-top: 8rem;
-    }
-    .opinion .opinionContainer .opinionContentBx{
-        padding: 45px 35px;
-    }
-}
-@media(max-width: 860px){
-    .opinion .opinionHeading{
-        font-size: 40px;
-    }
-    .opinion .opinionText{
-        font-size: 18px;
-    }
-}
-@media(max-width: 800px){
-    .opinion .opinionHeading{
-        margin-top: 8rem;
-    }
-    .opinion .opinionContainer .opinionContentBx{
-        padding: 35px 35px;
-    }
-}
-@media(max-width: 718px){
-    .opinion .opinionHeading{
-        font-size: 35px;
-    }
-    .opinion .opinionText{
-        font-size: 16px;
-    }
-}
-@media(max-width: 621px){
-    .opinion .opinionHeading{
-        font-size: 30px;
-    }
-    .opinion .opinionText{
-        font-size: 14px;
-    }
-}
-@media(max-width: 621px){
-    .opinion{
-        padding: 90px;
-    }
-}
-@media(max-width: 516px){
-    .opinion .opinionHeading{
-        margin-top: 10rem;
-    }
-    .opinion{
-        padding: 80px;
-    }
-    .opinion .opinionContainer .opinionContentBx{
-        padding: 30px 35px;
-    }
-}
-@media(max-width: 501px){
-    .opinion .opinionContainer .opinionContentBx{
-        padding: 25px 35px;
-    }
-}
-@media(max-width: 491px){
-    .opinion .opinionContainer .opinionContentBx p{
-        font-size: 1.3rem;
-    }
-    .opinion .opinionContainer .opinionContentBx h3{
-        font-size: 2rem;
-    }
-}
-@media(max-width: 467px){
-    .opinion .opinionContainer .opinionContentBx p{
-        font-size: 1.1rem;
-    }
-    .opinion .opinionContainer .opinionContentBx h3{
-        font-size: 1.8rem;
-    }
-} */

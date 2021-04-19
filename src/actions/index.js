@@ -3,6 +3,10 @@ export const SET_ARTICLES = 'SET_ARTICLES';
 export const CHANGE_QUERY = 'CHANGE_QUERY';
 export const LOAD_ELECTIONS = 'LOAD_ELECTIONS';
 export const CHANGE_MODAL = 'CHANGE_MODAL';
+export const CLOSE_MODAL = 'CLOSE_MODAL';
+export const SET_TOGGLE = 'SET_TOGGLE';
+export const OPEN_MODAL = 'OPEN_MODAL';
+
 
 export const changeLoading = () => {
     return{
@@ -46,3 +50,25 @@ export const changeModal = () => {
         payload: {}
     }
 }
+
+export const closeModal = () => {
+    return {
+        type: CLOSE_MODAL,
+        payload: {}
+    }
+}
+
+export const openModal = () => {
+    return {
+        type: OPEN_MODAL,
+        payload: {}
+    }
+}
+
+export const setToggle = () => {
+    return {
+        type: SET_TOGGLE,
+        payload: {}
+    }
+}
+

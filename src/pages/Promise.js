@@ -69,8 +69,9 @@ const Promise = () => {
 
     return (
         <div className="promise-container">
-                    <select className="electionList" onClick={handelElection} value="asf">
-                     <option value="" selected disabled hidden >선택해주세요.</option>
+            <div className="select_box">
+                    <select className="promise_select electionList" onClick={handelElection} value="asf">
+                     <option className="promise-select-option" value="" selected disabled hidden >선택해주세요.</option>
                         {state.elections.map((election, index) => {
                             if (election.sgId === '20210407') {
                                 return <option 
@@ -84,8 +85,8 @@ const Promise = () => {
                             >{election.sgName}</option>
                         })}
                     </select>
-                    <select onChange={handleDownElection}>
-                            <option value="" selected disabled hidden>하위 선거 선택</option>
+                    <select className="promise_select" onChange={handleDownElection}>
+                            <option className="promise-select-option" value="" selected disabled hidden>하위 선거 선택</option>
                         {downElections.map((election, index) => {
                             if (election.sgTypecode === '3') {
                                 return <option
@@ -103,7 +104,7 @@ const Promise = () => {
                             </option>
                         })}
                     </select>
-                    <select onClick={handleCandidateLocation}>
+                    <select className="promise_select" onClick={handleCandidateLocation}>
                       <option value="">선거 장소</option>
                         {electionPlace.map((place, index) => {
                             return <option
@@ -114,6 +115,7 @@ const Promise = () => {
                       </option>
                         })}
                     </select>
+                    </div>
                     <div className="candidate_listBox">
                         {
                         candidates.map((candidate, index) => {
