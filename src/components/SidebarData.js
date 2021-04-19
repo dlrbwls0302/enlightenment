@@ -6,6 +6,11 @@ export const SidebarData = [
     className: 'nav-text',
   },
   {
+    title: '정치 X-파일',
+    path: '/xfile',
+    className: 'nav-text',
+  },
+  {
     title: '후보 공약보기',
     path: '/promise',
     className: 'nav-text',

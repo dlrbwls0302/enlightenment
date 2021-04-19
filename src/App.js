@@ -7,6 +7,8 @@ import Map from './pages/Map';
 import News from './pages/News';
 import Opinions from './pages/Opinions';
 import Promise from './pages/Promise';
+import Xfile from './pages/Xfile';
+import Write from './pages/Write';
 import { useDispatch, useSelector } from 'react-redux'
 import { loadElections } from './actions/index'
 import './App.css';
@@ -18,8 +20,21 @@ import googleImg from './images/google1.png';
 
 Modal.setAppElement('#root');
 const App = () => {
+  const [isLogin, setLogin] = useState(false);
+  const [userId, setUserId] = useState('');
   const dispatch = useDispatch();
   const state = useSelector((state) => state.modalReducer);
+
+  useEffect(() => {
+    console.log(document.cookie);
+    if(document.cookie){
+      const equalIndex = document.cookie.indexOf('=');
+      const semiIndex = document.cookie.indexOf(';');
+      const userId = document.cookie.slice(equalIndex + 1, semiIndex);
+      setUserId(userId);
+      setLogin(true);
+    }
+  })
 
   useEffect(() => {
     fetch('http://localhost:5000/map/elections')
@@ -31,24 +46,19 @@ const App = () => {
     })
   }, []);
 
-  // const customStyles = {
-  //   content: {
-      
-  //   }
-  // }
   const onClick = () => {
     dispatch(changeModal());
   }
-  console.log(state.modalIsOpen);
   
   return (
     <div className='body'>
-      
       <div className='wrapper'>
         
         <Router>
           <HeaderNav /> 
           <Modal 
+        <div className='modal'>
+        <Modal 
           isOpen={state.modalIsOpen} 
           onRequestClose={onClick} 
           shouldCloseOnEsc={true}
@@ -65,7 +75,7 @@ const App = () => {
               flexDirection: 'column',
               borderRadius: '10px',
               boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-              zIndex: '200',
+              zIndex: '10000',
             }
           }}
         >
@@ -81,10 +91,14 @@ const App = () => {
               </a>
             </div>
           </div> 
-           
         </Modal>
+        </div>
+        <Router>
+          <HeaderNav isLogin={isLogin} userId={userId} setLogin={setLogin} setUserId={setUserId} />
           <Switch>
             <Route exact path="/" component={Main}/>
+            <Route path="/xfile" component={() => {return <Xfile isLogin={isLogin} userId={userId}/>}}/>
+            <Route path="/write" component={Write}/>
             <Route path="/map" component={Map}/>
             <Route path="/news" component={News}/>
             <Route path="/opinion" component={Opinions}/>
