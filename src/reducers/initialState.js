@@ -108,4 +108,5 @@ export const initialState =
     ],
     'modalIsOpen': false,
     'comments': [],
+    'toggle': true
 }
