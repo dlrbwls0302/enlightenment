@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { Link } from 'react-router-dom';
 import '../styles/Write.css'
 
 const Write = () => {
@@ -10,7 +11,10 @@ const Write = () => {
         setTitle(e.target.value)
     }
     const submitEditor = () => {
-        fetch("http://localhost:5000/magazines", {
+        if(title === '' || description === ''){
+            alert('제목과 내용을 입력해 주세요.');
+        } else{
+            fetch("http://localhost:5000/magazines", {
             method: 'POST',
             credentials: 'include',
             headers: {
@@ -20,14 +24,23 @@ const Write = () => {
                 title,
                 description
             })
-        })
+         })
         .then(res => res.json())
         .then(json => console.log(json))
+        }
     }
     return (
-        <div className="App">
-          <div id='editor'>
-            <input type="text" placeholder="제목" onChange={handleTitle}></input>
+        <div className='write-container'>
+          <div className='editor'>
+            <Link to={'/xfile'} className='goBack'>
+                돌아가기                  
+            </Link>
+            <div className='line' />
+            <h1 className='write-heading'>사건 파일 작성</h1>
+            <input type="text" className='title' autoComplete='off' placeholder="글의 제목을 입력해 주세요." onChange={handleTitle}></input>
+            <div className='editor-container'>
+
+            </div>
             <CKEditor
                 editor={ ClassicEditor }
                 data=""
@@ -51,7 +64,7 @@ const Write = () => {
                   }
                 }}
             />
-            <button onClick={submitEditor}>제출</button>
+            <button className='submit' onClick={submitEditor}>사건 등록</button>
           </div>
         </div>
     );
