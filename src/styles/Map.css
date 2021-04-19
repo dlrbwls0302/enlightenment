@@ -42,12 +42,32 @@
     cursor: grab;
 }
 
+.map-condition-desktop.handle.active{
+    cursor: grabbing;
+}
+
+/* .election-wrapper-desktop {
+    
+} */
+.election-wrapper-desktop select {
+    padding: 10px 10px;
+    width: 210px;
+    margin-bottom: 10px;
+}
+/* .sdName-wrapper-desktop {
+    
+} */
+.sdName-wrapper-desktop select{
 select {
     padding: 10px 10px;
     width: 220px;
     margin-bottom: 10px;
 }
 
+.wiwName-wrapper-desktop select{
+    padding: 10px 10px;
+    width: 210px;
+    margin-bottom: 10px;
 p {
     color: #666;
     margin-top: 35px;
@@ -111,7 +131,7 @@ p {
     height: 100%;
 }
 
-}
+
 
 @media ( max-width: 780px ) {
     .map-page-desktop {
