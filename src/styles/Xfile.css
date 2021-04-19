@@ -14,13 +14,14 @@
     --sub-color-six: #12222d;
     --sub-color-seven: tomato;
     --sub-color-eight: #f5f4f0;
+    --sub-color-nine: rgb(50,50,40);
 }
 .main-container{
     position: relative;
     width: 100%;
     min-height: 100vh;
     display: grid;
-    background: var(--main-color);
+    background: var(--sub-color-eight);
     
     /* grid-template-columns: 40% 60%; */
     /* grid-template-columns: 4fr 6fr; */
@@ -45,12 +46,12 @@
     /* justify-content와 비슷한 느낌 */
 
     /* align-items: center;  */
-    grid-template-rows: 1fr 5fr;
+    grid-template-rows: 1fr 6fr;
     padding-left: 30px;
     padding-right: 30px;
 }
 .main-container .item{
-    background: var(--main-color);
+    background: var(--sub-color-eight);
 }
 /* .main-container .item:nth-child(odd){
     background: var(--main-color);
@@ -66,12 +67,20 @@
     display: grid;
     grid-template-rows: 1.5fr 1fr;
 }
+.main-container .item:nth-child(1) .menu-line-one{
+    border-bottom: 2px solid #999;
+    margin-bottom: 3px;
+}
+.main-container .item:nth-child(1) .menu-line-two{
+    border-top: 2px solid #999;
+    margin-top: 3px;
+}
 .main-container .item:nth-child(1) .menu-select{
     display: flex;
     justify-content: space-evenly;
-    border-top: 2px solid black;
-    border-bottom: 2px solid black;
-    font-family: 'Black Han Sans', sans-serif;
+    border-top: 2px solid var(--sub-color-nine);
+    border-bottom: 2px solid var(--sub-color-nine);
+    font-family: 'Noto Serif KR', serif;
     padding-top: 10px;
     padding-bottom: 10px;
     font-size: 20px;
@@ -80,6 +89,7 @@
 .main-container .item:nth-child(1) .menu-select .menu-select-item{
     cursor: pointer;
     transition: .3s;
+    color: var(--sub-color-nine);
 }
 .main-container .item:nth-child(1) .menu-select .menu-select-item:hover{
     cursor: pointer;
@@ -95,51 +105,58 @@
 } */
 .main-container .item:nth-child(2) .slider_title_one{
     width: 100%;
-    font-family: 'Black Han Sans', sans-serif;
+    font-family: 'Noto Serif KR', serif;
     text-align: center;
-    font-size: 20px;
+    font-size: 30px;
     padding-top: 15px;
     padding-bottom: 15px;
-    color: black;
+    color: var(--sub-color-nine);
     font-weight: 300;
+
 }
 .main-container .item:nth-child(2){
     /* grid-column: 1; */
     grid-row: 2/4;
     display: flex;
     flex-direction: column;
-    border-right: 1px solid black;
+    border-right: 1px solid var(--sub-color-nine);
     align-items: center;
-    /* border-radius: 10px; */
+    padding-right: 30px;
 }
 .main-container .item:nth-child(2) .container .card-wrapper{
     text-align: center;
     line-height: 30px;
     height: 30px;
-    color: black;
+    color: var(--sub-color-nine);
     /* font-family: 'Black Han Sans', sans-serif; */
     font-size: 15px;
 }
 .main-container .item:nth-child(2) .container{
     width: 80%;
-    border: 2px solid black;
+    border: 2px solid var(--sub-color-nine);
     display: flex;
     flex-direction: column;
 }
 .main-container .item:nth-child(2) .slider_title_two{
     width: 100%;
     text-align: center;
-    font-size: 20px;
+    font-size: 30px;
     padding-top: 15px;
     padding-bottom: 15px;
-    color: black;
-    margin-top: 3vh;
-    font-weight: 300;
-    font-family: 'Black Han Sans', sans-serif;
+    color:rgb(50,50,40);
+    /* margin-top: 0vh; */
+    font-weight: 100;
+    font-family: 'Noto Serif KR', serif;
 }
-
-
-
+.main-container .item:nth-child(2) .item-content{
+    font-family: 'Noto Serif KR', serif;
+    width: 100%;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 100;
+    color: rgb(50,50,40);
+    letter-spacing: -0.05em;
+}
 .main-container .item:nth-child(3){
     grid-row: 2/4;
     display: flex;
@@ -150,8 +167,9 @@
 }
 
 .main-container .item:nth-child(3) h1{
-    font-family: 'Black Han Sans', sans-serif;
-    font-size: 50px;
+    font-family: 'Noto Serif KR', serif;
+    font-size: 45px;
+    color: var(--sub-color-nine);
 }
 .main-container .item:nth-child(3) table{
     border-collapse: collapse;
@@ -160,23 +178,95 @@
     display: none;
 }
 .main-container .item:nth-child(3) .board_list_wrap{
-
+    width: 90%;
+    margin-top: 30px;
 }
 .main-container .item:nth-child(3) .board_list{
-
+    width: 100%;
+    border-top: 2px solid var(--sub-color-nine);
 }
-.main-container .item:nth-child(3) .board_list th, 
-.main-container .item:nth-child(3) .board_list td{
-    border: 1px solid #999;
+.board_list th, 
+.board_list td{
+    padding: 10px;
+    font-size: 14px;
 }
 .main-container .item:nth-child(3) .board_list a{
     text-decoration: none;
     color: inherit;
 }
 
+.board_list td{
+    text-align: center;
+    background: #fff;
+}
+.board_list .tlt{
+    text-align: left;
+}
+.board_list .tlt:hover{
+    text-decoration: underline;
+}
+.board_list tr{
+    border-bottom: 1px solid #ccc;
+}
+.paging{
+    margin-top: 40px;
+    text-align: center;
+}
+.paging a{
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    
+    font-size: 12px;
+    margin-left: 10px;
+    padding: 5px 10px;
+    
+}
+.paging a:first-child{
+    margin-left: 0;
+}
+.paging a.bt{
+    background: #eee;
+    border: 1px solid #eee;
+}
+.paging a.num{
+    border-radius: 100px;
+    border: 1px solid #000;
+    font-weight: 600;
+}
+.paging a.num.on{
+    background: #ccc;
+    color: #fff;
+}
+
+
+/* 4 */
 .main-container .item:nth-child(4){
     /* grid-column: 3; */
     grid-row: 2/4;
-    border-left: 1px solid black;
-    /* border-radius: 10px; */
+    border-left: 1px solid var(--sub-color-nine);
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.main-container .item:nth-child(4) .slider_title_two{
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color:rgb(50,50,40);
+    /* margin-top: 0vh; */
+    font-weight: 100;
+    font-family: 'Noto Serif KR', serif;
+}
+.main-container .item:nth-child(4) .item-content p{
+    font-family: 'Noto Serif KR', serif;
+    width: 100%;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 100;
+    color: rgb(50,50,40);
+    letter-spacing: -0.05em;
 }

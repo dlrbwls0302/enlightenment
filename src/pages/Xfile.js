@@ -6,23 +6,21 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { FaPepperHot } from 'react-icons/fa';
-import { BsPencilSquare } from 'react-icons/bs';
-import { MdFiberNew } from 'react-icons/md';
 import { GiMagnifyingGlass } from 'react-icons/gi';
 import Case from '../components/Case';
-import { useDispatch } from 'react-redux';
 import { openModal } from '../actions/index';
 import { useHistory } from "react-router";
 import { Link } from 'react-router-dom';
+import dogpig from '../images/dogpig.jpeg';
+import { useDispatch } from 'react-redux'
 
 const Xfile = ({ isLogin, userId }) => {
     // const [title, setTitle] = useState('선거 조작 사건');
     // const [description, setDescription] = useState('선거 조작 사건 어쩌구 저쩌구');
-    const name = '김영희'
-    const number = 1;
-    const title = 'LH 투기 의혹 사건';
-    const date = '2021-03-21';
+    // const name = '김영희'
+    // const number = 1;
+    // const title = 'LH 투기 의혹 사건';
+    // const date = '2021-03-21';
     const dispatch = useDispatch();
     const history = useHistory();
     const [magazines, setMagazines] = useState([]);
@@ -96,6 +94,7 @@ const Xfile = ({ isLogin, userId }) => {
         <div className='main-container'>
             <div className='item'>
                 <div className='menu-header'></div>
+                <div className='menu-line-one'></div>
                 <div className='menu-select'>
                     <div className='menu-select-item'>
                         <Link to={'/'} className='go-to-main'>
@@ -107,10 +106,15 @@ const Xfile = ({ isLogin, userId }) => {
                     <div className='menu-select-item' onClick={onClick}>뉴스보기</div>
                     <div className='menu-select-item' onClick={onClick}>의견남기기</div>
                 </div>
-                
+                <div className='menu-line-two'></div>
             </div>
 
             <div className='item'>
+                <div className='slider_title_two'>이 페이지에서는 </div>
+                <div className='item-content'>
+                    대한민국 건국이래 정치계에는 수많은 사건들이 발생하였고 그로 인하여 대한민국의 근간이 흔들리는 일까지 발생하였습니다. 하지만 그 중 대부분의 이슈는 적법한 절차없이 묻혀버렸고 비공식적으로 종결되었습니다. 우리는 그러한 이슈들을 다시 한 번 파헤쳐내어 대한민국의 정의를 되찾고자 합니다. 
+                </div>
+
                 <div className='slider_title_one'>주간 핫이슈</div>
                 <div className='container mt-5 carousel'>
                     <Slider {...settingsOne}>
@@ -133,7 +137,6 @@ const Xfile = ({ isLogin, userId }) => {
                         <div className='card-wrapper'>
                             LH 투기 의혹 사건5
                         </div>
-            
                     </Slider>
                 </div>
 
@@ -159,16 +162,17 @@ const Xfile = ({ isLogin, userId }) => {
                         <div className='card-wrapper'>
                             LH 투기 의혹 사건5
                         </div>
-            
                     </Slider>
                 </div>
 
+                
             </div>
 
             <div className='item'>
                 <div className='main-header'>
-                    <h1 className='slider_title_three'>사건 집중 조명 <GiMagnifyingGlass size={40}/></h1>
-                    <div className='board_list_wrap'>
+                    <h1 className='slider_title_three'>사건 집중 조명 <GiMagnifyingGlass size={40} color='rgb(50,50,40)'/></h1>
+                </div>
+                <div className='board_list_wrap'>
                         <table className='board_list'>
                             <caption>게시판 목록</caption>
                             <thead>
@@ -183,8 +187,85 @@ const Xfile = ({ isLogin, userId }) => {
 
                             <tbody>
                                 <tr>
+                                    <td>12</td>
+                                    <td className='tlt'>
+                                        <a href='#'>
+                                            안녕하세요
+                                        </a>
+                                    </td>
+                                    <td>관리자</td>
+                                    <td>2021-4-19</td>
+                                    <td>21</td>
+                                </tr> 
+                                <tr>
+                                    <td>11</td>
+                                    <td className='tlt'>
+                                        <a href='#'>
+                                            안녕하세요
+                                        </a>
+                                    </td>
+                                    <td>관리자</td>
+                                    <td>2021-4-19</td>
+                                    <td>21</td>
+                                </tr> 
+                                <tr>
+                                    <td>10</td>
+                                    <td className='tlt'>
+                                        <a href='#'>
+                                            안녕하세요
+                                        </a>
+                                    </td>
+                                    <td>관리자</td>
+                                    <td>2021-4-19</td>
+                                    <td>21</td>
+                                </tr> 
+                                <tr>
+                                    <td>9</td>
+                                    <td className='tlt'>
+                                        <a href='#'>
+                                            안녕하세요
+                                        </a>
+                                    </td>
+                                    <td>관리자</td>
+                                    <td>2021-4-19</td>
+                                    <td>21</td>
+                                </tr> 
+                                <tr>
+                                    <td>8</td>
+                                    <td className='tlt'>
+                                        <a href='#'>
+                                            안녕하세요
+                                        </a>
+                                    </td>
+                                    <td>관리자</td>
+                                    <td>2021-4-19</td>
+                                    <td>21</td>
+                                </tr> 
+                                <tr>
+                                    <td>7</td>
+                                    <td className='tlt'>
+                                        <a href='#'>
+                                            안녕하세요
+                                        </a>
+                                    </td>
+                                    <td>관리자</td>
+                                    <td>2021-4-19</td>
+                                    <td>21</td>
+                                </tr> 
+                                <tr>
+                                    <td>6</td>
+                                    <td className='tlt'>
+                                        <a href='#'>
+                                            안녕하세요
+                                        </a>
+                                    </td>
+                                    <td>관리자</td>
+                                    <td>2021-4-19</td>
+                                    <td>21</td>
+                                </tr> 
+                                <tr>
                                     <td>5</td>
-                                    <td>
+                                    <td className='tlt'>
                                         <a href='#'>
                                             안녕하세요
                                         </a>
@@ -196,7 +277,7 @@ const Xfile = ({ isLogin, userId }) => {
 
                                  <tr>
                                     <td>4</td>
-                                    <td>
+                                    <td className='tlt'>
                                         <a href='#'>
                                             안녕하세요
                                         </a>
@@ -208,7 +289,7 @@ const Xfile = ({ isLogin, userId }) => {
 
                                  <tr>
                                     <td>3</td>
-                                    <td>
+                                    <td className='tlt'>
                                         <a href='#'>
                                             안녕하세요
                                         </a>
@@ -220,7 +301,7 @@ const Xfile = ({ isLogin, userId }) => {
 
                                  <tr>
                                     <td>2</td>
-                                    <td>
+                                    <td className='tlt'>
                                         <a href='#'>
                                             안녕하세요
                                         </a>
@@ -232,9 +313,9 @@ const Xfile = ({ isLogin, userId }) => {
 
                                  <tr>
                                     <td>1</td>
-                                    <td>
+                                    <td className='tlt'>
                                         <a href='#'>
-                                            안녕하세요
+                                            안녕하세용 안영ㅎ아세용ㅈ루ㅢ주리줄fwfwfefwfwfwffwfwfwfwfwefewfw
                                         </a>
                                     </td>
                                     <td>관리자</td>
@@ -243,15 +324,25 @@ const Xfile = ({ isLogin, userId }) => {
                                 </tr>        
                             </tbody>
                         </table>
+                        <div className='paging'>
+                            <a href='#' className='bt'>첫 페이지</a>
+                            <a href='#' className='bt'>이전 페이지</a>
+                            <a href='#' className={'num on'}>1</a>
+                            <a href='#' className='num'>2</a>
+                            <a href='#' className='num'>3</a>
+                            <a href='#' className='bt'>다음 페이지</a>
+                            <a href='#' className='bt'>마지막 페이지</a>
+                        </div>
+                    </div>
+
+            </div>
+            <div className='item'>
+                <div className='slider_title_two'>"어차피 대중들은 OOO입니다."</div>
+                    <div className='item-content'>
+                        <img src={dogpig} alt='dogpig' />
+                        <p>OOO에 들어갈 말을 채우는 건 여러분들의 몫입니다. </p>
                     </div>
                 </div>
-                
-                
-            </div>
-
-            <div className='item'>
-                
-            </div>
 
             {/* <section className='sub-container-three'>
                 <h1 className='slider_title_three'>사건 집중 조명 <GiMagnifyingGlass size={53}/></h1>
