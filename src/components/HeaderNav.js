@@ -45,8 +45,8 @@ function HeaderNav({ isLogin, userId, setLogin, setUserId }) {
     const onClose = () => {
         dispatch(closeModal());
     }
-   
-    return(
+
+    return (
         <>
             <header className={navbar ? 'header active' : 'header'}>
                 <Link to={'/'} className={navbar ? 'logo active' : 'logo'} onClick={onClose}>
@@ -94,7 +94,7 @@ function HeaderNav({ isLogin, userId, setLogin, setUserId }) {
         </>
     );
 
-    
+
 }
 
 export default HeaderNav

@@ -124,7 +124,6 @@ const Promise = () => {
                                         candidate = {candidate}
                                     > </Candidate>
                         })
-                        
                     }
                     </div>
                     </div>

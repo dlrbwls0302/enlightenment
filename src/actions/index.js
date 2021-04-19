@@ -3,13 +3,14 @@ export const SET_ARTICLES = 'SET_ARTICLES';
 export const CHANGE_QUERY = 'CHANGE_QUERY';
 export const LOAD_ELECTIONS = 'LOAD_ELECTIONS';
 export const CHANGE_MODAL = 'CHANGE_MODAL';
+export const LOAD_COMMENTS = 'LOAD_COMMENTS';
+export const SORT_COMMENTS = 'SORT_COMMENTS';
 export const CLOSE_MODAL = 'CLOSE_MODAL';
 export const SET_TOGGLE = 'SET_TOGGLE';
 export const OPEN_MODAL = 'OPEN_MODAL';
 
-
 export const changeLoading = () => {
-    return{
+    return {
         type: CHANGE_LOADING,
         payload: {
 
@@ -18,7 +19,7 @@ export const changeLoading = () => {
 }
 
 export const setArticles = (articles) => {
-    return{
+    return {
         type: SET_ARTICLES,
         payload: {
             articles
@@ -51,6 +52,25 @@ export const changeModal = () => {
     }
 }
 
+
+export const loadComments = (comments) => {
+    return {
+        type: LOAD_COMMENTS,
+        payload: {
+            comments
+        }
+    }
+}
+
+export const sortComments = (comments) => {
+    return {
+        type: SORT_COMMENTS,
+        payload: {
+            comments
+        }
+    }
+}
+
 export const closeModal = () => {
     return {
         type: CLOSE_MODAL,
@@ -71,4 +91,3 @@ export const setToggle = () => {
         payload: {}
     }
 }
-

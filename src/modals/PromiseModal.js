@@ -97,32 +97,9 @@ const PromiseModal = ({ showModal, setShowModal }) => {
   return (
     <>
       {showModal ? (
-            // <ModalWrapper showModal={showModal} onclick={closeModal} >
-            {/* </ModalWrapper> */}
+            <ModalWrapper showModal={showModal} onclick={closeModal} >
+            </ModalWrapper> 
             
-            <Modal 
-              isOpen={showModal} 
-              onRequestClose={onClick} 
-              shouldCloseOnEsc={true}
-              style={{
-                content : {
-                  top : '50%',
-                  left : '50%',
-                  right : 'auto',
-                  bottom : 'auto',
-                  marginRight : '-50%',
-                  transform : 'translate(-50%, -50%)',
-                  padding: '70px 110px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  borderRadius: '10px',
-                  boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-                  zIndex: '10000',
-                }
-              }}
-            
-
-            </Modal>
       ) : null}
     </>
   );
