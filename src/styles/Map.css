@@ -1,16 +1,14 @@
 :root{
-    --main-bg-color:  #112d4e;
-    --main-color: #f9f7f7;
-    --sub-color-one: #3f72af;
-    --sub-color-two: #00498c;
-    --sub-color-three: #dbe2ef;
-    --sub-color-four: #4e3211;
-    --sub-color-five: #fef4eb;
-    --sub-color-six: #12222d;
+    --main-bg-color:  #112D4E;
+    --main-color: #F9F7F7;
+    --sub-color-one: #3F72AF;
+    --sub-color-two: #00498C;
+    --sub-color-three: #DBE2EF;
+    --sub-color-four: #4E3211;
+    --sub-color-five: #FEF4EB;
+    --sub-color-six: #12222D;
 }
-
 @media ( min-width: 780px ) {
-
 .map-page-desktop {
     display: flex;
     flex-direction: row;
@@ -41,24 +39,20 @@
     border-radius: 5px;
     cursor: grab;
 }
-
 .map-condition-desktop.handle.active{
     cursor: grabbing;
 }
-
 .map-condition-desktop.handle select {
     padding: 10px 10px;
     width: 210px;
     margin-bottom: 10px;
 }
-
 .map-condition-desktop.handle p {
     color: #666;
     margin-top: 35px;
     margin-bottom: 5px;
     font-size: 15px;
 }
-
 .button-wrapper-desktop a {
     margin-top: 35px;
     text-decoration: none;
@@ -80,7 +74,6 @@
     background: #555;
     transition: all 0.4s;
 }
-
 .button-wrapper-desktop a .wave:before{
     content: '';
     position: absolute;
@@ -91,12 +84,10 @@
     /* background-image: url('../images/wave.png');  */
     animation: wavy 0.2s linear infinite;
 }
-
 @keyframes wavy{
     0%{ background-position-x: 0 }
     100% { background-position-x: 118px }
 }
-
 .map-box-desktop {
     margin-right: 30px;
     margin-bottom: 30px;
@@ -105,21 +96,15 @@
     height: 100%;
     z-index: 0;
     /* padding: 90px 50px 50px 50px; */
-    
     /* background-color: var(--sub-color-two); */
 }
-
 #mapContainer {
     /* border-radius: 10px; */
     border-radius: 7px;
     width: 100%;
     height: 100%;
 }
-
 }
-
-
-
 @media ( max-width: 780px ) {
     .map-page-desktop {
         display: flex;
@@ -129,7 +114,6 @@
         background: var(--main-color);
         overflow-x: hidden;
     }
-    
     .map-condition-desktop.handle {
         width: 100%;
         margin-top: 70px;
@@ -147,7 +131,6 @@
         border-radius: 5px;
         cursor: grab;
     }
-
     .heading {
         width: 100%;
         text-align: center;
@@ -157,37 +140,29 @@
         color: #333;
         margin-bottom: 7px;
     }
-
     .election-wrapper-desktop {
         width: 70%;
     }
-
     .sdName-wrapper-desktop {
         width: 70%;
     }
-
     .wiwName-wrapper-desktop {
         width: 70%;
     }
-
     .button-wrapper-desktop {
         width: 70%;
     }
-    
     .map-condition-desktop.handle select {
         padding: 2px 5px;
         width: 100%;
         margin-bottom: 10px;
     }
-    
     .map-page-desktop p {
         display: none;
     }
-
     .button-wrapper-desktop {
         width: 100%;
     }
-
     .button-wrapper-desktop a {
         text-align: center;
         width: 100%;
@@ -206,7 +181,6 @@
         border-radius: 3px;
         background: white;
     }
-
     .button-wrapper-desktop a:hover{
         color: var(--main-color);
         background: #555;
@@ -225,7 +199,6 @@
         transition: all 0.1s;
         z-index: -1;
     }
-    
     .button-wrapper-desktop a .wave:before{
         content: '';
         position: absolute;
@@ -240,7 +213,6 @@
         0%{ background-position-x: 0 }
         100% { background-position-x: 118px }
     }
-
     .map-box-desktop {
         margin-right: 10px;
         /* margin-top: px; */
@@ -249,10 +221,8 @@
         z-index: 0;
         padding: 10px;
         /* padding: 90px 50px 50px 50px; */
-        
         /* background-color: var(--sub-color-two); */
     }
-    
     #mapContainer {
 
         border-radius: 7px;

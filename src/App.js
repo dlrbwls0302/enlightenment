@@ -53,7 +53,8 @@ const App = () => {
   return (
     <div className='body'>
       <div className='wrapper'>
-         
+        
+  
         <div className='modal'>
         <Modal 
           isOpen={state.modalIsOpen} 

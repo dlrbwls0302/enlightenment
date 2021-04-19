@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+// import "../components/Candidate"
+import Candidate from '../components/Candidate';
 import '../styles/Promise.css'
-
 const axios = require('axios')
-
 const Promise = () => {
     const { state } = useSelector(state => ({
         state: state.electionsReducer
     }))
     const [ downElections, setdownElections ] = useState([])   // 하위선거 state 
-
     const [ election, setElection ] = useState({
         sgId : '',
         sgTypecode : '',
@@ -19,7 +18,6 @@ const Promise = () => {
     const [ electionPlace, setElectionPlace ] = useState([]);
     const [ candidates, setCandidates ] = useState([]);
     const { sgId, sgTypecode, sdName, sggName } = election
-
     const handelElection = (e) => {
         const downElections = (JSON.parse(e.target.value))
         setdownElections( 
@@ -50,26 +48,24 @@ const Promise = () => {
              setElectionPlace(res.data)
           })
     }
-
     useEffect(() => {
         if(sgId === "" || sgTypecode === "" || sdName === '' || sggName === '') {
             return 
         }
-        console.log(election)
         axios.post('http://localhost:5000/promises/candidates',{
             sgId,
             sgTypecode,
             sggName,
             sdName     
         })
-        .then(res => console.log(res))
+        .then(res => setCandidates(res.data))
     },[election] 
     )  
-
     return (
         <div className="promise-container">
-                    <select className="electionList" onClick={handelElection} value="asf">
-                     <option value="" selected disabled hidden >선택해주세요.</option>
+            <div className="select_box">
+                    <select className="promise_select electionList" onClick={handelElection} defaultValue="선택해주세요">
+                     <option className="promise-select-option" value="" selected disabled hidden >선택해주세요.</option>
                         {state.elections.map((election, index) => {
                             if (election.sgId === '20210407') {
                                 return <option 
@@ -83,8 +79,8 @@ const Promise = () => {
                             >{election.sgName}</option>
                         })}
                     </select>
-                    <select onChange={handleDownElection}>
-                            <option value="" selected disabled hidden>하위 선거 선택</option>
+                    <select className="promise_select" onChange={handleDownElection} defaultValue="하위 선거 선택">
+                            <option className="promise-select-option" value="" selected disabled hidden>하위 선거 선택</option>
                         {downElections.map((election, index) => {
                             if (election.sgTypecode === '3') {
                                 return <option
@@ -102,7 +98,7 @@ const Promise = () => {
                             </option>
                         })}
                     </select>
-                    <select onClick={handleCandidateLocation}>
+                    <select className="promise_select" onClick={handleCandidateLocation} defaultValue="선거 장소">
                       <option value="">선거 장소</option>
                         {electionPlace.map((place, index) => {
                             return <option
@@ -113,15 +109,18 @@ const Promise = () => {
                       </option>
                         })}
                     </select>
-                    <div>
+                    </div>
+                    <div className="candidate_listBox">
                         {
                         candidates.map((candidate, index) => {
-                             return <div> {candidate.name} </div>
+                             return <Candidate 
+                                        key={index}
+                                        candidate = {candidate}
+                                    > </Candidate>
                         })
                     }
                     </div>
                     </div>
     );
 };
-
 export default Promise;
