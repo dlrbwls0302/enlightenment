@@ -54,9 +54,7 @@ const App = () => {
     <div className='body'>
       <div className='wrapper'>
         
-        <Router>
-          <HeaderNav /> 
-          <Modal 
+  
         <div className='modal'>
         <Modal 
           isOpen={state.modalIsOpen} 

@@ -156,7 +156,7 @@ const Map = () => {
                     </div>
                     {/* <a href="http://localhost:5000/auth/google/login">로그인</a>
                     <button onClick={handleLogout}>로그아웃</button> */}
-                </div>
+                
             </div>
             {/* </Draggable> */}
             <div className="map-box-desktop">

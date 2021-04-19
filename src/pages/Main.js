@@ -69,7 +69,6 @@ const Main = () => {
                         <img src={mapImg} alt='mapImg' />
                     </div>
                 </div>
-            </div>
         </section>
 
         {/* about news */}
@@ -96,7 +95,6 @@ const Main = () => {
                             저는 이 사이트를 이용하면서 이런 점이 불편해요. 이런 부분은 꼭 개선 해주셨으면 좋겠습니다. 저는 이 사이트를 이용하면서 이런 점이 불편해요. 이런 부분은 꼭 개선 해주셨으면 좋겠습니다. 저는 이 사이트를 이용하면서 이런 점이 불편해요. 이런 부분은 꼭 개선 해주셨으면 좋겠습니다.
                         </p>
                             <h3>- 김xx 님</h3>
-                        </div>
                     </div>
                 <div className='opinionContentBx'>
                     <div>
@@ -107,7 +105,7 @@ const Main = () => {
                         </div>
                     </div>
                 </div>
-
+        
             </div>
             <Link to={'/xfile'} className='button'>
                 정치 X-파일 바로가기                  
