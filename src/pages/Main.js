@@ -8,6 +8,7 @@ import ReactPageScroller from 'react-page-scroller';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+
 const Main = () => {      
     useEffect(() => {
         AOS.init({
@@ -57,15 +58,16 @@ const Main = () => {
             <p className='mapText'> 
                 당신의 위치를 검색하면 가장 가까운 위치에 있는 투표소를 알려줍니다.
             </p>
-            <div className='container'>
-                <div className='mapBx'>
-                    <img src={mapImg} alt='mapImg'/>    
-                </div>
-                <div className='mapBx'>
-                    <img src={mapImg} alt='mapImg'/>
-                </div>
-                <div className='mapBx'>
-                    <img src={mapImg} alt='mapImg'/>
+                <div className='container'>
+                    <div className='mapBx'>
+                        <img src={mapImg} alt='mapImg' />
+                    </div>
+                    <div className='mapBx'>
+                        <img src={mapImg} alt='mapImg' />
+                    </div>
+                    <div className='mapBx'>
+                        <img src={mapImg} alt='mapImg' />
+                    </div>
                 </div>
             </div>
         </section>
@@ -93,18 +95,19 @@ const Main = () => {
                         <p>
                             저는 이 사이트를 이용하면서 이런 점이 불편해요. 이런 부분은 꼭 개선 해주셨으면 좋겠습니다. 저는 이 사이트를 이용하면서 이런 점이 불편해요. 이런 부분은 꼭 개선 해주셨으면 좋겠습니다. 저는 이 사이트를 이용하면서 이런 점이 불편해요. 이런 부분은 꼭 개선 해주셨으면 좋겠습니다.
                         </p>
-                        <h3>- 김xx 님</h3>
+                            <h3>- 김xx 님</h3>
+                        </div>
                     </div>
-                </div>
-
                 <div className='opinionContentBx'>
                     <div>
                         <p>
                         저는 이 사이트를 이용하면서 이런 점이 불편해요. 이런 부분은 꼭 개선 해주셨으면 좋겠습니다. 저는 이 사이트를 이용하면서 이런 점이 불편해요. 이런 부분은 꼭 개선 해주셨으면 좋겠습니다. 저는 이 사이트를 이용하면서 이런 점이 불편해요. 이런 부분은 꼭 개선 해주셨으면 좋겠습니다. 
                         </p>
-                        <h3>- 이xx 님</h3>
+                            <h3>- 이xx 님</h3>
+                        </div>
                     </div>
                 </div>
+
             </div>
             <Link to={'/xfile'} className='button'>
                 정치 X-파일 바로가기                  
