@@ -77,7 +77,7 @@ const Xfile = ({ isLogin, userId }) => {
             </div>
 
             <div className='item'>
-                <div className='slider_title_one'>주간 핫이슈 <FaPepperHot color='tomato' size={20}/></div>
+                <div className='slider_title_one'>주간 핫이슈</div>
                 <div className='container mt-5 carousel'>
                     <Slider {...settingsOne}>
                         <div className='card-wrapper'>
@@ -103,7 +103,7 @@ const Xfile = ({ isLogin, userId }) => {
                     </Slider>
                 </div>
 
-                <div className='slider_title_two'>새로운 이슈 <MdFiberNew color='tomato' size={20}/></div>
+                <div className='slider_title_two'>새로운 이슈</div>
                 <div className='container mt-5 carousel'>
                     <Slider {...settingsOne}>
                         <div className='card-wrapper'>
@@ -139,12 +139,13 @@ const Xfile = ({ isLogin, userId }) => {
                         </Link>
                     </div>
                     <div className='menu-select-item' onClick={onClick}>글쓰기</div>
-                    <div className='menu-select-item' onClick={onClick}>뉴스보기</div>
-                    <div className='menu-select-item' onClick={onClick}>의견남기기</div>
+                    <div className='menu-select-item' onClick={onClick}>수정</div>
+                    
                 </div>
                 <div className='main-header'>
                     <h1 className='slider_title_three'>사건 집중 조명 <GiMagnifyingGlass size={40}/></h1>
                 </div>
+
                 
                 
             </div>
