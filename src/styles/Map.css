@@ -224,6 +224,7 @@
         /* background-color: var(--sub-color-two); */
     }
     #mapContainer {
+
         border-radius: 7px;
         width: 100%;
         height: 100%;

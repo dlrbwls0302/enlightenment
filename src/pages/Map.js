@@ -128,32 +128,15 @@ const Map = () => {
                             downtowns.map((item, index) => {
                                 return <option key={index} value={item}>{item}</option>
                             })}
-                        </select>
-                    </div>
-                    <div className="sdName-wrapper-desktop">
-                        <select onChange={handleDowntowns} defaultValue="시, 도 선택">
-                            <option>시, 도 선택</option>
-                            {state.korea.map((item, index) => {
-                                return <option key={index} value={item.city}>{item.city}</option>
-                            })}
-                        </select>
-                    </div>
-                    <div className="wiwName-wrapper-desktop">
-                        <select onChange={handleWiwName} defaultValue="구, 군 선택">
-                            <option>구, 군 선택</option>
-                            {downtowns.length === 0 ?
-                                <></> :
-                                downtowns.map((item, index) => {
-                                    return <option key={index} value={item}>{item}</option>
-                                })}
-                        </select>
-                    </div>
-                    <div className="button-wrapper-desktop">
+                    </select>
+                    
+                        <div className="button-wrapper-desktop">
                         <a href='#' onClick={getPlaces}>
                             내 주변 투표소 찾기
                         <div className='wave'></div>
                         </a>
-                    </div>
+                        </div>
+                </div>
                     {/* <a href="http://localhost:5000/auth/google/login">로그인</a>
                     <button onClick={handleLogout}>로그아웃</button> */}
                 

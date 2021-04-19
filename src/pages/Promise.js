@@ -3,15 +3,12 @@ import { useSelector } from 'react-redux';
 // import "../components/Candidate"
 import Candidate from '../components/Candidate';
 import '../styles/Promise.css'
-
 const axios = require('axios')
-
 const Promise = () => {
     const { state } = useSelector(state => ({
         state: state.electionsReducer
     }))
     const [ downElections, setdownElections ] = useState([])   // 하위선거 state 
-
     const [ election, setElection ] = useState({
         sgId : '',
         sgTypecode : '',
@@ -21,7 +18,6 @@ const Promise = () => {
     const [ electionPlace, setElectionPlace ] = useState([]);
     const [ candidates, setCandidates ] = useState([]);
     const { sgId, sgTypecode, sdName, sggName } = election
-
     const handelElection = (e) => {
         const downElections = (JSON.parse(e.target.value))
         setdownElections( 
@@ -52,7 +48,6 @@ const Promise = () => {
              setElectionPlace(res.data)
           })
     }
-
     useEffect(() => {
         if(sgId === "" || sgTypecode === "" || sdName === '' || sggName === '') {
             return 
@@ -66,11 +61,10 @@ const Promise = () => {
         .then(res => setCandidates(res.data))
     },[election] 
     )  
-
     return (
         <div className="promise-container">
             <div className="select_box">
-                    <select className="promise_select electionList" onClick={handelElection} value="asf">
+                    <select className="promise_select electionList" onClick={handelElection} defaultValue="선택해주세요">
                      <option className="promise-select-option" value="" selected disabled hidden >선택해주세요.</option>
                         {state.elections.map((election, index) => {
                             if (election.sgId === '20210407') {
@@ -85,7 +79,7 @@ const Promise = () => {
                             >{election.sgName}</option>
                         })}
                     </select>
-                    <select className="promise_select" onChange={handleDownElection}>
+                    <select className="promise_select" onChange={handleDownElection} defaultValue="하위 선거 선택">
                             <option className="promise-select-option" value="" selected disabled hidden>하위 선거 선택</option>
                         {downElections.map((election, index) => {
                             if (election.sgTypecode === '3') {
@@ -104,7 +98,7 @@ const Promise = () => {
                             </option>
                         })}
                     </select>
-                    <select className="promise_select" onClick={handleCandidateLocation}>
+                    <select className="promise_select" onClick={handleCandidateLocation} defaultValue="선거 장소">
                       <option value="">선거 장소</option>
                         {electionPlace.map((place, index) => {
                             return <option
@@ -129,5 +123,4 @@ const Promise = () => {
                     </div>
     );
 };
-
 export default Promise;
