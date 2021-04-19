@@ -21,7 +21,7 @@
 }
 .heading{
     font-family: 'Black Han Sans', sans-serif;
-    font-size: 23px;
+    font-size: 22px;
     letter-spacing: -1px;
     color: #333;
     margin-bottom: 40px;
@@ -42,16 +42,21 @@
     cursor: grab;
 }
 
-select {
+.map-condition-desktop.handle.active{
+    cursor: grabbing;
+}
+
+.map-condition-desktop.handle select {
     padding: 10px 10px;
-    width: 220px;
+    width: 210px;
     margin-bottom: 10px;
 }
 
-p {
+.map-condition-desktop.handle p {
     color: #666;
     margin-top: 35px;
     margin-bottom: 5px;
+    font-size: 15px;
 }
 
 .button-wrapper-desktop a {
@@ -59,7 +64,7 @@ p {
     text-decoration: none;
     padding: 10px 23px;
     color: #333;
-    font-size: 18px;
+    font-size: 16px;
     letter-spacing: 3px;
     border: 1px solid #555;
     position: relative;
@@ -112,6 +117,8 @@ p {
 }
 
 }
+
+
 
 @media ( max-width: 780px ) {
     .map-page-desktop {
@@ -167,7 +174,7 @@ p {
         width: 70%;
     }
     
-    select {
+    .map-condition-desktop.handle select {
         padding: 2px 5px;
         width: 100%;
         margin-bottom: 10px;
@@ -175,6 +182,10 @@ p {
     
     .map-page-desktop p {
         display: none;
+    }
+
+    .button-wrapper-desktop {
+        width: 100%;
     }
 
     .button-wrapper-desktop a {

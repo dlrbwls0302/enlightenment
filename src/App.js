@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import HeaderNav from './components/HeaderNav';
+// import Sidebar from './components/Sidebar';
 import Main from './pages/Main';
 import Map from './pages/Map';
 import News from './pages/News';
@@ -52,6 +53,7 @@ const App = () => {
   return (
     <div className='body'>
       <div className='wrapper'>
+         
         <div className='modal'>
         <Modal 
           isOpen={state.modalIsOpen} 

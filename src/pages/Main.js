@@ -8,6 +8,7 @@ import ReactPageScroller from 'react-page-scroller';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+
 const Main = () => {      
     useEffect(() => {
         AOS.init({
@@ -64,20 +65,19 @@ const Main = () => {
                 <br></br>가장 가까운 위치에 있는 
                 <br></br>투표소를 알려줍니다.
             </p>
-            <div className='container'>
-                <div className='mapBx'>
-                    <img src={mapImg} alt='mapImg'/>    
+                <div className='container'>
+                    <div className='mapBx'>
+                        <img src={mapImg} alt='mapImg' />
+                    </div>
+                    <div className='mapBx'>
+                        <img src={mapImg} alt='mapImg' />
+                    </div>
+                    <div className='mapBx'>
+                        <img src={mapImg} alt='mapImg' />
+                    </div>
                 </div>
-                <div className='mapBx'>
-                    <img src={mapImg} alt='mapImg'/>
-                </div>
-                <div className='mapBx'>
-                    <img src={mapImg} alt='mapImg'/>
-                </div>
-            </div>
         </section>
 
-        {/* about news */}
         <section className='news' id='news'>
             {/* <div className='news-background'></div> */}
             <div className='newsBx'>
@@ -93,44 +93,43 @@ const Main = () => {
         </section>
 
         {/* opinion section */}
-        <section className='opinion' id='opinion'>
-        {/* <div className='opinion-background'></div> */}
-            <h2 className='opinionHeading'>소중한 의견을 남겨주세요.</h2>
-            <p className='opinionText'> 
-                이 사이트가 더욱 발전할 수 있도록 
-                <br></br>당신의 소중한 의견을 남겨주세요. 
-            </p>
-            <div className='opinionContainer'>
-                <div className='opinionContentBx'>
-                    <div>
-                        <p>
-                            마이페이지를 만들어주세요.
-                            내가 쓴 글 목록을 확인하고
-                            수정 및 삭제를 하고싶습니다.
-                        </p>
-                        <h3>- 이xx 님</h3>
-                        
-                    </div>
-                </div>
+            <section className='opinion' id='opinion'>
+        
+                <h2 className='opinionHeading'>소중한 의견을 남겨주세요.</h2>
+                <p className='opinionText'> 
+                    이 사이트가 더욱 발전할 수 있도록 
+                    <br></br>당신의 소중한 의견을 남겨주세요. 
+                </p>
+                <div className='opinionContainer'>
+                    <div className='opinionContentBx'>
+                        <div>
+                            <p>
+                                마이페이지를 만들어주세요.
+                                내가 쓴 글 목록을 확인하고
+                                수정 및 삭제를 하고싶습니다.
+                            </p>
+                            <h3>- 이xx 님</h3>
 
-                <div className='opinionContentBx'>
-                    <div>
-                        <p>
-                            시사 이슈도 다뤄주세요! 또한 제보 같은 것도 받아서 좀 더 심도있게 다뤘으면 좋겠습니다!
-                        </p>
-                        <h3>- 김xx 님</h3>
+                        </div>
                     </div>
+                    <div className='opinionContentBx'>
+                        <div>
+                            <p>
+                                시사 이슈도 다뤄주세요! 또한 제보 같은 것도 받아서 좀 더 심도있게 다뤘으면 좋겠습니다!
+                            </p>
+                            <h3>- 김xx 님</h3>
+                        </div>
+                    </div>
+
                 </div>
-            </div>
-            <div className="main-opinion-button-box">
-                <Link to={'/xfile'} className='button'>
-                    정치 X-파일 바로가기                  
-                </Link>
-            </div>
-        </section>
+                <div className="main-opinion-button-box">
+                    <Link to={'/xfile'} className='button'>
+                        정치 X-파일 바로가기                  
+                    </Link>
+                </div>
+        
+            </section>
         </ReactPageScroller>
-         
-       
     );
 };
 

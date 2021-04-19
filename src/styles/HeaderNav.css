@@ -24,7 +24,7 @@
 }
 .toggleBx{
   position: relative;
-  margin-top: 41px;
+  margin-top: 20px;
   margin-right: 90px;
   cursor: pointer;
   /* 새로운 모델 */
@@ -39,7 +39,7 @@
 }
 .header .logo{
   position: relative;
-  padding-top: 40px;
+  padding-top: 20px;
   padding-left: 90px;
   font-family: 'Black Han Sans', sans-serif;
   /* 기존 모델 */

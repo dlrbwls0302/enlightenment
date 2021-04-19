@@ -1,4 +1,4 @@
-export const initialState = 
+export const initialState =
 {
     'articles': null,
     'loading': false,
@@ -107,5 +107,6 @@ export const initialState =
         }
     ],
     'modalIsOpen': false,
+    'comments': [],
     'toggle': true
 }

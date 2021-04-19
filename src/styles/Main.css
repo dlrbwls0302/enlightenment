@@ -68,7 +68,7 @@ element{
     font-size: 1.1em;
     margin: 20px 0;
     font-weight: 400;
-    max-width: 300px;
+    max-width: 290px;
     color: var(--main-color);
 }
 .text .link-to-xfile{
