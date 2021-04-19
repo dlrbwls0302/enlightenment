@@ -201,13 +201,6 @@
         transition: transform .55s;
     }
 
-    .opinions:hover {
-        /* transform:scale(1.1); */
-        /* transition: transform .35s; */
-        /* z-index: 999; */
-        /* cursor: pointer; */
-    }
-
     .comment-nickname {
         font-family: 'Noto Serif KR', serif;
         margin-bottom: 5px;
@@ -492,6 +485,7 @@
         width: 100%;
         padding-top: 100px;
         padding-left: 550px;
+        padding-right: 50px;
         display: flex;
         flex-wrap: wrap;
         
@@ -502,7 +496,7 @@
     /* opinion component*/
 
     .opinions {
-        width: 350px;
+        width: 300px;
         margin-bottom: 15px;
         margin-right: 30px;
         background: #FFFFFF;

@@ -17,33 +17,6 @@ const Main = () => {
     return (
         <ReactPageScroller>
             <section className='banner' id='banner'>
-                {/* 기존 모델 */}
-                {/* <div className='personBx'>
-                <div className='personImg'>
-                    <Link to={'/promise'} >
-                        <img src={personOne} alt='personImg'/> 
-                    </Link>
-                    
-                </div>
-                <div className='personImg'>
-                    <Link to={'/map'} >
-                        <img src={personTwo} alt='personImg'/> 
-                    </Link>
-                </div>
-                <div className='personImg'>
-                    <Link to={'/news'} >
-                        <img src={personThree} alt='personImg'/> 
-                    </Link>
-                </div>
-                <div className='personImg'>
-                    <Link to={'/opinion'} >
-                        <img src={personFour} alt='personImg'/> 
-                    </Link> 
-                </div>
-            </div> */}
-
-                {/* 동영상 모델 */}
-                {/* <video src={video} muted loop autoPlay></video> */}
                 <div className='text'>
                     <h2>대한민국을 책임질</h2>
                     <h3>당신의 선택</h3>
@@ -55,9 +28,6 @@ const Main = () => {
 
                 <div className='arrow'>
                     <p className='arrowText'>스크롤 내리기</p>
-                    {/* <a className='arrow-link' href='#about'>
-                    <MdKeyboardArrowDown className='arrowOne' size={45} color='#f5b72a'/>
-                </a> */}
                     <MdKeyboardArrowDown className='arrowOne' size={45} color='#f5b72a' />
                 </div>
             </section>
@@ -72,15 +42,6 @@ const Main = () => {
 
                 </div>
                 <div className='aboutImg'></div>
-                {/* <div className='arrow'>
-                <a className='arrow-link' href='#banner'>
-                    <MdKeyboardArrowUp className='arrowTwo' size={45} color='#f5b72a'/>
-                </a>
-                <a className='arrow-link' href='#map'>
-                    <MdKeyboardArrowDown className='arrowTwo' size={45} color='#f5b72a'/>
-                </a>
-               
-            </div> */}
             </section>
 
             {/* about map */}
@@ -154,12 +115,6 @@ const Main = () => {
                     </div>
                 </div>
                 <a href='http://localhost:3000' className='button'>메인기능 체험하러 가기</a>
-                {/* <div className='arrow'>
-                <p className='arrowText'>맨위로</p>
-                <a className='arrow-link' href='#banner'>
-                    <MdKeyboardArrowUp className='arrowFive' size={45} color='#f5b72a'/>
-                </a>
-            </div> */}
             </section>
         </ReactPageScroller>
     );
