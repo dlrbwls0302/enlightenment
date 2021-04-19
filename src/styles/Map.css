@@ -1,8 +1,132 @@
-#map {
-    width: 500px;
-    height: 400px;
+:root{
+    --main-bg-color:  #112d4e;
+    --main-color: #f9f7f7;
+    --sub-color-one: #3f72af;
+    --sub-color-two: #00498c;
+    --sub-color-three: #dbe2ef;
+    --sub-color-four: #4e3211;
+    --sub-color-five: #fef4eb;
+    --sub-color-six: #12222d;
+}
+.map-page-desktop {
+    width: 100%;
+    height: 100vh;
+    background: white;
+    overflow-x: hidden;
+}
+.heading{
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 40px;
+    letter-spacing: -1px;
+    color: var(--sub-color-one);
+}
+.map-condition-desktop.handle {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 100;
+    left: 90px;
+    top: 130px;
+    background: var(--main-color);
+    justify-content: center;
+    align-items: center;
+    padding: 15px 40px 25px 40px;
+    border: 4px solid #00498c;
+    border-radius: 10px;
+    cursor: grab;
 }
 
-#map-page {
-    margin-top: 150px;
+.map-condition-desktop.handle.active{
+    cursor: grabbing;
+}
+
+.election-wrapper-desktop {
+    
+}
+.election-wrapper-desktop select {
+    padding: 10px 10px;
+    width: 210px;
+    margin-bottom: 10px;
+}
+.sdName-wrapper-desktop {
+    
+}
+.sdName-wrapper-desktop select{
+    padding: 10px 10px;
+    width: 210px;
+    margin-bottom: 10px;
+}
+.wiwName-wrapper-desktop {
+    
+}
+.wiwName-wrapper-desktop select{
+    padding: 10px 10px;
+    width: 210px;
+    margin-bottom: 10px;
+}
+
+.button-wrapper-desktop a{
+    text-decoration: none;
+    padding: 10px 20px;
+    color: #00aeff;
+    font-size: 18px;
+    letter-spacing: 3px;
+    border: 1px solid #00aeff;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    transition: all .5s;
+    z-index: 1000;
+    border-radius: 10px;
+    background: white;
+}
+.button-wrapper-desktop a:hover{
+    color: var(--main-color);
+}
+.button-wrapper-desktop a:hover .wave{
+    top: 0;
+}
+.button-wrapper-desktop a .wave{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: calc(100% + 22px);
+    background: #00aeff;
+    transition: all 1s;
+    z-index: -1;
+}
+
+.button-wrapper-desktop a .wave:before{
+    content: '';
+    position: absolute;
+    top: -22px;
+    left: 0;
+    width: 100%;
+    height: 22px;
+    background-image: url('../images/wave.png'); 
+    animation: wavy 0.5s linear infinite;
+}
+@keyframes wavy{
+    0%{ background-position-x: 0 }
+    100% { background-position-x: 118px }
+}
+
+.map-box-desktop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 5;
+    padding: 90px 50px 50px 50px;
+    
+    /* background-color: var(--sub-color-two); */
+}
+
+#mapContainer {
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    
 }

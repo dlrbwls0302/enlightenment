@@ -1,9 +1,8 @@
 export const SidebarData = [
   {
     title: '로그인',
-    path: '/',
+    // path: '',
     className: 'nav-text',
-    
   },
   {
     title: '후보 공약보기',

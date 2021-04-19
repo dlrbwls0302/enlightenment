@@ -1,27 +1,189 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;900&display=swap');
-.banner{
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+:root{
+    --main-bg-color:  #112d4e;
+    --main-color: #f9f7f7;
+    --sub-color-one: #3f72af;
+    --sub-color-two: #00498c;
+    --sub-color-three: #dbe2ef;
+    --sub-color-four: #4e3211;
+    --sub-color-five: #fef4eb;
+    --sub-color-six: #12222d;
+}
+.wrapper{
+    background: var(--main-color);
+}
+html{
+    scroll-behavior: smooth;
+}
+
+/* 기존 모델 */
+/* .banner{
+    background: var(--sub-color-five);
     position: relative;
     width: 100%;
     height: 100vh;
     display: flex;
-    
-    /* justify-content: center;
-    align-items: center; */
 }
+.banner .personBx{
+    margin-top: 25rem;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+@keyframes personOne{
+    0%{transform:translateY(3px);}
+    50%{transform:translateY(-3px);}
+    100%{transform:translateY(3px);}
+}
+@keyframes personTwo{
+    0%{transform:translateY(-3px);}
+    50%{transform:translateY(3px);}
+    100%{transform:translateY(-3px);}
+}
+@keyframes personThree{
+    0%{transform:translateY(3px);}
+    50%{transform:translateY(-3px);}
+    100%{transform:translateY(3px);}
+}
+@keyframes personFour{
+    0%{transform:translateY(-3px);}
+    50%{transform:translateY(3px);}
+    100%{transform:translateY(-3px);}
+}
+.banner .personBx .personImg{
+    margin-left: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.banner .personBx .personImg:nth-child(1){
+    transition: 0.3s;
+    animation: personOne 5s infinite;
+}
+.banner .personBx .personImg:nth-child(2){
+    transition: 0.3s;
+    animation: personTwo 5s infinite;
+}
+.banner .personBx .personImg:nth-child(3){
+    transition: 0.3s;
+    animation: personThree 5s infinite;
+}
+.banner .personBx .personImg:nth-child(4){
+    transition: 0.3s;
+    animation: personFour 5s infinite;
+}
+.banner .personBx .personImg img{
+    width: 250px;
+    height: 300px;
+    transition: 0.3s ease-in-out;
+}
+.banner .personBx .personImg img:hover{
+    transform:scale(1.3);
+    transition: 0.3s ease-in-out;
+} */
+
+/* 새로운 모델 */
+.banner{
+    font-family: 'Black Han Sans', sans-serif;
+    position: relative;
+    right: 0;
+    width: 100%;
+    min-height: 100vh;
+    padding: 100px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center; 
+    z-index: 2;
+    background: black;
+    padding-right: 0;
+}
+.banner video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+    /* 살짝 흐리게 해서 뒤의 글자가 보이게 함 */
+}
+.banner .text{
+    position: relative;
+    z-index: 10;
+}
+.text h2{
+    font-size: 5em;
+    font-weight: 400;
+    line-height: 1em;
+    color: var(--main-color); 
+}
+.text h3{
+    font-size: 4em;
+    font-weight: 400;
+    line-height: 1em; 
+    color: var(--main-color);
+}
+.text p{
+    font-size: 1.1em;
+    margin: 20px 0;
+    font-weight: 400;
+    max-width: 280px;
+    color: var(--main-color);
+}
+.text a{
+    display: inline-block;
+    font-size: 1em;
+    background: var(--main-color);
+    padding: 10px 30px;
+    text-decoration: none;
+    color: #111;
+    margin-top: 10px;
+    transition: 0.2s;
+}
+.text a:hover{
+    letter-spacing: 2px;
+}
+/* banner section 반응형 */
+@media(max-width: 768px){
+    .text h2{
+        font-size: 4em;
+    }
+    .text h3{
+        font-size: 3em;
+    }
+} 
+
+@media(max-width: 493px){
+    .text h2{
+        font-size: 3em;
+    }
+    .text h3{
+        font-size: 2em;
+    }
+}
+/* 여기까지 */
 .arrow{
     position: absolute;
-    z-index: 150;
-    bottom: 10px;
+    z-index: 300;
+    bottom: 20px;
     right: 250px;
-    cursor: pointer;
+    /* cursor: pointer; */
     transition: 0.3s;
     animation: animatedArrow 3s infinite;
+    text-align: center;
+    font-family: 'Black Han Sans', sans-serif;
 }
-.banner .arrow .arrowOneFirst{
+.arrow .arrowText{
+    color: #f5b72a;
+}
+.banner .arrow .arrowOne{
     transition: 0.3s;
 }
-.banner .arrow .arrowOneFirst:hover{
+.banner .arrow .arrowOne:hover{
     transform:scale(1.5);
 }
 @keyframes animatedArrow{
@@ -29,58 +191,61 @@
     50%{transform:translateY(-10px);}
     100%{transform:translateY(10px);}
 }
-.banner img{
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: fill;
-}
-/* .banner .content{
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    max-width: 290px;
-    text-align: center;
-    font-family: 'Noto Serif KR', serif;
-} */
+
 .about{
     position: relative;
-    background: #112d4e;
+    /* 기존 모델 */
+    /* background: var(--main-bg-color); */
+    background: var(--main-color);
     width: 100%;
     height: 100vh;
     display: flex;
-    /* align-items: center; */
+    overflow-x: hidden;
+    
 }
 .about .contentBx{
     width: 50%;
-    padding: 100px;
+    padding: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .about .heading{
-    margin-top: 11rem;
+    margin-top: auto;
+    margin-bottom: 1.5rem;
     text-align: center;
-    font-family: 'Poppins', sans-serif;
-    color: #f9f7f7;
-    font-size: 50px;
+    font-family: 'Do Hyeon', sans-serif;
     
+    /* 기존 모델 */
+    /* color: var(--main-color); */
+    color: black;
+    font-size: 50px;
 }
-
 .about .text{
-    margin-top: 30px;
-    font-family: 'Poppins', sans-serif;
+    margin-top: 1.5rem;
+    margin-bottom: auto;
     position: relative;
-    color: #f9f7f7;
+    /* 기존 모델 */
+    /* color: var(--main-color); */
+    color: black;
     font-size: 29px;
     font-weight: 100;
     letter-spacing: 1px;
     text-align: center;
+    max-width: 540px;
 }
+
 .about .aboutImg{
-    background-image: url('../images/place.jpg'); 
+    /* background-image: url('../images/place.jpg'); 
     position: relative;
     width: 50%;
     background-size: cover;
+    background-position: center; */
+    background-image: url('../images/news.png'); 
+    position: relative;
+    width: 45%;
+    background-size: contain;
+    background-repeat: no-repeat;
     background-position: center;
 }
 .about .arrow{
@@ -92,9 +257,522 @@
     transition: 0.3s;
     animation: animatedArrow 3s infinite;
 }
-.about .arrow .arrowTwoFirst{
+.about .arrow .arrowTwo{
     transition: 0.3s;
 }
-.about .arrow .arrowTwoFirst:hover{
+.about .arrow .arrowTwo:hover{
     transform:scale(1.5);
 }
+/* about section 반응형 */
+@media(max-width: 860px){
+    .about{
+        display: flex;
+        flex-direction: column;
+        /* overflow: visible; */
+        align-items: center;
+    }
+    .about .contentBx{
+        /* flex: 1 0.6 auto; */
+        padding: 0;
+        width: 100%;
+        height: 40%;
+    }
+    .about .contentBx .heading{
+        font-size: 40px;
+        margin-top: 170px;
+    }
+    .about .contentBx .text{
+        font-size: 18px;
+    }
+    .about .aboutImg{
+        width: 90%;
+        height: 45%;
+    }
+} 
+@media(max-width: 621px){
+    .about .contentBx .heading{
+        font-size: 35px;
+    }
+    .about .contentBx .text{
+        font-size: 16px;
+        max-width: 500px;
+    }
+    .about .aboutImg{
+        width: 90%;
+        height: 40%;
+    }
+}
+@media(max-width: 560px){
+    .about .aboutImg{
+        width: 90%;
+    }
+}
+
+/* map */
+.map{
+    position: relative;
+    background: var(--main-color);
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.map .mapHeading{
+    position: relative;
+    font-family: 'Do Hyeon', sans-serif;
+    color: black;
+    font-size: 50px;
+    margin-top: 13rem; 
+}
+.map .mapText{
+    margin-top: 1rem; 
+    font-family: 'Poppins', sans-serif;
+    font-size: 29px;
+    font-weight: 100;
+    letter-spacing: 1px;
+    text-align: center;
+}
+.map .container{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 100px; 
+    margin-bottom:auto;
+    flex-wrap: wrap;
+}
+.map .container .mapBx img{
+    position: relative;
+    width: 350px;
+    height: 400px;
+    object-fit: cover;
+}
+.map .container .mapBx:nth-child(1){
+    margin-right: 4rem;
+}
+.map .container .mapBx:nth-child(3){
+    margin-left: 4rem;
+}
+
+.map .arrow .arrowThree{
+    transition: 0.3s;
+}
+.map .arrow .arrowThree:hover{
+    transform:scale(1.5);
+}
+/* map 반응형 */
+@media(max-width: 1160px){
+    .map .container{
+        flex-wrap: nowrap;
+        display: flex;
+        flex-direction: column;
+        height: 50%;
+    }
+    .map .container .mapBx{
+        margin-bottom: 20px;
+    }
+    .map .container .mapBx:nth-child(1){
+        margin-right: 0;
+    }
+    .map .container .mapBx:nth-child(3){
+        margin-left: 0;
+    }
+    .map .container .mapBx img{
+        width: 75%;
+        height: 160px;
+    }
+}
+@media(max-width: 860px){
+    .map .mapHeading{
+        font-size: 40px;
+    }
+    .map .mapText{
+        font-size: 18px;
+    }
+}
+@media(max-width: 800px){
+    .map .container .mapBx img{
+        height: 150px;
+    }
+}
+@media(max-width: 750px){
+    .map .container .mapBx img{
+        height: 145px;
+    }
+}
+@media(max-width: 700px){
+    .map .container .mapBx img{
+        height: 140px;
+    }
+}
+@media(max-width: 650px){
+    .map .container .mapBx img{
+        height: 135px;
+    }
+}
+@media(max-width: 600px){
+    .map .container .mapBx img{
+        height: 130px;
+    }
+}
+
+/* news */
+.news{
+    position: relative;
+    /* 기존 모델 */
+    /* background: var(--sub-color-three); */
+    background: var(--main-color);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    overflow-x: hidden;
+}
+.news .newsBx{
+    width: 50%;
+    padding: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.news .newsImgBx{
+    background-image: url('../images/news.png'); 
+    position: relative;
+    width: 45%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.news .newsHeading{
+    margin-top: auto;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-family: 'Do Hyeon', sans-serif;
+    /* 기존 모델 */
+    /* color: var(--main-bg-color); */
+    color: black;
+    font-size: 50px;
+}
+.news .newsText{
+    /* 기존 모델 */
+    /* color: var(--main-bg-color); */
+    color: black;
+    font-family: 'Poppins', sans-serif;
+    font-size: 29px;
+    font-weight: 100;
+    letter-spacing: 1px;
+    text-align: center;
+    margin-top: 1.5rem;
+    margin-bottom: auto;
+    max-width: 520px;
+}
+.newsComment img{
+    width: 100px;
+    height: 100px;
+}
+.newsComment{
+    transition: 0.15s;
+    visibility: hidden;
+    margin-right: auto;
+    margin-left: auto;
+}
+.newsComment.visible{
+    visibility: visible;
+}
+.news .newsBx .newsIcon{
+    margin-right: auto;
+    margin-left: auto;
+    color: var(--main-bg-color);
+    font-size: 13rem;
+    cursor: pointer;
+    transition: 0.3s;
+    animation: animatedArrow 3s infinite;
+}
+.news .newsBx .newsIcon:hover{
+    transform:scale(1.5);
+}
+.news .arrow .arrowFour{
+    transition: 0.3s;
+}
+.news .arrow .arrowFour:hover{
+    transform:scale(1.5);
+}
+
+/* news 반응형 */
+@media(max-width: 860px){
+    .news{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .news .newsBx{
+        padding: 0;
+        width: 100%;
+        height: 40%;
+    }
+    .news .newsBx .newsHeading{
+        font-size: 40px;
+        margin-top: 170px;
+    }
+    .news .newsBx .newsText{
+        font-size: 18px;
+    }
+    .news .newsImgBx{
+        width: 90%;
+        height: 45%;
+    }
+} 
+@media(max-width: 621px){
+    .news .newsBx .newsHeading{
+        font-size: 35px;
+    }
+    .news .newsBx .newsText{
+        font-size: 16px;
+        max-width: 500px;
+    }
+    .news .newsImgBx{
+        width: 90%;
+        height: 40%;
+    }
+}
+@media(max-width: 560px){
+    .news .newsImgBx{
+        width: 90%;
+    }
+}
+@media(max-width: 330px){
+    .news .newsImgBx{
+        width: 90%;
+    }
+}
+
+/* opinion */
+.opinion{
+    position: relative;
+    background: var(--main-color);
+    width: 100%;
+    height: 100vh;
+    padding: 100px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+.opinion .opinionHeading{
+    position: relative;
+    color: black;
+    font-size: 50px;
+    margin-top: 6rem; 
+    font-family: 'Do Hyeon', sans-serif;
+}
+.opinion .opinionText{
+    font-family: 'Poppins', sans-serif;
+    margin-top: 16px;
+    font-size: 29px;
+    font-weight: 100;
+    letter-spacing: 1px;
+    text-align: center;
+    color: black;
+
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 750px;
+}
+.opinion .opinionContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    /* margin: 40px; */
+    margin-top: 50px;
+    flex-wrap: wrap;
+}
+.opinion .opinionContainer .opinionContentBx{
+    position: relative;
+    box-shadow: 8px 5px 5px grey;
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 40px 30px;
+    margin: 30px;
+    width: 540px;
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
+
+}
+.opinion .opinionContainer .opinionContentBx:hover{
+    transform: scale(1.1);
+}
+.opinion .opinionContainer .opinionContentBx p{
+    font-style: italic;
+}
+.opinion .opinionContainer .opinionContentBx h3{
+    width: 100%;
+    text-align: right;
+    font-weight: 500;
+    color: var(--sub-color-two);
+}
+.opinion .button{
+    font-family: 'Black Han Sans', sans-serif;
+    position: absolute;
+    top: 120px;
+    right: 30px;
+    text-decoration: none;
+    background: white;
+    padding: 10px 30px;
+    border: 2px solid black;
+    color: black;
+    transition: 0.2s;
+}
+.opinion .button:hover{
+    letter-spacing: 2px;
+    /* transform:scale(1.2); */
+}
+.opinion .arrow .arrowFive{
+    transition: 0.3s;
+}
+.opinion .arrow .arrowFive:hover{
+    transform:scale(1.5);
+}
+/* opinion 반응형 */
+@media(max-width: 1433px){
+    .opinion{
+        padding: 100px 100px 0 100px;
+    }
+}
+@media(max-width: 1433px){
+    .opinion .opinionContainer{
+        margin-top: 20px;
+        flex-wrap: nowrap;
+    }
+    .opinion .opinionContainer .opinionContentBx{
+        padding: 30px 20px;
+        width: 500px;
+    }
+}
+@media(max-width: 950px){
+    .opinion .opinionHeading{
+        margin-top: 9rem;
+    }
+}
+@media(max-width: 860px){
+    .opinion .opinionContainer{
+        margin-top: 15px;
+    }
+    .opinion .opinionHeading{
+        font-size: 40px;
+    }
+    .opinion .opinionText{
+        font-size: 18px;
+    }
+    .opinion .opinionContainer{
+        flex-direction: column;
+    }
+}
+@media(max-width: 800px){
+    .opinion .opinionContainer{
+        margin-top: 10px;
+    }
+    .opinion .opinionContainer .opinionContentBx{
+        padding: 25px 20px 20px 20px;
+        margin: 20px;
+    }
+}
+@media(max-width: 750px){
+    .opinion .opinionContainer .opinionContentBx{
+        padding: 20px 20px 20px 20px;
+        margin: 15px;
+    }
+}
+@media(max-width: 650px){
+    .opinion .opinionContainer .opinionContentBx{
+        padding: 2px;
+        margin: 10px;
+    }
+}
+@media(max-width: 650px){
+    .opinion .opinionContainer .opinionContentBx{
+        width: 400px;
+    }
+}
+@media(max-width: 600px){
+    .opinion .opinionContainer .opinionContentBx{
+        width: 350px;
+    }
+}
+
+/* @media(max-width: 1202px){
+    .opinion .opinionHeading{
+        margin-top: 8rem;
+    }
+    .opinion .opinionContainer .opinionContentBx{
+        padding: 45px 35px;
+    }
+}
+@media(max-width: 860px){
+    .opinion .opinionHeading{
+        font-size: 40px;
+    }
+    .opinion .opinionText{
+        font-size: 18px;
+    }
+}
+@media(max-width: 800px){
+    .opinion .opinionHeading{
+        margin-top: 8rem;
+    }
+    .opinion .opinionContainer .opinionContentBx{
+        padding: 35px 35px;
+    }
+}
+@media(max-width: 718px){
+    .opinion .opinionHeading{
+        font-size: 35px;
+    }
+    .opinion .opinionText{
+        font-size: 16px;
+    }
+}
+@media(max-width: 621px){
+    .opinion .opinionHeading{
+        font-size: 30px;
+    }
+    .opinion .opinionText{
+        font-size: 14px;
+    }
+}
+@media(max-width: 621px){
+    .opinion{
+        padding: 90px;
+    }
+}
+@media(max-width: 516px){
+    .opinion .opinionHeading{
+        margin-top: 10rem;
+    }
+    .opinion{
+        padding: 80px;
+    }
+    .opinion .opinionContainer .opinionContentBx{
+        padding: 30px 35px;
+    }
+}
+@media(max-width: 501px){
+    .opinion .opinionContainer .opinionContentBx{
+        padding: 25px 35px;
+    }
+}
+@media(max-width: 491px){
+    .opinion .opinionContainer .opinionContentBx p{
+        font-size: 1.3rem;
+    }
+    .opinion .opinionContainer .opinionContentBx h3{
+        font-size: 2rem;
+    }
+}
+@media(max-width: 467px){
+    .opinion .opinionContainer .opinionContentBx p{
+        font-size: 1.1rem;
+    }
+    .opinion .opinionContainer .opinionContentBx h3{
+        font-size: 1.8rem;
+    }
+} */
