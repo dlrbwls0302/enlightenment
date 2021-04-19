@@ -10,13 +10,15 @@
     --sub-color-five: #fef4eb;
     --sub-color-six: #12222d;
     --sub-color-seven: tomato;
+    --sub-color-eight: #f5f4f0;
+    --sub-color-nine: rgb(50,50,40);
 }
 .write-container{
     width: 100%;
     height: 100vh;
     position: relative;
     padding: 100px;
-    background: var(--main-color);
+    background: var(--sub-color-eight);
 }
 .editor{
     /* display: flex;
@@ -37,7 +39,7 @@
     margin-left: 8vw;
     border: 2px solid black;
     border-radius: 5px;
-    font-family: 'Black Han Sans', sans-serif;
+    font-family: 'Noto Serif KR', serif;
     font-weight: 100;
     text-decoration: none;
 }
@@ -50,7 +52,7 @@
     font-weight: 200;
     margin-top: 0vh;
     padding-top: 30px;
-    font-family: 'Black Han Sans', sans-serif;
+    font-family: 'Noto Serif KR', serif;
     margin-left: 8vw;
 }
 .write-container .line{
@@ -92,7 +94,7 @@
     margin-left: 8vw;
     border: 2px solid black;
     border-radius: 5px;
-    font-family: 'Black Han Sans', sans-serif;
+    font-family: 'Noto Serif KR', serif;
     font-weight: 100;
 }
 .write-container .submit:hover{
