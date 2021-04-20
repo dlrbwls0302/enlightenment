@@ -64,7 +64,10 @@ function HeaderNav({ isLogin, userId, setLogin, setUserId }) {
                     }}>
                         {isLogin ? '로그아웃' : '로그인'}
                     </li>
-                    <li className='nav-text' onClick={onClose}>
+                    <li className='nav-text' onClick={() => {
+                        onClose()
+
+                    }}>
                         <Link to={SidebarData[1].path} >
                             {SidebarData[1].title}
                         </Link>

@@ -60,6 +60,9 @@ const Xfile = ({ isLogin, userId }) => {
             }
         })
     }, [])
+    useEffect(() => {
+        document.querySelector('.header')
+    })
 
     const settingsOne = {
         dots: false,
@@ -94,7 +97,7 @@ const Xfile = ({ isLogin, userId }) => {
         <div className='main-container'>
             <div className='item'>
                 <div className='menu-header'></div>
-                <div className='menu-line-one'></div>
+                <p className='menu-line-before'></p>
                 <div className='menu-select'>
                     <div className='menu-select-item'>
                         <Link to={'/'} className='go-to-main'>
@@ -106,11 +109,11 @@ const Xfile = ({ isLogin, userId }) => {
                     <div className='menu-select-item' onClick={onClick}>뉴스보기</div>
                     <div className='menu-select-item' onClick={onClick}>의견남기기</div>
                 </div>
-                <div className='menu-line-two'></div>
+                <p className='menu-line-after'></p>
             </div>
 
             <div className='item'>
-                <div className='slider_title_two'>이 페이지에서는 </div>
+                <div className='slider_title_one'>이 페이지에서는 </div>
                 <div className='item-content'>
                     대한민국 건국이래 정치계에는 수많은 사건들이 발생하였고 그로 인하여 대한민국의 근간이 흔들리는 일까지 발생하였습니다. 하지만 그 중 대부분의 이슈는 적법한 절차없이 묻혀버렸고 비공식적으로 종결되었습니다. 우리는 그러한 이슈들을 다시 한 번 파헤쳐내어 대한민국의 정의를 되찾고자 합니다. 
                 </div>
@@ -140,7 +143,7 @@ const Xfile = ({ isLogin, userId }) => {
                     </Slider>
                 </div>
 
-                <div className='slider_title_two'>새로운 이슈</div>
+                <div className='slider_title_one'>새로운 이슈</div>
                 <div className='container mt-5 carousel'>
                     <Slider {...settingsOne}>
                         <div className='card-wrapper'>
@@ -170,205 +173,183 @@ const Xfile = ({ isLogin, userId }) => {
 
             <div className='item'>
                 <div className='main-header'>
-                    <h1 className='slider_title_three'>사건 집중 조명 <GiMagnifyingGlass size={40} color='rgb(50,50,40)'/></h1>
+                    <h1 className='slider_title_three'>사건 집중 조명 <GiMagnifyingGlass className='glass' color='rgb(50,50,40)'/></h1>
                 </div>
                 <div className='board_list_wrap'>
-                        <table className='board_list'>
-                            <caption>게시판 목록</caption>
-                            <thead>
-                                <tr>
-                                    <th>번호</th>
-                                    <th>제목</th>
-                                    <th>글쓴이</th>
-                                    <th>작성일</th>
-                                    <th>조회수</th>
-                                </tr>  
-                            </thead>
+                    <table className='board_list'>
+                        <caption>게시판 목록</caption>
+                        <thead>
+                            <tr>
+                                <th>번호</th>
+                                <th>제목</th>
+                                <th>글쓴이</th>
+                                <th>작성일</th>
+                                <th>조회수</th>
+                            </tr>  
+                        </thead>
 
-                            <tbody>
-                                <tr>
-                                    <td>12</td>
-                                    <td className='tlt'>
-                                        <a href='#'>
-                                            안녕하세요
-                                        </a>
-                                    </td>
-                                    <td>관리자</td>
-                                    <td>2021-4-19</td>
-                                    <td>21</td>
-                                </tr> 
-                                <tr>
-                                    <td>11</td>
-                                    <td className='tlt'>
-                                        <a href='#'>
-                                            안녕하세요
-                                        </a>
-                                    </td>
-                                    <td>관리자</td>
-                                    <td>2021-4-19</td>
-                                    <td>21</td>
-                                </tr> 
-                                <tr>
-                                    <td>10</td>
-                                    <td className='tlt'>
-                                        <a href='#'>
-                                            안녕하세요
-                                        </a>
-                                    </td>
-                                    <td>관리자</td>
-                                    <td>2021-4-19</td>
-                                    <td>21</td>
-                                </tr> 
-                                <tr>
-                                    <td>9</td>
-                                    <td className='tlt'>
-                                        <a href='#'>
-                                            안녕하세요
-                                        </a>
-                                    </td>
-                                    <td>관리자</td>
-                                    <td>2021-4-19</td>
-                                    <td>21</td>
-                                </tr> 
-                                <tr>
-                                    <td>8</td>
-                                    <td className='tlt'>
-                                        <a href='#'>
-                                            안녕하세요
-                                        </a>
-                                    </td>
-                                    <td>관리자</td>
-                                    <td>2021-4-19</td>
-                                    <td>21</td>
-                                </tr> 
-                                <tr>
-                                    <td>7</td>
-                                    <td className='tlt'>
-                                        <a href='#'>
-                                            안녕하세요
-                                        </a>
-                                    </td>
-                                    <td>관리자</td>
-                                    <td>2021-4-19</td>
-                                    <td>21</td>
-                                </tr> 
-                                <tr>
-                                    <td>6</td>
-                                    <td className='tlt'>
-                                        <a href='#'>
-                                            안녕하세요
-                                        </a>
-                                    </td>
-                                    <td>관리자</td>
-                                    <td>2021-4-19</td>
-                                    <td>21</td>
-                                </tr> 
-                                <tr>
-                                    <td>5</td>
-                                    <td className='tlt'>
-                                        <a href='#'>
-                                            안녕하세요
-                                        </a>
-                                    </td>
-                                    <td>관리자</td>
-                                    <td>2021-4-19</td>
-                                    <td>21</td>
-                                </tr>     
+                        <tbody>
+                            <tr>
+                                <td>12</td>
+                                <td className='tlt'>
+                                    <a href='#'>
+                                        안녕하세요
+                                    </a>
+                                </td>
+                                <td>관리자</td>
+                                <td>2021-4-19</td>
+                                <td>21</td>
+                            </tr> 
+                            <tr>
+                                <td>11</td>
+                                <td className='tlt'>
+                                    <a href='#'>
+                                        안녕하세요
+                                    </a>
+                                </td>
+                                <td>관리자</td>
+                                <td>2021-4-19</td>
+                                <td>21</td>
+                            </tr> 
+                            <tr>
+                                <td>10</td>
+                                <td className='tlt'>
+                                    <a href='#'>
+                                        안녕하세요
+                                    </a>
+                                </td>
+                                <td>관리자</td>
+                                <td>2021-4-19</td>
+                                <td>21</td>
+                            </tr> 
+                            <tr>
+                                <td>9</td>
+                                <td className='tlt'>
+                                    <a href='#'>
+                                        안녕하세요
+                                    </a>
+                                </td>
+                                <td>관리자</td>
+                                <td>2021-4-19</td>
+                                <td>21</td>
+                            </tr> 
+                            <tr>
+                                <td>8</td>
+                                <td className='tlt'>
+                                    <a href='#'>
+                                        안녕하세요
+                                    </a>
+                                </td>
+                                <td>관리자</td>
+                                <td>2021-4-19</td>
+                                <td>21</td>
+                            </tr> 
+                            <tr>
+                                <td>7</td>
+                                <td className='tlt'>
+                                    <a href='#'>
+                                        안녕하세요
+                                    </a>
+                                </td>
+                                <td>관리자</td>
+                                <td>2021-4-19</td>
+                                <td>21</td>
+                            </tr> 
+                            <tr>
+                                <td>6</td>
+                                <td className='tlt'>
+                                    <a href='#'>
+                                        안녕하세요
+                                    </a>
+                                </td>
+                                <td>관리자</td>
+                                <td>2021-4-19</td>
+                                <td>21</td>
+                            </tr> 
+                            <tr>
+                                <td>5</td>
+                                <td className='tlt'>
+                                    <a href='#'>
+                                        안녕하세요
+                                    </a>
+                                </td>
+                                <td>관리자</td>
+                                <td>2021-4-19</td>
+                                <td>21</td>
+                            </tr>     
 
-                                 <tr>
-                                    <td>4</td>
-                                    <td className='tlt'>
-                                        <a href='#'>
-                                            안녕하세요
-                                        </a>
-                                    </td>
-                                    <td>관리자</td>
-                                    <td>2021-4-19</td>
-                                    <td>21</td>
-                                </tr>     
+                                <tr>
+                                <td>4</td>
+                                <td className='tlt'>
+                                    <a href='#'>
+                                        안녕하세요
+                                    </a>
+                                </td>
+                                <td>관리자</td>
+                                <td>2021-4-19</td>
+                                <td>21</td>
+                            </tr>     
 
-                                 <tr>
-                                    <td>3</td>
-                                    <td className='tlt'>
-                                        <a href='#'>
-                                            안녕하세요
-                                        </a>
-                                    </td>
-                                    <td>관리자</td>
-                                    <td>2021-4-19</td>
-                                    <td>32</td>
-                                </tr>     
+                                <tr>
+                                <td>3</td>
+                                <td className='tlt'>
+                                    <a href='#'>
+                                        안녕하세요
+                                    </a>
+                                </td>
+                                <td>관리자</td>
+                                <td>2021-4-19</td>
+                                <td>32</td>
+                            </tr>     
 
-                                 <tr>
-                                    <td>2</td>
-                                    <td className='tlt'>
-                                        <a href='#'>
-                                            안녕하세요
-                                        </a>
-                                    </td>
-                                    <td>관리자</td>
-                                    <td>2021-4-19</td>
-                                    <td>41</td>
-                                </tr>     
+                                <tr>
+                                <td>2</td>
+                                <td className='tlt'>
+                                    <a href='#'>
+                                        안녕하세요
+                                    </a>
+                                </td>
+                                <td>관리자</td>
+                                <td>2021-4-19</td>
+                                <td>41</td>
+                            </tr>     
 
-                                 <tr>
-                                    <td>1</td>
-                                    <td className='tlt'>
-                                        <a href='#'>
-                                            안녕하세용 안영ㅎ아세용ㅈ루ㅢ주리줄fwfwfefwfwfwffwfwfwfwfwefewfw
-                                        </a>
-                                    </td>
-                                    <td>관리자</td>
-                                    <td>2021-4-19</td>
-                                    <td>2</td>
-                                </tr>        
-                            </tbody>
-                        </table>
-                        <div className='paging'>
-                            <a href='#' className='bt'>첫 페이지</a>
-                            <a href='#' className='bt'>이전 페이지</a>
-                            <a href='#' className={'num on'}>1</a>
-                            <a href='#' className='num'>2</a>
-                            <a href='#' className='num'>3</a>
-                            <a href='#' className='bt'>다음 페이지</a>
-                            <a href='#' className='bt'>마지막 페이지</a>
-                        </div>
+                                <tr>
+                                <td>1</td>
+                                <td className='tlt'>
+                                    <a href='#'>
+                                        안녕하세용 안영ㅎ아세용ㅈ루ㅢ주리줄fwfwfefwfwfwffwfwfwfwfwefewfw
+                                    </a>
+                                </td>
+                                <td>관리자</td>
+                                <td>2021-4-19</td>
+                                <td>2</td>
+                            </tr>        
+                        </tbody>
+                    </table>
+                    <div className='paging'>
+                       
+                        <a href='#' className='bt'>이전 페이지</a>
+                        <a href='#' className='num'>1</a>
+                        {/* <a href='#' className='num'>2</a>
+                        <a href='#' className='num'>3</a> */}
+                        <a href='#' className='bt'>다음 페이지</a>
+                        
                     </div>
-
+                </div>
             </div>
+
             <div className='item'>
                 <div className='slider_title_two'>"어차피 대중들은 OOO입니다."</div>
                     <div className='item-content'>
                         <img src={dogpig} alt='dogpig' />
                         <p>OOO에 들어갈 말을 채우는 건 여러분들의 몫입니다. </p>
                     </div>
-                </div>
+            </div>
 
-            {/* <section className='sub-container-three'>
-                <h1 className='slider_title_three'>사건 집중 조명 <GiMagnifyingGlass size={53}/></h1>
-                <div className='case-contanier'>
-                    <table border = '1'>
-                    <tr>
-                        <th>번호</th>
-                        <th>작성자</th>
-                        <th>제목</th>
-                        <th>작성일</th>
-                    </tr>
-                        <Case name={name} number={number} title={title} date={date} />
-                        <Case name={name} number={number} title={title} date={date} />
-                        <Case name={name} number={number} title={title} date={date} />
-                        <Case name={name} number={number} title={title} date={date} />
-                        <Case name={name} number={number} title={title} date={date} />
-                        <Case name={name} number={number} title={title} date={date} />
-                        <Case name={name} number={number} title={title} date={date} />
-                        <Case name={name} number={number} title={title} date={date} />
-                        <Case name={name} number={number} title={title} date={date} />
-                        <Case name={name} number={number} title={title} date={date} />
-                        <Case name={name} number={number} title={title} date={date} />
-                        <Case name={name} number={number} title={title} date={date} />
-                    </table>
-                </div>
-            </section> */}
+            <div className='item'>
+                당신의 선택 created by Team 12
+            </div>
         </div>
     );
 };

@@ -37,7 +37,7 @@
     color: black;
     transition: 0.2s;
     margin-left: 8vw;
-    border: 2px solid black;
+    border: 2px solid var(--sub-color-nine);
     border-radius: 5px;
     font-family: 'Noto Serif KR', serif;
     font-weight: 100;
@@ -49,17 +49,18 @@
 }
 .write-container .write-heading{
     font-size: 45px;
-    font-weight: 200;
+    font-weight: 600;
     margin-top: 0vh;
     padding-top: 30px;
     font-family: 'Noto Serif KR', serif;
     margin-left: 8vw;
+    color: var(--sub-color-nine);
 }
 .write-container .line{
     margin-left: 8vw;
     margin-top: 2vh;
     width: 60vw;
-    border-top: 1px solid black;
+    border-top: 1px solid var(--sub-color-nine);
 }
 .write-container .title{
     margin-left: 8vw;
@@ -84,7 +85,7 @@
     height: 100%;
 }
 
-.write-container .submit{
+.write-container .editor .submit{
     margin-top: 3.8vh;
     font-size: 1em;
     background: white;
@@ -92,7 +93,7 @@
     color: black;
     transition: 0.2s;
     margin-left: 8vw;
-    border: 2px solid black;
+    border: 2px solid var(--sub-color-nine);
     border-radius: 5px;
     font-family: 'Noto Serif KR', serif;
     font-weight: 100;
@@ -100,3 +101,5 @@
 .write-container .submit:hover{
     letter-spacing: 2px;
 }
+
+
