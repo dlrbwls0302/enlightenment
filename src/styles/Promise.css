@@ -12,6 +12,8 @@
 
 .candidate_listBox {
     margin: 100px;
+    display: block;
+    position: relative;
     justify-content: space-between;
     /* display: flex; */
 }

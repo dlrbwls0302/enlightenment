@@ -2,45 +2,50 @@ import React, { useRef, useEffect, useCallback } from 'react';
 import { useSpring, animated } from 'react-spring';
 import styled from 'styled-components';
 import { MdClose } from 'react-icons/md';
-import { Modal } from 'react-modal'
-// const Background = .div`
-//   width: 100%;
-//   height: 100%;
-//   background: rgba(0, 0, 0, 0.8);
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// `;
+
+const Background = styled.div`
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 const ModalWrapper = styled.div`
-  width: 900px;
-  height: 900px;
+  width: 800px;
+  height: 500px;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
   background: #fff;
-  position: fixed;
-  top: 200px;
-  left: 500px;
   color: #000;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  z-index: 10;
   border-radius: 10px;
-  top : '50%',
-  left : '50%',
-  right : 'auto',
-  bottom : 'auto',
-  marginRight : '-50%',
-  transform : 'translate(-50%, -50%)',
-  padding: '70px 110px',
-  display: 'flex',
-  flexDirection: 'column',
-  borderRadius: '10px',
-  boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-  zIndex: '10000',
 `;
+
+const ModalImg = styled.div`
+  width: 100%;
+  height: 100%;
+  justify-content: start;
+  align-items: left;
+  border-radius: 10px 0 0 10px;
+  color: #141414;
+  p {
+    text-align: left;
+    justify-content: start;
+    align-items: left;
+    margin-top: 5rem;
+  }
+  `;    
 
 const ModalContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+
   line-height: 1.8;
   color: #141414;
   p {
@@ -56,19 +61,25 @@ const ModalContent = styled.div`
 
 const CloseModalButton = styled(MdClose)`
   cursor: pointer;
-  position: resolution;
+  position: absolute;
   top: 20px;
-  right: 10px;
+  right: 20px;
   width: 32px;
   height: 32px;
   padding: 0;
   z-index: 10;
 `;
 
-const PromiseModal = ({ showModal, setShowModal }) => {
+const PromiseModal = ({ showModal, setShowModal, currentCandidate }) => {
   const modalRef = useRef();
 
-
+  const animation = useSpring({
+    config: {
+      duration: 250
+    },
+    opacity: showModal ? 1 : 0,
+    transform: showModal ? `translateY(0%)` : `translateY(-100%)`
+  });
 
   const closeModal = e => {
     if (modalRef.current === e.target) {
@@ -97,9 +108,30 @@ const PromiseModal = ({ showModal, setShowModal }) => {
   return (
     <>
       {showModal ? (
-            <ModalWrapper showModal={showModal} onclick={closeModal} >
-            </ModalWrapper> 
-            
+        <Background onClick={closeModal} ref={modalRef}>
+          <animated.div style={animation}>
+            <ModalWrapper showModal={showModal}>
+ 
+              <ModalContent>
+                <h1>{currentCandidate.name}</h1>
+                <span>{currentCandidate.candidateInfo.jdName}</span>
+              </ModalContent>
+              <CloseModalButton
+                aria-label='Close modal'
+                onClick={() => setShowModal(prev => !prev)}
+              />
+                         <ModalImg >
+                            
+                             <p>      {currentCandidate.promise.first}  </p>
+                             <p>      {currentCandidate.promise.second}  </p>
+                             <p>      {currentCandidate.promise.third}  </p>
+                             <p>      {currentCandidate.promise.fourth}  </p>
+
+
+                </ModalImg>
+            </ModalWrapper>
+          </animated.div>
+        </Background>
       ) : null}
     </>
   );

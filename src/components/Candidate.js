@@ -7,6 +7,7 @@ import PromiseModal from '../modals/PromiseModal'
 const Candidate = ({candidate}) => {
     const { jdName, name } = candidate
     const [ currentCandidate, setCurrentCandidate ] = useState({
+        personalInfo: "",
         name: '',
         img : '',
         promise : ''
@@ -14,12 +15,13 @@ const Candidate = ({candidate}) => {
     const [showModal, setShowModal] = useState(false)
 
     useEffect(() => {
-        const hudo = data.data.filter((candidate, index) => {
-            return candidate.name === name
+        const hudo = data.data.filter((candi, index) => {
+            return candi.name === name
         })
         const temp = hudo[0]
         if (temp) {
             setCurrentCandidate({
+                candidateInfo: candidate,
                 name: temp.name,
                 img: temp.img,
                 promise: temp.promise
@@ -27,6 +29,7 @@ const Candidate = ({candidate}) => {
         }
 
     }, [])
+
 
     const openModal = () => {
         setShowModal(prev => !prev)
@@ -39,7 +42,7 @@ const Candidate = ({candidate}) => {
             <>
               <img className="candidate_img" src={currentCandidate.img} alt={currentCandidate.name} onClick={openModal}/>
               <PromiseModal
-                showModal={showModal} setShowModal={openModal} />
+                showModal={showModal} setShowModal={openModal} currentCandidate={currentCandidate}/>
             </>
             }
         </>
