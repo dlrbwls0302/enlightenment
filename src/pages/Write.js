@@ -11,22 +11,22 @@ const Write = () => {
         setTitle(e.target.value)
     }
     const submitEditor = () => {
-        if(title === '' || description === ''){
+        if (title === '' || description === '') {
             alert('제목과 내용을 입력해 주세요.');
-        } else{
+        } else {
             fetch("http://localhost:5000/magazines", {
-            method: 'POST',
-            credentials: 'include',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                title,
-                description
+                method: 'POST',
+                credentials: 'include',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    title,
+                    description
+                })
             })
-         })
-        .then(res => res.json())
-        .then(json => console.log(json))
+                .then(res => res.json())
+                .then(json => console.log(json))
         }
     }
     return (
