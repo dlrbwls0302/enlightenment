@@ -46,7 +46,6 @@ element{
     height: 100%;
     object-fit: cover;
     opacity: 0.6;
-    /* 살짝 흐리게 해서 뒤의 글자가 보이게 함 */
 }
 .banner .text{
     position: relative;
@@ -248,14 +247,10 @@ element{
     margin-bottom: 1.5rem;
     text-align: center;
     font-family: 'Do Hyeon', sans-serif;
-    /* 기존 모델 */
-    /* color: var(--main-bg-color); */
     color: black;
     font-size: 50px;
 }
 .news .newsText{
-    /* 기존 모델 */
-    /* color: var(--main-bg-color); */
     color: black;
     font-family: 'Poppins', sans-serif;
     font-size: 29px;
@@ -309,19 +304,6 @@ element{
     display: flex;
     flex-direction: column;
 }
-/* .opinion-background{
-    width: 100%;
-    height: 100vh;
-    position: absolute;
-    top: 0;
-    right: 0;
-    background-image: url('../images/opinion5.jpg'); 
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    z-index: 0;
-    opacity: 0.1;
-} */
 .opinion .opinionHeading{
     position: relative;
     color: black;
@@ -413,7 +395,6 @@ element{
         right: 0;
         width: 100%;
         min-height: 100vh;
-        /* padding: 100px; */
         display: flex;
         justify-content: center;
         align-items: center; 
@@ -429,7 +410,7 @@ element{
         height: 100%;
         object-fit: cover;
         opacity: 0.6;
-        /* 살짝 흐리게 해서 뒤의 글자가 보이게 함 */
+
     }
     .banner .text{
         display: flex;
@@ -637,14 +618,10 @@ element{
         margin-top: -70px;
         margin-bottom: 7px;
         font-family: 'Do Hyeon', sans-serif;
-        /* 기존 모델 */
-        /* color: var(--main-bg-color); */
         color: black;
         font-size: 24px;
     }
     .news .newsText{
-        /* 기존 모델 */
-        /* color: var(--main-bg-color); */
         color: black;
         font-family: 'Poppins', sans-serif;
         font-size: 16px;
@@ -700,7 +677,6 @@ element{
         position: relative;
         color: black;
         font-size: 24px;
-        /* margin-top: 6rem;  */
         font-family: 'Do Hyeon', sans-serif;
         margin-bottom: 7px;
     }
@@ -760,7 +736,6 @@ element{
     }
     .opinion .button:hover{
         letter-spacing: 2px;
-        /* transform:scale(1.2); */
     }
     .opinion .arrow .arrowFive{
         transition: 0.3s;

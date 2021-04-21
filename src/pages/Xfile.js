@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { GiMagnifyingGlass } from 'react-icons/gi';
-import Case from '../components/Case';
+// import Case from '../components/Case';
 import { openModal } from '../actions/index';
 import { useHistory } from "react-router";
 import { Link } from 'react-router-dom';

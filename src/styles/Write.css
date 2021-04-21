@@ -24,10 +24,10 @@
     /* display: flex;
     flex-direction: column;
     align-items: start;
-    justify-content: center;
-    width: 900px;
+    justify-content: center; */
+    width: 1100px;
     margin-left: auto;
-    margin-right: auto; */
+    margin-right: auto;
 }
 .goBack{
     display: inline-block;
@@ -36,10 +36,10 @@
     padding: 10px 30px;
     color: black;
     transition: 0.2s;
-    margin-left: 8vw;
+    /* margin-left: 8vw; */
     border: 2px solid var(--sub-color-nine);
     border-radius: 5px;
-    font-family: 'Noto Serif KR', serif;
+    font-family: 'Black Han Sans', sans-serif;
     font-weight: 100;
     text-decoration: none;
 }
@@ -52,18 +52,17 @@
     font-weight: 600;
     margin-top: 0vh;
     padding-top: 30px;
-    font-family: 'Noto Serif KR', serif;
-    margin-left: 8vw;
-    color: var(--sub-color-nine);
+    font-family: 'Black Han Sans', sans-serif;
+    /* margin-left: 8vw; */
+    color: black;
 }
 .write-container .line{
-    margin-left: 8vw;
+    /* margin-left: 8vw; */
     margin-top: 2vh;
-    width: 60vw;
+    width: 100%;
     border-top: 1px solid var(--sub-color-nine);
 }
 .write-container .title{
-    margin-left: 8vw;
     padding: 10px;
     width: 30vw;
     margin-top: 3.8vh;
@@ -73,12 +72,12 @@
     outline: none;
 }
 .ck.ck-sticky-panel{
-    margin-left: 8vw;
+    /* margin-left: 8vw; */
     width: 60vw;
 }
 .ck.ck-editor__main{
     height: 38vh;
-    margin-left: 8vw;
+    /* margin-left: 8vw; */
     width: 60vw;
 }
 .ck.ck-content{
@@ -92,10 +91,10 @@
     padding: 10px 30px;
     color: black;
     transition: 0.2s;
-    margin-left: 8vw;
+    /* margin-left: 8vw; */
     border: 2px solid var(--sub-color-nine);
     border-radius: 5px;
-    font-family: 'Noto Serif KR', serif;
+    font-family: 'Black Han Sans', sans-serif;
     font-weight: 100;
 }
 .write-container .submit:hover{

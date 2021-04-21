@@ -19,7 +19,7 @@ const Main = () => {
     return (
         <ReactPageScroller>
         <section className='banner' id='banner'>
-            {/* 동영상 모델 */}
+
             {/* <video src={video} muted loop autoPlay></video> */}
             <div className='text' data-aos='fade-up' data-aos-once="false">
                 <h2>대한민국을 책임질</h2>
@@ -42,7 +42,6 @@ const Main = () => {
 
         {/* about election */}
         <section className='about' id='about'>
-            {/* <div className='about-background'></div> */}
             <div className='contentBx'>
                 <h2 className='heading'>공약 확인</h2>
                 <p className='text'>
@@ -58,7 +57,6 @@ const Main = () => {
 
         {/* about map */}
         <section className='map' id='map'>
-        {/* <div className='map-background'></div> */}
             <h2 className='mapHeading'>투표소 위치 제공</h2>
             <p className='mapText'> 
                 당신의 위치를 검색하면 
@@ -79,7 +77,6 @@ const Main = () => {
         </section>
 
         <section className='news' id='news'>
-            {/* <div className='news-background'></div> */}
             <div className='newsBx'>
                 <h2 className='newsHeading'>
                     정치 관련 뉴스

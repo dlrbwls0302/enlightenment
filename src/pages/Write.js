@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { Link } from 'react-router-dom';
@@ -33,7 +33,7 @@ const Write = () => {
         <div className='write-container'>
             <div className='editor'>
                 <Link to={'/xfile'} className='goBack'>
-                    돌아가기                  
+                    글목록 보기                 
                 </Link>
                 <div className='line' />
                 <h1 className='write-heading'>사건 파일 작성</h1>
