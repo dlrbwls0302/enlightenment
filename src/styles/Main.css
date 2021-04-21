@@ -2,6 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
 :root{
     --main-bg-color:  #112d4e;
     --main-color: #f9f7f7;
@@ -11,1148 +14,344 @@
     --sub-color-four: #4e3211;
     --sub-color-five: #fef4eb;
     --sub-color-six: #12222d;
-}
-.wrapper{
-    background: var(--main-color);
-}
-html{
-    scroll-behavior: smooth;
-}
-element{
-    overflow: visible;
-}
 
-@media ( min-width: 780px ) {
+    --bg-color: #f8f8f8;
+    --txt-color: #221e22;
+    --yellow: #e29f01;
+    --black: #000;
+}
+/* font-family: 'Rubik', sans-serif; */
+/* font-family: 'Noto Sans KR', sans-serif; */
 
-.banner{
-    font-family: 'Black Han Sans', sans-serif;
-    position: relative;
-    right: 0;
-    width: 100%;
-    min-height: 100vh;
-    padding: 100px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center; 
-    z-index: 2;
-    background: black;
-    padding-right: 0;
-}
-.banner video{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.6;
-    /* 살짝 흐리게 해서 뒤의 글자가 보이게 함 */
-}
-.banner .text{
-    position: relative;
-    z-index: 10;
-}
-.text h2{
-    font-size: 4em;
-    font-weight: 400;
-    line-height: 1em;
-    color: var(--main-color); 
-}
-.text h3{
-    font-size: 5em;
-    font-weight: 300;
-    line-height: 1em; 
-    color: var(--main-color);
-}
-.text p{
-    font-size: 1.4em;
-    margin: 20px 0;
-    font-weight: 400;
-    max-width: 290px;
-    color: var(--main-color);
-}
-.text .link-to-xfile{
-    display: inline-block;
-    font-size: 1.5em;
-    background: var(--main-color);
-    padding: 10px 30px;
-    text-decoration: none;
-    color: #111;
-    margin-top: 10px;
-    transition: 0.2s;
-}
-.text a:hover{
-    letter-spacing: 2px;
-}
-
-.arrow{
-    position: absolute;
-    z-index: 300;
-    bottom: 20px;
-    right: 250px;
-    transition: 0.3s;
-    animation: animatedArrow 3s infinite;
-    text-align: center;
-    font-family: 'Black Han Sans', sans-serif;
-}
-.arrow .arrowText{
-    color: #f5b72a;
-}
-@keyframes animatedArrow{
-    0%{transform:translateY(10px);}
-    50%{transform:translateY(-10px);}
-    100%{transform:translateY(10px);}
-}
-
-.about{
-    position: relative;
-    background: var(--main-color);
-    width: 100%;
+.new-main-container{
     height: 100vh;
     display: flex;
-}
-
-.about .contentBx{
-    width: 50%;
-    padding: 90px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.about .heading{
-    margin-top: auto;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    font-family: 'Do Hyeon', sans-serif;
-    z-index: 1;
-    color: black;
-    font-size: 50px;
-}
-.about .text{
-    margin-top: 1.5rem;
-    margin-bottom: auto;
-    position: relative;
-    color: black;
-    font-size: 29px;
-    font-weight: 300;
-    letter-spacing: 1px;
-    text-align: center;
-    max-width: 540px;
-}
-
-.about .aboutImg{
-    background-image: url('../images/news.png'); 
-    position: relative;
-    width: 45%;
-    background-size: contain;
-    background-repeat: no-repeat;
+    background-image: url('https://s3.ap-northeast-2.amazonaws.com/www.kelection.ml/images/mainbackground.jpeg');
     background-position: center;
-}
-
-.about .arrow{
-    position: absolute;
-    z-index: 150;
-    bottom: 10px;
-    right: 250px;
-    cursor: pointer;
-    transition: 0.3s;
-    animation: animatedArrow 3s infinite;
-}
-.about .arrow .arrowTwo{
-    transition: 0.3s;
-}
-.about .arrow .arrowTwo:hover{
-    transform:scale(1.5);
-}
-/* about section 반응형 */
-/* map */
-.map{
-    position: relative;
-    background: var(--main-color);
-    text-align: center;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.map .mapHeading{
-    position: relative;
-    font-family: 'Do Hyeon', sans-serif;
-    color: black;
-    font-size: 50px;
-    margin-top: 2em;
-}
-.map .mapText{
-    margin-top: 1rem; 
-    font-family: 'Poppins', sans-serif;
-    font-size: 29px;
-    font-weight: 100;
-    letter-spacing: 1px;
-    text-align: center;
-    color: black;
-}
-.map .container{
-    width: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 60px; 
-}
-
-.map .container .mapBx {
-
-}
-
-.map .container .mapBx img{
-    position: relative;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.map .container .mapBx:nth-child(1){
-    margin-right: 3rem;
-}
-.map .container .mapBx:nth-child(3){
-    margin-left: 3rem;
-}
-
-.map .arrow .arrowThree{
-    transition: 0.3s;
-}
-.map .arrow .arrowThree:hover{
-    transform:scale(1.5);
-}
-
-.news{
-    position: relative;
-    background: var(--main-color);
-    width: 100%;
-    height: 100vh;
-    display: flex;
-}
-
-.news .newsBx{
-    width: 50%;
-    padding: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 1;
-}
-.news .newsImgBx{
-    background-image: url('../images/news.png'); 
-    position: relative;
-    width: 45%;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-.news .newsHeading{
-    margin-top: auto;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    font-family: 'Do Hyeon', sans-serif;
-    /* 기존 모델 */
-    /* color: var(--main-bg-color); */
-    color: black;
-    font-size: 50px;
-}
-.news .newsText{
-    /* 기존 모델 */
-    /* color: var(--main-bg-color); */
-    color: black;
-    font-family: 'Poppins', sans-serif;
-    font-size: 28px;
-    font-weight: 100;
-    letter-spacing: 1px;
-    text-align: center;
-    margin-top: 1.5rem;
-    margin-bottom: auto;
-    max-width: 520px;
-}
-.newsComment img{
-    width: 100px;
-    height: 100px;
-}
-.newsComment{
-    transition: 0.15s;
-    visibility: hidden;
-    margin-right: auto;
-    margin-left: auto;
-}
-.newsComment.visible{
-    visibility: visible;
-}
-.news .newsBx .newsIcon{
-    margin-right: auto;
-    margin-left: auto;
-    color: var(--main-bg-color);
-    font-size: 13rem;
-    cursor: pointer;
-    transition: 0.3s;
-    animation: animatedArrow 3s infinite;
-}
-.news .newsBx .newsIcon:hover{
-    transform:scale(1.5);
-}
-.news .arrow .arrowFour{
-    transition: 0.3s;
-}
-.news .arrow .arrowFour:hover{
-    transform:scale(1.5);
-}
-
-/* opinion */
-.opinion {
-    position: relative;
-    background: var(--main-color);
-    width: 100%;
-    height: 100vh;
-    padding: 100px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-}
-
-/* .opinion-background{
-    width: 100%;
-    height: 100vh;
-    position: absolute;
-    top: 0;
-    right: 0;
-    background-image: url('../images/opinion5.jpg'); 
     background-size: cover;
     background-repeat: no-repeat;
-    background-size: 100% 100%;
-    z-index: 0;
-    opacity: 0.1;
-} */
-.opinion .opinionHeading{
-    position: relative;
-    color: black;
-    font-size: 50px;
-    /* margin-top: 10px;  */
-    font-family: 'Do Hyeon', sans-serif;
+    overflow: hidden;
 }
-.opinion .opinionText{
-    font-family: 'Poppins', sans-serif;
-    margin-top: 11px;
-    font-size: 29px;
-    font-weight: 100;
-    letter-spacing: 1px;
-    text-align: center;
-    color: black;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 750px;
-
-}
-.opinion .opinionContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    /* margin: 40px; */
-    margin-top: 20px;
-    flex-wrap: wrap;
-}
-.opinion .opinionContainer .opinionContentBx{
-    position: relative;
-    box-shadow: 8px 5px 5px grey;
-    border-radius: 10px;
-    background-color: #fff;
-    padding: 10px 30px;
-    margin: 3px;
-    width: 540px;
-    text-align: left;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 1s;
-
-}
-.opinion .opinionContainer .opinionContentBx:hover{
-    transform: scale(1.1);
-}
-.opinion .opinionContainer .opinionContentBx p{
-    font-style: italic;
-}
-.opinion .opinionContainer .opinionContentBx h3{
-    width: 100%;
-    text-align: right;
-    font-weight: 500;
-    color: var(--sub-color-two);
-}
-.opinion .button{
-    font-family: 'Black Han Sans', sans-serif;
+.new-main-container .overlay{
     position: absolute;
-    top: 20%;
-    right: 10%;
-    text-decoration: none;
-    background: #fff;
-    padding: 1.1% 3%;
-    border: 1px solid black;
-    color: black;
-    transition: 0.2s;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .8);
+    z-index: 1;
 }
-.opinion .button:hover{
-    letter-spacing: 2px;
-    /* transform:scale(1.2); */
+.new-main-container .new-nav{
+    z-index: 99;
+    color: #fff;
+    display: flex;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 80px;
 }
-.opinion .arrow .arrowFive{
-    transition: 0.3s;
+.new-main-container .new-nav .new-logo{
+    font-size: 30px;
+    font-weight: 900;
+    cursor: pointer;
 }
-.opinion .arrow .arrowFive:hover{
-    transform:scale(1.5);
+.new-main-container .new-nav .cart{
+    font-size: 30px;
+    cursor: pointer;
 }
-
+.new-main-container .new-nav .new-menu .hamburger{
+    position: relative;
+    cursor: pointer;
 }
-
-@media ( max-width: 780px ) {
-    .banner{
-        font-family: 'Black Han Sans', sans-serif;
-        position: relative;
-        right: 0;
-        width: 100%;
-        min-height: 100vh;
-        /* padding: 100px; */
-        display: flex;
-        justify-content: center;
-        align-items: center; 
-        z-index: 2;
-        background: black;
-        padding-right: 0;
-    }
-    .banner video{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        opacity: 0.6;
-        /* 살짝 흐리게 해서 뒤의 글자가 보이게 함 */
-    }
-    .banner .text{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        z-index: 10;
-    }
-    .text h2{
-        font-size: 42px;
-        font-weight: 400;
-        line-height: 1.5rem;
-        color: var(--main-color); 
-    }
-    .text h3{
-        margin-top: 10px;
-        font-size: 54px;
-        font-weight: 300;
-        line-height: 1em; 
-        color: var(--main-color);
-    }
-    .text p{
-        font-size: 1.1em;
-        margin: 20px 0;
-        font-weight: 400;
-        max-width: 400px;
-        color: var(--main-color);
-        font-size: 26px;
-    }
-    .text .link-to-xfile{
-        display: inline-block;
-        font-size: 2em;
-        background: var(--main-color);
-        padding: 10px 30px;
-        text-decoration: none;
-        color: #111;
-        margin-top: 10px;
-        transition: 0.2s;
-    }
-    .text a:hover{
-        letter-spacing: 2px;
-    }
-    
-    .arrow{
-        position: absolute;
-        z-index: 300;
-        bottom: 10px;
-        right: 10px;
-        transition: 0.3s;
-        animation: animatedArrow 3s infinite;
-        text-align: center;
-        font-family: 'Black Han Sans', sans-serif;
-    }
-    .arrow .arrowText{
-        color: #f5b72a;
-    }
-    @keyframes animatedArrow{
-        0%{transform:translateY(10px);}
-        50%{transform:translateY(-10px);}
-        100%{transform:translateY(10px);}
-    }
-    
-    .about{
-        margin-top: 60px;
-        position: relative;
-        background: var(--main-color);
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .about .contentBx{
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .about .heading{
-        text-align: center;
-        font-family: 'Do Hyeon', sans-serif;
-        color: black;
-        font-size: 44px;
-        width: 100%;
-    }
-
-    .about .text{
-        color: black;
-        font-size: 28px;
-        font-weight: 300;
-        letter-spacing: 1px;
-        text-align: center;
-        width: 100%;
-        line-height: 2rem;
-    }
-    
-    .about .aboutImg{
-        background-image: url('../images/news.png'); 
-        position: relative;
-        width: 90%;
-        height: 45%;
-        background-size: contain;
-        background-repeat: no-repeat;
-        margin-top: 40px;
-        border-radius: 5px;
-        /* background-position: center; */
-    }
-    
-    .about .arrow {
-        position: absolute;
-        z-index: 150;
-        bottom: 10px;
-        right: 10px;
-        cursor: pointer;
-        transition: 0.3s;
-        animation: animatedArrow 3s infinite;
-    }
-    .about .arrow .arrowTwo{
-        transition: 0.3s;
-    }
-    .about .arrow .arrowTwo:hover{
-        transform:scale(1.5);
-    }
-    /* about section 반응형 */
-    /* map */
-    .map {
-        position: relative;
-        background: var(--main-color);
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    .map .mapHeading{
-        position: relative;
-        font-family: 'Do Hyeon', sans-serif;
-        color: black;
-        font-size: 44px;
-        margin-top: -70px;
-        margin-bottom: 5px;
-    }
-    .map .mapText{
-        font-family: 'Poppins', sans-serif;
-        font-size: 28px;
-        font-weight: 300;
-        letter-spacing: 1px;
-        text-align: center;
-        color: black;
-    }
-    .map .container {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .map .container .mapBx {
-        margin-top: 20px;
-        width: 60%;
-        margin-bottom: 5px;
-    }
-
-    .map .container .mapBx:last-child {
-        display: none;
-    }
-
-    .map .container .mapBx img {
-        position: relative;
-        width: 100%;
-        height: 170px;
-        object-fit: cover;
-        border-radius: 5px;
-    }
-    
-    .map .arrow .arrowThree{
-        transition: 0.3s;
-    }
-    .map .arrow .arrowThree:hover{
-        transform:scale(1.5);
-    }
-    
-    .news{
-        position: relative;
-        background: var(--main-color);
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .news .newsBx{
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        z-index: 1;
-    }
-
-    .news .newsHeading{
-        margin-top: -70px;
-        margin-bottom: 7px;
-        font-family: 'Do Hyeon', sans-serif;
-        /* 기존 모델 */
-        /* color: var(--main-bg-color); */
-        color: black;
-        font-size: 44px;
-    }
-    .news .newsText{
-        /* 기존 모델 */
-        /* color: var(--main-bg-color); */
-        color: black;
-        font-family: 'Poppins', sans-serif;
-        font-size: 28px;
-        font-weight: 300;
-        letter-spacing: 1px;
-        text-align: center;
-    }
-
-    .news .newsImgBx {
-        background-image: url('../images/news.png'); 
-        position: relative;
-        width: 90%;
-        height: 55%;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-        border-radius: 5px;
-    }
-
-    .news .newsBx .newsIcon{
-        margin-right: auto;
-        margin-left: auto;
-        color: var(--main-bg-color);
-        font-size: 13rem;
-        cursor: pointer;
-        transition: 0.3s;
-        animation: animatedArrow 3s infinite;
-    }
-    .news .newsBx .newsIcon:hover{
-        transform:scale(1.5);
-    }
-    .news .arrow .arrowFour{
-        transition: 0.3s;
-    }
-    .news .arrow .arrowFour:hover{
-        transform:scale(1.5);
-    }
-    
-    /* opinion */
-    .opinion{
-        margin-top: -20px;
-        position: relative;
-        background: var(--main-color);
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .opinion .opinionHeading {
-        position: relative;
-        color: black;
-        font-size: 38px;
-        /* margin-top: 6rem;  */
-        font-family: 'Do Hyeon', sans-serif;
-        margin-bottom: 7px;
-    }
-
-    .opinion .opinionText{
-        font-family: 'Poppins', sans-serif;
-        font-size: 25px;
-        font-weight: 300;
-        letter-spacing: 1px;
-        text-align: center;
-        color: black;
-    }
-    .opinion .opinionContainer{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-top: 30px;
-    }
-    .opinion .opinionContainer .opinionContentBx {
-        width: 75%;
-        padding: 5px;
-        position: relative;
-        box-shadow: 8px 5px 5px grey;
-        border-radius: 5px;
-        background-color: #fff;
-        transition: 1s;
-        margin-bottom: 20px;
-    }
-    .opinion .opinionContainer .opinionContentBx:last-child {
-        margin: 0;
-    }
-    .opinion .opinionContainer .opinionContentBx:hover{
-        transform: scale(1.1);
-    }
-    .opinion .opinionContainer .opinionContentBx p {
-        font-size: 16px;
-        font-style: italic;
-    }
-    .opinion .opinionContainer .opinionContentBx h3{
-        width: 100%;
-        text-align: right;
-        font-weight: 500;
-        color: var(--sub-color-two);
-    }
-
-    .opinion .main-opinion-button-box {
-        margin-top: 50px;
-    }
-    .opinion .button{
-        font-family: 'Black Han Sans', sans-serif;
-        text-decoration: none;
-        background: #fff;
-        padding: 10px 60px;
-        border: 1px solid black;
-        border-radius: 3px;
-        color: black;
-        transition: 0.2s;
-        font-size: 2em;
-    }
-    .opinion .button:hover{
-        letter-spacing: 2px;
-        /* transform:scale(1.2); */
-    }
-    .opinion .arrow .arrowFive{
-        transition: 0.3s;
-    }
-    .opinion .arrow .arrowFive:hover{
-        transform:scale(1.5);
-    }
+.new-main-container .new-nav .new-menu .hamburger,
+.new-main-container .new-nav .new-menu .hamburger::before,
+.new-main-container .new-nav .new-menu .hamburger::after{
+    width: 30px;
+    height: 3px;
+    border-radius: .5rem;
+    background-color: #fff;
+}
+.new-main-container .new-nav .new-menu .hamburger::before,
+.new-main-container .new-nav .new-menu .hamburger::after{
+    content: '';
+    position: absolute;
+    left: 0;
+}
+.new-main-container .new-nav .new-menu .hamburger::before{
+    top: -10px;
+}
+.new-main-container .new-nav .new-menu .hamburger::after{
+    top: 10px;
+}
+.new-main-container .sci{
+    z-index: 2;
+    color: #fff;
+    display: flex;
+    position: fixed;
+    right: 0;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 20px;
+    animation: right-to-left 1.5s;
+}
+.new-main-container .sci .bx{
+    font-size: 20px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: .5s ease-in-out;
+}
+.new-main-container .sci .bx:hover{
+    transform: rotate(30deg);
 }
 
-@media ( max-width: 432px ) {
-    .banner{
-        font-family: 'Black Han Sans', sans-serif;
-        position: relative;
-        right: 0;
-        width: 100%;
-        min-height: 100vh;
-        /* padding: 100px; */
-        display: flex;
-        justify-content: center;
-        align-items: center; 
-        z-index: 2;
-        background: black;
-        padding-right: 0;
-    }
-    .banner video{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        opacity: 0.6;
-        /* 살짝 흐리게 해서 뒤의 글자가 보이게 함 */
-    }
-    .banner .text{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        z-index: 10;
-    }
-    .text h2{
-        font-size: 24px;
-        font-weight: 400;
-        line-height: 1.5rem;
-        color: var(--main-color); 
-    }
-    .text h3{
-        font-size: 34px;
-        font-weight: 300;
-        line-height: 1em; 
-        color: var(--main-color);
-    }
-    .text p{
-        font-size: 1.1em;
-        margin: 20px 0;
-        font-weight: 400;
-        max-width: 210px;
-        color: var(--main-color);
-        font-size: 16px;
-    }
-    .text .link-to-xfile{
-        display: inline-block;
-        font-size: 1em;
-        background: var(--main-color);
-        padding: 10px 30px;
-        text-decoration: none;
-        color: #111;
-        margin-top: 10px;
-        transition: 0.2s;
-    }
-    .text a:hover{
-        letter-spacing: 2px;
-    }
-    
-    .arrow{
-        position: absolute;
-        z-index: 300;
-        bottom: 10px;
-        right: 10px;
-        transition: 0.3s;
-        animation: animatedArrow 3s infinite;
-        text-align: center;
-        font-family: 'Black Han Sans', sans-serif;
-    }
-    .arrow .arrowText{
-        color: #f5b72a;
-    }
-    @keyframes animatedArrow{
-        0%{transform:translateY(10px);}
-        50%{transform:translateY(-10px);}
-        100%{transform:translateY(10px);}
-    }
-    
-    .about{
-        margin-top: 60px;
-        position: relative;
-        background: var(--main-color);
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
+.new-main-container .fashion{
+    z-index: 2;
+    color: #fff;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 20px;
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+    font-size: 20px;
+    font-weight: 600;
+    animation: left-to-right 1.5s;
+}
 
-    .about .contentBx{
-        /* margin-top: -60px; */
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
+.z-index-99{
+    z-index: 99 !important;
+}
 
-    .about .heading{
-        text-align: center;
-        font-family: 'Do Hyeon', sans-serif;
-        color: black;
-        font-size: 24px;
-        width: 100%;
-    }
+.new-main-container .col-5{
+    width: 41.66%;
+    font-family: 'Rubik', sans-serif;
+}
+.new-main-container .col-7{
+    width: 58.33%;
+}
+.txt-yellow{
+    color: var(--yellow);
+}
 
-    .about .text{
-        color: black;
-        font-size: 16px;
-        font-weight: 300;
-        letter-spacing: 1px;
-        text-align: center;
-        width: 100%;
-        line-height: 1.3rem;
-    }
-    
-    .about .aboutImg{
-        background-image: url('../images/news.png'); 
-        position: relative;
-        width: 90%;
-        height: 45%;
-        background-size: contain;
-        background-repeat: no-repeat;
-        margin-top: 40px;
-        border-radius: 5px;
-        /* background-position: center; */
-    }
-    
-    .about .arrow {
-        position: absolute;
-        z-index: 150;
-        bottom: 10px;
-        right: 10px;
-        cursor: pointer;
-        transition: 0.3s;
-        animation: animatedArrow 3s infinite;
-    }
-    .about .arrow .arrowTwo{
-        transition: 0.3s;
-    }
-    .about .arrow .arrowTwo:hover{
-        transform:scale(1.5);
-    }
-    /* about section 반응형 */
-    /* map */
-    .map {
-        position: relative;
-        background: var(--main-color);
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    .map .mapHeading{
-        position: relative;
-        font-family: 'Do Hyeon', sans-serif;
-        color: black;
-        font-size: 24px;
-        margin-top: -70px;
-        margin-bottom: 5px;
-    }
-    .map .mapText{
-        font-family: 'Poppins', sans-serif;
-        font-size: 16px;
-        font-weight: 300;
-        letter-spacing: 1px;
-        text-align: center;
-        color: black;
-    }
-    .map .container {
-        margin-top: 20px;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
+.new-main-container .col-5 .info-section{
+    color: #fff;
+    text-align: right;
+    position: relative;
+    display: flex;
+    overflow: visible;
+    width: 100%;
+    height: 80%;
+    align-items: center;
+}
 
-    .map .container .mapBx {
-        width: 90%;
-        margin-bottom: 10px;
-    }
+.new-main-container .col-5 .info-section .product-info h1{
+    font-size: 150px;
+    font-weight: 900;
+    line-height: 140px;
+    text-transform: uppercase;
+    text-align: left;
+}
+.new-main-container .col-5 .info-section .product-info p{
+    margin: 50px 0;
+    text-align: justify;
+}
+.new-main-container .col-5 .info-section .product-info .go-to-xfile{
+    font-size: 30px;
+    padding: 10px 50px;
+    border-radius: 30px;
+    outline: transparent;
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color .3s ease-in-out;
+}
+.new-main-container .col-5 .info-section .product-info .go-to-xfile:hover{
+    background-color: #fff;
+    color: var(--black);
+}
+.new-main-container .col-5 .info-section .product-info {
+    position: absolute;
+    width: 100%;
+    height: fit-content;
+    left: 0;
+    padding: 0 80px;
+    pointer-events: none;
+}
+.new-main-container .col-5 .info-section .product-info.active{
+    pointer-events: visible;
+}
+.new-main-container .col-5 .info-section .product-info h1,
+.new-main-container .col-5 .info-section .product-info>span,
+.new-main-container .col-5 .info-section .product-info p,
+.new-main-container .col-5 .info-section .product-info button{
+    opacity: 0;
+    transition: unset;
+}
+.new-main-container .col-5 .info-section .product-info button{
+    transition-delay: .2s;
+}
+.new-main-container .col-5 .info-section .product-info.active h1,
+.new-main-container .col-5 .info-section .product-info.active>span,
+.new-main-container .col-5 .info-section .product-info.active p,
+.new-main-container .col-5 .info-section .product-info.active button{
+    opacity: 1;
+    transition: opacity 1s,
+        transform 1.2s,
+        letter-spacing 1.2s,
+        right 1.2s;
+}
+.new-main-container .col-5 .info-section .product-info h1{
+    letter-spacing: 20px;
+}
+.new-main-container .col-5 .info-section .product-info.active h1{
+    letter-spacing: unset;
+}
+.new-main-container .col-5 .info-section .product-info>span{
+    position: absolute;
+    right: 200px;
+}
+.new-main-container .col-5 .info-section .product-info.active>span{
+    right: 80px;
+}
 
-    .map .container .mapBx:last-child {
-        margin: 0;
-    }
-
-    .map .container .mapBx img {
-        position: relative;
-        width: 100%;
-        height: 80px;
-        object-fit: cover;
-        border-radius: 5px;
-    }
-    
-    .map .arrow .arrowThree{
-        transition: 0.3s;
-    }
-    .map .arrow .arrowThree:hover{
-        transform:scale(1.5);
-    }
-    
-    .news{
-        position: relative;
-        background: var(--main-color);
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .news .newsBx{
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        z-index: 1;
-    }
-
-    .news .newsHeading{
-        margin-top: -70px;
-        margin-bottom: 7px;
-        font-family: 'Do Hyeon', sans-serif;
-        /* 기존 모델 */
-        /* color: var(--main-bg-color); */
-        color: black;
-        font-size: 24px;
-    }
-    .news .newsText{
-        /* 기존 모델 */
-        /* color: var(--main-bg-color); */
-        color: black;
-        font-family: 'Poppins', sans-serif;
-        font-size: 16px;
-        font-weight: 300;
-        letter-spacing: 1px;
-        text-align: center;
-    }
-
-    .news .newsImgBx {
-        background-image: url('../images/news.png'); 
-        position: relative;
-        width: 90%;
-        height: 50%;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-        border-radius: 5px;
-    }
-
-    .news .newsBx .newsIcon{
-        margin-right: auto;
-        margin-left: auto;
-        color: var(--main-bg-color);
-        font-size: 13rem;
-        cursor: pointer;
-        transition: 0.3s;
-        animation: animatedArrow 3s infinite;
-    }
-    .news .newsBx .newsIcon:hover{
-        transform:scale(1.5);
-    }
-    .news .arrow .arrowFour{
-        transition: 0.3s;
-    }
-    .news .arrow .arrowFour:hover{
-        transform:scale(1.5);
-    }
-    
-    /* opinion */
-    .opinion{
-        margin-top: -20px;
-        position: relative;
-        background: var(--main-color);
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .opinion .opinionHeading{
-        position: relative;
-        color: black;
-        font-size: 24px;
-        /* margin-top: 6rem;  */
-        font-family: 'Do Hyeon', sans-serif;
-        margin-bottom: 7px;
-    }
-
-    .opinion .opinionText{
-        font-family: 'Poppins', sans-serif;
-        font-size: 16px;
-        font-weight: 300;
-        letter-spacing: 1px;
-        text-align: center;
-        color: black;
-    }
-    .opinion .opinionContainer{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-top: 20px;
-    }
-    .opinion .opinionContainer .opinionContentBx {
-        width: 90%;
-        padding: 5px;
-        position: relative;
-        box-shadow: 8px 5px 5px grey;
-        border-radius: 5px;
-        background-color: #fff;
-        transition: 1s;
-    }
-    .opinion .opinionContainer .opinionContentBx:last-child {
-        /* display: none; */
-    }
-    .opinion .opinionContainer .opinionContentBx:hover{
-        transform: scale(1.1);
-    }
-    .opinion .opinionContainer .opinionContentBx p {
-        font-size: 16px;
-        font-style: italic;
-    }
-    .opinion .opinionContainer .opinionContentBx h3{
-        width: 100%;
-        text-align: right;
-        font-weight: 500;
-        color: var(--sub-color-two);
-    }
-
-    /* .opinion .main-opinion-button-box {
-        margin-top: 40px;
-    } */
-    .opinion .button{
-        font-family: 'Black Han Sans', sans-serif;
-        text-decoration: none;
-        background: #fff;
-        padding: 10px 40px;
-        border-radius: 3px;
-        border: 1px solid black;
-        color: black;
-        transition: 0.2s;
-        font-size: 1em;
-    }
-    .opinion .button:hover{
-        letter-spacing: 2px;
-        /* transform:scale(1.2); */
-    }
-    .opinion .arrow .arrowFive{
-        transition: 0.3s;
-    }
-    .opinion .arrow .arrowFive:hover{
-        transform:scale(1.5);
-    }
+.new-main-container .col-5 .info-section .product-info p, 
+.new-main-container .col-5 .info-section .product-info button{
+    transform: translateY(100px);
+}
+.new-main-container .col-5 .info-section .product-info.active p,
+.new-main-container .col-5 .info-section .product-info.active button{
+    transform: translateY(0);
 }
 
 
+
+
+
+.col-5, .col-7{
+    display: flex;
+    align-items: center;
+}
+.col-7 .slider-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 50%;
+    height: 80%;
+    overflow: visible;
+}
+.col-7 .slider-container .new-slide{
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    animation: bottom-up 2s;
+    transition: 1s ease-in-out;
+}
+.col-7 .slider-container .new-slide .img-holder{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* z-index: 3; */
+}
+.col-7 .slider-container .new-slide:nth-child(1){
+    z-index: 4;
+}
+.col-7 .slider-container .new-slide:nth-child(2){
+    z-index: 3;
+    width: 80%;
+    height: 80%;
+    left: 70%;
+}
+.col-7 .slider-container .new-slide:nth-child(3){
+    z-index: 2;
+    width: 60%;
+    height: 60%;
+    left: 120%;
+}
+.col-7 .slider-container .new-slide:nth-child(4){
+    z-index: 1;
+    width: 60%;
+    height: 60%;
+    left: 120%;
+    transform: scale(0);
+}
+/* .col-7 .slider-container .new-slide:nth-child(5){
+    z-index: 0;
+    width: 60%;
+    height: 60%;
+    left: 120%;
+    transform: scale(0);
+} */
+.new-main-container .slide-control{
+    color: #fff;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 2px solid #fff;
+}
+.new-main-container .slide-control:hover{
+    background-color: #fff;
+    color: var(--black);
+}
+.new-main-container .slide-control .right-arrow:hover{
+    color: var(--black);
+}
+@keyframes top-down{
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes bottom-up{
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes left-to-right{
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes right-to-left{
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
 
