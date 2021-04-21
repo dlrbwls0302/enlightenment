@@ -33,35 +33,33 @@ const Write = () => {
         <div className='write-container'>
             <div className='editor'>
                 <Link to={'/xfile'} className='goBack'>
-                    돌아가기
-            </Link>
+                    글목록 보기                 
+                </Link>
                 <div className='line' />
                 <h1 className='write-heading'>사건 파일 작성</h1>
                 <input type="text" className='title' autoComplete='off' placeholder="글의 제목을 입력해 주세요." onChange={handleTitle}></input>
-                <div className='editor-container'>
-
-                </div>
+                <div className='editor-container'></div>
                 <CKEditor
-                    editor={ClassicEditor}
+                    editor={ ClassicEditor }
                     data=""
-                    onReady={editor => {
+                    onReady={ editor => {
                         // You can store the "editor" and use when it is needed.
                         // console.log( 'Editor is ready to use!', editor );
-                    }}
-                    onChange={(event, editor) => {
+                    } }
+                    onChange={ ( event, editor ) => {
                         const data = editor.getData();
                         setDescription(data)
-                    }}
-                    onBlur={(event, editor) => {
+                    } }
+                    onBlur={ ( event, editor ) => {
                         // console.log( 'Blur.', editor );
-                    }}
-                    onFocus={(event, editor) => {
+                    } }
+                    onFocus={ ( event, editor ) => {
                         // console.log( 'Focus.', editor );
-                    }}
+                    } }
                     config={{
-                        ckfinder: {
-                            uploadUrl: 'http://localhost:5000/magazines/images'
-                        }
+                    ckfinder: {
+                        uploadUrl: 'http://localhost:5000/magazines/images'
+                    }
                     }}
                 />
                 <button className='submit' onClick={submitEditor}>사건 등록</button>

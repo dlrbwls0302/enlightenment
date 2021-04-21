@@ -8,109 +8,108 @@
   --sub-color-four: #4e3211;
   --sub-color-five: #fef4eb;
   --sub-color-six: #12222d;
+  --sub-color-seven: tomato;
+  --sub-color-eight: #f5f4f0;
+  --sub-color-nine: rgb(50,50,40);
 }
 
 @media ( min-width: 780px ) {
-.header{
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 5000;
-  transition: .5s;
-}
-.toggleBx{
-  position: relative;
-  margin-top: 20px;
-  margin-right: 90px;
-  cursor: pointer;
-  /* 새로운 모델 */
-  color: var(--sub-color-one);
-}
-
-.toggleBx.active{
-  color:  var(--main-color);
-}
-.header.active{
-  background-color: var(--sub-color-two);
-  padding-bottom: 14px;
-}
-.header .logo{
-  position: relative;
-  padding-top: 20px;
-  padding-left: 90px;
-  font-family: 'Black Han Sans', sans-serif;
-  /* 기존 모델 */
-  /* color: var(--main-bg-color); */
-  /* 새로운 모델 */
-  color: var(--sub-color-one);
-  text-decoration: none;
-  font-size: 24px;
-  font-weight: 500;
-  letter-spacing: -1px;
-}
-.header .logo.active{
-  color: var(--main-color);
-}
-.sidebar{
-  background: var(--sub-color-two);
-  position: fixed;
-  right: 0px;
-  top: 0;
-  width: 400px;
-  height: 100%;
-  display: flex;
-  justify-content: flex-start;
-  z-index: 500;
-  transition: 0.5s;
-}
-.sidebar.active{
-  background: var(--sub-color-two);
-  position: fixed;
-  right: -400px;
-  top: 0;
-  z-index: 100;
-}
-.sidebar ul{
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-.sidebar ul li{
-  list-style: none;
-  margin-top: 30px;
-  margin-left: 80px;
-}
-.sidebar ul li:nth-child(1){
-  margin-top: 130px;
-}
-.sidebar ul li a{
-  text-decoration: none;
-  font-family: 'Black Han Sans', sans-serif;
-  color: #f9f7f7;
-  font-size: 30px;
-  font-weight: 400;
-  transition: 0.3s;
-}
-.sidebar ul li a:hover{
-  color: var(--sub-color-one);
-}
-.nav-text{
-  text-decoration: none;
-  font-family: 'Black Han Sans', sans-serif;
-  color: #f9f7f7;
-  font-size: 30px;
-  font-weight: 400;
-  transition: 0.3s;
-  cursor: pointer;
-}
-.nav-text:hover{
-  color: var(--sub-color-one);
-}
-
+  .header{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5000;
+    transition: .5s;
+  }
+  .toggleBx{
+    position: relative;
+    margin-top: 20px;
+    margin-right: 90px;
+    cursor: pointer;
+    color: var(--sub-color-one);
+    animation: top-down 1.5s forwards;
+  }
+  .toggleBx.active{
+    color:  var(--main-color);
+  }
+  .header.active{
+    background-color: var(--sub-color-two);
+    padding-bottom: 14px;
+  }
+  .header .logo{
+    position: relative;
+    padding-top: 20px;
+    padding-left: 90px;
+    font-family: 'Black Han Sans', sans-serif;
+    color: var(--sub-color-one);
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: -1px;
+    animation: top-down 1.5s forwards;
+  }
+  .header .logo.active{
+    color: var(--main-color);
+  }
+  .sidebar{
+    background: var(--sub-color-two);
+    position: fixed;
+    right: 0px;
+    top: 0;
+    width: 400px;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    z-index: 500;
+    transition: 0.5s;
+  }
+  .sidebar.active{
+    background: var(--sub-color-two);
+    position: fixed;
+    right: -400px;
+    top: 0;
+    z-index: 100;
+  }
+  .sidebar ul{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .sidebar ul li{
+    list-style: none;
+    margin-top: 30px;
+    margin-left: 80px;
+  }
+  .sidebar ul li:nth-child(1){
+    margin-top: 130px;
+  }
+  .sidebar ul li a{
+    text-decoration: none;
+    font-family: 'Black Han Sans', sans-serif;
+    color: #f9f7f7;
+    font-size: 30px;
+    font-weight: 400;
+    transition: 0.3s;
+  }
+  .sidebar ul li a:hover{
+    color: var(--sub-color-one);
+  }
+  .nav-text{
+    text-decoration: none;
+    font-family: 'Black Han Sans', sans-serif;
+    color: #f9f7f7;
+    font-size: 30px;
+    font-weight: 400;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+  .nav-text:hover{
+    color: var(--sub-color-one);
+  }
 }
 
 @media ( max-width: 780px ) {

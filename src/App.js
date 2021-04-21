@@ -9,6 +9,7 @@ import Opinions from './pages/Opinions';
 import Promise from './pages/Promise';
 import Xfile from './pages/Xfile';
 import Write from './pages/Write';
+import Post from './pages/Post';
 import { useDispatch, useSelector } from 'react-redux'
 import { loadElections } from './actions/index'
 import './App.css';
@@ -53,8 +54,6 @@ const App = () => {
   return (
     <div className='body'>
       <div className='wrapper'>
-        
-  
         <div className='modal'>
         <Modal 
           isOpen={state.modalIsOpen} 
@@ -101,6 +100,7 @@ const App = () => {
             <Route path="/news" component={News}/>
             <Route path="/opinion" component={Opinions}/>
             <Route path="/promise" component={Promise}/>
+            <Route path="/post" component={Post} />
           </Switch>
         </Router>
       </div>
