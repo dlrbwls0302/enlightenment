@@ -26,8 +26,7 @@ const App = () => {
   const state = useSelector((state) => state.modalReducer);
 
   useEffect(() => {
-    console.log(document.cookie);
-    if(document.cookie){
+    if(document.cookie.includes('userId')){
       const equalIndex = document.cookie.indexOf('=');
       const semiIndex = document.cookie.indexOf(';');
       const userId = document.cookie.slice(equalIndex + 1, semiIndex);

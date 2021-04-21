@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import ReactPageScroller from 'react-page-scroller';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Footer from '../components/Footer'
 
 
 const Main = () => {      
@@ -120,14 +121,8 @@ const Main = () => {
                             <h3>- 김xx 님</h3>
                         </div>
                     </div>
-
                 </div>
-                <div className="main-opinion-button-box">
-                    <Link to={'/xfile'} className='button'>
-                        정치 X-파일 바로가기                  
-                    </Link>
-                </div>
-        
+                <Footer></Footer>
             </section>
         </ReactPageScroller>
     );

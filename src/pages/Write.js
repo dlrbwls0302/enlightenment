@@ -51,6 +51,7 @@ const Write = () => {
                 onChange={ ( event, editor ) => {
                     const data = editor.getData();
                     setDescription(data)
+                    console.log(data)
                 } }
                 onBlur={ ( event, editor ) => {
                     // console.log( 'Blur.', editor );
