@@ -19,7 +19,7 @@ const Opinion = ({ comment, ban, number, like }) => {
                 nickName = '😎 똑똑한 시민님';
                 className = 'opinions yellow';
             } else if (number % 2 === 0) {
-                nickName = '🥸 냉철한 시민님';
+                nickName = '냉철한 시민님';
                 className = 'opinions blue';
             } else if (number % 10 === 3) {
                 nickName = '🤔 현명한 시민님';

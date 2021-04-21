@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios'
 import { useSelector } from 'react-redux'
 import '../styles/Map.css';
 import KakaoMap from '../components/KakaoMap'
-import Draggable from 'react-draggable';
+import Footer from '../components/Footer'
 
 const Map = () => {
     const state = useSelector((state) => {
@@ -88,6 +88,7 @@ const Map = () => {
         setDrag(false);
     }
     return (
+        <div>
         <div className="map-page-desktop">
             {/* <Draggable
             axis="both"
@@ -137,16 +138,13 @@ const Map = () => {
                         </a>
                         </div>
                 </div>
-                    {/* <a href="http://localhost:5000/auth/google/login">로그인</a>
-                    <button onClick={handleLogout}>로그아웃</button> */}
-                
             </div>
-            {/* </Draggable> */}
             <div className="map-box-desktop">
                 <KakaoMap markerPositions={markerPositions} markerPlaceNames={markerPlaceNames} size={mapSize}/>
             </div>
         </div>
-
+        {/* <Footer></Footer> */}
+    </div>
     )
 };
 
