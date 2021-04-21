@@ -4,13 +4,15 @@ import styled from 'styled-components';
 import { MdClose } from 'react-icons/md';
 
 const Background = styled.div`
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.8);
+position: relative;
+display: flex;
+z-Index: 10000;
+justify-content: center;
+align-items: center;
+
 `;
 
 const ModalWrapper = styled.div`
@@ -21,7 +23,7 @@ const ModalWrapper = styled.div`
   color: #000;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  position: relative;
+  position: absonlute;
   z-index: 10;
   border-radius: 10px;
 `;
@@ -45,7 +47,6 @@ const ModalContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-
   line-height: 1.8;
   color: #141414;
   p {
@@ -111,7 +112,6 @@ const PromiseModal = ({ showModal, setShowModal, currentCandidate }) => {
         <Background onClick={closeModal} ref={modalRef}>
           <animated.div style={animation}>
             <ModalWrapper showModal={showModal}>
- 
               <ModalContent>
                 <h1>{currentCandidate.name}</h1>
                 <span>{currentCandidate.candidateInfo.jdName}</span>
@@ -120,15 +120,12 @@ const PromiseModal = ({ showModal, setShowModal, currentCandidate }) => {
                 aria-label='Close modal'
                 onClick={() => setShowModal(prev => !prev)}
               />
-                         <ModalImg >
-                            
+                         <ModalImg >    
                              <p>      {currentCandidate.promise.first}  </p>
                              <p>      {currentCandidate.promise.second}  </p>
                              <p>      {currentCandidate.promise.third}  </p>
                              <p>      {currentCandidate.promise.fourth}  </p>
-
-
-                </ModalImg>
+                         </ModalImg>
             </ModalWrapper>
           </animated.div>
         </Background>
