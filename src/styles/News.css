@@ -1,3 +1,7 @@
+body{
+    background: white;
+}
+
 :root{
     --main-bg-color:  #112d4e;
     --main-color: #f9f7f7;

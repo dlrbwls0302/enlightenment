@@ -7,7 +7,7 @@
   --sub-color-three: #dbe2ef;
   --sub-color-four: #4e3211;
   --sub-color-five: #fef4eb;
-    --sub-color-six: #12222d;
+  --sub-color-six: #12222d;
 }
 
 @media ( min-width: 780px ) {
@@ -30,6 +30,7 @@
   /* 새로운 모델 */
   color: var(--sub-color-one);
 }
+
 .toggleBx.active{
   color:  var(--main-color);
 }

@@ -73,7 +73,6 @@ const Opinions = () => {
 
     const handleInputComment = (e) => {
         const inputLength = e.target.value.length;
-        // setInputValue(e.target.value);
         setValueLength(inputLength);
 
         if (inputLength > 100) {
@@ -109,20 +108,21 @@ const Opinions = () => {
                 <div className="election-name">
                     당신의 의견
                 </div>
-                <textarea type="text" ref={inputRef} onKeyPress={handleKeyPress} onChange={handleInputComment} placeholder="10글자 이상 100글자 이하로 의견을 남겨주세요" />
+                <textarea className="comment-write-area" type="text" ref={inputRef} onKeyPress={handleKeyPress} onChange={handleInputComment} placeholder="10글자 이상 100글자 이하로 의견을 남겨주세요" />
                 {valueLength > 100 ?
                     <p className="input-length-over">{valueLength}/100</p> :
                     <p className="input-length">{valueLength}/100</p>
                 }
                 <p className="report-notice">불건전한 내용은 {reportIcon}을 눌러 신고해주세요</p>
-                <button onClick={clickCommentBtn}>등록</button>
+                <button className="comment-submit-btn" onClick={clickCommentBtn}>등록</button>
             </div>
             <div className="amount-notice">
                 현재 {comments.length}개의 의견이 있습니다
-            </div>
+                </div>
             <div className="comment-sort" onClick={handleCommentSort}>
                 {sortIcon} {sortValue}
             </div>
+
             <div className="opinion-line">
                 {comments.length === 0 ? <Opinion key={1} comment={'첫번째 의견을 남겨주세요!'} ban={0} number={1} /> :
                     comments.map((child, index) => {
