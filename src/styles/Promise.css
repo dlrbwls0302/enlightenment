@@ -1,0 +1,25 @@
+.promise-container {    
+    position: relative;
+    background: var(--main-color);
+    width: 100%;
+    height: 100vh;
+    /* padding-top: 100px; */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 100px;
+}
+.candidate_listBox {
+    margin: 100px;
+    justify-content: space-between;
+    /* display: flex; */
+}
+
+.promise-select-option {
+    font-size: 100px;
+}
+
+.promise_select {
+    font-size: 20px;
+    width: 300px;
+}

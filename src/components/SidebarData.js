@@ -1,7 +1,13 @@
 export const SidebarData = [
+  
   {
     title: '로그인',
     // path: '',
+    className: 'nav-text',
+  },
+  {
+    title: '정치 X-파일',
+    path: '/xfile',
     className: 'nav-text',
   },
   {

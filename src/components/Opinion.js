@@ -1,11 +1,12 @@
 import React, { useRef } from 'react';
 import axios from 'axios';
 import '../styles/Opinions.css'
-import { AiFillAlert } from 'react-icons/ai';
-import { AiTwotoneLike } from 'react-icons/ai';
+import { AiFillAlert, AiTwotoneLike } from 'react-icons/ai';
+import { MdInsertEmoticon } from "react-icons/md";
 
 
 const Opinion = ({ comment, ban, number, like }) => {
+    const smileIcon = <MdInsertEmoticon />
     let className = '';
     let nickName = '';
     // const likeRef = useRef('white');

@@ -40,42 +40,42 @@ const News = () => {
         }
     }
 
-    // useEffect(() => {
-    //     const getArticles = async() => {
-    //         dispatch(changeLoading());
-    //         try{
-    //             const response = await axios.get('https://api.serpwow.com/live/search?api_key=F8062751AD8C4A868C91A320EBC73390&q=선거&google_domain=google.co.kr&gl=kr&hl=ko&search_type=news',)
-    //             console.log('response::: ', response)
-    //             dispatch(setArticles(response.data.news_results))
-    //         } catch(e){
-    //             console.log(e);
-    //         }
-    //         dispatch(changeLoading());
-    //     };
-    //     getArticles();
-    // }, []);
+    useEffect(() => {
+        const getArticles = async() => {
+            dispatch(changeLoading());
+            try{
+                const response = await axios.get('https://api.serpwow.com/live/search?api_key=F8062751AD8C4A868C91A320EBC73390&q=선거&google_domain=google.co.kr&gl=kr&hl=ko&search_type=news',)
+                console.log('response::: ', response)
+                dispatch(setArticles(response.data.news_results))
+            } catch(e){
+                console.log(e);
+            }
+            dispatch(changeLoading());
+        };
+        getArticles();
+    }, []);
 
-    // if(loading){
-    //     return <div style={{ display: 'flex', alignItems:'center', justifyContent:'center' }}className='news-container'>
-    //             <div style={{ fontSize: '50px', marginLeft: 'auto', marginRight: 'auto', marginTop: '300px', fontFamily: 'Black Han Sans', fontWeight: '400', height:'100vh'
-    //         }}>뉴스 기사를 로딩 중 입니다...</div>        
-    //            </div>
-    // }
-    // if(!articles){
-    //     return null;
-    // }
+    if(loading){
+        return <div style={{ display: 'flex', alignItems:'center', justifyContent:'center' }}className='news-container'>
+                <div style={{ fontSize: '50px', marginLeft: 'auto', marginRight: 'auto', marginTop: '300px', fontFamily: 'Black Han Sans', fontWeight: '400', height:'100vh'
+            }}>뉴스 기사를 로딩 중 입니다...</div>        
+               </div>
+    }
+    if(!articles){
+        return null;
+    }
     return ( 
         <div className='news-container'>
             <div className='search-container'>
                 <MdSearch className='search-icon' onClick={onClick}/>
                 <input className='search-box' type='text' placeholder='확인하고 싶은 뉴스를 검색하세요.' onChange={onChange} onKeyPress={onKeyPress}/>               
             </div>
-            {sampleArticles.map((article, index) => (
+            {/* {sampleArticles.map((article, index) => (
                 <Article key={index} article={article} />
-            ))}
-            {/* {articles.map((article) => (
-                <Article key={article.position} article={article} />
             ))} */}
+            {articles.map((article) => (
+                <Article key={article.position} article={article} />
+            ))}
         </ div>
     );
 };
