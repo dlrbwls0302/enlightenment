@@ -52,7 +52,7 @@ const Xfile = () => {
                                 let findIndex = child.description.indexOf('images/') + 7
                                 console.log(findIndex);
                                 let find = child.description.slice(findIndex);
-                                console.log("find", find);
+                                // console.log("find", find);
                                 const findIndex2 = find.indexOf('"');
                                 const value = find.slice(0, findIndex2);
                                 console.log("value", value);
