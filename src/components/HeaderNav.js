@@ -4,7 +4,7 @@ import '../styles/HeaderNav.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeModal, setToggle, closeModal } from '../actions';
 function HeaderNav({ isLogin, userId, setLogin, setUserId }) {
-    const [isXfile, setIsXfile] = useState(false);
+
     const [userInfo, setUserInfo] = useState({
         email: '',
         photo: ''
@@ -19,7 +19,9 @@ function HeaderNav({ isLogin, userId, setLogin, setUserId }) {
             photo
         })
         console.log(cookie)
+        console.log('p: ', decodeURIComponent(userInfo.photo))
     }, [])
+    
     const state = useSelector((state) => state.modalReducer);
     const dispatch = useDispatch();
     const onClick = (e) => {
@@ -60,10 +62,8 @@ function HeaderNav({ isLogin, userId, setLogin, setUserId }) {
             <div className="header-contant-wrap">
                 <Link className="header-magazine" to="xfile" onClick={upToScroll}>MAGAZINE</Link>
                 <Link className="header-community" to="community" onClick={upToScroll}>COMMUNITY</Link>
-                {isLogin ?
-                    <a className="header-profile" src={userInfo.photo}></a> :
-                    <a className="header-signin" onClick={(e) => { onClick(e) }}> SIGN IN</a>
-                }
+                <a className="header-signin" onClick={(e) => { onClick(e) }}> { isLogin ? 'SIGN OUT' :'SIGN IN'}</a>
+                
             </div>
         </header >
     );

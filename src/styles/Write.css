@@ -139,10 +139,10 @@
     border: none;
     font-family: 'Bebas Neue', cursive;
     font-weight: 100;
-    /* letter-spacing: 2px; */
+    /* letter-spacing: px; */
 }
 .write-container .submit:hover{
-    letter-spacing: 3px;
+    letter-spacing: 1px;
 }
 
 @media screen and (max-width: 780px){

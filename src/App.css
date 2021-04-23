@@ -20,12 +20,14 @@
 }
 .wrapper{
   position: relative;
-} */
+} 
 
 .modalClose{
   position: absolute;
   top: 10px;
-  right: 15px;
+  right: 10px;
+  /* top: 10px;
+  right: 15px; */
   cursor: pointer;
   transition: 0.2s;
 }
@@ -33,12 +35,15 @@
   transform:scale(1.2);
 }
 .modalHeading{
-  font-family: 'Black Han Sans', sans-serif;
-  letter-spacing: -1px;
-  font-size: 60px;
+  font-family: 'Bebas Neue', cursive;
+  /* letter-spacing: -1px; */
+  font-size: 40px;
   margin-top: -10px;
   margin-bottom: 30px;
-  color: var(--sub-color-one);
+  color: black;
+  font-weight: 100;
+  text-decoration: underline;
+  text-align: center;
 }
 .logoBox{
   display: flex;
@@ -62,4 +67,8 @@
 }
 .logoBox .google img:hover{
   transform:scale(1.2);
+}
+.modal{
+  z-index: 10000;
+  position: relative;
 }

@@ -20,14 +20,14 @@ const Xfile = () => {
     useEffect(() => {
         fetch('http://localhost:5000/magazines')
             .then(res => {
-                console.log(res);
+                console.log('res:: ', res);
                 return res.json();
             })
             .then(data => {
                 setMagazineList(data.magazines);
                 // console.log('magazineList : ', magazineList);
                 console.log('render-Xfile-page');
-                console.log(data.magazines);
+                console.log(data);
             })
     }, [togleHotMagazine]);
 
