@@ -1,9 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import data from '../CandidateInfo.json'
-
 import "../styles/Candidate.css"
 import PromiseModal from '../modals/PromiseModal'
-
 const Candidate = ({candidate}) => {
     const { jdName, name } = candidate
     const [ currentCandidate, setCurrentCandidate ] = useState({
@@ -13,7 +11,6 @@ const Candidate = ({candidate}) => {
         promise : ''
     })
     const [showModal, setShowModal] = useState(false)
-
     useEffect(() => {
         const hudo = data.data.filter((candi, index) => {
             return candi.name === name
@@ -27,16 +24,11 @@ const Candidate = ({candidate}) => {
                 promise: temp.promise
             })
         }
-
     }, [])
-
-
     const openModal = () => {
         setShowModal(prev => !prev)
     }
-
     return (
-        
         <>
             {currentCandidate.name === '' ? "" :
             <>
@@ -46,8 +38,6 @@ const Candidate = ({candidate}) => {
             </>
             }
         </>
-    
     );
 };
-
-export default Candidate;   
+export default Candidate;

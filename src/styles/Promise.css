@@ -1,28 +1,68 @@
-.promise-container {    
-    position: relative;
-    background: var(--main-color);
-    width: 100%;
+.promise-page-container-desktop {
+    display: flex;
+    flex-direction: row;
+    max-width: 1100px;
     height: 100vh;
-    /* padding-top: 100px; */
-    text-align: center;
+    background: var(--sub-color-one);
+    overflow-x: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+}
+
+.promise-condition-desktop.handle{
     display: flex;
     flex-direction: column;
-    padding: 100px;
-}
-
-.candidate_listBox {
-    margin: 100px;
-    display: block;
-    position: relative;
+    /* position: absolute; */
+    /* left: 90px;
+    top: 130px; */
+    /* margin-top: 30px; */
+    margin-top: 30px;    
+    background: var(--sub-color-one);
     justify-content: space-between;
-    /* display: flex; */
+    align-items: center;
+    padding: 15px 40px 15px 40px;
+    /* border: 1px  #333; */
+    border-radius: 5px;
+    cursor: grab;
 }
-
-.promise-select-option {
-    font-size: 100px;
-}
-
-.promise_select {
+.heading {
+    width: 100%;
+    text-align: center;
+    font-family: 'Black Han Sans', sans-serif;
     font-size: 20px;
-    width: 300px;
+    letter-spacing: -1px;
+    color: #333;
+    margin-bottom: 7px;
+}
+
+.promise-condition-desktop.handle select {
+    padding: 10px 10px;
+    width: 210px;
+    margin-bottom: 10px;
+}
+.promise-page-candidate-desktop {
+    width: 400px;
+}
+
+promise-rigth-desktop {
+    display: flex;
+    flex-direction: row;
+    /* position: absolute; */
+    /* left: 90px;
+    top: 130px; */
+    /* margin-top: 30px; */
+    margin-top: 30px;    
+    background: var(--sub-color-one);
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px 15px 40px;
+    /* border: 1px  #333; */
+    border-radius: 5px
+
+}
+
+.promise-candidate-listBox-desttop {
+    align-items: center;
+    width: 30%;
 }

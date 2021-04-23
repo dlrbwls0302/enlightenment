@@ -9,6 +9,7 @@ import Opinions from './pages/Opinions';
 import Promise from './pages/Promise';
 import Xfile from './pages/Xfile';
 import Write from './pages/Write';
+import Post from './pages/Post';
 import { useDispatch, useSelector } from 'react-redux'
 import { loadElections } from './actions/index'
 import './App.css';
@@ -26,8 +27,8 @@ const App = () => {
   const state = useSelector((state) => state.modalReducer);
 
   useEffect(() => {
-    console.log(document.cookie);
-    if(document.cookie){
+    if(document.cookie.includes('userId')){
+      console.log(document.cookie)
       const equalIndex = document.cookie.indexOf('=');
       const semiIndex = document.cookie.indexOf(';');
       const userId = document.cookie.slice(equalIndex + 1, semiIndex);
@@ -53,8 +54,6 @@ const App = () => {
   return (
     <div className='body'>
       <div className='wrapper'>
-        
-  
         <div className='modal'>
         <Modal 
           isOpen={state.modalIsOpen} 
@@ -73,7 +72,7 @@ const App = () => {
               flexDirection: 'column',
               borderRadius: '10px',
               boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-              zIndex: '10000',
+              zIndex: '0',
             }
           }}
         >
@@ -101,6 +100,7 @@ const App = () => {
             <Route path="/news" component={News}/>
             <Route path="/opinion" component={Opinions}/>
             <Route path="/promise" component={Promise}/>
+            <Route path="/post" component={Post} />
           </Switch>
         </Router>
       </div>

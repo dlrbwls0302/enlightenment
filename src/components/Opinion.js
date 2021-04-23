@@ -1,11 +1,12 @@
 import React, { useRef } from 'react';
 import axios from 'axios';
 import '../styles/Opinions.css'
-import { AiFillAlert } from 'react-icons/ai';
-import { AiTwotoneLike } from 'react-icons/ai';
+import { AiFillAlert, AiTwotoneLike } from 'react-icons/ai';
+import { MdInsertEmoticon } from "react-icons/md";
 
 
 const Opinion = ({ comment, ban, number, like }) => {
+    const smileIcon = <MdInsertEmoticon />
     let className = '';
     let nickName = '';
     // const likeRef = useRef('white');
@@ -18,7 +19,7 @@ const Opinion = ({ comment, ban, number, like }) => {
                 nickName = '😎 똑똑한 시민님';
                 className = 'opinions yellow';
             } else if (number % 2 === 0) {
-                nickName = '🥸 냉철한 시민님';
+                nickName = '냉철한 시민님';
                 className = 'opinions blue';
             } else if (number % 10 === 3) {
                 nickName = '🤔 현명한 시민님';

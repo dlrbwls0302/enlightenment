@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 // import "../components/Candidate"
 import Candidate from '../components/Candidate';
+import PromiseModal from '../modals/PromiseModal';
 import '../styles/Promise.css'
 
 const axios = require('axios')
@@ -68,8 +69,10 @@ const Promise = () => {
     )  
 
     return (
-        <div className="promise-container">
-            <div className="select_box">
+        <div className="promise-page-container-desktop">
+            <div className="promise-condition-desktop handle">
+            <div className='heading'>투표소 위치를 확인하세요</div>
+                <div>
                     <select className="promise_select electionList" onClick={handelElection} value="asf">
                      <option className="promise-select-option" value="" selected disabled hidden >선택해주세요.</option>
                         {state.elections.map((election, index) => {
@@ -85,6 +88,8 @@ const Promise = () => {
                             >{election.sgName}</option>
                         })}
                     </select>
+                    </div>
+                    <div>
                     <select className="promise_select" onChange={handleDownElection}>
                             <option className="promise-select-option" value="" selected disabled hidden>하위 선거 선택</option>
                         {downElections.map((election, index) => {
@@ -104,6 +109,8 @@ const Promise = () => {
                             </option>
                         })}
                     </select>
+                    </div>
+                    <div>
                     <select className="promise_select" onClick={handleCandidateLocation}>
                       <option value="">선거 장소</option>
                         {electionPlace.map((place, index) => {
@@ -116,17 +123,20 @@ const Promise = () => {
                         })}
                     </select>
                     </div>
-                    <div className="candidate_listBox">
-                        {
-                        candidates.map((candidate, index) => {
-                             return <Candidate 
-                                        key={index}
-                                        candidate = {candidate}
-                                    > </Candidate>
-                        })
-                    }
                     </div>
-                    </div>
+            <div className="promise-candidate-listBox-desttop">
+                {
+                candidates.map((candidate, index) => {
+                    return <Candidate 
+                                key={index}
+                                candidate = {candidate}
+                            > </Candidate>
+                })
+            }
+            </div>
+            <div className="promise-candidate-desktop">
+            </div>
+        </div>
     );
 };
 

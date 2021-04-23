@@ -1,0 +1,507 @@
+@media ( min-width: 780px ) {
+    .opinion .footer-container {
+        text-align: left;
+    }
+    
+    .opinion .footer-container .footer-team-container .footer-team-front {
+        text-align: center;
+    }
+    
+    .opinion .footer-container .footer-team-container .footer-team-back {
+        text-align: center;
+    }
+    
+    .wrapper .opinion #footer {
+        max-width: 1080px;
+
+        /* background-color: lightgray; */
+    }
+    
+    .footer-container {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 4em;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .footer-container .title {
+        font-size: 14.2px;    
+        font-weight: 400;
+        color: #333;
+    }
+    
+    .footer-container li {
+        font-size: 12.8px;    
+        font-weight: 300;
+    }
+    
+    .footer-container li {
+        list-style: none;
+    }
+    
+    .footer-logo-name {
+        font-size: 19.2px;
+        font-weight: 500;
+    }
+    
+    .footer-company-container {
+    
+    }
+    
+    
+    
+    .footer-company-one {
+        margin-top: 10px;
+    }
+    
+    .footer-company-two {
+    
+    }
+    
+    .footer-company-three {
+    
+    }
+    
+    .footer-product-container {
+    
+    }
+    
+    .footer-product-title {
+    
+    }
+    
+    .footer-product-one {
+        margin-top: 10px;
+    }
+    
+    .footer-product-two {
+    
+    }
+    
+    .footer-product-three {
+    
+    }
+    
+    .footer-product-four {
+    
+    }
+    
+    .footer-resources-container {
+    
+    }
+    
+    .footer-resources-title {
+    
+    }
+    
+    .footer-resources-one {
+        margin-top: 10px;
+    }
+    
+    .footer-resources-two {
+    
+    }
+    
+    .footer-team-container a {
+        transition: 0.3s;
+    }
+    
+    .footer-team-container a:hover {
+        transform: scale(1.4);
+    }
+    
+    .footer-team-title {
+    
+    }
+    
+    .footer-team-one {
+        margin-top: 10px;
+    }
+    
+    .footer-team-front {
+    
+    }
+    
+    .footer-team-one .sunghyun {
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+    }
+    
+    .footer-team-one .minwoo {
+        display: inline-block;;
+        width: 35px;
+        height: 35px;
+    }
+    
+    .footer-team-one .kyujin {
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+    }
+    
+    .footer-team-one img {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .footer-team-two {
+    
+    }
+    
+    .footer-team-two .juyeop {
+        display: block;
+        width: 35px;
+        height: 35px;
+    }
+    
+    .footer-team-two img {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .footer-team-back {
+    
+    }
+}
+
+@media (max-width: 780px) {
+    .opinion .footer-container {
+        text-align: left;
+    }
+    
+    .opinion .footer-container .footer-team-container .footer-team-front {
+        text-align: center;
+    }
+    
+    .opinion .footer-container .footer-team-container .footer-team-back {
+        text-align: center;
+    }
+    
+    .wrapper .opinion #footer {
+        width: 80%;
+        /* background-color: lightgray; */
+    }
+    
+    .footer-container {
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 5em;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .footer-container .title {
+        font-size: 14.2px;    
+        font-weight: 400;
+        color: #333;
+    }
+    
+    .footer-container li {
+        font-size: 12.8px;    
+        font-weight: 300;
+    }
+    
+    .footer-container li {
+        list-style: none;
+    }
+    
+    .footer-logo-name {
+        font-size: 19.2px;
+        font-weight: 500;
+    }
+    
+    .footer-company-container {
+    
+    }
+    
+    
+    
+    .footer-company-one {
+        margin-top: 10px;
+    }
+    
+    .footer-company-two {
+    
+    }
+    
+    .footer-company-three {
+    
+    }
+    
+    .footer-product-container {
+    
+    }
+    
+    .footer-product-title {
+    
+    }
+    
+    .footer-product-one {
+        margin-top: 10px;
+    }
+    
+    .footer-product-two {
+    
+    }
+    
+    .footer-product-three {
+    
+    }
+    
+    .footer-product-four {
+    
+    }
+    
+    .footer-resources-container {
+    
+    }
+    
+    .footer-resources-title {
+    
+    }
+    
+    .footer-resources-one {
+        margin-top: 10px;
+    }
+    
+    .footer-resources-two {
+    
+    }
+    
+    .footer-team-container a {
+        transition: 0.3s;
+    }
+    
+    .footer-team-container a:hover {
+        transform: scale(1.4);
+    }
+    
+    .footer-team-title {
+    
+    }
+    
+    .footer-team-one {
+        margin-top: 10px;
+    }
+    
+    .footer-team-front {
+    
+    }
+    
+    .footer-team-one .sunghyun {
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+    }
+    
+    .footer-team-one .minwoo {
+        display: inline-block;;
+        width: 35px;
+        height: 35px;
+    }
+    
+    .footer-team-one .kyujin {
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+    }
+    
+    .footer-team-one img {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .footer-team-two {
+    
+    }
+    
+    .footer-team-two .juyeop {
+        display: block;
+        width: 35px;
+        height: 35px;
+    }
+    
+    .footer-team-two img {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .footer-team-back {
+    
+    }
+}
+
+@media (max-width: 432px) {
+    .opinion .footer-container {
+        text-align: left;
+    }
+    
+    .opinion .footer-container .footer-team-container .footer-team-front {
+        text-align: center;
+    }
+    
+    .opinion .footer-container .footer-team-container .footer-team-back {
+        text-align: center;
+    }
+    
+    .wrapper .opinion #footer {
+        width: 100%;
+        /* background-color: lightgray; */
+    }
+    
+    .opinion .footer-container {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 30px;
+        width: 100%;
+        padding-top: 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .footer-container .title {
+        font-size: 14.2px;    
+        font-weight: 400;
+        color: #333;
+    }
+    
+    .footer-container li {
+        font-size: 12.8px;    
+        font-weight: 300;
+        list-style: none;
+    }
+    
+    .footer-logo-name {
+        font-size: 14px;
+        font-weight: 500;
+        display: none;
+    }
+    
+    .footer-company-container {
+        display: none;
+    }
+    
+    .footer-company-one {
+        margin-top: 10px;
+    }
+    
+    .footer-company-two {
+    
+    }
+    
+    .footer-company-three {
+    
+    }
+    
+    .footer-product-container {
+        display: none;
+    }
+    
+    .footer-product-title {
+    
+    }
+    
+    .footer-product-one {
+        margin-top: 10px;
+    }
+    
+    .footer-product-two {
+    
+    }
+    
+    .footer-product-three {
+    
+    }
+    
+    .footer-product-four {
+    
+    }
+    
+    .footer-resources-container {
+        display: none;
+    }
+    
+    .footer-resources-title {
+    
+    }
+    
+    .footer-resources-one {
+        margin-top: 10px;
+    }
+    
+    .footer-resources-two {
+    
+    }
+
+    .footer-team-container {
+        /* display: flex; */
+    }
+    
+    .footer-team-container a {
+        transition: 0.3s;
+    }
+    
+    .footer-team-container a:hover {
+        transform: scale(1.3);
+    }
+    
+    .footer-team-title {
+    
+    }
+    
+    .footer-team-one {
+        margin-top: 10px;
+    }
+    
+    .footer-team-front {
+    
+    }
+    
+    .footer-team-one .sunghyun {
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+    }
+    
+    .footer-team-one .minwoo {
+        display: inline-block;;
+        width: 35px;
+        height: 35px;
+    }
+    
+    .footer-team-one .kyujin {
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+    }
+    
+    .footer-team-one img {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .footer-team-two {
+    
+    }
+    
+    .footer-team-two .juyeop {
+        display: block;
+        width: 35px;
+        height: 35px;
+    }
+    
+    .footer-team-two img {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .footer-team-back {
+    
+    }
+}
