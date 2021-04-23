@@ -19,7 +19,11 @@ const Opinion = ({ comment, ban, number, like }) => {
                 nickName = '😎 똑똑한 시민님';
                 className = 'opinions yellow';
             } else if (number % 2 === 0) {
+<<<<<<< HEAD
                 nickName = '냉철한 시민님';
+=======
+                nickName = '😃 냉철한 시민님';
+>>>>>>> 4167326526d5647ff21ffd53a0ed5e19d755bcec
                 className = 'opinions blue';
             } else if (number % 10 === 3) {
                 nickName = '🤔 현명한 시민님';
@@ -94,6 +98,7 @@ const Opinion = ({ comment, ban, number, like }) => {
                     <AiFillAlert className="reportImg like" title="신고하기" onClick={handleReportBtn} />
                     <AiTwotoneLike className="reportImg report" onClick={handleLikeBtn} />
                     <p className="comment-nickname">{nickName}</p>
+                    <p className="comment-like">{like}</p>
                     <p className="anooComment">{comment}</p>
                 </div > : null}
         </>
