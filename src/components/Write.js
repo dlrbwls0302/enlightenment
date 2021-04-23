@@ -33,10 +33,15 @@ const Write = () => {
     return (
         <div className='write-container'>
             <div className='editor'>
-                <div className='line' />
-                <button className='submit' onClick={submitEditor}>사건 등록</button>
-                <h1 className='write-heading'>사건 파일 작성</h1>
-                <input type="text" className='title' autoComplete='off' placeholder="글의 제목을 입력해 주세요." onChange={handleTitle}></input>
+                <h1 className='write-heading'>Simply Write a post.</h1>
+                <div className='write-wrapper'>
+                    <div className='write-input-data'>
+                        <input type="text" className='title' autoComplete='off' onChange={handleTitle} required></input>
+                        <div className='write-underline'></div>
+                        <label>Title</label>
+                    </div>
+                </div>
+                
                 <CKEditor
                     editor={ClassicEditor}
                     data=""
@@ -61,7 +66,7 @@ const Write = () => {
                         }
                     }}
                 />
-
+                <button className='submit' onClick={submitEditor}>POST!</button>
             </div>
         </div>
     );

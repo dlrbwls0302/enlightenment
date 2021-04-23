@@ -12,17 +12,19 @@
     color :#2d3f54;
 }
 .main-container{
-    background-color:darkgreen;
-    /* height: 100vh; */
+    background-color: #F9F7F7;
+    height: 100vh;
 }
 
 .xfile-wrap {
+
     /* width: 100%; */
     min-height: 100vh;
     height: 100%;
     /* margin-top: 100px; */
     padding-top: 100px;
     background-color: #F9F7F7;
+
     /* background-color: white; */
     display: flex;
     padding-left: 10%;
