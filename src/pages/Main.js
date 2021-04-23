@@ -10,17 +10,16 @@ import MainFunction from '../components/MainFunction';
 
 const Main = () => {   
     const [productIndex, setProductIndex] = useState(0);
-    const [listItems, setListItems] = useState([]);
-    const [slider, setSlider] = useState('');
-    const [reverseItems, setReverseItems] = useState([]);
-    const [direction, setDirection] = useState({
-        left: '',
-        height: '',
-        width: '',
-        zIndex: '',
-    })
+    // const [listItems, setListItems] = useState([]);
+    // const [slider, setSlider] = useState('');
+    // const [reverseItems, setReverseItems] = useState([]);
+    // const [direction, setDirection] = useState({
+    //     left: '',
+    //     height: '',
+    //     width: '',
+    //     zIndex: '',
+    // })
     const reverse = () => {
-        console.log('reverseItems:: ', reverseItems);
         // reverseItems.forEach((el, index) => {
         //     if(index < listItems.length - 1){
         //         el.style.left = reverseItems[index + 1].offsetLeft + 'px'
@@ -52,46 +51,35 @@ const Main = () => {
         // })
     }
 
-    useEffect(() => {
-        let slide = document.querySelectorAll('.new-slide');
-        let container = document.querySelector('.slider-container');
-        let reversedArray = Array.from(slide).slice().reverse();
-        setTimeout(() => {
-            setListItems(slide)
-            setSlider(container)
-            setReverseItems(Array.from(slide).slice().reverse());
-            setDirection({
-                ...direction,
-                left: reversedArray[0].offsetLeft + 'px',
-                height: reversedArray[0].offsetHeight + 'px',
-                width: reversedArray[0].offsetWidth + 'px',
-                zIndex: reversedArray[0].style.zIndex 
-            })
-        }, 200);
-    }, [productIndex]);
+    // useEffect(() => {
+    //     let slide = document.querySelectorAll('.new-slide');
+    //     let container = document.querySelector('.slider-container');
+    //     let reversedArray = Array.from(slide).slice().reverse();
+    //     setTimeout(() => {
+    //         setListItems(slide)
+    //         setSlider(container)
+    //         setReverseItems(Array.from(slide).slice().reverse());
+    //         setDirection({
+    //             ...direction,
+    //             left: reversedArray[0].offsetLeft + 'px',
+    //             height: reversedArray[0].offsetHeight + 'px',
+    //             width: reversedArray[0].offsetWidth + 'px',
+    //             zIndex: reversedArray[0].style.zIndex 
+    //         })
+    //     }, 200);
+    // }, [productIndex]);
     
 
     
-    useEffect(() => {
-        reverse()
-    }, [productIndex])
+    // useEffect(() => {
+    //     reverse()
+    // }, [productIndex])
 
     
     return(
         <div className='new-main-container'>
             <div className='overlay'></div>
             
-            {/* top nav */}
-            {/* <div className='new-nav'>
-                <div className='new-menu'>
-                    <div className='hamburger'></div>
-                </div>
-                <div className='new-logo'>TUAT.TA</div>
-                <div className='cart'>
-                    ICON
-                </div>
-            </div> */}
-            {/* end top nav */}
 
             {/* social icon */}
             <div className='sci'>
@@ -113,10 +101,10 @@ const Main = () => {
                     <div className='info-section'>
                         <div className={productIndex === 0 ? 'product-info active':'product-info'}>
                             <h1>
-                                {/* Political */}
+                            <span className='txt-red'>W</span>rite
                             </h1>
                             <h1>
-                            <span className='txt-red'>M</span>agazine
+                            <span className='txt-red'>M</span>agazines
                             </h1>
                             <span>
                             TEAM 12 <span className='reduce-space'>PROJECT</span> 2021
@@ -140,7 +128,7 @@ const Main = () => {
                             TEAM 12 <span className='reduce-space'>PROJECT</span> 2021
                             </span>
                             <p>
-                                우리는 유저가 직접 작성할 수 있는 매거진을 제공합니다. 여러분들의 글을 통해 묻혀버린 진실을 밝혀주세요.  
+                                우리는 유저가 직접 작성할 수 있는 매거진 서비스를 제공합니다. 여러분들의 글을 통해 묻혀진 진실을 밝혀주세요.  
                             </p>
                             <button className='go-to-xfile'>
                              Magazine
@@ -249,6 +237,8 @@ const Main = () => {
                     <FiArrowRight className='right-arrow' />
                 </div>
             {/* end product images slide */}
+
+            <div className={productIndex === 0 ? 'main-page-line first' : (productIndex === 1 ? 'main-page-line second' : (productIndex === 2 ? 'main-page-line third' : 'main-page-line first'))}></div>
             
         </div>
         
