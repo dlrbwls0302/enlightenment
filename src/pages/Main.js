@@ -1,86 +1,245 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/Main.css';
-import coverImg from '../images/main.jpg';
-import mapImg from '../images/imageservice.png';
-import speechbubble from '../images/speech.png';
-import { ImNewspaper } from 'react-icons/im';
-import { MdKeyboardArrowDown } from 'react-icons/md';
+import { FaTwitter } from 'react-icons/fa';
+import { FaFacebook } from 'react-icons/fa';
+import { FaYoutube } from 'react-icons/fa';
+import { FaInstagram } from 'react-icons/fa';
+import { FiArrowRight } from 'react-icons/fi';
 
-
-const Main = ({history}) => {
-    const [isShown, setIsShown] = useState(false);
-    return (
-        <>
-        <div className='banner' id='banner'>
-            <img src={coverImg} alt='coverImg'/>
-            <div className='arrow'>
-                <a className='arrow-link' href='#about'>
-                    <MdKeyboardArrowDown className='arrowOne' size={45} color='#f5b72a'/>
-                </a>
-            </div>
-        </div>
-
-        {/* about election */}
-        <section className='about' id='about'>
-            <div className='contentBx'>
-                <h2 className='heading'>공약을 쉽게 확인하세요.</h2>
-               
-                <p className='text'>
-                    일일이 찾아보기 귀찮고 한 눈에 알아보기 불편한 공약. 당신의 소중한 한 표를 행사하기 전에 이곳에서 후보들의 공약을 확인하세요.
-                </p>
-                
-            </div>
-            <div className='aboutImg'></div>
-            <div className='arrow'>
-                <a className='arrow-link' href='#map'>
-                    <MdKeyboardArrowDown className='arrowTwo' size={45} color='#f5b72a'/>
-                </a>
-            </div>
-        </section>
-
-        {/* about map */}
-        <section className='map' id='map'>
-            <h2 className='mapHeading'>가까운 곳에서 투표하세요.</h2>
-            <p className='mapText'> 
-                당신의 위치를 검색하면 가장 가까운 위치에 있는 투표소를 알려줍니다.
-            </p>
-            <div className='container'>
-                <div className='mapBx'>
-                    <img src={mapImg} alt='mapImg'/>    
-                </div>
-                <div className='mapBx'>
-                    <img src={mapImg} alt='mapImg'/>
-                </div>
-                <div className='mapBx'>
-                    <img src={mapImg} alt='mapImg'/>
-                </div>
-            </div>
-            <div className='arrow'>
-                <a className='arrow-link' href='#news'>
-                    <MdKeyboardArrowDown className='arrowThree' size={45} color='#f5b72a'/>
-                </a>
-            </div>
-        </section>
-
-        {/* about news */}
-        <section className='news' id='news'>
-            <div className='newsBx'>
-                <h2 className='newsHeading'>선거 관련 소식을 빠르게 확인하세요.</h2>
-                <p className='newsText'> 검색 기능을 통해 선거에 관련된 뉴스뿐만 아니라 관심있는 뉴스를 검색하세요.</p>
-                <div class={isShown? 'newsComment visible': 'newsComment'}>
-                    <img src={speechbubble} alt='newsImg'/>
-                </div> 
-                <ImNewspaper onClick={() => history.push({ pathname: '/news' })} onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)} className='newsIcon'/>
-            </div>
-            <div className='newsImgBx'></div>
+const Main = () => {   
+    const [productIndex, setProductIndex] = useState(0);
+    // const [listItems, setListItems] = useState([]);
+    // const [slider, setSlider] = useState('');
+    // const [reverseItems, setReverseItems] = useState([]);
+    // const [direction, setDirection] = useState({
+    //     left: '',
+    //     height: '',
+    //     width: '',
+    //     zIndex: '',
+    // })
+    const reverse = () => {
+        // reverseItems.forEach((el, index) => {
+        //     if(index < listItems.length - 1){
+        //         el.style.left = reverseItems[index + 1].offsetLeft + 'px'
+        //         el.style.height = reverseItems[index + 1].offsetHeight + 'px'
+        //         el.style.width = reverseItems[index + 1].offsetWidth + 'px'
+        //         el.style.zIndex = reverseItems[index + 1].zIndex
+        //         el.style.transform = 'unset'
+        //         el.style.opacity = 1
+        //     }
+           
+        //     if(index === listItems.length - 1){
+        //         el.style.transform = 'scale(1.5)'
+        //         el.style.opacity = '0'
             
-            <div className='arrow'>
-                <a className='arrow-link' href='#opinion'>
-                    <MdKeyboardArrowDown className='arrowFour' size={45} color='#f5b72a'/>
-                </a>
+        //         let cln = el.cloneNode(true)
+                
+        //         setTimeout(() => {
+        //             el.remove()
+        //             cln.style.transform = 'scale(0)'
+        //             cln.style.left = direction.left
+        //             cln.style.height = direction.height
+        //             cln.style.width = direction.width
+        //             cln.style.opacity = '1'
+        //             cln.style.zIndex = '1'
+        //             cln.style.animation = 'unset'
+        //             slider.appendChild(cln)
+        //         }, 1000)
+        //     }
+        // })
+    }
+
+    // useEffect(() => {
+    //     let slide = document.querySelectorAll('.new-slide');
+    //     let container = document.querySelector('.slider-container');
+    //     let reversedArray = Array.from(slide).slice().reverse();
+    //     setTimeout(() => {
+    //         setListItems(slide)
+    //         setSlider(container)
+    //         setReverseItems(Array.from(slide).slice().reverse());
+    //         setDirection({
+    //             ...direction,
+    //             left: reversedArray[0].offsetLeft + 'px',
+    //             height: reversedArray[0].offsetHeight + 'px',
+    //             width: reversedArray[0].offsetWidth + 'px',
+    //             zIndex: reversedArray[0].style.zIndex 
+    //         })
+    //     }, 200);
+    // }, [productIndex]);
+    
+
+    
+    // useEffect(() => {
+    //     reverse()
+    // }, [productIndex])
+
+    
+    return(
+        <div className='new-main-container'>
+            <div className='overlay'></div>
+            
+
+            {/* social icon */}
+            <div className='sci'>
+                {/* <FaFacebook className={'bx bxl-facebook-circle'} />
+                <FaInstagram className={'bx bxl-instagram-alt'}/>
+                <FaYoutube className={'bx bxl-youtube'}/>
+                <FaTwitter className={'bx bxl-twitter'}/> */}
             </div>
-        </section>
-    </>
+            {/* end social icon */}
+
+            {/* fashion label */}
+                {/* <div className='fashion'>
+                    당신의 선택
+                </div> */}
+            {/* end fashion label */}
+
+            {/* product info */}
+                <div className={'col-5 z-index-99'}>
+                    <div className='info-section'>
+                        <div className={productIndex === 0 ? 'product-info active':'product-info'}>
+                            <h1>
+                            <span className='txt-red'>W</span>rite
+                            </h1>
+                            <h1>
+                            <span className='txt-red'>M</span>agazines
+                            </h1>
+                            <span>
+                            TEAM 12 <span className='reduce-space'>PROJECT</span> 2021
+                            </span>
+                            <p>
+                                대한민국 건국이래 수많은 정치 스캔들이 발생하였고 우리는 분노했습니다. 하지만 그 대다수의 사건들은 비공식적으로 종결되었고 우리는 잊고 살아왔습니다. 
+                            </p>
+                            <button className='go-to-xfile'>
+                             Magazine
+                            </button>
+                        </div>
+
+                        <div className={productIndex === 1 ? 'product-info active':'product-info'}>
+                            <h1>
+                               <span className='txt-red'>R</span>EVEAL
+                            </h1>
+                            <h1>
+                                <span className='txt-red'>T</span>HE <span className='txt-red'>T</span>RUTH
+                            </h1>
+                            <span>
+                            TEAM 12 <span className='reduce-space'>PROJECT</span> 2021
+                            </span>
+                            <p>
+                                우리는 유저가 직접 작성할 수 있는 매거진 서비스를 제공합니다. 여러분들의 글을 통해 묻혀진 진실을 밝혀주세요.  
+                            </p>
+                            <button className='go-to-xfile'>
+                             Magazine
+                            </button>
+                        </div>
+
+                        <div className={productIndex === 2 ? 'product-info active':'product-info'}>
+                            <h1>
+                                <span className='txt-red'>A</span>ND
+                            </h1>
+                            <h1>
+                                <span className='txt-red'>R</span>EMEMBER.
+                            </h1>
+                            <span>
+                            TEAM 12 <span className='reduce-space'>PROJECT</span> 2021
+                            </span>
+                            <p>
+                                기록은 지워지지 않습니다. 그렇기에 우리 모두 잊혀지지 않도록 기록하고 기억합시다. 
+                            </p>
+                            <button className='go-to-xfile'>
+                             Magazine
+                            </button>
+                        </div>
+
+                        {/* <div className={productIndex === 3 ? 'product-info active':'product-info'}>
+                            <h1>
+                                NEWS<span className='txt-yellow'>PAPER</span>
+                            </h1>
+                            <h1>
+                                <span className='txt-yellow'>R</span>EAD
+                            </h1>
+                            <span>
+                                Collection 2020
+                            </span>
+                            <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                            </p>
+                            <button className='go-to-xfile'>
+                                정치 X-파일
+                            </button>
+                        </div> */}
+
+                        {/* <div className={productIndex === 4 ?'product-info active' : 'product-info'}>
+                            <h1>
+                                OPI<span className='txt-yellow'>NION</span>
+                            </h1>
+                            <h1>
+                                <span className='txt-yellow'>WR</span>ITE
+                            </h1>
+                            <span>
+                                Collection 2020
+                            </span>
+                            <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                            </p>
+                            <button className='go-to-xfile'>
+                                정치 X-파일
+                            </button>
+                        </div> */}
+                    </div>
+                </div>
+            {/* end product info */}
+
+            {/* product images slide */}
+                <div className='col-7'>
+                    {/* slider */}
+                        <div className='slider-container'>
+                            <div className={productIndex === 0 ? 'new-slide front' : (productIndex === 1 ? 'new-slide back' : (productIndex === 2 ? 'new-slide middle' : 'new-slide front'))}>
+                                <div className='img-holder'
+                                style={{ backgroundImage: 'url("https://s3.ap-northeast-2.amazonaws.com/www.kelection.ml/images/magazine.jpeg")' }}></div>
+                            </div>
+                            
+                            <div className={productIndex === 0 ? 'new-slide middle' : (productIndex === 1 ? 'new-slide front' : (productIndex === 2 ? 'new-slide back' : 'new-slide middle'))}>
+                            <div className='img-holder'
+                                style={{ backgroundImage: 'url("https://s3.ap-northeast-2.amazonaws.com/www.kelection.ml/images/promise.jpeg")' }}></div>
+                            </div>
+
+                            <div className={productIndex === 0 ? 'new-slide back' : (productIndex === 1 ? 'new-slide middle' : (productIndex === 2 ? 'new-slide front' : 'new-slide back'))}>
+                            <div className='img-holder'
+                                style={{ backgroundImage: 'url("https://s3.ap-northeast-2.amazonaws.com/www.kelection.ml/images/map.jpeg")' }}></div>
+                            </div>
+
+                            {/* <div className='new-slide'>
+                            <div className='img-holder'
+                                style={{ backgroundImage: 'url("https://s3.ap-northeast-2.amazonaws.com/www.kelection.ml/images/newspaper.jpeg")' }}></div>
+                            </div> */}
+
+                            {/* <div className='new-slide'>
+                            <div className='img-holder'
+                                style={{ backgroundImage: 'url("https://s3.ap-northeast-2.amazonaws.com/www.kelection.ml/images/opinion.jpeg")' }}></div>
+                            </div> */}
+                        </div>
+
+                    {/* end slider */}
+                </div>
+
+                <div className={'slide-control z-index-99'} onClick={
+                    () => {
+                        if (productIndex + 1 > 2){
+                            setProductIndex(0)
+                        } else{
+                            setProductIndex(productIndex + 1)
+                        }
+                    }
+                }>
+                    <FiArrowRight className='right-arrow' />
+                </div>
+            {/* end product images slide */}
+
+            <div className={productIndex === 0 ? 'main-page-line first' : (productIndex === 1 ? 'main-page-line second' : (productIndex === 2 ? 'main-page-line third' : 'main-page-line first'))}></div>
+            
+        </div>
+        
     );
 };
 
