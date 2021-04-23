@@ -1,8 +1,9 @@
 .post-container {
     font-family: 'Noto Serif KR', serif;
     margin-top: 30px;
+    margin-bottom: 100px;
     border-radius: 10px;
-    padding: 10px 10px 20px 10px;
+    padding: 10px 10px 10px 10px;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
     /* border: 1px solid blue; */
     background-color: white;

@@ -6,6 +6,16 @@ import { FcLikePlaceholder } from 'react-icons/fc';
 
 const Post = ({ title, like, description, createdAt }) => {
     const [toggle, setToggle] = useState(false);
+    const handleTogleLikeBtn = () => {
+        fetch('http://localhost:5000/magazines')
+            .then(res => {
+                console.log(res);
+                return res.json();
+            })
+            .then(data => {
+                // setMagazineList(data.magazines);
+            })
+    };
     createdAt = createdAt.slice(0, 10);
     return (
         <div className="post-container">
