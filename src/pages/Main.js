@@ -6,6 +6,7 @@ import { FaYoutube } from 'react-icons/fa';
 import { FaInstagram } from 'react-icons/fa';
 import { FiArrowRight } from 'react-icons/fi';
 
+
 const Main = () => {   
     const [productIndex, setProductIndex] = useState(0);
     const [listItems, setListItems] = useState([]);

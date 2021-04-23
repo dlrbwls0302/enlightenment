@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Magazine from '../components/Magazine';
 import '../styles/Xfile copy.css';
 import diffrentMagazine from '../images/diffrentMagazine.mp4';
+import Footer from '../components/Footer'
 
 const Xfile = () => {
 
@@ -68,7 +69,6 @@ const Xfile = () => {
                     </div> */}
                 </div>
             </div>
-
         </div>
     );
 };

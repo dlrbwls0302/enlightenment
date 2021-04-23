@@ -18,6 +18,7 @@ import { changeModal } from './actions';
 import { BiX } from "react-icons/bi";
 import kakaoImg from './images/kakao2.png';
 import googleImg from './images/google1.png';
+import Footer from './components/Footer';
 
 Modal.setAppElement('#root');
 const App = () => {
@@ -103,6 +104,7 @@ const App = () => {
           </Switch>
         </Router>
       </div>
+      <Footer></Footer>
     </div>
   );
 };

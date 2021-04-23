@@ -1,24 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Serif+KR&display=swap');
-
-
 .main-container{
     background-color:darkgreen;
     /* height: 100vh; */
 }
-
 .xfile-wrap {
     /* width: 100%;
     height: 100%; */
     margin-top: 100px;
-    background-color: #2d3f54;
+    background-color: white;
     /* background-color: white; */
     display: flex;
     padding-left: 10%;
     padding-right: 10%;
 }
-
 .xfile-text-wrap {
     position: sticky;
     top: 200px;
@@ -29,18 +25,26 @@
     font-family: 'Bebas Neue', cursive;
     font-size: 40px;
 }
-
 .xfile-text-li{
     list-style: none;
     margin-bottom: 30px;
     line-height: 80%;
-    color:white;
+    color: #2d3f54;
 }
-
+.xfile-text-li:hover {
+}
 .search-magazine {
-    color: white;
+    color: #2d3f54;
 }
-
+.search-magazine:hover {
+    cursor: pointer;
+}
+.write-magazine {
+    color: #2d3f54;
+}
+.write-magazine:hover {
+    cursor: pointer;
+}
 .xfile-content-wrap {
     display: flex;
     flex-wrap: wrap;
@@ -51,13 +55,11 @@
     /* border: 1px solid blue; */
     width: 70%;
 }
-
 /* --------------------- */
-
 .magazine-wrap {
-    -webkit-columns: 250px 3;
-    -moz-columns: 250px 3;
-    columns: 250px 3;
+    -webkit-columns: 150px 3;
+    -moz-columns: 150px 3;
+    columns: 150px 3;
     -webkit-column-gap: 30px;
     -moz-column-gap: 30px;
     column-gap: 30px;
@@ -67,11 +69,10 @@
     /* -moz-column-fill: balance; */
     /* column-fill: balance; */
 }
-
 .magazine {
     min-width: calc(100% - 4px);
     /* min-width: 250px; */
-    width: 150px;
+    /* width: 150px; */
     margin: 15px;
     background-color: white;
     min-height: 400px;
@@ -90,10 +91,9 @@
     /* text-align: center; */
     opacity: 0.9;
 }
-
 .lastMagazine {
     min-width: calc(100% - 4px);
-    width: 150px;
+    width: 100px;
     margin: 15px;
     min-height: 150px;
     display: inline-block;
@@ -112,13 +112,11 @@
     width: 100%;
     border-radius: 10px;
 }
-
 .magazine-heart {
     width: 30px;
     height: 30px;
     margin: 10px 5px 0 10px;
 }
-
 .magazine-heart-count {
     position: relative;
     top: -30px;
@@ -126,21 +124,17 @@
     font-size: 20px;
     display: block;
     color: white;
-    
 }
-
 .magazine:hover{
     cursor: pointer;
     transform:scale(1.06);
     transition: transform .55s;
 }
-
 .lastMagazine:hover{
     cursor: pointer;
     transform:scale(1.03);
     transition: transform .55s;
 }
-
 .magazine > .magazine-title {
     color : white;
     font-family: 'Noto Serif KR', serif;
@@ -154,7 +148,6 @@
     bottom:0;
     right:0;
 }
-
 .lastMagazine > .magazine-lastTitle{
     color : white;
     font-family: 'Noto Serif KR', serif;
@@ -168,7 +161,6 @@
     bottom:0;
     right:0;
 }
-
 .magazine:nth-child(3n){
     height: 300px;
     min-height: 250px;
@@ -181,7 +173,6 @@
     height: 280px;
     min-height: 250px;
 }
-
 .magazine:nth-child(n)::after {
     width: 100%;
     height: 100%;
@@ -192,7 +183,6 @@
     left: 0;
     z-index: -1;
 }
-
 .lastMagazine:nth-child(1)::after {
     width: 100%;
     height: 100%;
@@ -203,19 +193,16 @@
     left: 0;
     z-index: -1;
 }
-
 .magazine:nth-child(n):hover::after{
     background-color: black;
     opacity: 0.7;
 }
-
 .lastMagazine:nth-child(1):hover::after{
     background-color: black;
     opacity: 0.7;
 }
 /* .magazine:nth-child(1){
     background-image: url(https://i.pinimg.com/474x/d7/83/de/d783deeba73d4da4d962fefdb3cd3871.jpg);
-    
 } */
 .magazine:nth-child(2){
     background-image: url(https://i.pinimg.com/474x/bf/7d/ba/bf7dba6aef9de934880aad0af05e5f0e.jpg);
@@ -262,27 +249,37 @@
 .magazine:nth-child(16){
     background-image: url(https://i.pinimg.com/474x/28/59/83/28598387035c97c4b452cd4af352971c.jpg);
 }
-
 @media screen and (max-width: 780px){
     .xfile-text-wrap {
         position: fixed;
         top: 60px;
         /* border: 1px solid red; */
         /* background-color: #2d3f54; */
-        background: linear-gradient(0deg, rgba(45,63,84,0.7441351540616247) 0%, rgba(45,63,84,1) 15%);
+        /* background: white; */
         z-index: 3;
         width: 100%;
         height: 220px;
         font-size: 35px;
     }
-
     .xfile-text-li{
         margin-bottom: 20px;
         line-height: 100%;
-        color:white;
+        color: #2d3f54;
+    }
+    .xfile-text-li:hover {
+        cursor: pointer;
     }
     .search-magazine {
-        color: white;
+        color: #2d3f54;
+    }
+    .search-magazine:hover {
+        cursor: pointer;
+    }
+    .write-magazine {
+        color: #2d3f54;
+    }
+    .write-magazine:hover {
+        cursor: pointer;
     }
     .xfile-wrap{
         padding-left: 5%;
@@ -311,7 +308,6 @@
         /* column-fill: balance; */
         padding-top: 200px;
     }
-    
     .magazine {
         min-width: calc(100% - 4px);
         /* min-width: 250px; */
@@ -335,13 +331,11 @@
         /* text-align: center; */
         opacity: 0.9;
     }
-    
     .magazine-heart {
         width: 30px;
         height: 30px;
         margin: 10px 5px 0 10px;
     }
-    
     .magazine-heart-count {
         position: relative;
         top: -30px;
@@ -349,15 +343,12 @@
         font-size: 20px;
         display: block;
         color: white;
-        
     }
-    
     .child:hover{
         cursor: pointer;
         transform:scale(1.06);
         transition: transform .55s;
     }
-    
     .magazine > .magazine-title {
         color : white;
         font-family: 'Noto Serif KR', serif;
@@ -371,7 +362,6 @@
         bottom:0;
         right:0;
     }
-    
     .magazine:nth-child(3n){
         height: 300px;
         min-height: 250px;
@@ -384,7 +374,6 @@
         height: 280px;
         min-height: 250px;
     }
-
     .magazine:nth-child(n)::after {
         width: 100%;
         height: 100%;
@@ -395,7 +384,6 @@
         left: 0;
         z-index: -1;
     }
-    
     .magazine:nth-child(n):hover::after{
         background-color: black;
         opacity: 0.7;

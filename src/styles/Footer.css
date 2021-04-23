@@ -1,26 +1,27 @@
 @media ( min-width: 780px ) {
-    .opinion .footer-container {
+    /* .wrapper .footer-container {
+        max-width: 1080px;
         text-align: left;
     }
     
-    .opinion .footer-container .footer-team-container .footer-team-front {
+    .wrapper .footer-container .footer-team-container .footer-team-front {
         text-align: center;
     }
     
-    .opinion .footer-container .footer-team-container .footer-team-back {
+    .wrapper .footer-container .footer-team-container .footer-team-back {
         text-align: center;
     }
     
-    .wrapper .opinion #footer {
-        max-width: 1080px;
-
-        /* background-color: lightgray; */
-    }
+    .wrapper #footer {
+        
+    } */
     
     .footer-container {
+        max-width: 87%;
+        margin-bottom: 1em;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 4em;
+        margin-top: 1em;
         width: 100%;
         display: flex;
         justify-content: space-between;
@@ -168,40 +169,27 @@
 }
 
 @media (max-width: 780px) {
-    .opinion .footer-container {
-        text-align: left;
-    }
-    
-    .opinion .footer-container .footer-team-container .footer-team-front {
-        text-align: center;
-    }
-    
-    .opinion .footer-container .footer-team-container .footer-team-back {
-        text-align: center;
-    }
-    
-    .wrapper .opinion #footer {
-        width: 80%;
-        /* background-color: lightgray; */
-    }
     
     .footer-container {
+        max-width: 87%;
         margin-left: auto;
         margin-right: auto;
-        padding-top: 5em;
-        width: 100%;
+        /* padding-top: 5em; */
+        margin-top: 1em;
+        margin-bottom: 1em;
+        /* width: 100%; */
         display: flex;
         justify-content: space-between;
     }
     
     .footer-container .title {
-        font-size: 14.2px;    
+        font-size: 13px;    
         font-weight: 400;
         color: #333;
     }
     
     .footer-container li {
-        font-size: 12.8px;    
+        font-size: 11px;    
         font-weight: 300;
     }
     
@@ -294,20 +282,20 @@
     
     .footer-team-one .sunghyun {
         display: inline-block;
-        width: 35px;
-        height: 35px;
+        width: 32px;
+        height: 32px;
     }
     
     .footer-team-one .minwoo {
         display: inline-block;;
-        width: 35px;
-        height: 35px;
+        width: 32px;
+        height: 32px;
     }
     
     .footer-team-one .kyujin {
         display: inline-block;
-        width: 35px;
-        height: 35px;
+        width: 32px;
+        height: 32px;
     }
     
     .footer-team-one img {
@@ -321,8 +309,8 @@
     
     .footer-team-two .juyeop {
         display: block;
-        width: 35px;
-        height: 35px;
+        width: 32px;
+        height: 32px;
     }
     
     .footer-team-two img {
@@ -336,7 +324,7 @@
 }
 
 @media (max-width: 432px) {
-    .opinion .footer-container {
+    /* .opinion .footer-container {
         text-align: left;
     }
     
@@ -350,10 +338,10 @@
     
     .wrapper .opinion #footer {
         width: 100%;
-        /* background-color: lightgray; */
-    }
+    } */
     
-    .opinion .footer-container {
+    .footer-container {
+        /* display: none; */
         margin-left: auto;
         margin-right: auto;
         margin-top: 30px;
@@ -440,7 +428,8 @@
     }
 
     .footer-team-container {
-        /* display: flex; */
+        /* display: none; */
+        margin: 0 auto;
     }
     
     .footer-team-container a {
@@ -465,20 +454,20 @@
     
     .footer-team-one .sunghyun {
         display: inline-block;
-        width: 35px;
-        height: 35px;
+        width: 22px;
+        height: 22px;
     }
     
     .footer-team-one .minwoo {
         display: inline-block;;
-        width: 35px;
-        height: 35px;
+        width: 22px;
+        height: 22px;
     }
     
     .footer-team-one .kyujin {
         display: inline-block;
-        width: 35px;
-        height: 35px;
+        width: 22px;
+        height: 22px;
     }
     
     .footer-team-one img {
@@ -492,8 +481,8 @@
     
     .footer-team-two .juyeop {
         display: block;
-        width: 35px;
-        height: 35px;
+        width: 22px;
+        height: 22px;
     }
     
     .footer-team-two img {

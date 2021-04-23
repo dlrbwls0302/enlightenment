@@ -90,18 +90,8 @@ const Map = () => {
     return (
         <div>
         <div className="map-page-desktop">
-            {/* <Draggable
-            axis="both"
-            handle=".handle"
-            defaultPosition={{x: 0, y: 0}}
-            position={null}
-            grid={[1, 1]}
-            scale={1}
-            onStart={onStart}
-            onStop={onStop}
-            > */}
-            <div className={isDrag ? "map-condition-desktop handle active" : "map-condition-desktop handle"}>
-                <div className='heading'>투표소 위치를 확인하세요</div>
+            <div className="map-condition-desktop handle">
+                <marquee scrollamount="5" id="led">투표소 위치를 확인하세요</marquee>
                 <div className="election-wrapper-desktop">
                     <p>1. 투표할 선거를 선택해주세요</p>
                     <select onChange={handleSgId} defaultValue="선거선택">
