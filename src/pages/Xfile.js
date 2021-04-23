@@ -20,18 +20,18 @@ const Xfile = () => {
     useEffect(() => {
         fetch('http://localhost:5000/magazines')
             .then(res => {
-                console.log(res);
+                console.log('res:: ', res);
                 return res.json();
             })
             .then(data => {
                 setMagazineList(data.magazines);
                 // console.log('magazineList : ', magazineList);
                 console.log('render-Xfile-page');
-                console.log(data.magazines);
+                console.log(data);
             })
     }, [togleHotMagazine]);
 
-    const handleTogleMagazine = (title, description, like, createdAt) => {
+    const handleTogleMagazine = (id, title, description, like, createdAt) => {
         upToScroll();
         setTitle(title);
         setDescription(description);
@@ -102,7 +102,7 @@ const Xfile = () => {
                                     // }
 
                                     console.log(child.createdAt);
-                                    return <Magazine key={index} index={index} like={child.like} title={child.title} value={value} description={child.description} createdAt={child.createdAt} handleTogleMagazine={handleTogleMagazine} />
+                                    return <Magazine key={index} index={index} id={child.id} like={child.like} title={child.title} value={value} description={child.description} createdAt={child.createdAt} handleTogleMagazine={handleTogleMagazine} />
                                 })
                             }
                             {magazineList.length === 0 ? null :

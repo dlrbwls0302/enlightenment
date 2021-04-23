@@ -5,6 +5,7 @@ import { FaFacebook } from 'react-icons/fa';
 import { FaYoutube } from 'react-icons/fa';
 import { FaInstagram } from 'react-icons/fa';
 import { FiArrowRight } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 
 const Main = () => {   
     const [productIndex, setProductIndex] = useState(0);
@@ -99,20 +100,23 @@ const Main = () => {
                     <div className='info-section'>
                         <div className={productIndex === 0 ? 'product-info active':'product-info'}>
                             <h1>
-                            <span className='txt-red'>W</span>rite
+                            <span className='txt-red'>S</span>hare
                             </h1>
                             <h1>
-                            <span className='txt-red'>M</span>agazines
+                            <span className='txt-red'>M</span>agazine
                             </h1>
                             <span>
                             TEAM 12 <span className='reduce-space'>PROJECT</span> 2021
                             </span>
                             <p>
-                                대한민국 건국이래 수많은 정치 스캔들이 발생하였고 우리는 분노했습니다. 하지만 그 대다수의 사건들은 비공식적으로 종결되었고 우리는 잊고 살아왔습니다. 
+                                언택트 시대, 당신을 세상과 이어줄 단 하나의 정치 매거진 플랫폼
                             </p>
+                            <Link to="/xfile">
                             <button className='go-to-xfile'>
-                             Magazine
+                                MAGAZINE
                             </button>
+                            </Link>
+                            
                         </div>
 
                         <div className={productIndex === 1 ? 'product-info active':'product-info'}>
@@ -126,29 +130,33 @@ const Main = () => {
                             TEAM 12 <span className='reduce-space'>PROJECT</span> 2021
                             </span>
                             <p>
-                                우리는 유저가 직접 작성할 수 있는 매거진 서비스를 제공합니다. 여러분들의 글을 통해 묻혀진 진실을 밝혀주세요.  
+                            과거에 묻혀버린 진실, 당신의 글을 통해 밝혀주세요 
                             </p>
+                            <Link to="/xfile">
                             <button className='go-to-xfile'>
-                             Magazine
+                                MAGAZINE
                             </button>
+                            </Link>
                         </div>
 
                         <div className={productIndex === 2 ? 'product-info active':'product-info'}>
                             <h1>
-                                <span className='txt-red'>A</span>ND
+                                <span className='txt-red'>C</span>hange
                             </h1>
                             <h1>
-                                <span className='txt-red'>R</span>EMEMBER.
+                            <span className='txt-red'>T</span>HE <span className='txt-red'>w</span>orld
                             </h1>
                             <span>
                             TEAM 12 <span className='reduce-space'>PROJECT</span> 2021
                             </span>
                             <p>
-                                기록은 지워지지 않습니다. 그렇기에 우리 모두 잊혀지지 않도록 기록하고 기억합시다. 
+                               여러분의 소중한 글은 세상을 바꾸는 원동력입니다
                             </p>
+                            <Link to="/xfile">
                             <button className='go-to-xfile'>
-                             Magazine
+                                MAGAZINE
                             </button>
+                            </Link>
                         </div>
 
                         {/* <div className={productIndex === 3 ? 'product-info active':'product-info'}>

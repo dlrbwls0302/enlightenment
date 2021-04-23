@@ -27,12 +27,13 @@
 .new-main-container{
     height: 100vh;
     display: flex;
-    background-image: url('../images/city4.jpg');
+    background-image: url('');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     overflow: hidden;
     position: relative;
+    z-index: 0;
 }
 .new-main-container .overlay{
     position: absolute;
@@ -40,7 +41,8 @@
     right: 0;
     top: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, .5);
+    /* background-color: rgba(0, 0, 0, .5); */
+    background: var(--sub-color-six);
     z-index: 1;
 }
 .new-main-container .new-nav{
@@ -137,7 +139,7 @@
     width: 58.33%;
 }
 .txt-red{
-    color: var(--sub-color-seven);
+    color: var(--yellow);
 }
 .reduce-space{
     letter-spacing: -2px;
@@ -393,6 +395,9 @@
 }
 
 @media only screen and (max-width: 600px){
+    .new-slide {
+        padding-top: 50px;
+    }
     .col-5.z-index-99{
         width: 100%;
         height: 50%;
@@ -439,8 +444,9 @@
     height: 8px;
     bottom: 0;
     left: 0;
-    background: tomato;
+    background: var(--yellow);
     transition: ease-out 1s;
+    z-index: 5000;
 }
 .new-main-container .main-page-line.first{
     width: 0%;
