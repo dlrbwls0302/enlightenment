@@ -31,7 +31,7 @@ const Xfile = () => {
             })
     }, [togleHotMagazine]);
 
-    const handleTogleMagazine = (title, description, like, createdAt) => {
+    const handleTogleMagazine = (id, title, description, like, createdAt) => {
         upToScroll();
         setTitle(title);
         setDescription(description);
@@ -102,7 +102,7 @@ const Xfile = () => {
                                     // }
 
                                     console.log(child.createdAt);
-                                    return <Magazine key={index} index={index} like={child.like} title={child.title} value={value} description={child.description} createdAt={child.createdAt} handleTogleMagazine={handleTogleMagazine} />
+                                    return <Magazine key={index} index={index} id={child.id} like={child.like} title={child.title} value={value} description={child.description} createdAt={child.createdAt} handleTogleMagazine={handleTogleMagazine} />
                                 })
                             }
                             {magazineList.length === 0 ? null :

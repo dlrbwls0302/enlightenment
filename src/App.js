@@ -95,7 +95,7 @@ const App = () => {
           <Switch>
             <Route exact path="/" component={Main} />
             <Route path="/xfile" component={() => { return <Xfile isLogin={isLogin} userId={userId} /> }} />
-            <Route path="/opinion" component={Opinions} />
+            <Route path="/community" component={Opinions} />
           </Switch>
         </Router>
       </div>
