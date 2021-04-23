@@ -5,8 +5,6 @@ import { FaFacebook } from 'react-icons/fa';
 import { FaYoutube } from 'react-icons/fa';
 import { FaInstagram } from 'react-icons/fa';
 import { FiArrowRight } from 'react-icons/fi';
-// import ScriptTag from 'react-script-tag';
-import MainFunction from '../components/MainFunction';
 
 const Main = () => {   
     const [productIndex, setProductIndex] = useState(0);

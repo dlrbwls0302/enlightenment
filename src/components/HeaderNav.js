@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
 import '../styles/HeaderNav.css';
@@ -20,11 +20,25 @@ function HeaderNav({ isLogin, userId, setLogin, setUserId }) {
         }
     }
     window.addEventListener('scroll', changeBackground);
-
+    const [userInfo, setUserInfo] = useState({
+        email: '',
+        photo: ''
+    })
+    useEffect(() => {
+        const cookie = document.cookie
+        const equalIndex = document.cookie.indexOf('photo');
+        const semiIndex = document.cookie.indexOf(';', equalIndex);
+        const photo = document.cookie.slice(equalIndex + 6, semiIndex);
+        setUserInfo({
+            ...userInfo,
+            photo
+        })
+        console.log(cookie)
+    }, [])
     const state = useSelector((state) => state.modalReducer);
     const dispatch = useDispatch();
     const onClick = (e) => {
-        if(e.target.textContent === '로그인'){
+        if(isLogin === false){
             dispatch(changeModal());
         } else{
             alert('로그아웃이 되었습니다!');
@@ -45,25 +59,40 @@ function HeaderNav({ isLogin, userId, setLogin, setUserId }) {
     const onClose = () => {
         dispatch(closeModal());
     }
-
-    return (
+    return (    
         <>
             <header className={navbar ? 'header active' : 'header'}>
-                <Link to={'/'} className={navbar ? 'logo active' : 'logo'} onClick={onClose}>
-                    당신의 선택                    
-                </Link>
-                <div className={navbar ? 'toggleBx active' : 'toggleBx'} onClick={onToggle}>
-                    {state.toggle ? <VscListFlat size={34} className='toggleBtnOn' /> : <BsX color='#f9f7f7' size={34} className='toggleBtnOff'/>}
+            <div className="header_container" id="gb">
+                <div className="header_logo_box">
+                    <Link className="header_logo_area" to={'/'} >당신의 선택</Link>
                 </div>
-            </header>
-
-
-
-
-
-
+                <div className="header_contant_area">
+                    <>
+                        <div className="header_route_list"> 
+                            <div className="header_route">
+                               <Link className="header_route_each" to="xfile">Xfile</Link>
+                            </div>  
+                            <div className="header_route">
+                                <Link className="header_route_each" href="https://mail.google.com/mail/&amp;ogbl" target="_top">route2</Link>
+                            </div>
+                        </div>
+                    </>
+                    {isLogin ?
+                    <a className="header_profile_Btn" src={userInfo.photo} > </a>  :
+                    <a class="header_signnIn_Btn"  onClick={(e) => {
+                        onClick(e) 
+                    }}
+                    >
+                        Sign in 
+                    </a> 
+}
+            </div>
+            </div>
+                {/* <div className={navbar ? 'toggleBx active' : 'toggleBx'} onClick={onToggle}>
+                    {state.toggle ? <VscListFlat size={34} className='toggleBtnOn' /> : <BsX color='#f9f7f7' size={34} className='toggleBtnOff'/>}
+                </div> */}
             <div className={state.toggle? 'sidebar active' :'sidebar'}>
-                <ul>
+                <ul>    
                     <li className='nav-text' 
                     onClick={(e) => {onClick(e) 
                                     onToggle()
@@ -72,7 +101,6 @@ function HeaderNav({ isLogin, userId, setLogin, setUserId }) {
                     </li>
                     <li className='nav-text' onClick={() => {
                         onClose()
-
                     }}>
                         <Link to={SidebarData[1].path} >
                             {SidebarData[1].title}
@@ -100,10 +128,8 @@ function HeaderNav({ isLogin, userId, setLogin, setUserId }) {
                     </li>
                 </ul>
             </div>
+            </header>
         </>
     );
-
-
 }
-
 export default HeaderNav
