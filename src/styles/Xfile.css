@@ -2,14 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Serif+KR&display=swap');
 
-html, body {
-    margin: 0;
-    padding: 0;
-}
-
-#root{
-    margin: 0;
-    padding: 0;
+.loadingMessage {
+    text-align: center;
+    line-height: 80vh;
+    width: 60%;
+    height: 100%;
+    position: fixed;
+    font-size: large;
+    color :#2d3f54;
 }
 .main-container{
     background-color: #F9F7F7;
@@ -17,10 +17,14 @@ html, body {
 }
 
 .xfile-wrap {
-    /* width: 100%;
-    height: 100%; */
-    margin-top: 100px;
-    background-color: #f9f7f7;
+
+    /* width: 100%; */
+    min-height: 100vh;
+    height: 100%;
+    /* margin-top: 100px; */
+    padding-top: 100px;
+    background-color: #F9F7F7;
+
     /* background-color: white; */
     display: flex;
     padding-left: 10%;
@@ -46,7 +50,7 @@ html, body {
 }
 
 .xfile-text-li:hover {
-    
+    cursor: pointer;
 }
 
 .search-magazine {
@@ -92,7 +96,7 @@ html, body {
 .magazine {
     min-width: calc(100% - 4px);
     /* min-width: 250px; */
-    /* width: 150px; */
+    width: 150px;
     margin: 15px;
     background-color: white;
     min-height: 250px;
@@ -234,55 +238,6 @@ html, body {
     background-color: black;
     opacity: 0.7;
 }
-/* .magazine:nth-child(1){
-    background-image: url(https://i.pinimg.com/474x/d7/83/de/d783deeba73d4da4d962fefdb3cd3871.jpg);
-    
-} */
-.magazine:nth-child(2){
-    background-image: url(https://i.pinimg.com/474x/bf/7d/ba/bf7dba6aef9de934880aad0af05e5f0e.jpg);
-}
-.magazine:nth-child(3){
-    background-image: url(https://i.pinimg.com/474x/7d/50/32/7d50327a90bb40ef46f7ef2338ae1f36.jpg);
-}
-.magazine:nth-child(4){
-    background-image: url(https://i.pinimg.com/474x/cd/1c/56/cd1c56a60e92d33254bc04f54763b79f.jpg);
-}
-.magazine:nth-child(5){
-    background-image: url(https://i.pinimg.com/474x/65/76/b9/6576b9c9281e35f35f9f5efc6a886ba9.jpg);
-}
-.magazine:nth-child(6){
-    background-image: url(https://i.pinimg.com/474x/db/10/73/db1073dea0ce65c6c3ca9a3aa1f6da06.jpg);
-}
-.magazine:nth-child(7){
-    background-image: url(https://i.pinimg.com/474x/07/14/7e/07147e608e34d1c172d230a25e781a97.jpg);
-}
-.magazine:nth-child(8){
-    background-image: url(https://i.pinimg.com/474x/28/f8/df/28f8dfbed43e573c86bcc0a632ca45da.jpg);
-}
-.magazine:nth-child(9){
-    background-image: url(https://i.pinimg.com/474x/77/43/9e/77439e9b85febcaae4a565a2f990493b.jpg);
-}
-.magazine:nth-child(10){
-    background-image: url(https://i.pinimg.com/474x/51/8d/21/518d21ae5c13c195cef816d292d38d02.jpg);
-}
-.magazine:nth-child(11){
-    background-image: url(https://i.pinimg.com/474x/f8/a9/08/f8a9085ce6d7c5c712dd6d8100d29974.jpg);
-}
-.magazine:nth-child(12){
-    background-image: url(https://i.pinimg.com/474x/8c/31/52/8c3152d01467108318d6824ba060c78a.jpg);
-}
-.magazine:nth-child(13){
-    background-image: url(https://i.pinimg.com/474x/0b/82/f0/0b82f03b72f0a12167183435c4cd9aaa.jpg);
-}
-.magazine:nth-child(14){
-    background-image: url(https://i.pinimg.com/474x/51/d9/4f/51d94f4f1443612a2ad8831ebeced656.jpg);
-}
-.magazine:nth-child(15){
-    background-image: url(https://i.pinimg.com/474x/26/3e/1f/263e1febc63e94393bb660bd1bbd72b1.jpg);
-}
-.magazine:nth-child(16){
-    background-image: url(https://i.pinimg.com/474x/28/59/83/28598387035c97c4b452cd4af352971c.jpg);
-}
 
 @media screen and (max-width: 780px){
     .xfile-text-wrap {
@@ -321,6 +276,7 @@ html, body {
     .xfile-wrap{
         background-color: #F9F7F7;
         padding-left: 5%;
+        height: 100%;
     }
     .xfile-content-wrap {
         display: contents;
