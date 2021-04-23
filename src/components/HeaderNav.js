@@ -19,13 +19,11 @@ function HeaderNav({ isLogin, userId, setLogin, setUserId }) {
           setNavBar(false);
         }
     }
-
     window.addEventListener('scroll', changeBackground);
     const [userInfo, setUserInfo] = useState({
         email: '',
         photo: ''
     })
-
     useEffect(() => {
         const cookie = document.cookie
         const equalIndex = document.cookie.indexOf('photo');
@@ -37,7 +35,6 @@ function HeaderNav({ isLogin, userId, setLogin, setUserId }) {
         })
         console.log(cookie)
     }, [])
-
     const state = useSelector((state) => state.modalReducer);
     const dispatch = useDispatch();
     const onClick = (e) => {
@@ -62,7 +59,6 @@ function HeaderNav({ isLogin, userId, setLogin, setUserId }) {
     const onClose = () => {
         dispatch(closeModal());
     }
-
     return (    
         <>
             <header className={navbar ? 'header active' : 'header'}>
@@ -81,7 +77,6 @@ function HeaderNav({ isLogin, userId, setLogin, setUserId }) {
                             </div>
                         </div>
                     </>
-                    
                     {isLogin ?
                     <a className="header_profile_Btn" src={userInfo.photo} > </a>  :
                     <a class="header_signnIn_Btn"  onClick={(e) => {
@@ -91,12 +86,8 @@ function HeaderNav({ isLogin, userId, setLogin, setUserId }) {
                         Sign in 
                     </a> 
 }
-                    
-            
             </div>
             </div>
-                                                    
-  
                 {/* <div className={navbar ? 'toggleBx active' : 'toggleBx'} onClick={onToggle}>
                     {state.toggle ? <VscListFlat size={34} className='toggleBtnOn' /> : <BsX color='#f9f7f7' size={34} className='toggleBtnOff'/>}
                 </div> */}
@@ -138,11 +129,7 @@ function HeaderNav({ isLogin, userId, setLogin, setUserId }) {
                 </ul>
             </div>
             </header>
-
         </>
     );
-
-
 }
-
 export default HeaderNav
