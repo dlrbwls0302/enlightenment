@@ -7,6 +7,7 @@ import { loadComments, sortComments } from '../actions';
 import { AiFillAlert } from 'react-icons/ai';
 import { BiSort } from 'react-icons/bi';
 import { AiOutlineUp } from 'react-icons/ai';
+import Footer from '../components/Footer';
 
 const Opinions = () => {
     const dispatch = useDispatch();

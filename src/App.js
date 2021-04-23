@@ -18,6 +18,7 @@ import { changeModal } from './actions';
 import { BiX } from "react-icons/bi";
 import kakaoImg from './images/kakao2.png';
 import googleImg from './images/google1.png';
+import Footer from './components/Footer';
 
 Modal.setAppElement('#root');
 const App = () => {
@@ -94,15 +95,11 @@ const App = () => {
           <Switch>
             <Route exact path="/" component={Main} />
             <Route path="/xfile" component={() => { return <Xfile isLogin={isLogin} userId={userId} /> }} />
-            {/* <Route path="/write" component={Write}/> */}
-            {/* <Route path="/map" component={Map} /> */}
-            {/* <Route path="/news" component={News} /> */}
             <Route path="/opinion" component={Opinions} />
-            {/* <Route path="/promise" component={Promise} /> */}
-            {/* <Route path="/post" component={Post} /> */}
           </Switch>
         </Router>
       </div>
+      <Footer></Footer>
     </div>
   );
 };
