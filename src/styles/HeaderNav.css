@@ -14,6 +14,7 @@
 }
 
 @media ( min-width: 780px ) {
+
   .header{
     width: 100%;
     position: fixed;

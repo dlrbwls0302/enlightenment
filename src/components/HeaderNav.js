@@ -56,6 +56,12 @@ function HeaderNav({ isLogin, userId, setLogin, setUserId }) {
                     {state.toggle ? <VscListFlat size={34} className='toggleBtnOn' /> : <BsX color='#f9f7f7' size={34} className='toggleBtnOff'/>}
                 </div>
             </header>
+
+
+
+
+
+
             <div className={state.toggle? 'sidebar active' :'sidebar'}>
                 <ul>
                     <li className='nav-text' 

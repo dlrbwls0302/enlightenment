@@ -134,9 +134,9 @@
 
 .write-container .editor .submit{
     margin-top: 40px;
-    font-size: 2em;
+    font-size: 1.5em;
     background: #51c4d3;
-    padding: 15px 35px;
+    padding: 10px 20px;
     color: #d8e3e7;
     transition: 0.2s;
     /* margin-left: 8vw; */
@@ -145,10 +145,10 @@
     border: none;
     font-family: 'Bebas Neue', cursive;
     font-weight: 100;
-    letter-spacing: 2px;
+    /* letter-spacing: px; */
 }
 .write-container .submit:hover{
-    letter-spacing: 3px;
+    letter-spacing: 1px;
 }
 
 

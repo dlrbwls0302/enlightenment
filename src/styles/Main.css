@@ -256,7 +256,7 @@
     height: 100%;
     align-items: center;
     /* animation: bottom-up 2s; */
-    transition: .5s;
+    /* transition: .5s; */
     
 }
 .col-7 .slider-container .new-slide .img-holder{
