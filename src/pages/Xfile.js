@@ -115,9 +115,7 @@ const Xfile = () => {
                             }
                         </div>
                     </div>}
-
             </div>
-
         </div >
     );
 };

@@ -8,36 +8,24 @@
         {
                 "name": "오세훈",
                 "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTsJKGwPnaKSgov4vZTexn3sLT5P6knQyy6uP9vghIzxZ8Duc&s",
-                "promise": ""
-                },
+                "promise": {  
+                    "first":"주택공급 활성화로 부동산 시장 안정화",
+                    "second": "교통소외지역 연결 및 편의증대",
+                    "third": "서남권, 서북권 등 권역별 일자리, 상업, 교통, 교육 등 핵심시설을 유치하여 지역균형발전 달성",
+                    "force": "안전, 질병, 빈곤(저소득), 외로움(우울), 주거 등 1인가구 5대 불안해소",
+                    "fourth": "취업과 창업, 자산형성, 내집마련으로 이어지는 실질적이고 전방위적인 터널탈출 프로젝트"
+                    }
+                }
+                ,
                 {
                     "name": "안철수"
                     ,"img": "data:image/jpeg;base64,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",
                     "promise": ""
                     },
-                    {
-                        "name": "신지예",
-                        "img": "",
-                        "promise": ""
-                        },
+ 
                         {
                             "name": "허경영",
                             "img": "https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F5297%2F2020%2F10%2F28%2F2020102803368505_20201028100727806.png&type=a340",
                             "promise": ""
-                            },
-                            {
-                                "name": "오태양",
-                                "img": "",
-                                "promise": ""
-                                },
-                                {
-                                    "name": "이수봉",
-                                    "img": "",
-                                    "promise": ""
-                                }
-
-
-
-                                
-                                    ]
-                                }
+                        }
+                    ]}
