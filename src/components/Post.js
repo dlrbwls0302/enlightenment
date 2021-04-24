@@ -40,6 +40,7 @@ const Post = ({ id, title, like, description, createdAt, handleTogleHotMagazine,
 
         <div className="post-container">
             <div className="post-info-wrap">
+                <RiArrowGoBackFill className="write-back" onClick={() => { handleTogleHotMagazine() }} />
                 <h1 className="post-title">{title}</h1>
                 <div className="post-infomation">
                     <p className="post-likeBtn-wrap" onClick={() => { setToggle(!toggle) }}>
@@ -59,7 +60,6 @@ const Post = ({ id, title, like, description, createdAt, handleTogleHotMagazine,
                 </div>
             </div>
             <div className="post-main-content" dangerouslySetInnerHTML={{ __html: description }}></div>
-            <RiArrowGoBackFill className="write-back" onClick={() => { handleTogleHotMagazine() }} />
             <AiOutlineVerticalAlignTop className="post-upscroll" onClick={upToScroll} />
         </div >
 
