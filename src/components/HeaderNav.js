@@ -18,8 +18,7 @@ function HeaderNav({ isLogin, userId, setLogin, setUserId }) {
             ...userInfo,
             photo
         })
-        console.log(cookie)
-        console.log('p: ', decodeURIComponent(userInfo.photo))
+
     }, [])
     
     const state = useSelector((state) => state.modalReducer);

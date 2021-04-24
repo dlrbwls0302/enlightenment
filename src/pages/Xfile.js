@@ -1,11 +1,12 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
+import { Route } from 'react-router-dom';
 import Magazine from '../components/Magazine';
 import '../styles/Xfile.css';
 import Write from '../components/Write';
 import Post from '../components/Post';
 
-const Xfile = () => {
+const Xfile = ({isLogin, userId}) => {
     const [magazineList, setMagazineList] = useState([]);
     const [togleMagazine, setTogleMagazine] = useState(false);
     const [togleHotMagazine, setTogleHotMagazine] = useState(false);
@@ -16,23 +17,42 @@ const Xfile = () => {
     const [like, setLike] = useState('');
     const [createdAt, setCreatedAt] = useState('');
     const diffrentMagazine = "https://s3.ap-northeast-2.amazonaws.com/www.kelection.ml/images/diffrentMagazine.mp4";
-
+    const [myMagazines, setMyMagazines] = useState([]);
+    const [magazineId, setMagazineId] = useState(0);
+    const [magazineUserId, setMagazineUserId] = useState(0);
+    const [toggleMyMagazine, setToggleMyMagazine] = useState(false);
+    const [toggleNewMagazines, setToggleNewMagazines] = useState(false);
+    const [query, setQuery] = useState('');
+    console.log(query)
     useEffect(() => {
         fetch('http://localhost:5000/magazines')
             .then(res => {
-                console.log('res:: ', res);
                 return res.json();
             })
             .then(data => {
                 setMagazineList(data.magazines);
                 // console.log('magazineList : ', magazineList);
-                console.log('render-Xfile-page');
-                console.log(data);
+                console.log(data.magazines)
+                const meMagazines = data.magazines.filter(magazine => {
+                    return magazine.userId === userId
+                })
+                setMyMagazines(meMagazines)
+                
             })
     }, [togleHotMagazine]);
 
-    const handleTogleMagazine = (id, title, description, like, createdAt) => {
+    useEffect(() => {
+        setToggleMyMagazine(false);
+        const queriedMagazines = magazineList.filter(magazine => {
+            return magazine.title.includes(query);
+        })
+        setMagazineList(queriedMagazines);
+    }, [query])
+
+    const handleTogleMagazine = (id, userId, title, description, like, createdAt) => {
         upToScroll();
+        setMagazineId(id);
+        setMagazineUserId(userId)
         setTitle(title);
         setDescription(description);
         setLike(like);
@@ -50,6 +70,8 @@ const Xfile = () => {
     }
 
     const handleTogleHotMagazine = () => {
+        // setToggleMyMagazine(false);
+        setToggleNewMagazines(false);
         if (togleWrite && !togleHotMagazine) {
             if (window.confirm('작성중인 글이 사라집니다. 정말 나가시겠습니까?')) {
                 // setTogleMagazine(false);
@@ -76,16 +98,44 @@ const Xfile = () => {
                 <div className="xfile-text-wrap">
                     <ul className="xfile-text-ul">
                         <li className="xfile-text-li" onClick={handleTogleHotMagazine}>HOT MAGAZINE</li>
-                        <li className="xfile-text-li">NEW MAGAZINE</li>
-                        <li className="xfile-text-li">MY MAGAZINE</li>
+                        <li className="xfile-text-li" onClick={() => {
+                            if (toggleNewMagazines) return;
+                            const newMagazines = magazineList.reverse();
+                            setToggleNewMagazines(true);
+                            setToggleMyMagazine(false);
+                            setMagazineList(newMagazines.slice(0, 20));
+                        }}>NEW MAGAZINE</li>
+                        <li className="xfile-text-li" onClick={() => {
+                            setToggleNewMagazines(false);
+                            setToggleMyMagazine(true);
+                        }}>MY MAGAZINE</li>
                     </ul>
-                    <div className="search-magazine">search</div>
-                    <div className="write-magazine" onClick={handleTogleWrite}>WRITE</div>
+                    <div className="write-magazine" onClick={() => {
+                        handleTogleWrite()
+                        setToggleNewMagazines(false);
+                        setToggleMyMagazine(false);
+                    }} >WRITE</div>
                 </div>
-                {togleWrite ? <Write /> : togleMagazine ? <Post title={title} description={description} like={like} createdAt={createdAt} /> :
+                {togleWrite ? <Write handleTogleMagazine={handleTogleMagazine} handleTogleHotMagazine={handleTogleHotMagazine} /> : togleMagazine ? <Post id={magazineId} magazineUserId={magazineUserId} title={title} description={description} like={like} createdAt={createdAt} handleTogleHotMagazine={handleTogleHotMagazine} isLogin={isLogin} userId={userId}/> :
                     <div className="xfile-content-wrap">
                         <div className="magazine-wrap">
-                            {magazineList.length === 0 ? <div className="loadingMessage">LOADING...</div> :
+                            <input placeholder="검색" type="text" onChange={(e) => setQuery(e.target.value)}></input>
+                            { 
+                                isLogin && toggleMyMagazine && myMagazines.length !== 0 ? myMagazines.map((child, index) => {
+                                    let value = "";
+                                    if (child.description.indexOf('images/') !== -1) {
+                                        const findIndex = child.description.indexOf('images/') + 7
+                                        const find = child.description.slice(findIndex);
+                                        const findIndex2 = find.indexOf('"');
+                                        value = find.slice(0, findIndex2);
+                                    } else {
+                                        value = undefined;
+                                    }
+                                    
+                                    return <Magazine key={index} index={index} id={child.id} userId={child.userId} like={child.like} title={child.title} value={value} description={child.description} createdAt={child.createdAt} handleTogleMagazine={handleTogleMagazine} />
+                                }) : 
+                            
+                            magazineList.length === 0 ? <div className="loadingMessage">LOADING...</div> :
                                 magazineList.map((child, index) => {
                                     let value = "";
                                     if (child.description.indexOf('images/') !== -1) {
@@ -96,13 +146,9 @@ const Xfile = () => {
                                     } else {
                                         value = undefined;
                                     }
-                                    // if (index === 0) {
-                                    //     console.log("0 value :", value);
-                                    //     console.log("0 desc :", child.description);
-                                    // }
-
-                                    console.log(child.createdAt);
-                                    return <Magazine key={index} index={index} id={child.id} like={child.like} title={child.title} value={value} description={child.description} createdAt={child.createdAt} handleTogleMagazine={handleTogleMagazine} />
+                                    console.log(child.id)
+                                    
+                                    return <Magazine key={index} index={index} id={child.id} magazineUserId={child.userId} like={child.like} title={child.title} value={value} description={child.description} createdAt={child.createdAt} handleTogleMagazine={handleTogleMagazine} />
                                 })
                             }
                             {magazineList.length === 0 ? null :

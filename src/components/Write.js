@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import '../styles/Write.css'
 
-const Write = () => {
+const Write = ({ handleTogleMagazine, handleTogleHotMagazine }) => {
+    const history = useHistory();
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const handleTitle = (e) => {
@@ -26,8 +27,11 @@ const Write = () => {
                     description
                 })
             })
-                .then(res => res.json())
-                .then(json => console.log(json))
+            .then(res => res.json())
+            .then(json => {
+                history.push(`/xfile/${json.id}`);
+                handleTogleMagazine(json.id, json.userId, json.title, json.description, json.like, json.createdAt);
+            })
         }
     }
     return (
@@ -67,6 +71,11 @@ const Write = () => {
                     }}
                 />
                 <button className='submit' onClick={submitEditor}>POST!</button>
+                <button onClick={() => {
+                        handleTogleHotMagazine()
+                    }}>
+                        뒤로가기
+                    </button>
             </div>
         </div>
     );

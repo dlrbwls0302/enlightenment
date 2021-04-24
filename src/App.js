@@ -23,16 +23,18 @@ import Footer from './components/Footer';
 Modal.setAppElement('#root');
 const App = () => {
   const [isLogin, setLogin] = useState(false);
-  const [userId, setUserId] = useState('');
+  const [userId, setUserId] = useState(0);
   const dispatch = useDispatch();
   const state = useSelector((state) => state.modalReducer);
 
   useEffect(() => {
     if (document.cookie.includes('userId')) {
-      const equalIndex = document.cookie.indexOf('=');
-      const semiIndex = document.cookie.indexOf(';');
-      const userId = document.cookie.slice(equalIndex + 1, semiIndex);
-      setUserId(userId);
+      const cookies = document.cookie.split(';');
+      let userIdCookie = ''
+      cookies.forEach(cookie => {
+        if (cookie.indexOf('userId') !== -1) userIdCookie = cookie;
+      })
+      setUserId(Number(userIdCookie.slice(userIdCookie.indexOf('=') + 1)));
       setLogin(true);
     }
   })
