@@ -5,8 +5,9 @@ import Magazine from '../components/Magazine';
 import '../styles/Xfile.css';
 import Write from '../components/Write';
 import Post from '../components/Post';
+import { RiArrowGoBackFill } from "react-icons/ri";
 
-const Xfile = ({isLogin, userId}) => {
+const Xfile = ({ isLogin, userId }) => {
     const [magazineList, setMagazineList] = useState([]);
     const [togleMagazine, setTogleMagazine] = useState(false);
     const [togleHotMagazine, setTogleHotMagazine] = useState(false);
@@ -23,7 +24,6 @@ const Xfile = ({isLogin, userId}) => {
     const [toggleMyMagazine, setToggleMyMagazine] = useState(false);
     const [toggleNewMagazines, setToggleNewMagazines] = useState(false);
     const [query, setQuery] = useState('');
-    console.log(query)
     useEffect(() => {
         fetch('http://localhost:5000/magazines')
             .then(res => {
@@ -37,7 +37,7 @@ const Xfile = ({isLogin, userId}) => {
                     return magazine.userId === userId
                 })
                 setMyMagazines(meMagazines)
-                
+
             })
     }, [togleHotMagazine]);
 
@@ -52,7 +52,7 @@ const Xfile = ({isLogin, userId}) => {
     const handleTogleMagazine = (id, userId, title, description, like, createdAt) => {
         upToScroll();
         setMagazineId(id);
-        setMagazineUserId(userId)
+        setMagazineUserId(userId);
         setTitle(title);
         setDescription(description);
         setLike(like);
@@ -149,52 +149,64 @@ const Xfile = ({isLogin, userId}) => {
                         setToggleNewMagazines(false);
                         setToggleMyMagazine(false);
                     }} >WRITE</div>
+                    <input className="xfile-input" placeholder="매거진 검색" type="text" onChange={(e) => setQuery(e.target.value)}></input>
                 </div>
-                {togleWrite ? <Write handleTogleMagazine={handleTogleMagazine} handleTogleHotMagazine={handleTogleHotMagazine} /> : togleMagazine ? <Post id={magazineId} magazineUserId={magazineUserId} title={title} description={description} like={like} createdAt={createdAt} handleTogleHotMagazine={handleTogleHotMagazine} isLogin={isLogin} userId={userId}/> :
+                {togleWrite ?
                     <div className="xfile-content-wrap">
-                        <div className="magazine-wrap">
-                            <input placeholder="검색" type="text" onChange={(e) => setQuery(e.target.value)}></input>
-                            { 
-                                isLogin && toggleMyMagazine && myMagazines.length !== 0 ? myMagazines.map((child, index) => {
-                                    let value = "";
-                                    if (child.description.indexOf('images/') !== -1) {
-                                        const findIndex = child.description.indexOf('images/') + 7
-                                        const find = child.description.slice(findIndex);
-                                        const findIndex2 = find.indexOf('"');
-                                        value = find.slice(0, findIndex2);
-                                    } else {
-                                        value = undefined;
-                                    }
-                                    
-                                    return <Magazine key={index} index={index} id={child.id} userId={child.userId} like={child.like} title={child.title} value={value} description={child.description} createdAt={child.createdAt} handleTogleMagazine={handleTogleMagazine} />
-                                }) : 
-                            
-                            magazineList.length === 0 ? <div className="loadingMessage">LOADING...</div> :
-                                magazineList.map((child, index) => {
-                                    let value = "";
-                                    if (child.description.indexOf('images/') !== -1) {
-                                        const findIndex = child.description.indexOf('images/') + 7
-                                        const find = child.description.slice(findIndex);
-                                        const findIndex2 = find.indexOf('"');
-                                        value = find.slice(0, findIndex2);
-                                    } else {
-                                        value = undefined;
-                                    }
-                                    console.log(child.id)
-                                    
-                                    return <Magazine key={index} index={index} id={child.id} magazineUserId={child.userId} like={child.like} title={child.title} value={value} description={child.description} createdAt={child.createdAt} handleTogleMagazine={handleTogleMagazine} />
-                                })
-                            }
-                            {magazineList.length === 0 ? null :
-                                <div className="lastMagazine" onClick={upToScroll}>
-                                    <video muted autoPlay loop>
-                                        <source src={diffrentMagazine} type="video/mp4" />
-                                    </video>
-                                    <p className="magazine-lastTitle">다른 매거진 보기</p>
-                                </div>
-                            }
-                        </div>
-                    </div>}
+                        <Write handleTogleMagazine={handleTogleMagazine} handleTogleHotMagazine={handleTogleHotMagazine} />
+                    </div>
+                    : togleMagazine ?
+                        <Post id={magazineId} magazineUserId={magazineUserId} title={title} description={description} like={like} createdAt={createdAt} handleTogleHotMagazine={handleTogleHotMagazine} isLogin={isLogin} userId={userId} />
+                        : <div className="xfile-content-wrap">
+                            <div className="magazine-wrap">
+                                {
+                                    toggleMyMagazine && myMagazines.length !== 0 ? myMagazines.map((child, index) => {
+                                        let value = "";
+                                        let shortTitle = null;
+                                        if (child.description.indexOf('images/') !== -1) {
+                                            const findIndex = child.description.indexOf('images/') + 7
+                                            const find = child.description.slice(findIndex);
+                                            const findIndex2 = find.indexOf('"');
+                                            value = find.slice(0, findIndex2);
+                                        } else {
+                                            value = undefined;
+                                        }
+
+                                        if (child.title.length > 40) {
+                                            shortTitle = `${child.title.slice(0, 40)}...`;
+                                        }
+                                        return <Magazine key={index} index={index} id={child.id} userId={child.userId} like={child.like} shortTitle={shortTitle} title={child.title} value={value} description={child.description} createdAt={child.createdAt} handleTogleMagazine={handleTogleMagazine} />
+                                    }) :
+                                        magazineList.length === 0 ? <div className="loadingMessage">LOADING...</div> :
+                                            magazineList.map((child, index) => {
+                                                let value = "";
+                                                let shortTitle = null;
+                                                if (child.description.indexOf('images/') !== -1) {
+                                                    const findIndex = child.description.indexOf('images/') + 7
+                                                    const find = child.description.slice(findIndex);
+                                                    const findIndex2 = find.indexOf('"');
+                                                    value = find.slice(0, findIndex2);
+                                                } else {
+                                                    value = undefined;
+                                                }
+
+                                                if (child.title.length > 40) {
+                                                    shortTitle = `${child.title.slice(0, 40)}...`;
+                                                }
+
+                                                return <Magazine key={index} index={index} id={child.id} magazineUserId={child.userId} like={child.like} shortTitle={shortTitle} title={child.title} value={value} description={child.description} createdAt={child.createdAt} handleTogleMagazine={handleTogleMagazine} />
+                                            })
+                                }
+                                {magazineList.length === 0 ? null :
+                                    <div className="lastMagazine" onClick={upToScroll}>
+                                        <video muted autoPlay loop>
+                                            <source src={diffrentMagazine} type="video/mp4" />
+                                        </video>
+                                        <p className="magazine-lastTitle">다른 매거진 보기</p>
+                                    </div>
+                                }
+                            </div>
+                        </div>}
             </div>
         </div >
     );
