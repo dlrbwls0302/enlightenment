@@ -4,7 +4,7 @@
     margin-left: 10%;
     margin-bottom: 100px;
     border-radius: 10px;
-    padding: 30px 10px 20px 30px;
+    padding: 10px 20px 20px 20px;
     box-shadow: 3px 4px 5px 3px rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
     /* border: 1px solid blue; */
     background-color: white;
@@ -16,7 +16,7 @@
 .post-title {
     text-indent: 10px;
     text-align: left;
-    font-size: 50px;
+    font-size: 40px;
     color: #2d3f54;
 }
 .post-info-wrap {
@@ -24,7 +24,7 @@
 }
 
 .post-infomation {
-    padding-right: 20px;
+    /* padding-right: 20px; */
 }
 
 .post-likeBtn-wrap {
@@ -43,7 +43,7 @@
 }
 
 .post-created-date {
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .post-modify, .post-delete {
@@ -57,6 +57,25 @@
     padding : 30px 20px 30px 20px;
     /* text-indent: 10px; */
 }
+.post-upscroll {
+    border-radius: 10px;
+    background-color:white;
+    box-shadow: 3px 4px 5px 3px rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
+    color: black;
+    width: 30px;
+    height: 30px;
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+}
+.post-upscroll:hover{
+    cursor: pointer;
+}
+.write-back {
+    width: 20px;
+    height: 20px;
+}
+
 
 @media screen and (max-width: 780px){
     .post-container {
@@ -66,7 +85,7 @@
         margin-right: 3%;
         margin-bottom: 100px;
         border-radius: 10px;
-        padding: 30px 10px 20px 30px;
+        padding: 10px 10px 20px 10px;
         box-shadow: 3px 4px 5px 3px rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
         /* border: 1px solid blue; */
         background-color: white;
@@ -94,15 +113,7 @@
     .post-modify, .post-delete {
         font-size: 15px;
     }
-
-    .write-back {
-        position: fixed;
-        z-index: 999;
-        bottom: 10%;
-        left: 8%;
-        background-color: white;
-        border-radius: 10px;
-        box-shadow: 3px 4px 5px 3px rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
-        /* border: 1px solid black; */
+    .post-infomation {
+        margin-right: 10px;
     }
 }
