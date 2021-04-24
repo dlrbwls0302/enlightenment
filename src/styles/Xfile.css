@@ -2,6 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Serif+KR&display=swap');
 
+.magazine-none {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .loadingMessage {
     text-align: center;
     line-height: 80vh;
