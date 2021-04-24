@@ -91,11 +91,21 @@ const Opinion = ({ comment, ban, number, like }) => {
         <>
             {ban < 5 ?
                 <div className={className}>
-                    <AiFillAlert className="reportImg like" title="신고하기" onClick={handleReportBtn} />
-                    <AiTwotoneLike className="reportImg report" onClick={handleLikeBtn} />
-                    <p className="comment-nickname">{nickName}</p>
-                    <p className="comment-like">{like}</p>
+                    <div className="comment-head">
+                        <div className="comment-nickname-box">
+                            <p className="comment-nickname">{nickName}</p>
+                        </div>
+                        <div className="coment-like-box">
+                            <div className="like-count">
+                                <p className="comment-like">{like}</p>
+                            </div>
+                            <AiTwotoneLike className="reportImg report" onClick={handleLikeBtn} />
+                            <AiFillAlert className="reportImg like" title="신고하기" onClick={handleReportBtn} />
+                        </div>
+                    </div>
+                    <div className="anooComment-box">
                     <p className="anooComment">{comment}</p>
+                    </div>
                 </div > : null}
         </>
     );

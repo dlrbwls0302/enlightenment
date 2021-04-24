@@ -28,7 +28,7 @@
         background-color: #2d3f54;
         text-align: center;
         align-items: center;
-        height: 100vh;
+        height: 100%;
     }
 
     .write-box-wrap {
@@ -39,7 +39,7 @@
         position: fixed;
         top: 50px;
         width: 100%;
-        height: 220px;
+        height: 200px;
         padding: 0px 20px 0px 20px;
         text-align: center;
         align-items: center;
@@ -69,11 +69,13 @@
         font-size: 40px;
         font-family: 'Black Han Sans', sans-serif;
         color: white;
+        display: none;
     }
 
     .comment-write-area {
         resize: none;
         /* margin: 0px 10px 0px 10px; */
+        margin-top: 30px;
         width: 100%;
         height: 80px;
         border-radius: 10px;
@@ -91,9 +93,11 @@
 
     .comment-submit-btn {
         margin: 0 auto;
-        position: absolute;
-        top: 115px;
-        right: 30px;
+        margin-top: 10px;
+        position: fixed;
+        /* top: 115px; */
+        right: 25px;
+        top: 116px;
         border-radius: 10px;
         width: 50px;
         height: 30px;
@@ -102,14 +106,16 @@
         background-color: #2d3f54a3;
         font-family: 'Noto Serif KR', serif;
         font-size: 15px;
+        /* position: relative; */
     }
 
     .comment-submit-btn:hover{
         cursor: pointer;
-    } */
+    } 
 
+    
     .input-length {
-        color:white;
+        color: white;
         margin-top: -10px;
         float: right;
         padding-right: 5px;
@@ -125,6 +131,7 @@
     .report-notice {
         color: white;
         padding-left: 20px;
+        display: none;
     }
 
     .amount-notice {
@@ -132,7 +139,7 @@
         position: fixed;
         /* margin: 0; */
         right: 20px;
-        top: 240px;
+        top: 200px;
         color: white;
     }
 
@@ -141,7 +148,7 @@
         position: fixed;
         /* margin: 0; */
         left: 20px;
-        top: 240px;
+        top: 200px;
         color: white;
         text-align: center;
         align-items: center;
@@ -155,7 +162,7 @@
 
     .opinion-line {
         width: 100%;
-        padding-top: 300px;
+        padding-top: 250px;
         padding-left: 20px;
         padding-right: 20px;
         /* display: flex; */
@@ -192,7 +199,26 @@
         color: white;
         font-size: 18px;
     }
+    .coment-like-box {
+        justify-content: space-between;
+        display: flex;
+        position: absolute;
+        right: 10px;
+        align-items: center;
+    }
+    .like-count {
+        position: relative;
+        top: -0.5px;
+    }
 
+    .comment-head {
+          display: flex;
+    }
+    
+    .comment-like {
+        color: white;
+        font-size: 21px;
+    }
     .anooComment {
         font-family: 'Noto Serif KR', serif;
         padding: 0px 10px 10px 10px;
@@ -380,7 +406,7 @@
 
     .comment-submit-btn:hover{
         cursor: pointer;
-    } */
+    } 
 
     .input-length {
         font-size: 15px;
@@ -437,11 +463,32 @@
         padding-right: 50px;
         display: flex;
         flex-wrap: wrap;
-        
+           
     }
 
+    .comment-nickname-box {
+        float: left;
+    }
+    
+    .anooComment-box {
+        float: left;
+    }
+    .coment-like-box {
+        justify-content: space-between;
+        display: flex;
+        position: absolute;
+        right: 10px;
+        align-items: center;
+    }
+    .like-count {
+        position: relative;
+        top: -0.5px;
+    }
 
-
+    .comment-like {
+        color: white;
+        font-size: 15px;
+    }
     /* opinion component*/
     .opinions {
         width: 300px;
@@ -471,13 +518,21 @@
         color: white;
         font-size: 13px;
     }
+    .anooComment-box {
 
+    }
+
+    .comment-head {
+        display: flex;
+    }
+    
     .anooComment {
         font-family: 'Noto Serif KR', serif;
         padding: 0px 10px 10px 10px;
         text-indent: 5px;
         font-size: 15px;
         color: white;
+        position: relative;;
     }
 
     .red {
