@@ -24,6 +24,8 @@ const Xfile = ({ isLogin, userId }) => {
     const [toggleMyMagazine, setToggleMyMagazine] = useState(false);
     const [toggleNewMagazines, setToggleNewMagazines] = useState(false);
     const [query, setQuery] = useState('');
+    const [filteredMagazines, setFilteredMagazines] = useState([]);
+
     useEffect(() => {
         fetch('http://localhost:5000/magazines')
             .then(res => {
@@ -42,12 +44,40 @@ const Xfile = ({ isLogin, userId }) => {
     }, [togleHotMagazine]);
 
     useEffect(() => {
-        setToggleMyMagazine(false);
+        // setToggleMyMagazine(false);
         const queriedMagazines = magazineList.filter(magazine => {
             return magazine.title.includes(query);
         })
-        setMagazineList(queriedMagazines);
+        setFilteredMagazines(queriedMagazines)
     }, [query])
+
+    useEffect(() => {
+        console.log('바뀔 때 마다 실행')
+    }, [like])
+
+    const dislikeHandler = () => {
+        setLike(like - 1);
+        fetch(`http://localhost:5000/magazines/${magazineId}/dislike`, {
+            method: 'PUT'
+        })
+        .then(res => {
+            if (res.status === 200) {
+                console.log('error occurd')
+            }
+        })
+    }
+
+    const likeHandler = () => {
+        setLike(like + 1);
+        fetch(`http://localhost:5000/magazines/${magazineId}/like`, {
+            method: 'PUT'
+        })
+        .then(res => {
+            if (res.status === 200) {
+                console.log('error occurd')
+            }
+        })
+    }
 
     const handleTogleMagazine = (id, userId, title, description, like, createdAt) => {
         upToScroll();
@@ -81,14 +111,14 @@ const Xfile = ({ isLogin, userId }) => {
                 setTogleWrite(false);
                 setTogleMagazine(false);
                 setTogleHotMagazine(true);
-                console.log('handleTogleHotMagazine');
             } else {
                 return;
             }
         } else {
+            const sortedMagazines = magazineList.sort((a, b) => b.like - a.like);
+            setMagazineList(sortedMagazines.slice(0, 10).filter(magazine => magazine.like >= 1))
             setTogleMagazine(false);
             setTogleHotMagazine(true);
-            console.log('handleTogleHotMagazine');
         }
     }
     const handleWriteToMymagazine = () => {
@@ -149,17 +179,41 @@ const Xfile = ({ isLogin, userId }) => {
                         setToggleNewMagazines(false);
                         setToggleMyMagazine(false);
                     }} >WRITE</div>
-                    <input className="xfile-input" placeholder="매거진 검색" type="text" onChange={(e) => setQuery(e.target.value)}></input>
+                    {!togleWrite ? <input className="xfile-input" placeholder="매거진 검색" type="text" onChange={(e) => setQuery(e.target.value)}></input> :
+                    null
+                    }
+                    
                 </div>
                 {togleWrite ?
                     <div className="xfile-content-wrap">
                         <Write handleTogleMagazine={handleTogleMagazine} handleTogleHotMagazine={handleTogleHotMagazine} />
                     </div>
                     : togleMagazine ?
-                        <Post id={magazineId} magazineUserId={magazineUserId} title={title} description={description} like={like} createdAt={createdAt} handleTogleHotMagazine={handleTogleHotMagazine} isLogin={isLogin} userId={userId} />
+                        <Post id={magazineId} magazineUserId={magazineUserId} title={title} description={description} like={like} createdAt={createdAt} handleTogleHotMagazine={handleTogleHotMagazine} isLogin={isLogin} userId={userId} dislikeHandler={dislikeHandler} likeHandler={likeHandler}/>
                         : <div className="xfile-content-wrap">
                             <div className="magazine-wrap">
                                 {
+                                    filteredMagazines.length === 0 ? null :
+
+                                    query !== '' ? filteredMagazines.map((child, index) => {
+                                        let value = "";
+                                        let shortTitle = null;
+                                        if (child.description.indexOf('images/') !== -1) {
+                                            const findIndex = child.description.indexOf('images/') + 7
+                                            const find = child.description.slice(findIndex);
+                                            const findIndex2 = find.indexOf('"');
+                                            value = find.slice(0, findIndex2);
+                                        } else {
+                                            value = undefined;
+                                        }
+
+                                        if (child.title.length > 40) {
+                                            shortTitle = `${child.title.slice(0, 40)}...`;
+                                        }
+                                        return <Magazine key={index} index={index} id={child.id} userId={child.userId} magazineUserId={child.userId} like={child.like} shortTitle={shortTitle} title={child.title} value={value} description={child.description} createdAt={child.createdAt} handleTogleMagazine={handleTogleMagazine} />
+                                    }) : 
+
+
                                     toggleMyMagazine && myMagazines.length !== 0 ? myMagazines.map((child, index) => {
                                         let value = "";
                                         let shortTitle = null;
@@ -175,7 +229,7 @@ const Xfile = ({ isLogin, userId }) => {
                                         if (child.title.length > 40) {
                                             shortTitle = `${child.title.slice(0, 40)}...`;
                                         }
-                                        return <Magazine key={index} index={index} id={child.id} userId={child.userId} like={child.like} shortTitle={shortTitle} title={child.title} value={value} description={child.description} createdAt={child.createdAt} handleTogleMagazine={handleTogleMagazine} />
+                                        return <Magazine key={index} index={index} id={child.id} userId={child.userId} magazineUserId={child.userId} like={child.like} shortTitle={shortTitle} title={child.title} value={value} description={child.description} createdAt={child.createdAt} handleTogleMagazine={handleTogleMagazine} />
                                     }) :
                                         magazineList.length === 0 ? <div className="loadingMessage">LOADING...</div> :
                                             magazineList.map((child, index) => {
