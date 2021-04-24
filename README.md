@@ -11,8 +11,11 @@
 
 # Flow Chart
 ## Front-End
+![front-static](https://user-images.githubusercontent.com/68889506/115961221-68d9c100-a550-11eb-90f3-402162b39353.gif)
+<hr/>
 
 ## Back-End
+![back_flowchart](https://user-images.githubusercontent.com/68889506/115961227-742cec80-a550-11eb-9789-0902e252ae6d.gif)
 <hr/>
 
 # Team Members
