@@ -11,7 +11,7 @@
 
 # Flow Chart
 ## Front-End
-![front-static](https://user-images.githubusercontent.com/68889506/115961221-68d9c100-a550-11eb-90f3-402162b39353.gif)
+![스크린샷 2021-04-24 오후 11 00 47](https://user-images.githubusercontent.com/68889506/115961469-6deb4000-a551-11eb-8e36-5fdb5995cb4a.png)
 <hr/>
 
 ## Back-End
