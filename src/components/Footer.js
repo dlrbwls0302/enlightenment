@@ -1,11 +1,11 @@
 import React from 'react';
-import '../styles/Footer.css' 
+import '../styles/Footer.css'
 
 const Footer = () => {
     return (
         <footer id="footer">
             <div className="footer-container">
-                <h2 className="footer-logo-name">Pick Me</h2>
+                <h2 className="footer-logo-name">ENLIGHTENMENT</h2>
                 <ul className="footer-company-container">
                     <h3 className="company title">COMPANY</h3>
                     <li className="footer-company-one">About Us</li>
@@ -37,7 +37,7 @@ const Footer = () => {
                         <a className="juyeop" href="https://github.com/jangjuyeop"><img src="https://s3.ap-northeast-2.amazonaws.com/www.kelection.ml/images/users-9.svg"></img></a>
                     </li>
                 </ul>
-            </div>               
+            </div>
         </footer>
     )
 }

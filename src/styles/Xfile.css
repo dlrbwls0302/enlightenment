@@ -17,7 +17,6 @@
 }
 
 .xfile-wrap {
-
     /* width: 100%; */
     min-height: 100vh;
     /* height: 100%; */
@@ -43,28 +42,56 @@
 }
 
 .xfile-text-li{
-    /* font-size: 4vh; */
+    width: 190px;
     list-style: none;
     margin-bottom: 30px;
     line-height: 80%;
     color: #2d3f54;
+    transform:scale(1);
+    transition: transform .55s;
 }
 
 .xfile-text-li:hover {
     cursor: pointer;
+    transform:scale(1.1);
+    transition: transform .35s;
 }
 
-.search-magazine {
-    color: #2d3f54;
+
+
+.xfile-input {
+    border-top-width: 0;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 3px;
+    border-color: #2d3f54;
+    width: 170px;
+    height: 40px;
+    transition: 0.8s ease all;
 }
-.search-magazine:hover {
-    cursor: pointer;
+.xfile-input::placeholder{
+    font-size: 15px;
 }
+
+.xfile-input:focus {
+    outline:none;
+    border-top-width: 3;
+    border-left-width: 3;
+    border-right-width: 3;
+    border-bottom-width: 3px;
+    width: 170px;
+}
+
 .write-magazine {
-    color: #2d3f54;
+    width: 100px;
+    color: #2d3f54c4;
+    transform:scale(1);
+    transition: transform .55s;
 }
 .write-magazine:hover {
     cursor: pointer;
+    transform:scale(1.1);
+    transition: transform .55s;
 }
 
 .xfile-content-wrap {
@@ -81,6 +108,8 @@
 /* --------------------- */
 
 .magazine-wrap {
+    margin-top: 30px;
+    margin-bottom: 100px;
     -webkit-columns: 150px 3;
     -moz-columns: 150px 3;
     columns: 150px 3;
@@ -242,18 +271,24 @@
 
 @media screen and (max-width: 780px){
     .xfile-text-wrap {
-        position: fixed;
+        position: absolute;
+        margin-top: 10px;
         top: 60px;
         /* border: 1px solid red; */
         /* background-color: #2d3f54; */
         /* background: white; */
         z-index: 3;
-        width: 100%;
+        margin-right: 3%;
+        width: 95%;
         height: 220px;
         font-size: 35px;
     }
 
+    .xfile-text-ul{
+        
+    }
     .xfile-text-li{
+        margin-left: 20px;
         margin-bottom: 20px;
         line-height: 100%;
         color: #2d3f54;
@@ -275,9 +310,8 @@
         cursor: pointer;
     }
     .xfile-wrap{
-        background-color: #F9F7F7;
         padding-left: 5%;
-        height: 100%;
+        min-height: 100vh;
     }
     .xfile-content-wrap {
         display: contents;
@@ -301,7 +335,8 @@
         display: block;
         /* -moz-column-fill: balance; */
         /* column-fill: balance; */
-        padding-top: 200px;
+        padding-top: 80px;
+        padding-right: 5%;
     }
     
     .magazine {
@@ -309,6 +344,7 @@
         /* min-width: 250px; */
         width: 150px;
         margin: 15px;
+        margin-bottom: 5px;
         background-color: white;
         /* min-height: 40vh; */
         min-height: 250px;
@@ -391,5 +427,18 @@
     .magazine:nth-child(n):hover::after{
         background-color: black;
         opacity: 0.7;
+    }
+
+    .write-magazine {
+        position:absolute;
+        top: -5px;
+        right: 0px;
+        /* margin-right: 5%; */
+    }
+    .xfile-input {
+        position:absolute;
+        top: 100px;
+        right: 0px;
+        margin-right: 5%;
     }
 }
