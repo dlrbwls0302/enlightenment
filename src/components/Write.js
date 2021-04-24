@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { useHistory } from 'react-router-dom';
+import { RiArrowGoBackFill } from "react-icons/ri";
 import '../styles/Write.css'
 
 const Write = ({ handleTogleMagazine, handleTogleHotMagazine }) => {
@@ -27,17 +28,18 @@ const Write = ({ handleTogleMagazine, handleTogleHotMagazine }) => {
                     description
                 })
             })
-            .then(res => res.json())
-            .then(json => {
-                history.push(`/xfile/${json.id}`);
-                handleTogleMagazine(json.id, json.userId, json.title, json.description, json.like, json.createdAt);
-            })
+                .then(res => res.json())
+                .then(json => {
+                    history.push(`/xfile/${json.id}`);
+                    handleTogleMagazine(json.id, json.userId, json.title, json.description, json.like, json.createdAt);
+                })
         }
     }
     return (
         <div className='write-container'>
             <div className='editor'>
-                <h1 className='write-heading'>Simply Write a post.</h1>
+                <RiArrowGoBackFill className="write-back" onClick={() => { handleTogleHotMagazine() }} />
+                <h1 className='write-heading'>WRITE MAGAZINE</h1>
                 <div className='write-wrapper'>
                     <div className='write-input-data'>
                         <input type="text" className='title' autoComplete='off' onChange={handleTitle} required></input>
@@ -45,7 +47,7 @@ const Write = ({ handleTogleMagazine, handleTogleHotMagazine }) => {
                         <label>Title</label>
                     </div>
                 </div>
-                
+
                 <CKEditor
                     editor={ClassicEditor}
                     data=""
@@ -70,12 +72,7 @@ const Write = ({ handleTogleMagazine, handleTogleHotMagazine }) => {
                         }
                     }}
                 />
-                <button className='submit' onClick={submitEditor}>POST!</button>
-                <button onClick={() => {
-                        handleTogleHotMagazine()
-                    }}>
-                        뒤로가기
-                    </button>
+                <button className='write-submit' onClick={submitEditor}>POST</button>
             </div>
         </div>
     );

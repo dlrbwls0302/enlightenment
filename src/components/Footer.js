@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/Footer.css' 
+import '../styles/Footer.css'
 
 const Footer = () => {
     return (
@@ -39,7 +39,7 @@ const Footer = () => {
                         <a className="juyeop" href="https://github.com/jangjuyeop"><img src="https://s3.ap-northeast-2.amazonaws.com/www.kelection.ml/images/users-9.svg"></img></a>
                     </li>
                 </ul>
-            </div>               
+            </div>
         </footer>
     )
 }
