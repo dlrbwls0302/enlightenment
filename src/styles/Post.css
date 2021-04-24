@@ -1,13 +1,15 @@
 .post-container {
     font-family: 'Noto Serif KR', serif;
-    margin-top: 30px;
+    margin-top: 50px;
+    margin-left: 10%;
     margin-bottom: 100px;
     border-radius: 10px;
-    padding: 10px 10px 10px 10px;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
+    padding: 30px 10px 20px 30px;
+    box-shadow: 3px 4px 5px 3px rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
     /* border: 1px solid blue; */
     background-color: white;
     width: 70%;
+    /* min-width: 700px; */
     height: 100%;
 }
 
@@ -15,6 +17,7 @@
     text-indent: 10px;
     text-align: left;
     font-size: 50px;
+    color: #2d3f54;
 }
 .post-info-wrap {
     text-align: right;
@@ -24,7 +27,82 @@
     padding-right: 20px;
 }
 
+.post-likeBtn-wrap {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+}
+.post-likeBtn{
+    padding-top: 10px;
+    width: 100%;
+    height: 100%;
+}
+.post-like-number{
+    color: #2d3f54;
+    font-size: 45px;
+}
+
+.post-created-date {
+    font-size: 30px;
+}
+
+.post-modify, .post-delete {
+    margin-left: 10px;
+}
+
+.post-modify:hover, .post-delete:hover {
+    cursor: pointer;
+}
 .post-main-content {
     padding : 30px 20px 30px 20px;
     /* text-indent: 10px; */
+}
+
+@media screen and (max-width: 780px){
+    .post-container {
+        font-family: 'Noto Serif KR', serif;
+        margin-top: 150px;
+        margin-left: 3%;
+        margin-right: 3%;
+        margin-bottom: 100px;
+        border-radius: 10px;
+        padding: 30px 10px 20px 30px;
+        box-shadow: 3px 4px 5px 3px rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
+        /* border: 1px solid blue; */
+        background-color: white;
+        width: 100%;
+        /* min-width: 700px; */
+        height: 100%;
+    }
+    .post-likeBtn-wrap {
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+    }
+    .post-likeBtn{
+        padding-top: 10px;
+        width: 100%;
+        height: 100%;
+    }
+    .post-like-number{
+        color: #2d3f54;
+        font-size: 25px;
+    }
+    .post-created-date {
+        font-size: 20px;
+    }
+    .post-modify, .post-delete {
+        font-size: 15px;
+    }
+
+    .write-back {
+        position: fixed;
+        z-index: 999;
+        bottom: 10%;
+        left: 8%;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 3px 4px 5px 3px rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
+        /* border: 1px solid black; */
+    }
 }
