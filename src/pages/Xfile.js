@@ -46,6 +46,7 @@ const Xfile = ({ isLogin, userId }) => {
         const queriedMagazines = magazineList.filter(magazine => {
             return magazine.title.includes(query);
         })
+        console.log(queriedMagazines)
         setMagazineList(queriedMagazines);
     }, [query])
 
@@ -60,7 +61,6 @@ const Xfile = ({ isLogin, userId }) => {
         setTogleHotMagazine(false);
         setTogleWrite(false);
         setTogleMagazine(true);
-
     }
 
     const handleTogleWrite = () => {
