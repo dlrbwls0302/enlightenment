@@ -10,7 +10,7 @@ import { RiArrowGoBackFill } from "react-icons/ri";
 const Xfile = ({ isLogin, userId }) => {
     const [magazineList, setMagazineList] = useState([]);
     const [togleMagazine, setTogleMagazine] = useState(false);
-    const [togleHotMagazine, setTogleHotMagazine] = useState(false);
+    const [togleHotMagazine, setTogleHotMagazine] = useState(true);
     // const [togleNewMagazine, setTogleNewMagazine] = useState(false);
     const [togleWrite, setTogleWrite] = useState(false);
     const [title, setTitle] = useState('');
@@ -27,6 +27,12 @@ const Xfile = ({ isLogin, userId }) => {
     const [filteredMagazines, setFilteredMagazines] = useState([]);
 
     useEffect(() => {
+        return function() {
+            console.log()
+        }
+    }, [])
+
+    useEffect(() => {
         fetch('http://localhost:5000/magazines')
             .then(res => {
                 return res.json();
@@ -41,7 +47,7 @@ const Xfile = ({ isLogin, userId }) => {
                 setMyMagazines(meMagazines)
 
             })
-    }, [togleHotMagazine]);
+    }, []);
 
     useEffect(() => {
         // setToggleMyMagazine(false);
@@ -115,10 +121,10 @@ const Xfile = ({ isLogin, userId }) => {
                 return;
             }
         } else {
-            const sortedMagazines = magazineList.sort((a, b) => b.like - a.like);
-            setMagazineList(sortedMagazines.slice(0, 10).filter(magazine => magazine.like >= 1))
-            setTogleMagazine(false);
             setTogleHotMagazine(true);
+            const sortedMagazines = magazineList.sort((a, b) => b.like - a.like);
+            setMagazineList(JSON.parse(JSON.stringify(sortedMagazines)));
+            setTogleMagazine(false);
         }
     }
     const handleWriteToMymagazine = () => {
@@ -191,9 +197,7 @@ const Xfile = ({ isLogin, userId }) => {
                         : <div className="xfile-content-wrap">
                             <div className="magazine-wrap">
                                 {
-                                    filteredMagazines.length === 0 ? null :
-
-                                    query !== '' ? filteredMagazines.map((child, index) => {
+                                 filteredMagazines.length !== 0 && query !== '' ? filteredMagazines.map((child, index) => {
                                         let value = "";
                                         let shortTitle = null;
                                         if (child.description.indexOf('images/') !== -1) {
