@@ -91,7 +91,7 @@ const Main = () => {
 
             {/* fashion label */}
                 <div className='fashion'>
-                    2021 04 Magazine
+                    2021.05 Magazine
                 </div>
             {/* end fashion label */}
 

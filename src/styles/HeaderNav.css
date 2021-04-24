@@ -32,8 +32,9 @@
 .header-title, .header-magazine, .header-community, .header-signin {
   text-decoration: none;
   /* color: white; */
-  color:black;
+  color:var(--sub-color-nine);
   cursor: pointer;
+  transition: .3s;
 }
 
 .header-magazine, .header-community, .header-profile, .header-signin{

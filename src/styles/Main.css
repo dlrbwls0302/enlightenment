@@ -393,6 +393,9 @@
     .col-7 .slider-container .new-slide .img-holder{
         background-size: cover;
     }
+    .new-main-container .fashion{
+        font-size: 20px;
+    }
 }
 
 @media only screen and (max-width: 600px){
@@ -436,6 +439,12 @@
         transform: translateY(20%);
         padding: 50px;
         z-index: 5;
+    }
+    .new-main-container .fashion{
+        font-size: 15px;
+    }
+    .new-main-container .col-5 .info-section .product-info .go-to-xfile{
+        margin-right: 25px;
     }
     
 }
