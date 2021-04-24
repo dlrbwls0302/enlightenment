@@ -32,7 +32,7 @@ const Xfile = ({isLogin, userId}) => {
             .then(data => {
                 setMagazineList(data.magazines);
                 // console.log('magazineList : ', magazineList);
-                console.log(data.magazines)
+                // console.log(data.magazines)
                 const meMagazines = data.magazines.filter(magazine => {
                     return magazine.userId === userId
                 })
@@ -65,6 +65,8 @@ const Xfile = ({isLogin, userId}) => {
 
     const handleTogleWrite = () => {
         setTogleHotMagazine(false);
+        setToggleMyMagazine(false);
+        setToggleNewMagazines(false);
         setTogleWrite(true);
         console.log('handleTogleWrite');
     }
@@ -72,6 +74,7 @@ const Xfile = ({isLogin, userId}) => {
     const handleTogleHotMagazine = () => {
         // setToggleMyMagazine(false);
         setToggleNewMagazines(false);
+        setToggleMyMagazine(false);
         if (togleWrite && !togleHotMagazine) {
             if (window.confirm('작성중인 글이 사라집니다. 정말 나가시겠습니까?')) {
                 // setTogleMagazine(false);
@@ -88,7 +91,34 @@ const Xfile = ({isLogin, userId}) => {
             console.log('handleTogleHotMagazine');
         }
     }
+    const handleWriteToMymagazine = () => {
+        if (togleWrite) {
+            if (window.confirm('작성중인 글이 사라집니다. 정말 나가시겠습니까?')) {
+                setTogleWrite(false);
+                setTogleMagazine(false);
+                setToggleMyMagazine(true);
+            } 
+        } else {
 
+        }
+    }
+    
+    const handleWriteToNewmagazine = () => {
+        if (togleWrite) {
+            if (window.confirm('작성중인 글이 사라집니다. 정말 나가시겠습니까?')) {
+                setTogleWrite(false);
+                const newMagazines = magazineList.reverse();
+                setMagazineList(newMagazines.slice(0, 20));
+                setToggleNewMagazines(true);
+            }
+        } else if(!togleWrite){
+            setTogleMagazine(false);    
+            setToggleMyMagazine(false); 
+            const newMagazines = magazineList.reverse();
+            setMagazineList(newMagazines.slice(0, 20));
+            setToggleNewMagazines(true); 
+        }
+    }
     const upToScroll = () => {
         window.scrollTo(0, 0);
     }
@@ -99,16 +129,20 @@ const Xfile = ({isLogin, userId}) => {
                     <ul className="xfile-text-ul">
                         <li className="xfile-text-li" onClick={handleTogleHotMagazine}>HOT MAGAZINE</li>
                         <li className="xfile-text-li" onClick={() => {
-                            if (toggleNewMagazines) return;
-                            const newMagazines = magazineList.reverse();
-                            setToggleNewMagazines(true);
-                            setToggleMyMagazine(false);
-                            setMagazineList(newMagazines.slice(0, 20));
+                            // if (toggleNewMagazines) return;
+                            handleWriteToNewmagazine();
+                            // const newMagazines = magazineList.reverse();
+                            // setToggleNewMagazines(true);
+                            // setToggleMyMagazine(false);
+                            // setMagazineList(newMagazines.slice(0, 20));
                         }}>NEW MAGAZINE</li>
+                        { isLogin ?
                         <li className="xfile-text-li" onClick={() => {
+                            handleWriteToMymagazine();
                             setToggleNewMagazines(false);
                             setToggleMyMagazine(true);
-                        }}>MY MAGAZINE</li>
+                        }}>MY MAGAZINE</li> : null
+                    }
                     </ul>
                     <div className="write-magazine" onClick={() => {
                         handleTogleWrite()
