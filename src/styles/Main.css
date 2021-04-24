@@ -122,9 +122,10 @@
     padding: 20px;
     writing-mode: vertical-lr;
     text-orientation: mixed;
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 25px;
+    font-weight: 200;
     animation: left-to-right 1.5s;
+    font-family: 'Bebas Neue', cursive;
 }
 
 .z-index-99{

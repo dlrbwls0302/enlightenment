@@ -81,18 +81,18 @@ const Main = () => {
             
 
             {/* social icon */}
-            <div className='sci'>
-                {/* <FaFacebook className={'bx bxl-facebook-circle'} />
+            {/* <div className='sci'>
+                <FaFacebook className={'bx bxl-facebook-circle'} />
                 <FaInstagram className={'bx bxl-instagram-alt'}/>
                 <FaYoutube className={'bx bxl-youtube'}/>
-                <FaTwitter className={'bx bxl-twitter'}/> */}
-            </div>
+                <FaTwitter className={'bx bxl-twitter'}/>
+            </div> */}
             {/* end social icon */}
 
             {/* fashion label */}
-                {/* <div className='fashion'>
-                    당신의 선택
-                </div> */}
+                <div className='fashion'>
+                    2021 04 Magazine
+                </div>
             {/* end fashion label */}
 
             {/* product info */}
