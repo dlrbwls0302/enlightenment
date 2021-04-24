@@ -11,7 +11,7 @@ const Xfile = ({ isLogin, userId }) => {
     const [magazineList, setMagazineList] = useState([]);
     const [togleMagazine, setTogleMagazine] = useState(false);
     const [togleHotMagazine, setTogleHotMagazine] = useState(false);
-    const [togleNewMagazine, setTogleNewMagazine] = useState(false);
+    // const [togleNewMagazine, setTogleNewMagazine] = useState(false);
     const [togleWrite, setTogleWrite] = useState(false);
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -179,9 +179,7 @@ const Xfile = ({ isLogin, userId }) => {
                         setToggleNewMagazines(false);
                         setToggleMyMagazine(false);
                     }} >WRITE</div>
-                    {!togleWrite ? <input className="xfile-input" placeholder="매거진 검색" type="text" onChange={(e) => setQuery(e.target.value)}></input> :
-                    null
-                    }
+                    {!togleWrite ? <input className="xfile-input" placeholder="매거진 검색" type="text" onChange={(e) => setQuery(e.target.value)}></input> : null}
                     
                 </div>
                 {togleWrite ?
