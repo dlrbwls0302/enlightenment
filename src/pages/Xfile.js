@@ -5,12 +5,11 @@ import Magazine from '../components/Magazine';
 import '../styles/Xfile.css';
 import Write from '../components/Write';
 import Post from '../components/Post';
+import { RiArrowGoBackFill } from "react-icons/ri";
 
-const Xfile = ({isLogin, userId}) => {
+const Xfile = ({ isLogin, userId }) => {
     const [magazineList, setMagazineList] = useState([]);
     const [togleMagazine, setTogleMagazine] = useState(false);
-    const [togleHotMagazine, setTogleHotMagazine] = useState(false);
-    const [togleNewMagazine, setTogleNewMagazine] = useState(false);
     const [togleHotMagazine, setTogleHotMagazine] = useState(true);
     // const [togleNewMagazine, setTogleNewMagazine] = useState(false);
     const [togleWrite, setTogleWrite] = useState(false);
@@ -25,12 +24,7 @@ const Xfile = ({isLogin, userId}) => {
     const [toggleMyMagazine, setToggleMyMagazine] = useState(false);
     const [toggleNewMagazines, setToggleNewMagazines] = useState(false);
     const [query, setQuery] = useState('');
-    console.log(query)
-    useEffect(() => {
-        return function() {
-            console.log()
-        }
-    }, [])
+    const [filteredMagazines, setFilteredMagazines] = useState([]);
 
     useEffect(() => {
         fetch('http://localhost:5000/magazines')
@@ -45,22 +39,81 @@ const Xfile = ({isLogin, userId}) => {
                     return magazine.userId === userId
                 })
                 setMyMagazines(meMagazines)
-                
+
             })
-    }, []);
+    }, [togleHotMagazine]);
 
     useEffect(() => {
-        setToggleMyMagazine(false);
+        // setToggleMyMagazine(false);
         const queriedMagazines = magazineList.filter(magazine => {
             return magazine.title.includes(query);
         })
-        setMagazineList(queriedMagazines);
+        setFilteredMagazines(queriedMagazines)
     }, [query])
+
+    useEffect(() => {
+        console.log('바뀔 때 마다 실행')
+    }, [like])
+
+    const dislikeHandler = () => {
+        setLike(like - 1);
+        fetch(`http://localhost:5000/magazines/${magazineId}/dislike`, {
+            method: 'PUT'
+        })
+        .then(res => {
+            if (res.status === 200) {
+                console.log('error occurd')
+            }
+        })
+    }
+
+    const likeHandler = () => {
+        setLike(like + 1);
+        fetch(`http://localhost:5000/magazines/${magazineId}/like`, {
+            method: 'PUT'
+        })
+        .then(res => {
+            if (res.status === 200) {
+                console.log('error occurd')
+            }
+        })
+    }
+
+    const selectIndex = (totalIndex, selectingNumber) => {
+        let randomIndexArray = []
+        for (let i=0; i<selectingNumber; i++) {   //check if there is any duplicate index
+          let randomNum = Math.floor(Math.random() * totalIndex)
+          if (randomIndexArray.indexOf(randomNum) === -1) {
+            randomIndexArray.push(randomNum)
+          } else { //if the randomNum is already in the array retry
+            i--
+          }
+        }
+        return randomIndexArray
+      }
+    const pickNewmagazine = (list) => {
+        let newMagazine = [];
+        let randomIndex = [];
+        if (list.length > 20) {
+            randomIndex = selectIndex(list.length, list.length)    
+            // randomIndex = randomIndex.slice(0, 20) 
+            for (let i = 0; i <= randomIndex.length; i++) {
+                newMagazine.push(list[randomIndex[i]])
+            }
+        } else {
+            randomIndex = selectIndex(list.length, list.length)   
+            console.log(randomIndex)
+            for (let i = 0; i <= randomIndex.length; i++) {
+                newMagazine.push(list[randomIndex[i]])
+            }
+        }
+        return newMagazine
+    }
 
     const handleTogleMagazine = (id, userId, title, description, like, createdAt) => {
         upToScroll();
         setMagazineId(id);
-        setMagazineUserId(userId)
+        setMagazineUserId(userId);
         setTitle(title);
         setDescription(description);
         setLike(like);
@@ -89,14 +142,10 @@ const Xfile = ({isLogin, userId}) => {
                 setTogleWrite(false);
                 setTogleMagazine(false);
                 setTogleHotMagazine(true);
-                console.log('handleTogleHotMagazine');
             } else {
                 return;
             }
         } else {
-            setTogleMagazine(false);
-            setTogleHotMagazine(true);
-            console.log('handleTogleHotMagazine');
             setTogleHotMagazine(true);
             const sortedMagazines = magazineList.sort((a, b) => b.like - a.like);
             setMagazineList(JSON.parse(JSON.stringify(sortedMagazines)));
@@ -114,38 +163,7 @@ const Xfile = ({isLogin, userId}) => {
 
         }
     }
-    const selectIndex = (totalIndex, selectingNumber) => {
-        let randomIndexArray = []
-        for (let i=0; i<selectingNumber; i++) {   //check if there is any duplicate index
-          let randomNum = Math.floor(Math.random() * totalIndex)
-          if (randomIndexArray.indexOf(randomNum) === -1) {
-            randomIndexArray.push(randomNum)
-          } else { //if the randomNum is already in the array retry
-            i--
-          }
-        }
-        return randomIndexArray
-      }
-      
-    const pickNewmagazine = (list) => {
-        let newMagazine = [];
-        let randomIndex = [];
-        if (list.length > 20) {
-            randomIndex = selectIndex(list.length, 20)    
-            randomIndex = randomIndex.slice(0, 20) 
-            for (let i = 0; i <= randomIndex.length; i++) {
-                newMagazine.push(list[randomIndex[i]])
-            }
-        } else {
-            randomIndex = selectIndex(list.length, list.length)   
-            console.log(randomIndex)
-            for (let i = 0; i <= randomIndex.length; i++) {
-                newMagazine.push(list[randomIndex[i]])
-            }
-        }
-        return newMagazine
-    }
-
+    
     const handleWriteToNewmagazine = () => {
         if (togleWrite) {
             if (window.confirm('작성중인 글이 사라집니다. 정말 나가시겠습니까?')) {
@@ -158,9 +176,6 @@ const Xfile = ({isLogin, userId}) => {
         } else if(!togleWrite){
             setTogleMagazine(false);    
             setToggleMyMagazine(false); 
-            // const newMagazines = magazineList.reverse();
-            // console.log(newMagazines)
-            // setMagazineList(newMagazines.slice(0, 20));
             let randomList =  pickNewmagazine(magazineList)
             randomList = randomList.slice(0, randomList.length - 1)
             setMagazineList(randomList)
@@ -197,53 +212,12 @@ const Xfile = ({isLogin, userId}) => {
                         setToggleNewMagazines(false);
                         setToggleMyMagazine(false);
                     }} >WRITE</div>
+                    {!togleWrite ? <input className="xfile-input" placeholder="매거진 검색" type="text" onChange={(e) => setQuery(e.target.value)}></input> : null}
+                    
                 </div>
-                {togleWrite ? <Write handleTogleMagazine={handleTogleMagazine} handleTogleHotMagazine={handleTogleHotMagazine} /> : togleMagazine ? <Post id={magazineId} magazineUserId={magazineUserId} title={title} description={description} like={like} createdAt={createdAt} handleTogleHotMagazine={handleTogleHotMagazine} isLogin={isLogin} userId={userId}/> :
+                {togleWrite ?
                     <div className="xfile-content-wrap">
-                        <div className="magazine-wrap">
-                            <input placeholder="검색" type="text" onChange={(e) => setQuery(e.target.value)}></input>
-                            { 
-                                isLogin && toggleMyMagazine && myMagazines.length !== 0 ? myMagazines.map((child, index) => {
-                                    let value = "";
-                                    if (child.description.indexOf('images/') !== -1) {
-                                        const findIndex = child.description.indexOf('images/') + 7
-                                        const find = child.description.slice(findIndex);
-                                        const findIndex2 = find.indexOf('"');
-                                        value = find.slice(0, findIndex2);
-                                    } else {
-                                        value = undefined;
-                                    }
-                                    
-                                    return <Magazine key={index} index={index} id={child.id} userId={child.userId} like={child.like} title={child.title} value={value} description={child.description} createdAt={child.createdAt} handleTogleMagazine={handleTogleMagazine} />
-                                }) : 
-                            
-                            magazineList.length === 0 ? <div className="loadingMessage">LOADING...</div> :
-                                magazineList.map((child, index) => {
-                                    let value = "";
-                                    if (child.description.indexOf('images/') !== -1) {
-                                        const findIndex = child.description.indexOf('images/') + 7
-                                        const find = child.description.slice(findIndex);
-                                        const findIndex2 = find.indexOf('"');
-                                        value = find.slice(0, findIndex2);
-                                    } else {
-                                        value = undefined;
-                                    }
-                                    console.log(child.id)
-                                    
-                                    return <Magazine key={index} index={index} id={child.id} magazineUserId={child.userId} like={child.like} title={child.title} value={value} description={child.description} createdAt={child.createdAt} handleTogleMagazine={handleTogleMagazine} />
-                                })
-                            }
-                            {magazineList.length === 0 ? null :
-                                <div className="lastMagazine" onClick={upToScroll}>
-                                    <video muted autoPlay loop>
-                                        <source src={diffrentMagazine} type="video/mp4" />
-                                    </video>
-                                    <p className="magazine-lastTitle">다른 매거진 보기</p>
-                                </div>
-                            }
-                        </div>
-                    </div>}
-                        <Write handleTogleMagazine={handleTogleMagazine} handleTogleHotMagazine={handleTogleHotMagazine} />
+                        <Write handleTogleMagazine={handleTogleMagazine} handleTogleHotMagazine={handleTogleHotMagazine} setMagazineList={setMagazineList} magazineList={magazineList}/>
                     </div>
                     : togleMagazine ?
                         <Post id={magazineId} magazineUserId={magazineUserId} title={title} description={description} like={like} createdAt={createdAt} handleTogleHotMagazine={handleTogleHotMagazine} isLogin={isLogin} userId={userId} dislikeHandler={dislikeHandler} likeHandler={likeHandler}/>
