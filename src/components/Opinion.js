@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import axios from 'axios';
 import '../styles/Opinions.css'
 import { AiFillAlert, AiTwotoneLike } from 'react-icons/ai';
@@ -9,7 +9,6 @@ const Opinion = ({ comment, ban, number, like }) => {
     const smileIcon = <MdInsertEmoticon />
     let className = '';
     let nickName = '';
-    // const likeRef = useRef('white');
     if (!like) {
         if (number === 1 || number === 22 || number === 55) {
             nickName = '😇 SPECIAL';
@@ -19,7 +18,7 @@ const Opinion = ({ comment, ban, number, like }) => {
                 nickName = '😎 똑똑한 시민님';
                 className = 'opinions yellow';
             } else if (number % 2 === 0) {
-                nickName = '냉철한 시민님';
+                nickName = '😃 냉철한 시민님';
                 className = 'opinions blue';
             } else if (number % 10 === 3) {
                 nickName = '🤔 현명한 시민님';
@@ -57,7 +56,6 @@ const Opinion = ({ comment, ban, number, like }) => {
 
         axios(config)
             .then(response => {
-                console.log(response);
                 alert('신고되었습니다');
             })
             .catch(error => {
@@ -80,7 +78,7 @@ const Opinion = ({ comment, ban, number, like }) => {
 
         axios(config)
             .then(response => {
-                console.log(response);
+                return response
             })
             .catch(error => {
                 console.log(error);
@@ -91,10 +89,21 @@ const Opinion = ({ comment, ban, number, like }) => {
         <>
             {ban < 5 ?
                 <div className={className}>
-                    <AiFillAlert className="reportImg like" title="신고하기" onClick={handleReportBtn} />
-                    <AiTwotoneLike className="reportImg report" onClick={handleLikeBtn} />
-                    <p className="comment-nickname">{nickName}</p>
+                    <div className="comment-head">
+                        <div className="comment-nickname-box">
+                            <p className="comment-nickname">{nickName}</p>
+                        </div>
+                        <div className="coment-like-box">
+                            <div className="like-count">
+                                <p className="comment-like">{like}</p>
+                            </div>
+                            <AiTwotoneLike className="reportImg report" onClick={handleLikeBtn} />
+                            <AiFillAlert className="reportImg like" title="신고하기" onClick={handleReportBtn} />
+                        </div>
+                    </div>
+                    <div className="anooComment-box">
                     <p className="anooComment">{comment}</p>
+                    </div>
                 </div > : null}
         </>
     );

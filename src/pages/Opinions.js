@@ -7,7 +7,6 @@ import { loadComments, sortComments } from '../actions';
 import { AiFillAlert } from 'react-icons/ai';
 import { BiSort } from 'react-icons/bi';
 import { AiOutlineUp } from 'react-icons/ai';
-import Footer from '../components/Footer';
 
 const Opinions = () => {
     const dispatch = useDispatch();
@@ -26,7 +25,6 @@ const Opinions = () => {
                 })
                 .then(data => {
                     dispatch(loadComments(data.comments.reverse()));
-                    console.log('data.comments : ', data.comments);
                 })
         } else {
             fetch(`${ec2Url}/comments`)
@@ -35,7 +33,6 @@ const Opinions = () => {
                 })
                 .then(data => {
                     dispatch(sortComments(data.comments));
-                    console.log('data.comments : ', data.comments);
                 })
         }
 
@@ -44,6 +41,9 @@ const Opinions = () => {
     const clickCommentBtn = () => {
         if (inputRef.current.value.length < 10) {
             alert('10글자 이상 입력해주세요');
+            return;
+        } else if(inputRef.current.value.length > 100) {
+            alert('100글자 이하로 입력해주세요');
             return;
         }
 
@@ -57,11 +57,11 @@ const Opinions = () => {
             data: JSON.stringify({
                 "comment": inputRef.current.value,
             })
+
         };
 
         axios(config)
             .then(response => {
-                console.log(response);
                 setNewComment(inputRef.current.value);
             })
             .catch(error => {
@@ -70,24 +70,17 @@ const Opinions = () => {
         inputRef.current.value = null;
         inputRef.current.placeholder = '10글자 이상 100글자 이하로 의견을 남겨주세요';
         alert('등록되었습니다');
+        setValueLength(0)
     };
 
     const handleInputComment = (e) => {
         const inputLength = e.target.value.length;
         setValueLength(inputLength);
-
-        if (inputLength > 100) {
-            return false;
-        } else if (inputLength <= 100) {
-            return e.target.value;
-        }
     }
 
     const handleCommentSort = () => {
         setSortValue(sortValue === "최신등록순" ? "좋아요순" : "최신등록순");
         upToScroll();
-        console.log(sortValue);
-
     }
 
     const handleKeyPress = (e) => {
@@ -110,9 +103,11 @@ const Opinions = () => {
                     당신의 의견
                 </div>
                 <textarea className="comment-write-area" type="text" ref={inputRef} onKeyPress={handleKeyPress} onChange={handleInputComment} placeholder="10글자 이상 100글자 이하로 의견을 남겨주세요" />
-                {valueLength > 100 ?
-                    <p className="input-length-over">{valueLength}/100</p> :
-                    <p className="input-length">{valueLength}/100</p>
+                {
+                (valueLength < 100) ?
+                    <p className="input-length">{valueLength}/100{console.log(valueLength)} </p> :
+                    <p className="input-length-over">{valueLength}/100</p>
+          
                 }
                 <p className="report-notice">불건전한 내용은 {reportIcon}을 눌러 신고해주세요</p>
                 <button className="comment-submit-btn" onClick={clickCommentBtn}>등록</button>

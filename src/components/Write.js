@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import { RiArrowGoBackFill } from "react-icons/ri";
 import '../styles/Write.css'
 
-const Write = () => {
+const Write = ({ handleTogleMagazine, handleTogleHotMagazine }) => {
+    const history = useHistory();
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const handleTitle = (e) => {
@@ -28,13 +30,17 @@ const Write = () => {
                 })
             })
                 .then(res => res.json())
-                .then(json => console.log(json))
+                .then(json => {
+                    history.push(`/xfile/${json.id}`);
+                    handleTogleMagazine(json.id, json.userId, json.title, json.description, json.like, json.createdAt);
+                })
         }
     }
     return (
         <div className='write-container'>
             <div className='editor'>
-                <h1 className='write-heading'>Simply Write a post.</h1>
+                <RiArrowGoBackFill className="write-back" onClick={() => { handleTogleHotMagazine() }} />
+                <h1 className='write-heading'>WRITE MAGAZINE</h1>
                 <div className='write-wrapper'>
                     <div className='write-input-data'>
                         <input type="text" className='title' autoComplete='off' onChange={handleTitle} required></input>
@@ -42,7 +48,7 @@ const Write = () => {
                         <label>Title</label>
                     </div>
                 </div>
-                
+
                 <CKEditor
                     editor={ClassicEditor}
                     data=""
@@ -52,7 +58,6 @@ const Write = () => {
                     }}
                     onChange={(event, editor) => {
                         const data = editor.getData();
-                        console.log(editor.getData())
                         setDescription(data)
                     }}
                     onBlur={(event, editor) => {
@@ -67,7 +72,7 @@ const Write = () => {
                         }
                     }}
                 />
-                <button className='submit' onClick={submitEditor}>POST!</button>
+                <button className='write-submit' onClick={submitEditor}>POST</button>
             </div>
         </div>
     );
