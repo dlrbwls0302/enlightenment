@@ -2,6 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Serif+KR&display=swap');
 
+.magazine-none {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .loadingMessage {
     text-align: center;
     line-height: 80vh;
@@ -75,11 +80,6 @@
 
 .xfile-input:focus {
     outline:none;
-    border-top-width: 3;
-    border-left-width: 3;
-    border-right-width: 3;
-    border-bottom-width: 3px;
-    width: 170px;
 }
 
 .write-magazine {
@@ -108,7 +108,7 @@
 /* --------------------- */
 
 .magazine-wrap {
-    margin-top: 30px;
+    margin-top: 50px;
     margin-bottom: 100px;
     -webkit-columns: 150px 3;
     -moz-columns: 150px 3;
@@ -274,9 +274,6 @@
         position: absolute;
         margin-top: 10px;
         top: 60px;
-        /* border: 1px solid red; */
-        /* background-color: #2d3f54; */
-        /* background: white; */
         z-index: 3;
         margin-right: 3%;
         width: 95%;
@@ -304,7 +301,9 @@
         cursor: pointer;
     }
     .write-magazine {
-        color: #2d3f54;
+        color: #2d3f54c4;
+        text-align: right;
+        margin-right:5%;
     }
     .write-magazine:hover {
         cursor: pointer;
@@ -437,8 +436,53 @@
     }
     .xfile-input {
         position:absolute;
+        background-color: none;
         top: 100px;
+        width: 45%;
         right: 0px;
         margin-right: 5%;
+    }
+
+    /* .xfile-input {
+        border-top-width: 0;
+        border-left-width: 0;
+        border-right-width: 0;
+        border-bottom-width: 3px;
+        border-color: #2d3f54;
+        width: 170px;
+        height: 40px;
+        transition: 0.8s ease all;
+    } */
+    .xfile-input::placeholder {
+        text-align: right;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .xfile-input {
+        position:absolute;
+        top: 150px;
+        right: 0px;
+        margin-left: 5%;
+        width: 90%;
+    }
+    .xfile-input::placeholder {
+        text-align: left;
+    }
+    .magazine-wrap {
+        background-color: none;
+        -webkit-columns: 250px 3;
+        -moz-columns: 250px 3;
+        columns: 250px 3;
+        -webkit-column-gap: 30px;
+        -moz-column-gap: 30px;
+        column-gap: 30px;
+        /* max-width: 80vw; */
+        /* margin: 0 auto; */
+        display: block;
+        /* -moz-column-fill: balance; */
+        /* column-fill: balance; */
+        padding-top: 130px;
+        padding-right: 5%;
     }
 }

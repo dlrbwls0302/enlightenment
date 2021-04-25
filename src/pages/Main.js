@@ -90,9 +90,9 @@ const Main = () => {
             {/* end social icon */}
 
             {/* fashion label */}
-                <div className='fashion'>
+                {/* <div className='fashion'>
                     2021.05 Magazine
-                </div>
+                </div> */}
             {/* end fashion label */}
 
             {/* product info */}
@@ -141,10 +141,10 @@ const Main = () => {
 
                         <div className={productIndex === 2 ? 'product-info active':'product-info'}>
                             <h1>
-                                <span className='txt-red'>C</span>hange
+                                <span className='txt-red'>I</span>nfluence
                             </h1>
                             <h1>
-                            <span className='txt-red'>T</span>HE <span className='txt-red'>w</span>orld
+                            <span className='txt-red'>P</span>EOPLE 
                             </h1>
                             <span>
                             TEAM 12 <span className='reduce-space'>PROJECT</span> 2021

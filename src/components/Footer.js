@@ -23,7 +23,7 @@ const Footer = () => {
                     <h3 className="resources title">CREATED BY</h3>
                     <li className="footer-resources-one">Ju Yeop Jang</li>
                     <li className="footer-resources-two">Sung Hyun Kim</li>
-                    <li className="footer-resources-two">Kwak Minwoo</li>
+                    <li className="footer-resources-two">Minwoo Kwak</li>
                     <li className="footer-resources-two">Kyu Jin Lee</li>
                 </ul>
                 <ul className="footer-team-container">
