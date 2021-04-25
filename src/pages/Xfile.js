@@ -1,6 +1,4 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
-import { Route } from 'react-router-dom';
 import Magazine from '../components/Magazine';
 import '../styles/Xfile.css';
 import Write from '../components/Write';
@@ -11,8 +9,6 @@ const Xfile = ({isLogin, userId}) => {
     const [togleMagazine, setTogleMagazine] = useState(false);
     const [togleHotMagazine, setTogleHotMagazine] = useState(false);
     const [togleNewMagazine, setTogleNewMagazine] = useState(false);
-    const [togleHotMagazine, setTogleHotMagazine] = useState(true);
-    // const [togleNewMagazine, setTogleNewMagazine] = useState(false);
     const [togleWrite, setTogleWrite] = useState(false);
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -25,7 +21,7 @@ const Xfile = ({isLogin, userId}) => {
     const [toggleMyMagazine, setToggleMyMagazine] = useState(false);
     const [toggleNewMagazines, setToggleNewMagazines] = useState(false);
     const [query, setQuery] = useState('');
-    console.log(query)
+    const [filteredMagazines, setFilteredMagazines] = useState([])
     useEffect(() => {
         return function() {
             console.log()
@@ -45,7 +41,6 @@ const Xfile = ({isLogin, userId}) => {
                     return magazine.userId === userId
                 })
                 setMyMagazines(meMagazines)
-                
             })
     }, []);
 
@@ -54,7 +49,7 @@ const Xfile = ({isLogin, userId}) => {
         const queriedMagazines = magazineList.filter(magazine => {
             return magazine.title.includes(query);
         })
-        setMagazineList(queriedMagazines);
+        setFilteredMagazines(queriedMagazines)
     }, [query])
 
     const handleTogleMagazine = (id, userId, title, description, like, createdAt) => {
@@ -68,7 +63,6 @@ const Xfile = ({isLogin, userId}) => {
         setTogleHotMagazine(false);
         setTogleWrite(false);
         setTogleMagazine(true);
-
     }
 
     const handleTogleWrite = () => {
@@ -103,6 +97,30 @@ const Xfile = ({isLogin, userId}) => {
             setTogleMagazine(false);
         }
     }
+
+    const dislikeHandler = () => {
+        setLike(like - 1);
+        fetch(`http://localhost:5000/magazines/${magazineId}/dislike`, {
+            method: 'PUT'
+        })
+        .then(res => {
+            if (res.status === 200) {
+                console.log('error occurd')
+            }
+        })
+    }
+    const likeHandler = () => {
+        setLike(like + 1);
+        fetch(`http://localhost:5000/magazines/${magazineId}/like`, {
+            method: 'PUT'
+        })
+        .then(res => {
+            if (res.status === 200) {
+                console.log('error occurd')
+            }
+        })
+    }
+
     const handleWriteToMymagazine = () => {
         if (togleWrite) {
             if (window.confirm('작성중인 글이 사라집니다. 정말 나가시겠습니까?')) {
@@ -315,9 +333,8 @@ const Xfile = ({isLogin, userId}) => {
                                     </div>
                                 }
                             </div>
-                        </div>}
+                    </div>
             </div>
-        </div >
     );
 };
 
