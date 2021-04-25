@@ -27,12 +27,6 @@ const Xfile = ({ isLogin, userId }) => {
     const [filteredMagazines, setFilteredMagazines] = useState([]);
 
     useEffect(() => {
-        return function() {
-            console.log()
-        }
-    }, [])
-
-    useEffect(() => {
         fetch('http://localhost:5000/magazines')
             .then(res => {
                 return res.json();
@@ -47,7 +41,7 @@ const Xfile = ({ isLogin, userId }) => {
                 setMyMagazines(meMagazines)
 
             })
-    }, []);
+    }, [togleHotMagazine]);
 
     useEffect(() => {
         // setToggleMyMagazine(false);
@@ -83,6 +77,37 @@ const Xfile = ({ isLogin, userId }) => {
                 console.log('error occurd')
             }
         })
+    }
+
+    const selectIndex = (totalIndex, selectingNumber) => {
+        let randomIndexArray = []
+        for (let i=0; i<selectingNumber; i++) {   //check if there is any duplicate index
+          let randomNum = Math.floor(Math.random() * totalIndex)
+          if (randomIndexArray.indexOf(randomNum) === -1) {
+            randomIndexArray.push(randomNum)
+          } else { //if the randomNum is already in the array retry
+            i--
+          }
+        }
+        return randomIndexArray
+      }
+    const pickNewmagazine = (list) => {
+        let newMagazine = [];
+        let randomIndex = [];
+        if (list.length > 20) {
+            randomIndex = selectIndex(list.length, list.length)    
+            // randomIndex = randomIndex.slice(0, 20) 
+            for (let i = 0; i <= randomIndex.length; i++) {
+                newMagazine.push(list[randomIndex[i]])
+            }
+        } else {
+            randomIndex = selectIndex(list.length, list.length)   
+            console.log(randomIndex)
+            for (let i = 0; i <= randomIndex.length; i++) {
+                newMagazine.push(list[randomIndex[i]])
+            }
+        }
+        return newMagazine
     }
 
     const handleTogleMagazine = (id, userId, title, description, like, createdAt) => {
@@ -143,15 +168,17 @@ const Xfile = ({ isLogin, userId }) => {
         if (togleWrite) {
             if (window.confirm('작성중인 글이 사라집니다. 정말 나가시겠습니까?')) {
                 setTogleWrite(false);
-                const newMagazines = magazineList.reverse();
-                setMagazineList(newMagazines.slice(0, 20));
+                let randomList =  pickNewmagazine(magazineList)
+                randomList = randomList.slice(0, randomList.length - 1)
+                setMagazineList(randomList)              
                 setToggleNewMagazines(true);
             }
         } else if(!togleWrite){
             setTogleMagazine(false);    
             setToggleMyMagazine(false); 
-            const newMagazines = magazineList.reverse();
-            setMagazineList(newMagazines.slice(0, 20));
+            let randomList =  pickNewmagazine(magazineList)
+            randomList = randomList.slice(0, randomList.length - 1)
+            setMagazineList(randomList)
             setToggleNewMagazines(true); 
         }
     }
@@ -190,7 +217,7 @@ const Xfile = ({ isLogin, userId }) => {
                 </div>
                 {togleWrite ?
                     <div className="xfile-content-wrap">
-                        <Write handleTogleMagazine={handleTogleMagazine} handleTogleHotMagazine={handleTogleHotMagazine} />
+                        <Write handleTogleMagazine={handleTogleMagazine} handleTogleHotMagazine={handleTogleHotMagazine} setMagazineList={setMagazineList} magazineList={magazineList}/>
                     </div>
                     : togleMagazine ?
                         <Post id={magazineId} magazineUserId={magazineUserId} title={title} description={description} like={like} createdAt={createdAt} handleTogleHotMagazine={handleTogleHotMagazine} isLogin={isLogin} userId={userId} dislikeHandler={dislikeHandler} likeHandler={likeHandler}/>
