@@ -10,7 +10,7 @@ const Write = () => {
     const handleTitle = (e) => {
         setTitle(e.target.value)
     }
-    const ec2Url = 'https://www.enlightenment.ga';
+    const ec2Url = 'https://server.kelection.ml';
     const submitEditor = () => {
         if (title === '' || description === '') {
             alert('제목과 내용을 입력해 주세요.');

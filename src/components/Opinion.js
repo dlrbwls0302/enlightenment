@@ -41,7 +41,7 @@ const Opinion = ({ comment, ban, number, like }) => {
         }
     }
 
-    const ec2Url = 'https://www.enlightenment.ga';
+    const ec2Url = 'https://server.kelection.ml';
     const handleReportBtn = () => {
         const config = {
             method: 'put',

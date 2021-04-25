@@ -19,7 +19,7 @@ const App = () => {
   const [userId, setUserId] = useState(0);
   const dispatch = useDispatch();
   const state = useSelector((state) => state.modalReducer);
-  const ec2Url = 'https://www.enlightenment.ga';
+  const ec2Url = 'https://server.kelection.ml';
 
   useEffect(() => {
     if (document.cookie.includes('userId')) {

@@ -12,12 +12,12 @@ const Write = ({ handleTogleMagazine, handleTogleHotMagazine }) => {
     const handleTitle = (e) => {
         setTitle(e.target.value);
     }
-    const ec2Url = 'https://www.enlightenment.ga';
+    const ec2Url = 'https://server.kelection.ml';
     const submitEditor = () => {
         if (title === '' || description === '') {
             alert('제목과 내용을 입력해 주세요.');
         } else {
-            fetch(`${ec2Url}/magazine`, {
+            fetch(`${ec2Url}/magazines`, {
                 method: 'POST',
                 credentials: 'include',
                 headers: {
