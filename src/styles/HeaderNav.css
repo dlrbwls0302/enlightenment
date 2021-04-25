@@ -1,10 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 .header-wrap {
-  /* border: 1px solid red; */
   z-index: 5000;
   position: fixed;
-  /* background-color: white; */
   background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8281687675070029) 100%);
   text-decoration: none;
   font-family: 'Bebas Neue', cursive;
@@ -18,7 +16,6 @@
 
 .header-title-wrap {
   font-size: 30px;
-  /* font-size: 4.6vw; */
 }
 .header-profile{
   display: inline-block;
@@ -31,7 +28,6 @@
 }
 .header-title, .header-magazine, .header-community, .header-signin {
   text-decoration: none;
-  /* color: white; */
   color:var(--sub-color-nine);
   cursor: pointer;
   transition: .3s;
@@ -44,31 +40,17 @@
 .header-magazine, .header-community, .header-signin {
   font-size: 22px;
   margin-left: 15px;
-  /* font-size: 3.1vw; */
 }
 
-/* .header-magazine-Xfile, .header-community-Xfile, .header-signin-Xfile {
-  text-decoration: none;
-  font-size: 20px;
-  margin-left: 15px;
-  color: #2d3f54;
-}
 
-.header-title-Xfile {
-  text-decoration: none;
-  color: #2d3f54;
-  font-size: 30px;
-} */
 
 @media screen and (max-width: 445px) {
   .header-title-wrap {
     font-size: 22px;
-    /* font-size: 4.6vw; */
   }
 
   .header-magazine, .header-community, .header-signin {
     font-size: 16px;
     margin-left: 15px;
-    /* font-size: 3.1vw; */
   }
 }

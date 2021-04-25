@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { useHistory } from 'react-router-dom';
@@ -57,7 +57,6 @@ const Write = ({ handleTogleMagazine, handleTogleHotMagazine }) => {
                     }}
                     onChange={(event, editor) => {
                         const data = editor.getData();
-                        console.log(editor.getData())
                         setDescription(data)
                     }}
                     onBlur={(event, editor) => {

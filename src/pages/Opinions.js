@@ -7,7 +7,6 @@ import { loadComments, sortComments } from '../actions';
 import { AiFillAlert } from 'react-icons/ai';
 import { BiSort } from 'react-icons/bi';
 import { AiOutlineUp } from 'react-icons/ai';
-import Footer from '../components/Footer';
 
 const Opinions = () => {
     const dispatch = useDispatch();
@@ -80,13 +79,6 @@ const Opinions = () => {
     const handleInputComment = (e) => {
         const inputLength = e.target.value.length;
         setValueLength(inputLength);
-
-        // if (inputLength > 100) {
-        //     return false;
-        // } else if (inputLength <= 100) {
-        //     // return e.target.value;
-        //     return true;
-        // }
     }
 
     const handleCommentSort = () => {

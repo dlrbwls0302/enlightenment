@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import axios from 'axios';
 import '../styles/Opinions.css'
 import { AiFillAlert, AiTwotoneLike } from 'react-icons/ai';
@@ -9,7 +9,6 @@ const Opinion = ({ comment, ban, number, like }) => {
     const smileIcon = <MdInsertEmoticon />
     let className = '';
     let nickName = '';
-    // const likeRef = useRef('white');
     if (!like) {
         if (number === 1 || number === 22 || number === 55) {
             nickName = '😇 SPECIAL';

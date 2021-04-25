@@ -1,17 +1,16 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
-import { Route } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux'
 import Magazine from '../components/Magazine';
 import '../styles/Xfile.css';
 import Write from '../components/Write';
 import Post from '../components/Post';
-import { RiArrowGoBackFill } from "react-icons/ri";
+import { changeModal } from "../actions/index";
 
 const Xfile = ({ isLogin, userId }) => {
+    const dispatch = useDispatch();
     const [magazineList, setMagazineList] = useState([]);
     const [togleMagazine, setTogleMagazine] = useState(false);
     const [togleHotMagazine, setTogleHotMagazine] = useState(true);
-    // const [togleNewMagazine, setTogleNewMagazine] = useState(false);
     const [togleWrite, setTogleWrite] = useState(false);
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -33,8 +32,6 @@ const Xfile = ({ isLogin, userId }) => {
             })
             .then(data => {
                 setMagazineList(data.magazines);
-                // console.log('magazineList : ', magazineList);
-                // console.log(data.magazines)
                 const meMagazines = data.magazines.filter(magazine => {
                     return magazine.userId === userId
                 })
@@ -96,7 +93,6 @@ const Xfile = ({ isLogin, userId }) => {
         let randomIndex = [];
         if (list.length > 20) {
             randomIndex = selectIndex(list.length, list.length)    
-            // randomIndex = randomIndex.slice(0, 20) 
             for (let i = 0; i <= randomIndex.length; i++) {
                 newMagazine.push(list[randomIndex[i]])
             }
@@ -133,7 +129,6 @@ const Xfile = ({ isLogin, userId }) => {
     }
 
     const handleTogleHotMagazine = () => {
-        // setToggleMyMagazine(false);
         setToggleNewMagazines(false);
         setToggleMyMagazine(false);
         if (togleWrite && !togleHotMagazine) {
@@ -192,12 +187,7 @@ const Xfile = ({ isLogin, userId }) => {
                     <ul className="xfile-text-ul">
                         <li className="xfile-text-li" onClick={handleTogleHotMagazine}>HOT MAGAZINE</li>
                         <li className="xfile-text-li" onClick={() => {
-                            // if (toggleNewMagazines) return;
                             handleWriteToNewmagazine();
-                            // const newMagazines = magazineList.reverse();
-                            // setToggleNewMagazines(true);
-                            // setToggleMyMagazine(false);
-                            // setMagazineList(newMagazines.slice(0, 20));
                         }}>NEW MAGAZINE</li>
                         { isLogin ?
                         <li className="xfile-text-li" onClick={() => {
@@ -208,9 +198,13 @@ const Xfile = ({ isLogin, userId }) => {
                     }
                     </ul>
                     <div className="write-magazine" onClick={() => {
-                        handleTogleWrite()
-                        setToggleNewMagazines(false);
-                        setToggleMyMagazine(false);
+                        if (!isLogin) {
+                            dispatch(changeModal());
+                        } else {
+                            handleTogleWrite()
+                            setToggleNewMagazines(false);
+                            setToggleMyMagazine(false);
+                        }
                     }} >WRITE</div>
                     {!togleWrite ? <input className="xfile-input" placeholder="매거진 검색" type="text" onChange={(e) => setQuery(e.target.value)}></input> : null}
                     

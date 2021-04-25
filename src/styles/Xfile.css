@@ -125,7 +125,6 @@
 
 .magazine {
     min-width: calc(100% - 4px);
-    /* min-width: 250px; */
     width: 150px;
     margin: 15px;
     background-color: white;
@@ -133,7 +132,6 @@
     display: inline-block;
     position: relative;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
-    /* padding: 20px; */
     box-sizing: border-box;
     border-radius: 10px;
     -webkit-column-break-inside: avoid;
@@ -142,7 +140,6 @@
     transform:scale(1);
     transition: transform .55s;
     background-size: cover;
-    /* text-align: center; */
     opacity: 0.9;
 }
 
@@ -281,9 +278,6 @@
         font-size: 35px;
     }
 
-    .xfile-text-ul{
-        
-    }
     .xfile-text-li{
         margin-left: 20px;
         margin-bottom: 20px;
@@ -318,8 +312,6 @@
         flex-direction: column;
         align-items:stretch;
         align-content:stretch;
-        /* padding: 0px 10px 20px 10px; */
-        /* border: 1px solid blue; */
         width: 100%;
     }
     .magazine-wrap {
@@ -329,28 +321,21 @@
         -webkit-column-gap: 30px;
         -moz-column-gap: 30px;
         column-gap: 30px;
-        /* max-width: 80vw; */
-        /* margin: 0 auto; */
         display: block;
-        /* -moz-column-fill: balance; */
-        /* column-fill: balance; */
         padding-top: 80px;
         padding-right: 5%;
     }
     
     .magazine {
         min-width: calc(100% - 4px);
-        /* min-width: 250px; */
         width: 150px;
         margin: 15px;
         margin-bottom: 5px;
         background-color: white;
-        /* min-height: 40vh; */
         min-height: 250px;
         display: inline-block;
         position: relative;
         box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
-        /* padding: 20px; */
         box-sizing: border-box;
         border-radius: 10px;
         -webkit-column-break-inside: avoid;
@@ -359,7 +344,6 @@
         transform:scale(1);
         transition: transform .55s;
         background-size: cover;
-        /* text-align: center; */
         opacity: 0.9;
     }
     
@@ -432,7 +416,6 @@
         position:absolute;
         top: -5px;
         right: 0px;
-        /* margin-right: 5%; */
     }
     .xfile-input {
         position:absolute;
@@ -443,16 +426,6 @@
         margin-right: 5%;
     }
 
-    /* .xfile-input {
-        border-top-width: 0;
-        border-left-width: 0;
-        border-right-width: 0;
-        border-bottom-width: 3px;
-        border-color: #2d3f54;
-        width: 170px;
-        height: 40px;
-        transition: 0.8s ease all;
-    } */
     .xfile-input::placeholder {
         text-align: right;
     }
@@ -477,11 +450,7 @@
         -webkit-column-gap: 30px;
         -moz-column-gap: 30px;
         column-gap: 30px;
-        /* max-width: 80vw; */
-        /* margin: 0 auto; */
         display: block;
-        /* -moz-column-fill: balance; */
-        /* column-fill: balance; */
         padding-top: 130px;
         padding-right: 5%;
     }

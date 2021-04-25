@@ -15,7 +15,6 @@
   scroll-behavior: smooth;
 }
 .body{
-  /* height: 1000px; */
   position: relative;
 }
 .wrapper{
@@ -26,8 +25,6 @@
   position: absolute;
   top: 10px;
   right: 10px;
-  /* top: 10px;
-  right: 15px; */
   cursor: pointer;
   transition: 0.2s;
 }
@@ -36,7 +33,6 @@
 }
 .modalHeading{
   font-family: 'Bebas Neue', cursive;
-  /* letter-spacing: -1px; */
   font-size: 40px;
   margin-top: -10px;
   margin-bottom: 30px;

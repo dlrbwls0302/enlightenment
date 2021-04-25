@@ -1,15 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import HeaderNav from './components/HeaderNav';
-// import Sidebar from './components/Sidebar';
 import Main from './pages/Main';
-// import Map from './pages/Map';
-// import News from './pages/News';
 import Opinions from './pages/Opinions';
-// import Promise from './pages/Promise';
 import Xfile from './pages/Xfile';
-// import Write from './pages/Write';
-// import Post from './components/Post';
 import { useDispatch, useSelector } from 'react-redux'
 import { loadElections } from './actions/index'
 import './App.css';
@@ -69,7 +63,6 @@ const App = () => {
                   bottom: 'auto',
                   marginRight: '-50%',
                   transform: 'translate(-50%, -50%)',
-                  // padding: '70px 110px',
                   display: 'flex',
                   flexDirection: 'column',
                   borderRadius: '10px',

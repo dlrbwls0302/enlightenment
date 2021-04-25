@@ -27,7 +27,6 @@
 .new-main-container{
     height: 100vh;
     display: flex;
-    background-image: url('');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

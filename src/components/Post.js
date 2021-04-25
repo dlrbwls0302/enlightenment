@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import '../styles/Post.css';
-import { Link } from 'react-router-dom';
 import { FcLike } from 'react-icons/fc';
 import { FcLikePlaceholder } from 'react-icons/fc';
 import { RiArrowGoBackFill } from "react-icons/ri";
@@ -8,18 +7,6 @@ import { AiOutlineVerticalAlignTop } from "react-icons/ai";
 
 const Post = ({ id, title, like, description, createdAt, handleTogleHotMagazine, userId, magazineUserId, dislikeHandler, likeHandler }) => {
     const [toggle, setToggle] = useState(false);
-    const [likeCount, setLikeCount] = useState(like);
-    console.log(id)
-    const handleTogleLikeBtn = () => {
-        fetch('http://localhost:5000/magazines')
-            .then(res => {
-                console.log(res);
-                return res.json();
-            })
-            .then(data => {
-                // setMagazineList(data.magazines);
-            })
-    };
     const deletePost = () => {
         fetch(`http://localhost:5000/magazines/${id}`, {
             method: 'DELETE',
