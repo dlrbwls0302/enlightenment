@@ -95,8 +95,7 @@ const App = () => {
               </div>
             </Modal>
           
-          </div>
-        
+      </div>
         <Router>
           <HeaderNav isLogin={isLogin} userId={userId} setLogin={setLogin} setUserId={setUserId} />
           <Switch>
@@ -106,7 +105,7 @@ const App = () => {
           </Switch>
         </Router>
       </div>
-      <Footer></Footer>
+      <Footer></Footer>      
     </div>
   );
 };

@@ -59,7 +59,7 @@ function HeaderNav({ isLogin, userId, setLogin, setUserId }) {
                 <Link className="header-title" to={'/'} onClick={upToScroll}>ENLIGHTENMENT</Link>
             </div>
             <div className="header-contant-wrap">
-                <Link className="header-magazine" to="xfile" onClick={upToScroll}>MAGAZINE</Link>
+                <Link className="header-magazine" to="xfile" onClick={upToScroll}>MAGAZINE </Link>
                 <Link className="header-community" to="community" onClick={upToScroll}>COMMUNITY</Link>
                 <a className="header-signin" onClick={(e) => { onClick(e) }}> { isLogin ? 'SIGN OUT' :'SIGN IN'}</a>
                 
