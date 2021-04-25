@@ -1,4 +1,5 @@
 # Enlightenment
+![무제 (2)](https://user-images.githubusercontent.com/75422954/116002562-44a3e000-a635-11eb-9c35-e24f329d92db.png)
 언택트 시대, 방구석에서 당신과 세상을 이어줄 단 하나의 정치 매거진 플랫폼!
 
 직접 매거진을 쓰고 다른 유저와 공유하여 세상을 밝혀 주세요!
