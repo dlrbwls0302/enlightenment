@@ -7,6 +7,7 @@ import { FaInstagram } from 'react-icons/fa';
 import { FiArrowRight } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
+
 const Main = () => {   
     const [productIndex, setProductIndex] = useState(0);
     // const [listItems, setListItems] = useState([]);
@@ -203,18 +204,19 @@ const Main = () => {
                     {/* slider */}
                         <div className='slider-container'>
                             <div className={productIndex === 0 ? 'new-slide front' : (productIndex === 1 ? 'new-slide back' : (productIndex === 2 ? 'new-slide middle' : 'new-slide front'))}>
-                                <div className='img-holder'
-                                style={{ backgroundImage: 'url("https://s3.ap-northeast-2.amazonaws.com/www.kelection.ml/images/magazine.jpeg")' }}></div>
+                                <div className='img-holder-one'>
+                                    {/* <video muted autoPlay loop>
+                                        <source src={video1} type="video/mp4" />
+                                    </video> */}
+                                </div>
                             </div>
                             
                             <div className={productIndex === 0 ? 'new-slide middle' : (productIndex === 1 ? 'new-slide front' : (productIndex === 2 ? 'new-slide back' : 'new-slide middle'))}>
-                            <div className='img-holder'
-                                style={{ backgroundImage: 'url("https://s3.ap-northeast-2.amazonaws.com/www.kelection.ml/images/promise.jpeg")' }}></div>
+                            <div className='img-holder-two'></div>
                             </div>
 
                             <div className={productIndex === 0 ? 'new-slide back' : (productIndex === 1 ? 'new-slide middle' : (productIndex === 2 ? 'new-slide front' : 'new-slide back'))}>
-                            <div className='img-holder'
-                                style={{ backgroundImage: 'url("https://s3.ap-northeast-2.amazonaws.com/www.kelection.ml/images/map.jpeg")' }}></div>
+                            <div className='img-holder-three'></div>
                             </div>
 
                             {/* <div className='new-slide'>

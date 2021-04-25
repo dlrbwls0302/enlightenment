@@ -261,14 +261,31 @@
     /* transition: .5s; */
     
 }
-.col-7 .slider-container .new-slide .img-holder{
+.img-holder-one, .img-holder-three{
     width: 100%;
     height: 100%;
     border-radius: 10px;
-    background-position: top;
+    background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     /* z-index: 3; */
+}
+.img-holder-two{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.col-7 .slider-container .new-slide .img-holder-one{
+    background-image: url("https://images.unsplash.com/photo-1466386460451-cbc548bf581b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fG1hZ2F6aW5lc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+}
+.col-7 .slider-container .new-slide .img-holder-two{
+    background-image: url("https://s3.ap-northeast-2.amazonaws.com/www.kelection.ml/images/promise.jpeg");
+}
+.col-7 .slider-container .new-slide .img-holder-three{
+    background-image: url("https://s3.ap-northeast-2.amazonaws.com/www.kelection.ml/images/magazine.jpeg");
 }
 .col-7 .slider-container .new-slide.front{
     z-index: 4;
@@ -386,13 +403,13 @@
     }
     .col-7 .slider-container{
         width: 80%;
-        height: 50%;
-        transform: translateY(20%);
+        height: 70%;
+        transform: translateY(0%);
         z-index: 5;
     }
-    .col-7 .slider-container .new-slide .img-holder{
+    /* .col-7 .slider-container .new-slide .img-holder{
         background-size: cover;
-    }
+    } */
     .new-main-container .fashion{
         font-size: 20px;
     }
@@ -446,8 +463,21 @@
     .new-main-container .col-5 .info-section .product-info .go-to-xfile{
         margin-right: 25px;
     }
+    .col-7 .slider-container .new-slide{
+        display: none;
+    }
+    .col-7 .slider-container .new-slide.front{
+        display: block;
+    }
+    .col-7 .slider-container .new-slide.middle{
+        display: none;
+    }
+    .col-7 .slider-container .new-slide.back{
+        display: none;
+    }
     
 }
+
 
 .new-main-container .main-page-line{
     position: absolute;
