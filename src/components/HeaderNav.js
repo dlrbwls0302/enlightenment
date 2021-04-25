@@ -23,7 +23,7 @@ function HeaderNav({ isLogin, userId, setLogin, setUserId }) {
     
     const state = useSelector((state) => state.modalReducer);
     const dispatch = useDispatch();
-    const ec2Url = 'http://ec2-3-34-52-239.ap-northeast-2.compute.amazonaws.com:5000';
+    const ec2Url = 'https://www.enlightenment.ga';
     const onClick = (e) => {
         if (isLogin === false) {
             dispatch(changeModal());

@@ -16,7 +16,7 @@ const Opinions = () => {
     const [valueLength, setValueLength] = useState(0);
     const [newComment, setNewComment] = useState('');
     const inputRef = useRef(false);
-    const ec2Url = 'http://ec2-3-34-52-239.ap-northeast-2.compute.amazonaws.com:5000';
+    const ec2Url = 'https://www.enlightenment.ga';
     useEffect(() => {
         if (sortValue === "최신등록순") {
             fetch(`${ec2Url}/comments`)

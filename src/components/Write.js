@@ -11,9 +11,8 @@ const Write = ({ handleTogleMagazine, handleTogleHotMagazine }) => {
     const [description, setDescription] = useState('')
     const handleTitle = (e) => {
         setTitle(e.target.value);
-        console.log(e.target.value);
     }
-    const ec2Url = 'http://ec2-3-34-52-239.ap-northeast-2.compute.amazonaws.com:5000';
+    const ec2Url = 'https://www.enlightenment.ga';
     const submitEditor = () => {
         if (title === '' || description === '') {
             alert('제목과 내용을 입력해 주세요.');

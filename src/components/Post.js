@@ -8,7 +8,7 @@ import { AiOutlineVerticalAlignTop } from "react-icons/ai";
 const Post = ({ id, title, like, description, createdAt, handleTogleHotMagazine, userId, magazineUserId, dislikeHandler, likeHandler }) => {
     const [toggle, setToggle] = useState(false);
     const deletePost = () => {
-        fetch(`http://localhost:5000/magazines/${id}`, {
+        fetch(`https://www.enlightenment.ga/magazines/${id}`, {
             method: 'DELETE',
             credentials: 'include'
         })

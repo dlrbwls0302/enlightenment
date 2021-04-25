@@ -24,7 +24,7 @@ const Xfile = ({ isLogin, userId }) => {
     const [toggleNewMagazines, setToggleNewMagazines] = useState(false);
     const [query, setQuery] = useState('');
     const [filteredMagazines, setFilteredMagazines] = useState([]);
-    const ec2Url = 'http://ec2-3-34-52-239.ap-northeast-2.compute.amazonaws.com:5000';
+    const ec2Url = 'https://www.enlightenment.ga';
 
     useEffect(() => {
         fetch(`${ec2Url}/magazines`)
