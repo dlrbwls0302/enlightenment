@@ -6,8 +6,9 @@ import { FcLikePlaceholder } from 'react-icons/fc';
 import { RiArrowGoBackFill } from "react-icons/ri";
 import { AiOutlineVerticalAlignTop } from "react-icons/ai";
 
-const Post = ({ id, title, like, description, createdAt, handleTogleHotMagazine, userId, magazineUserId }) => {
+const Post = ({ id, title, like, description, createdAt, handleTogleHotMagazine, userId, magazineUserId, dislikeHandler, likeHandler }) => {
     const [toggle, setToggle] = useState(false);
+    const [likeCount, setLikeCount] = useState(like);
     console.log(id)
     const handleTogleLikeBtn = () => {
         fetch('http://localhost:5000/magazines')
@@ -40,10 +41,16 @@ const Post = ({ id, title, like, description, createdAt, handleTogleHotMagazine,
 
         <div className="post-container">
             <div className="post-info-wrap">
+                <RiArrowGoBackFill className="write-back" onClick={() => { handleTogleHotMagazine() }} />
                 <h1 className="post-title">{title}</h1>
                 <div className="post-infomation">
                     <p className="post-likeBtn-wrap" onClick={() => { setToggle(!toggle) }}>
-                        {toggle ? <FcLike className="post-likeBtn" /> : <FcLikePlaceholder className="post-likeBtn" />}
+                        {toggle ? <FcLike className="post-likeBtn" onClick={() => {
+                            dislikeHandler()
+                            
+                        }}/> : <FcLikePlaceholder className="post-likeBtn" onClick={() => {
+                            likeHandler()
+                        }}/>}
                     </p>
                     <span className="post-like-number">{like}</span>
                     <div className="post-created-date">{createdAt}</div>
@@ -59,7 +66,6 @@ const Post = ({ id, title, like, description, createdAt, handleTogleHotMagazine,
                 </div>
             </div>
             <div className="post-main-content" dangerouslySetInnerHTML={{ __html: description }}></div>
-            <RiArrowGoBackFill className="write-back" onClick={() => { handleTogleHotMagazine() }} />
             <AiOutlineVerticalAlignTop className="post-upscroll" onClick={upToScroll} />
         </div >
 
