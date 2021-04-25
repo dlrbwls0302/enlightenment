@@ -1,54 +1,71 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { SidebarData } from './SidebarData';
 import '../styles/HeaderNav.css';
-import { VscListFlat } from 'react-icons/vsc';
-import { BsX } from 'react-icons/bs';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeModal, setToggle, closeModal } from '../actions';
+function HeaderNav({ isLogin, userId, setLogin, setUserId }) {
 
+    const [userInfo, setUserInfo] = useState({
+        email: '',
+        photo: ''
+    })
+    useEffect(() => {
+        const cookie = document.cookie
+        const equalIndex = document.cookie.indexOf('photo');
+        const semiIndex = document.cookie.indexOf(';', equalIndex);
+        const photo = document.cookie.slice(equalIndex + 6, semiIndex);
+        setUserInfo({
+            ...userInfo,
+            photo
+        })
 
-
-function HeaderNav() {
-    const [toggle, setToggle] = useState(true);  
-    const [navbar, setNavBar] = useState(false);
-
-    const onToggle = () => setToggle(!toggle);
-
-    const changeBackground = () => {
-        // console.log(window.scrollY);
-        if(window.scrollY >= 74){
-          setNavBar(true);
-        } else{
-          setNavBar(false);
+    }, [])
+    
+    const state = useSelector((state) => state.modalReducer);
+    const dispatch = useDispatch();
+    const ec2Url = 'http://ec2-3-34-52-239.ap-northeast-2.compute.amazonaws.com:5000';
+    const onClick = (e) => {
+        if (isLogin === false) {
+            dispatch(changeModal());
+        } else {
+            alert('로그아웃이 되었습니다!');
+            fetch(`${ec2Url}/auth/google/logout`, {
+                credentials: 'include'
+            })
+                .then(res => {
+                    if (res.status === 200) {
+                        setLogin(false);
+                        setUserId('');
+                    }
+                })
         }
     }
-    window.addEventListener('scroll', changeBackground)
 
-    return(
-        <>
-            <header className={navbar ? 'header active' : 'header'}>
-                <a className={navbar ? 'logo active' : 'logo'}> 당신의 선택 </a>
-                <div className={navbar ? 'toggleBx active' : 'toggleBx'} onClick={onToggle}>
-                    {toggle ? <VscListFlat size={34} className='toggleBtnOn' /> : <BsX color='#f9f7f7' size={34} className='toggleBtnOff'/>}
-                </div>
-            </header>
-            <div className={toggle? 'sidebar active' :'sidebar'}>
-                <ul>
-                    {SidebarData.map((data, index) => {
-                        return (
-                            <li key={index} className={data.className}>
-                                <Link to={data.path} >
-                                    {data.title}
-                                </Link>
-                            </li>
-                        )
-                        })
-                    }
-                </ul>
+
+    const onToggle = () => {
+        dispatch(setToggle());
+    }
+    const onClose = () => {
+        dispatch(closeModal());
+    }
+
+    const upToScroll = () => {
+        window.scrollTo(0, 0);
+    }
+
+
+    return (
+        <header className="header-wrap">
+            <div className="header-title-wrap">
+                <Link className="header-title" to={'/'} onClick={upToScroll}>ENLIGHTENMENT</Link>
             </div>
-        </>
+            <div className="header-contant-wrap">
+                <Link className="header-magazine" to="xfile" onClick={upToScroll}>MAGAZINE </Link>
+                <Link className="header-community" to="community" onClick={upToScroll}>COMMUNITY</Link>
+                <a className="header-signin" onClick={(e) => { onClick(e) }}> { isLogin ? 'SIGN OUT' :'SIGN IN'}</a>
+                
+            </div>
+        </header >
     );
-
-    
 }
-
 export default HeaderNav

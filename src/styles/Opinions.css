@@ -1,0 +1,513 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Serif+KR:wght@200&display=swap');
+
+/*--------태블릿, 모바일---------*/
+@media only screen and (max-width: 780px){
+
+    body {
+        background-color: white;
+    }
+
+    .opinion-wrap {
+        background-color: #2d3f54;
+        text-align: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .write-box-wrap {
+        background: linear-gradient(0deg, rgba(45,63,84,0.7441351540616247) 0%, rgba(45,63,84,1) 15%);
+        z-index: 1;
+        position: fixed;
+        top: 50px;
+        width: 100%;
+        height: 200px;
+        padding: 0px 20px 0px 20px;
+        text-align: center;
+        align-items: center;
+        border-radius: 10px;
+        box-sizing: border-box;
+    }
+
+    .election-name {
+        width: 80%;
+        height: 70px;
+        line-height: 80px;
+        text-align: left;
+        font-size: 40px;
+        font-family: 'Black Han Sans', sans-serif;
+        color: white;
+        display: none;
+    }
+
+    .comment-write-area {
+        resize: none;
+        margin-top: 30px;
+        width: 100%;
+        height: 80px;
+        border-radius: 10px;
+        text-align: center;
+        font-family: 'Noto Serif KR', serif;
+        border: none;
+        margin-bottom: 5px;
+        font-size: 15px;
+        text-indent: 10px;
+        text-align: left;
+        padding: 5px 10px 5px 10px;   
+    }
+
+    .comment-submit-btn {
+        margin: 0 auto;
+        margin-top: 10px;
+        position: fixed;
+        right: 25px;
+        top: 116px;
+        border-radius: 10px;
+        width: 50px;
+        height: 30px;
+        color: white;
+        border: none;
+        background-color: #2d3f54a3;
+        font-family: 'Noto Serif KR', serif;
+        font-size: 15px;
+    }
+
+    .comment-submit-btn:hover{
+        cursor: pointer;
+    } 
+
+    
+    .input-length {
+        color: white;
+        margin-top: -10px;
+        float: right;
+        padding-right: 5px;
+    }
+
+    .input-length-over {
+        color: red;
+        margin-top: -10px;
+        float: right;
+        padding-right: 5px;
+    }
+
+    .report-notice {
+        color: white;
+        padding-left: 20px;
+        display: none;
+    }
+
+    .amount-notice {
+        z-index: 1;
+        position: fixed;
+        right: 20px;
+        top: 200px;
+        color: white;
+    }
+
+    .comment-sort {
+        z-index: 1;
+        position: fixed;
+        left: 20px;
+        top: 200px;
+        color: white;
+        text-align: center;
+        align-items: center;
+    }
+
+    .comment-sort:hover {
+        transform:scale(1.1);
+        transition: transform .35s;
+        cursor: pointer;
+    }
+
+    .opinion-line {
+        width: 100%;
+        padding-top: 250px;
+        padding-left: 20px;
+        padding-right: 20px;        
+    }
+
+    .opinions {
+        width: 100%;
+        height: min-content 80px;
+        margin-bottom: 20px;
+        margin-right: 30px;
+        background: #FFFFFF;
+        text-align: left;
+        box-sizing: border-box;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+        word-break:break-all;
+        padding: 5px 10px 5px 10px;
+        transform:scale(1);
+        transition: transform .55s;
+    }
+
+    .comment-nickname {
+        font-family: 'Noto Serif KR', serif;
+        margin-bottom: 5px;
+        color: white;
+        font-size: 18px;
+    }
+
+    .coment-like-box {
+        justify-content: space-between;
+        display: flex;
+        position: absolute;
+        right: 10px;
+        align-items: center;
+    }
+
+    .like-count {
+        position: relative;
+        top: -0.5px;
+    }
+
+    .comment-head {
+        display: flex;
+    }
+    
+    .comment-like {
+        color: white;
+        font-size: 21px;
+    }
+
+    .anooComment {
+        font-family: 'Noto Serif KR', serif;
+        padding: 0px 10px 10px 10px;
+        text-indent: 5px;
+        font-size: 15px;
+        color: white;
+    }
+
+    .red {
+        background-color: #747070;
+    }
+    .blue {
+        background-color: #2d6484;
+    }
+    .yellow {
+        background-color: #987878;
+    }
+
+    .orange {
+        background-color: #c7a651;
+    }
+
+    .special {
+        background-color: tomato;
+    }
+
+    .purple {
+        background-color: #0277bd;
+    }
+
+    .fivelike {
+        background-color: #00838f;
+    }
+
+    .tenlike {
+        background-color: #f44336;
+        animation:blink 1s ease-in-out infinite alternate;
+    }
+    @keyframes blink{ 0% {opacity:0.7;} 100% {opacity:1;} }
+
+    .reportImg {
+        color: white;
+        width: 30px;
+        height: 30px;
+        float: right;
+        transform:scale(1);
+        transition: transform .35s;
+    }
+
+    .reportImg:hover {
+        transform:scale(1.2);
+        transition: transform .35s;
+        cursor: pointer;
+    }
+
+    .reportImg:active {
+        position: relative;
+        top:2px;
+    }
+
+    .uptoscroolIcon {
+        z-index: 999;
+        position: fixed;
+        width: 40px;
+        height: 40px;
+        bottom: 10px;
+        right: 50px;
+        margin: 0 auto;
+        color: white;
+        animation: ani 0.8s infinite alternate;  
+    }
+    @keyframes ani{
+        0% {transform:translate(0,0);}
+        100% {transform:translate(0,10px);}
+    }  
+    .uptoscroolIcon:hover {
+        cursor: pointer;
+    }
+
+}
+
+/*---------1300이상(데스크탑)--------------------------*/
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
+/* @media screen and (min-width: 1300px){ */
+@media screen and (min-width: 780px){
+
+
+    .opinion-wrap {
+        background-color: #2d3f54;
+        text-align: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .write-box-wrap {
+        position: sticky;
+        top: 100px;
+        left: 100px;
+        width: 400px;
+        height: 230px;
+        align-items: center;
+        border-radius: 10px;
+        box-sizing: border-box;
+    }
+
+    .election-name {
+        margin: 0 auto;
+        width: 300px;
+        height: 70px;
+        line-height: 80px;
+        text-align: center;
+        font-size: 40px;
+        font-family: 'Black Han Sans', sans-serif;
+        color: white;
+    }
+
+    .comment-write-area {
+        resize: none;
+        width: 350px;
+        height: 110px;
+        border-radius: 10px;
+        text-align: center;
+        font-family: 'Noto Serif KR', serif;
+        border: none;
+        margin-bottom: 5px;
+        font-size: 15px;
+        text-indent: 10px;
+        text-align: left;
+        padding: 5px 10px 5px 10px;   
+    }
+
+    .comment-submit-btn {
+        margin: 0 auto;
+        position: absolute;
+        top: 145px;
+        left: 315px;
+        border-radius: 10px;
+        width: 50px;
+        height: 30px;
+        color: white;
+        border: none;
+        background-color: #2d3f54a3;
+        font-family: 'Noto Serif KR', serif;
+        font-size: 15px;
+    }
+
+    .comment-submit-btn:hover{
+        cursor: pointer;
+    } 
+
+    .input-length {
+        font-size: 15px;
+        color:white;
+        margin-left: 300px;
+        margin-top: -10px;
+        margin-bottom: -5px;
+    }
+
+    .input-length-over {
+        color: red;
+        font-size: 15px;
+        margin-left: 300px;
+        margin-top: -10px;
+        margin-bottom: -5px;
+    }
+
+    .report-notice {
+        color: white;
+        display: inline-block;
+    }
+
+    .amount-notice {
+        position: absolute;
+        margin: 0;
+        left: 550px;
+        top: 100px;
+        color: white;
+    }
+
+    .comment-sort {
+        position: fixed;
+        left: 350px;
+        top: 350px;
+        color: white;
+        text-align: center;
+        align-items: center;
+        font-size: 20px;
+    }
+
+    .comment-sort:hover {
+        transform:scale(1.1);
+        transition: transform .35s;
+        cursor: pointer;
+    }
+
+    .opinion-line {
+        margin: 0 auto;
+        margin-top: -100px;
+        width: 100%;
+        padding-left: 550px;
+        padding-right: 50px;
+        display: flex;
+        flex-wrap: wrap;
+           
+    }
+
+    .comment-nickname-box {
+        float: left;
+    }
+    
+    .anooComment-box {
+        float: left;
+    }
+    .coment-like-box {
+        justify-content: space-between;
+        display: flex;
+        position: absolute;
+        right: 10px;
+        align-items: center;
+    }
+    .like-count {
+        position: relative;
+        top: -0.5px;
+    }
+
+    .comment-like {
+        color: white;
+        font-size: 15px;
+    }
+    /* opinion component*/
+    .opinions {
+        width: 300px;
+        margin-bottom: 15px;
+        margin-right: 30px;
+        background: #FFFFFF;
+        text-align: left;
+        box-sizing: border-box;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+        word-break:break-all;
+        padding: 5px 10px 5px 10px;
+        transform:scale(1);
+        transition: transform .55s;
+    }
+
+    .opinions:hover {
+        transform:scale(1.1);
+        transition: transform .35s;
+    }
+
+    .comment-nickname {
+        font-family: 'Noto Serif KR', serif;
+        margin-bottom: 5px;
+        color: white;
+        font-size: 13px;
+    }
+
+    .comment-head {
+        display: flex;
+    }
+    
+    .anooComment {
+        font-family: 'Noto Serif KR', serif;
+        padding: 0px 10px 10px 10px;
+        text-indent: 5px;
+        font-size: 15px;
+        color: white;
+        position: relative;;
+    }
+
+    .red {
+        background-color: #747070;
+    }
+    .blue {
+        background-color: #2d6484;
+    }
+    .yellow {
+        background-color: #987878;
+    }
+
+    .orange {
+        background-color: #c7a651;
+    }
+
+    .special {
+        background-color: tomato;
+    }
+
+    .purple {
+        background-color: #0277bd;
+    }
+
+    .fivelike {
+        background-color: #00838f;
+    }
+
+    .tenlike {
+        background-color: #f44336;
+        animation:blink 1s ease-in-out infinite alternate;
+    }
+    @keyframes blink{ 0% {opacity:0.7;} 100% {opacity:1;} }
+
+    .reportImg {
+        color: white;
+        float: right;
+        transform:scale(1);
+        transition: transform .55s;
+        margin-left: 5px;
+    }
+
+    .reportImg:hover {
+        transform:scale(1.7);
+        transition: transform .35s;
+        cursor: pointer;
+    }
+
+    .reportImg:active {
+        position: relative;
+        top:2px;
+    }
+
+    .uptoscroolIcon {
+        position: fixed;
+        width: 40px;
+        height: 40px;
+        bottom: 60px;
+        right: 50px;
+        color: white;
+        animation: ani 0.8s infinite alternate;  
+    }
+    @keyframes ani{
+        0% {transform:translate(0,0);}
+        100% {transform:translate(0,10px);}
+    }  
+    .uptoscroolIcon:hover {
+        cursor: pointer;
+    }
+}

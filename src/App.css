@@ -1,3 +1,13 @@
+:root{
+  --main-bg-color:  #112d4e;
+  --main-color: #f9f7f7;
+  --sub-color-one: #3f72af;
+  --sub-color-two: #00498c;
+  --sub-color-three: #dbe2ef;
+  --sub-color-four: #4e3211;
+  --sub-color-five: #fef4eb;
+  --sub-color-six: #12222d;
+}
 *{
   box-sizing: border-box;
   margin: 0;
@@ -5,9 +15,59 @@
   scroll-behavior: smooth;
 }
 .body{
-  height: 1000px;
-  
+  position: relative;
 }
 .wrapper{
+  position: relative;
+} 
+
+.modalClose{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.modalClose:hover{
+  transform:scale(1.2);
+}
+.modalHeading{
+  font-family: 'Bebas Neue', cursive;
+  font-size: 40px;
+  margin-top: -10px;
+  margin-bottom: 30px;
+  color: black;
+  font-weight: 100;
+  text-decoration: underline;
+  text-align: center;
+}
+.logoBox{
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.logoBox .kakao img{
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.logoBox .kakao img:hover{
+  transform:scale(1.2);
+}
+.logoBox .google img{
+  width: 55px;
+  height: 55px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.logoBox .google img:hover{
+  transform:scale(1.2);
+}
+.modal{
+  z-index: 10000;
   position: relative;
 }

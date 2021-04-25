@@ -1,83 +1,56 @@
-@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
-.header{
+.header-wrap {
+  z-index: 5000;
+  position: fixed;
+  background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8281687675070029) 100%);
+  text-decoration: none;
+  font-family: 'Bebas Neue', cursive;
   width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
+  height: 60px;
   display: flex;
-  justify-content: space-between;
+  padding: 0 20px 0 20px;
   align-items: center;
-  z-index: 10000;
-  transition: 0.3s;
+  justify-content: space-between;
 }
-.toggleBx{
-  position: relative;
-  margin-top: 41px;
-  margin-right: 90px;
-  cursor: pointer;
-}
-.toggleBx.active{
-  color:  #f9f7f7;
-}
-.header.active{
-  background-color: #112d4e;
-  padding-bottom: 14px;
-}
-.header .logo{
-  position: relative;
-  padding-top: 40px;
-  padding-left: 90px;
-  font-family: 'Black Han Sans', sans-serif;
-  color: #112d4e;
-  text-decoration: none;
-  font-size: 24px;
-  font-weight: 700;
-  letter-spacing: -1px;
-}
-.header .logo.active{
-  color: #f9f7f7;
-}
-.sidebar{
-  background: #112d4e;
-  position: fixed;
-  right: 0px;
-  top: 0;
-  width: 400px;
-  height: 100%;
-  display: flex;
-  justify-content: flex-start;
-  z-index: 500;
-  transition: 0.5s;
-}
-.sidebar.active{
-  background: #112d4e;
-  position: fixed;
-  right: -400px;
-  top: 0;
-  z-index: 100;
-}
-.sidebar ul{
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-.sidebar ul li{
-  list-style: none;
-  margin-top: 30px;
-  margin-left: 80px;
-}
-.sidebar ul li:nth-child(1){
-  margin-top: 130px;
-}
-.sidebar ul li a{
-  text-decoration: none;
-  font-family: 'Black Han Sans', sans-serif;
-  color: #f9f7f7;
+
+.header-title-wrap {
   font-size: 30px;
-  font-weight: 400;
-  transition: 0.3s;
 }
-.sidebar ul li a:hover{
-  color: #387bcb;
+.header-profile{
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+}
+.header-profile img{
+  width: 100%;
+  height: 100%;
+}
+.header-title, .header-magazine, .header-community, .header-signin {
+  text-decoration: none;
+  color:var(--sub-color-nine);
+  cursor: pointer;
+  transition: .3s;
+}
+
+.header-magazine, .header-community, .header-profile, .header-signin{
+  margin-left: 15px;
+}
+
+.header-magazine, .header-community, .header-signin {
+  font-size: 22px;
+  margin-left: 15px;
+}
+
+
+
+@media screen and (max-width: 445px) {
+  .header-title-wrap {
+    font-size: 22px;
+  }
+
+  .header-magazine, .header-community, .header-signin {
+    font-size: 16px;
+    margin-left: 15px;
+  }
 }
