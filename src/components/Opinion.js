@@ -41,7 +41,7 @@ const Opinion = ({ comment, ban, number, like }) => {
         }
     }
 
-    const ec2Url = 'http://ec2-3-34-52-239.ap-northeast-2.compute.amazonaws.com:5000';
+    const ec2Url = 'https://server.yonyeosuk.link';
     const handleReportBtn = () => {
         const config = {
             method: 'put',

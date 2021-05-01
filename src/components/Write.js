@@ -11,14 +11,13 @@ const Write = ({ handleTogleMagazine, handleTogleHotMagazine }) => {
     const [description, setDescription] = useState('')
     const handleTitle = (e) => {
         setTitle(e.target.value);
-        console.log(e.target.value);
     }
-    const ec2Url = 'http://ec2-3-34-52-239.ap-northeast-2.compute.amazonaws.com:5000';
+    const ec2Url = 'https://server.yonyeosuk.link';
     const submitEditor = () => {
         if (title === '' || description === '') {
             alert('제목과 내용을 입력해 주세요.');
         } else {
-            fetch(`${ec2Url}/magazine`, {
+            fetch(`${ec2Url}/magazines`, {
                 method: 'POST',
                 credentials: 'include',
                 headers: {

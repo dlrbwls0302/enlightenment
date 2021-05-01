@@ -19,7 +19,7 @@ const App = () => {
   const [userId, setUserId] = useState(0);
   const dispatch = useDispatch();
   const state = useSelector((state) => state.modalReducer);
-  const ec2Url = 'http://ec2-3-34-52-239.ap-northeast-2.compute.amazonaws.com:5000';
+  const ec2Url = 'https://server.yonyeosuk.link';
 
   useEffect(() => {
     if (document.cookie.includes('userId')) {
