@@ -24,7 +24,7 @@ const Xfile = ({ isLogin, userId }) => {
     const [toggleNewMagazines, setToggleNewMagazines] = useState(false);
     const [query, setQuery] = useState('');
     const [filteredMagazines, setFilteredMagazines] = useState([]);
-    const ec2Url = 'https://server.kelection.ml';
+    const ec2Url = 'https://server.yonyeosuk.link';
 
     useEffect(() => {
         fetch(`${ec2Url}/magazines`)

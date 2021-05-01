@@ -41,7 +41,7 @@ const Opinion = ({ comment, ban, number, like }) => {
         }
     }
 
-    const ec2Url = 'https://server.kelection.ml';
+    const ec2Url = 'https://server.yonyeosuk.link';
     const handleReportBtn = () => {
         const config = {
             method: 'put',

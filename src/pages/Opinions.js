@@ -16,7 +16,7 @@ const Opinions = () => {
     const [valueLength, setValueLength] = useState(0);
     const [newComment, setNewComment] = useState('');
     const inputRef = useRef(false);
-    const ec2Url = 'https://server.kelection.ml';
+    const ec2Url = 'https://server.yonyeosuk.link';
     useEffect(() => {
         if (sortValue === "최신등록순") {
             fetch(`${ec2Url}/comments`)

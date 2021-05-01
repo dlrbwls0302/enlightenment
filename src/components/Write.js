@@ -12,7 +12,7 @@ const Write = ({ handleTogleMagazine, handleTogleHotMagazine }) => {
     const handleTitle = (e) => {
         setTitle(e.target.value);
     }
-    const ec2Url = 'https://server.kelection.ml';
+    const ec2Url = 'https://server.yonyeosuk.link';
     const submitEditor = () => {
         if (title === '' || description === '') {
             alert('제목과 내용을 입력해 주세요.');

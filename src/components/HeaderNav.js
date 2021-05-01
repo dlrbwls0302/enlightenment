@@ -23,7 +23,7 @@ function HeaderNav({ isLogin, userId, setLogin, setUserId }) {
     
     const state = useSelector((state) => state.modalReducer);
     const dispatch = useDispatch();
-    const ec2Url = 'https://server.kelection.ml';
+    const ec2Url = 'https://server.yonyeosuk.link';
     const onClick = (e) => {
         if (isLogin === false) {
             dispatch(changeModal());

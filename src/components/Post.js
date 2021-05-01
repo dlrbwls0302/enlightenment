@@ -8,7 +8,7 @@ import { AiOutlineVerticalAlignTop } from "react-icons/ai";
 const Post = ({ id, title, like, description, createdAt, handleTogleHotMagazine, userId, magazineUserId, dislikeHandler, likeHandler }) => {
     const [toggle, setToggle] = useState(false);
     const deletePost = () => {
-        fetch(`https://server.kelection.ml/magazines/${id}`, {
+        fetch(`https://server.yonyeosuk.link/magazines/${id}`, {
             method: 'DELETE',
             credentials: 'include'
         })
